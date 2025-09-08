@@ -11,7 +11,6 @@ import ResourcesPage from './pages/ResourcesPage';
 import AboutPage from './pages/AboutPage';
 import ContactPage from './pages/ContactPage';
 import CustomerSuccessPage from './pages/CustomerSuccessPage';
-import ChatBot from './components/ChatBot';
 
 function App() {
   return (
@@ -31,7 +30,6 @@ function App() {
           </Routes>
         </main>
         <Footer />
-        <ChatBot />
       </div>
     </Router>
   );
