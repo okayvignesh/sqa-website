@@ -159,24 +159,91 @@ const HomePage = () => {
             </p>
           </div>
           
-          <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8">
-            {features.map((feature, index) => (
-              <div key={index} className="bg-white rounded-xl p-8 shadow-sm border border-gray-200 hover:shadow-md transition-all duration-300">
-                <div className="flex items-start space-x-4">
-                  <div className="flex-shrink-0">
-                    {feature.icon}
+          {/* Interactive Feature Timeline */}
+          <div className="relative">
+            {/* Central Timeline Line */}
+            <div className="absolute left-1/2 transform -translate-x-1/2 w-1 h-full bg-gradient-to-b from-blue-500 via-purple-500 to-cyan-500 rounded-full hidden lg:block"></div>
+            
+            {/* Feature Items */}
+            <div className="space-y-16">
+              {features.map((feature, index) => (
+                <div key={index} className={`relative flex items-center ${index % 2 === 0 ? 'lg:flex-row' : 'lg:flex-row-reverse'} flex-col lg:space-x-16`}>
+                  {/* Timeline Node */}
+                  <div className="absolute left-1/2 transform -translate-x-1/2 w-6 h-6 bg-white border-4 border-blue-500 rounded-full z-10 hidden lg:block shadow-lg">
+                    <div className="absolute inset-1 bg-blue-500 rounded-full animate-pulse"></div>
                   </div>
-                  <div>
-                    <h3 className="text-xl font-semibold text-gray-900 mb-3">
-                      {feature.title}
-                    </h3>
-                    <p className="text-gray-600 leading-relaxed text-sm">
-                      {feature.description}
-                    </p>
+                  
+                  {/* Feature Content */}
+                  <div className={`flex-1 ${index % 2 === 0 ? 'lg:text-right lg:pr-16' : 'lg:text-left lg:pl-16'} text-center lg:text-left`}>
+                    <div className="group">
+                      {/* Icon Container */}
+                      <div className={`inline-flex items-center justify-center w-20 h-20 rounded-2xl bg-gradient-to-br ${
+                        index % 4 === 0 ? 'from-blue-500 to-cyan-500' :
+                        index % 4 === 1 ? 'from-purple-500 to-pink-500' :
+                        index % 4 === 2 ? 'from-green-500 to-emerald-500' :
+                        'from-orange-500 to-red-500'
+                      } shadow-lg group-hover:scale-110 group-hover:rotate-6 transition-all duration-500 mb-6`}>
+                        <div className="text-white text-2xl">
+                          {React.cloneElement(feature.icon, { className: "w-10 h-10" })}
+                        </div>
+                      </div>
+                      
+                      {/* Feature Details */}
+                      <div className="bg-white rounded-2xl p-8 shadow-xl border border-gray-100 group-hover:shadow-2xl group-hover:-translate-y-2 transition-all duration-500 max-w-lg mx-auto lg:mx-0">
+                        <h3 className="text-2xl font-bold text-gray-900 mb-4 group-hover:text-blue-600 transition-colors duration-300">
+                          {feature.title}
+                        </h3>
+                        <p className="text-gray-600 leading-relaxed text-base">
+                          {feature.description}
+                        </p>
+                        
+                        {/* Feature Number */}
+                        <div className={`absolute -top-4 ${index % 2 === 0 ? 'lg:-right-4' : 'lg:-left-4'} -right-4 w-8 h-8 rounded-full bg-gradient-to-br ${
+                          index % 4 === 0 ? 'from-blue-500 to-cyan-500' :
+                          index % 4 === 1 ? 'from-purple-500 to-pink-500' :
+                          index % 4 === 2 ? 'from-green-500 to-emerald-500' :
+                          'from-orange-500 to-red-500'
+                        } text-white text-sm font-bold flex items-center justify-center shadow-lg`}>
+                          {String(index + 1).padStart(2, '0')}
+                        </div>
+                      </div>
+                    </div>
+                  </div>
+                  
+                  {/* Visual Element */}
+                  <div className={`flex-1 ${index % 2 === 0 ? 'lg:pl-16' : 'lg:pr-16'} mt-8 lg:mt-0`}>
+                    <div className={`relative overflow-hidden rounded-2xl bg-gradient-to-br ${
+                      index % 4 === 0 ? 'from-blue-50 to-cyan-50' :
+                      index % 4 === 1 ? 'from-purple-50 to-pink-50' :
+                      index % 4 === 2 ? 'from-green-50 to-emerald-50' :
+                      'from-orange-50 to-red-50'
+                    } p-8 h-64 flex items-center justify-center group hover:scale-105 transition-transform duration-500`}>
+                      {/* Abstract Visual Pattern */}
+                      <div className="relative">
+                        <div className={`w-32 h-32 rounded-full bg-gradient-to-br ${
+                          index % 4 === 0 ? 'from-blue-200 to-cyan-200' :
+                          index % 4 === 1 ? 'from-purple-200 to-pink-200' :
+                          index % 4 === 2 ? 'from-green-200 to-emerald-200' :
+                          'from-orange-200 to-red-200'
+                        } opacity-60 group-hover:opacity-80 transition-opacity duration-500`}></div>
+                        <div className={`absolute top-4 left-4 w-24 h-24 rounded-full bg-gradient-to-br ${
+                          index % 4 === 0 ? 'from-blue-300 to-cyan-300' :
+                          index % 4 === 1 ? 'from-purple-300 to-pink-300' :
+                          index % 4 === 2 ? 'from-green-300 to-emerald-300' :
+                          'from-orange-300 to-red-300'
+                        } opacity-40 group-hover:opacity-60 transition-opacity duration-500 group-hover:rotate-45`}></div>
+                        <div className={`absolute top-8 left-8 w-16 h-16 rounded-full bg-gradient-to-br ${
+                          index % 4 === 0 ? 'from-blue-400 to-cyan-400' :
+                          index % 4 === 1 ? 'from-purple-400 to-pink-400' :
+                          index % 4 === 2 ? 'from-green-400 to-emerald-400' :
+                          'from-orange-400 to-red-400'
+                        } opacity-20 group-hover:opacity-40 transition-opacity duration-500 group-hover:-rotate-45`}></div>
+                      </div>
+                    </div>
                   </div>
                 </div>
-              </div>
-            ))}
+              ))}
+            </div>
           </div>
           
           <div className="text-center mt-12">
