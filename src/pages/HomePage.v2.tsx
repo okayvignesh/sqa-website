@@ -272,6 +272,449 @@ const HomePage = () => {
         </div>
       </section>
 
+      {/* AI-Powered ALM Features Section */}
+      <section className="py-20 bg-gradient-to-br from-gray-50 to-blue-50">
+        <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+          <div className="text-center mb-16">
+            <h2 className="text-4xl md:text-5xl font-bold text-gray-900 mb-6">
+              Ease your ALM with 
+              <span className="text-transparent bg-clip-text bg-gradient-to-r from-blue-600 to-purple-600"> AI</span>
+            </h2>
+            <p className="text-xl text-gray-600 max-w-4xl mx-auto leading-relaxed">
+              Transform your Application Lifecycle Management with intelligent automation that learns, adapts, and optimizes your entire development process.
+            </p>
+          </div>
+
+          <div className="space-y-16">
+            {/* Feature 1: AI-Powered User Story Generation */}
+            <div className="grid grid-cols-1 lg:grid-cols-2 gap-12 items-center">
+              <div className="order-2 lg:order-1">
+                <div className="bg-gradient-to-br from-blue-500 to-purple-600 w-16 h-16 rounded-2xl flex items-center justify-center mb-6 shadow-lg">
+                  <span className="text-white text-2xl font-bold">1</span>
+                </div>
+                <h3 className="text-3xl font-bold text-gray-900 mb-4">
+                  AI-Powered User Story Generation
+                </h3>
+                <div className="mb-6">
+                  <h4 className="text-lg font-semibold text-red-600 mb-2">Problem:</h4>
+                  <p className="text-gray-600 mb-4">
+                    Manual user story creation is time-consuming and often lacks consistency and clarity, leading to miscommunication and project delays.
+                  </p>
+                  <h4 className="text-lg font-semibold text-blue-600 mb-2">Solution:</h4>
+                  <p className="text-gray-600 mb-6">
+                    Harness advanced AI algorithms to transform raw requirements into comprehensive, well-structured user stories. This feature intelligently captures requirements, including acceptance criteria, to create a backlog that is clear, consistent, and ready for development.
+                  </p>
+                  <h4 className="text-lg font-semibold text-green-600 mb-3">Benefits:</h4>
+                  <ul className="space-y-2">
+                    <li className="flex items-start">
+                      <div className="w-2 h-2 bg-green-500 rounded-full mr-3 mt-2"></div>
+                      <div>
+                        <span className="font-medium text-gray-900">Accelerate Agile Workflows:</span>
+                        <span className="text-gray-600"> Drastically reduce backlog grooming time and get to development faster.</span>
+                      </div>
+                    </li>
+                    <li className="flex items-start">
+                      <div className="w-2 h-2 bg-green-500 rounded-full mr-3 mt-2"></div>
+                      <div>
+                        <span className="font-medium text-gray-900">Improve Collaboration:</span>
+                        <span className="text-gray-600"> Provide a single source of truth that enhances communication between product owners, developers, and testers.</span>
+                      </div>
+                    </li>
+                    <li className="flex items-start">
+                      <div className="w-2 h-2 bg-green-500 rounded-full mr-3 mt-2"></div>
+                      <div>
+                        <span className="font-medium text-gray-900">Enhance Precision:</span>
+                        <span className="text-gray-600"> Ensure requirements are precise and test-ready from day one, improving overall SDLC efficiency.</span>
+                      </div>
+                    </li>
+                  </ul>
+                </div>
+              </div>
+              <div className="order-1 lg:order-2">
+                <div className="bg-gradient-to-br from-blue-100 to-purple-100 rounded-3xl p-8 h-80 flex items-center justify-center">
+                  <div className="text-center">
+                    <div className="w-32 h-32 bg-gradient-to-br from-blue-500 to-purple-600 rounded-full flex items-center justify-center mx-auto mb-4 shadow-xl">
+                      <svg className="w-16 h-16 text-white" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                        <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M9 12h6m-6 4h6m2 5H7a2 2 0 01-2-2V5a2 2 0 012-2h5.586a1 1 0 01.707.293l5.414 5.414a1 1 0 01.293.707V19a2 2 0 01-2 2z" />
+                      </svg>
+                    </div>
+                    <h4 className="text-xl font-bold text-gray-900">Smart Story Creation</h4>
+                  </div>
+                </div>
+              </div>
+            </div>
+
+            {/* Feature 2: Automated Generation of Manual Test Cases */}
+            <div className="grid grid-cols-1 lg:grid-cols-2 gap-12 items-center">
+              <div className="order-1">
+                <div className="bg-gradient-to-br from-green-100 to-blue-100 rounded-3xl p-8 h-80 flex items-center justify-center">
+                  <div className="text-center">
+                    <div className="w-32 h-32 bg-gradient-to-br from-green-500 to-blue-600 rounded-full flex items-center justify-center mx-auto mb-4 shadow-xl">
+                      <svg className="w-16 h-16 text-white" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                        <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M9 5H7a2 2 0 00-2 2v10a2 2 0 002 2h8a2 2 0 002-2V7a2 2 0 00-2-2h-2M9 5a2 2 0 002 2h2a2 2 0 002-2M9 5a2 2 0 012-2h2a2 2 0 012 2m-6 9l2 2 4-4" />
+                      </svg>
+                    </div>
+                    <h4 className="text-xl font-bold text-gray-900">Auto Test Generation</h4>
+                  </div>
+                </div>
+              </div>
+              <div className="order-2">
+                <div className="bg-gradient-to-br from-green-500 to-blue-600 w-16 h-16 rounded-2xl flex items-center justify-center mb-6 shadow-lg">
+                  <span className="text-white text-2xl font-bold">2</span>
+                </div>
+                <h3 className="text-3xl font-bold text-gray-900 mb-4">
+                  Automated Generation of Manual Test Cases
+                </h3>
+                <div className="mb-6">
+                  <h4 className="text-lg font-semibold text-red-600 mb-2">Problem:</h4>
+                  <p className="text-gray-600 mb-4">
+                    Manually writing test cases is a laborious process prone to human error, which can lead to inadequate test coverage and missed bugs.
+                  </p>
+                  <h4 className="text-lg font-semibold text-blue-600 mb-2">Solution:</h4>
+                  <p className="text-gray-600 mb-6">
+                    Leverage AI to automatically generate detailed manual test cases directly from your user stories and requirements. The AI analyzes functional specifications to create test cases that are accurate, comprehensive, and perfectly aligned with project goals.
+                  </p>
+                  <h4 className="text-lg font-semibold text-green-600 mb-3">Benefits:</h4>
+                  <ul className="space-y-2">
+                    <li className="flex items-start">
+                      <div className="w-2 h-2 bg-green-500 rounded-full mr-3 mt-2"></div>
+                      <div>
+                        <span className="font-medium text-gray-900">Reduce Human Error:</span>
+                        <span className="text-gray-600"> Automate test planning to eliminate mistakes and inconsistencies.</span>
+                      </div>
+                    </li>
+                    <li className="flex items-start">
+                      <div className="w-2 h-2 bg-green-500 rounded-full mr-3 mt-2"></div>
+                      <div>
+                        <span className="font-medium text-gray-900">Expedite QA Cycles:</span>
+                        <span className="text-gray-600"> Drastically cut down on the time spent on test case design.</span>
+                      </div>
+                    </li>
+                    <li className="flex items-start">
+                      <div className="w-2 h-2 bg-green-500 rounded-full mr-3 mt-2"></div>
+                      <div>
+                        <span className="font-medium text-gray-900">Boost Test Coverage:</span>
+                        <span className="text-gray-600"> Ensure a high level of coverage to validate all functional specifications.</span>
+                      </div>
+                    </li>
+                  </ul>
+                </div>
+              </div>
+            </div>
+
+            {/* Feature 3: Self-Healing Test Automation */}
+            <div className="grid grid-cols-1 lg:grid-cols-2 gap-12 items-center">
+              <div className="order-2 lg:order-1">
+                <div className="bg-gradient-to-br from-purple-500 to-pink-600 w-16 h-16 rounded-2xl flex items-center justify-center mb-6 shadow-lg">
+                  <span className="text-white text-2xl font-bold">3</span>
+                </div>
+                <h3 className="text-3xl font-bold text-gray-900 mb-4">
+                  Self-Healing Test Automation
+                </h3>
+                <div className="mb-6">
+                  <h4 className="text-lg font-semibold text-red-600 mb-2">Problem:</h4>
+                  <p className="text-gray-600 mb-4">
+                    Test automation scripts are notoriously brittle, breaking with every small UI change and requiring constant, time-consuming maintenance.
+                  </p>
+                  <h4 className="text-lg font-semibold text-blue-600 mb-2">Solution:</h4>
+                  <p className="text-gray-600 mb-6">
+                    Our proprietary AI engine continuously monitors and repairs broken test scripts. It identifies UI changes and dynamically corrects the test script to ensure it remains stable and functional without any manual intervention.
+                  </p>
+                  <h4 className="text-lg font-semibold text-green-600 mb-3">Benefits:</h4>
+                  <ul className="space-y-2">
+                    <li className="flex items-start">
+                      <div className="w-2 h-2 bg-green-500 rounded-full mr-3 mt-2"></div>
+                      <div>
+                        <span className="font-medium text-gray-900">Minimize Maintenance Overhead:</span>
+                        <span className="text-gray-600"> Drastically reduce the time and resources spent on fixing flaky tests.</span>
+                      </div>
+                    </li>
+                    <li className="flex items-start">
+                      <div className="w-2 h-2 bg-green-500 rounded-full mr-3 mt-2"></div>
+                      <div>
+                        <span className="font-medium text-gray-900">Enhance Test Stability:</span>
+                        <span className="text-gray-600"> Ensure your test suite is reliable and robust across fast-evolving software environments.</span>
+                      </div>
+                    </li>
+                    <li className="flex items-start">
+                      <div className="w-2 h-2 bg-green-500 rounded-full mr-3 mt-2"></div>
+                      <div>
+                        <span className="font-medium text-gray-900">Accelerate Deployment:</span>
+                        <span className="text-gray-600"> Maintain continuous testing within your CI/CD pipelines, enabling faster, more confident deployments.</span>
+                      </div>
+                    </li>
+                  </ul>
+                </div>
+              </div>
+              <div className="order-1 lg:order-2">
+                <div className="bg-gradient-to-br from-purple-100 to-pink-100 rounded-3xl p-8 h-80 flex items-center justify-center">
+                  <div className="text-center">
+                    <div className="w-32 h-32 bg-gradient-to-br from-purple-500 to-pink-600 rounded-full flex items-center justify-center mx-auto mb-4 shadow-xl">
+                      <svg className="w-16 h-16 text-white" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                        <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M10.325 4.317c.426-1.756 2.924-1.756 3.35 0a1.724 1.724 0 002.573 1.066c1.543-.94 3.31.826 2.37 2.37a1.724 1.724 0 001.065 2.572c1.756.426 1.756 2.924 0 3.35a1.724 1.724 0 00-1.066 2.573c.94 1.543-.826 3.31-2.37 2.37a1.724 1.724 0 00-2.572 1.065c-.426 1.756-2.924 1.756-3.35 0a1.724 1.724 0 00-2.573-1.066c-1.543.94-3.31-.826-2.37-2.37a1.724 1.724 0 00-1.065-2.572c-1.756-.426-1.756-2.924 0-3.35a1.724 1.724 0 001.066-2.573c-.94-1.543.826-3.31 2.37-2.37.996.608 2.296.07 2.572-1.065z" />
+                        <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M15 12a3 3 0 11-6 0 3 3 0 016 0z" />
+                      </svg>
+                    </div>
+                    <h4 className="text-xl font-bold text-gray-900">Self-Healing Tests</h4>
+                  </div>
+                </div>
+              </div>
+            </div>
+
+            {/* Feature 4: Integrated AI Co-pilot */}
+            <div className="grid grid-cols-1 lg:grid-cols-2 gap-12 items-center">
+              <div className="order-1">
+                <div className="bg-gradient-to-br from-orange-100 to-red-100 rounded-3xl p-8 h-80 flex items-center justify-center">
+                  <div className="text-center">
+                    <div className="w-32 h-32 bg-gradient-to-br from-orange-500 to-red-600 rounded-full flex items-center justify-center mx-auto mb-4 shadow-xl">
+                      <svg className="w-16 h-16 text-white" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                        <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M8 9l3 3-3 3m5 0h3M5 20h14a2 2 0 002-2V6a2 2 0 00-2-2H5a2 2 0 00-2 2v12a2 2 0 002 2z" />
+                      </svg>
+                    </div>
+                    <h4 className="text-xl font-bold text-gray-900">AI Co-pilot</h4>
+                  </div>
+                </div>
+              </div>
+              <div className="order-2">
+                <div className="bg-gradient-to-br from-orange-500 to-red-600 w-16 h-16 rounded-2xl flex items-center justify-center mb-6 shadow-lg">
+                  <span className="text-white text-2xl font-bold">4</span>
+                </div>
+                <h3 className="text-3xl font-bold text-gray-900 mb-4">
+                  Integrated AI Co-pilot
+                </h3>
+                <div className="mb-6">
+                  <h4 className="text-lg font-semibold text-red-600 mb-2">Problem:</h4>
+                  <p className="text-gray-600 mb-4">
+                    Writing test scripts is a complex process that can be hindered by syntax errors, debugging challenges, and a lack of optimization knowledge.
+                  </p>
+                  <h4 className="text-lg font-semibold text-blue-600 mb-2">Solution:</h4>
+                  <p className="text-gray-600 mb-6">
+                    The AI co-pilot provides real-time, contextual assistance during test script development. It offers intelligent code completion, detects errors as you type, and suggests code optimization tips to improve performance and readability.
+                  </p>
+                  <h4 className="text-lg font-semibold text-green-600 mb-3">Benefits:</h4>
+                  <ul className="space-y-2">
+                    <li className="flex items-start">
+                      <div className="w-2 h-2 bg-green-500 rounded-full mr-3 mt-2"></div>
+                      <div>
+                        <span className="font-medium text-gray-900">Boost Productivity:</span>
+                        <span className="text-gray-600"> Write, debug, and optimize test code faster than ever before.</span>
+                      </div>
+                    </li>
+                    <li className="flex items-start">
+                      <div className="w-2 h-2 bg-green-500 rounded-full mr-3 mt-2"></div>
+                      <div>
+                        <span className="font-medium text-gray-900">Improve Script Quality:</span>
+                        <span className="text-gray-600"> Produce high-quality, maintainable scripts with built-in best practices.</span>
+                      </div>
+                    </li>
+                    <li className="flex items-start">
+                      <div className="w-2 h-2 bg-green-500 rounded-full mr-3 mt-2"></div>
+                      <div>
+                        <span className="font-medium text-gray-900">Streamline Workflows:</span>
+                        <span className="text-gray-600"> Accelerate test automation within your CI/CD processes.</span>
+                      </div>
+                    </li>
+                  </ul>
+                </div>
+              </div>
+            </div>
+
+            {/* Feature 5: AI-Generated Test Data */}
+            <div className="grid grid-cols-1 lg:grid-cols-2 gap-12 items-center">
+              <div className="order-2 lg:order-1">
+                <div className="bg-gradient-to-br from-cyan-500 to-blue-600 w-16 h-16 rounded-2xl flex items-center justify-center mb-6 shadow-lg">
+                  <span className="text-white text-2xl font-bold">5</span>
+                </div>
+                <h3 className="text-3xl font-bold text-gray-900 mb-4">
+                  AI-Generated Test Data
+                </h3>
+                <div className="mb-6">
+                  <h4 className="text-lg font-semibold text-red-600 mb-2">Problem:</h4>
+                  <p className="text-gray-600 mb-4">
+                    Creating diverse, realistic, and compliant test data is a major bottleneck that can expose sensitive information and limit test coverage.
+                  </p>
+                  <h4 className="text-lg font-semibold text-blue-600 mb-2">Solution:</h4>
+                  <p className="text-gray-600 mb-6">
+                    Our AI automatically generates diverse and tailored test data sets for your specific application scenarios. It can create everything from boundary cases to complex user data while ensuring data privacy and regulatory compliance.
+                  </p>
+                  <h4 className="text-lg font-semibold text-green-600 mb-3">Benefits:</h4>
+                  <ul className="space-y-2">
+                    <li className="flex items-start">
+                      <div className="w-2 h-2 bg-green-500 rounded-full mr-3 mt-2"></div>
+                      <div>
+                        <span className="font-medium text-gray-900">Maximize Test Coverage:</span>
+                        <span className="text-gray-600"> Ensure your application is robust by testing with comprehensive and realistic data.</span>
+                      </div>
+                    </li>
+                    <li className="flex items-start">
+                      <div className="w-2 h-2 bg-green-500 rounded-full mr-3 mt-2"></div>
+                      <div>
+                        <span className="font-medium text-gray-900">Ensure Regulatory Compliance:</span>
+                        <span className="text-gray-600"> Mask sensitive information and generate synthetic data to comply with standards like GDPR and HIPAA.</span>
+                      </div>
+                    </li>
+                    <li className="flex items-start">
+                      <div className="w-2 h-2 bg-green-500 rounded-full mr-3 mt-2"></div>
+                      <div>
+                        <span className="font-medium text-gray-900">Reduce Risks:</span>
+                        <span className="text-gray-600"> Eliminate the need to use production data, thereby protecting user privacy.</span>
+                      </div>
+                    </li>
+                  </ul>
+                </div>
+              </div>
+              <div className="order-1 lg:order-2">
+                <div className="bg-gradient-to-br from-cyan-100 to-blue-100 rounded-3xl p-8 h-80 flex items-center justify-center">
+                  <div className="text-center">
+                    <div className="w-32 h-32 bg-gradient-to-br from-cyan-500 to-blue-600 rounded-full flex items-center justify-center mx-auto mb-4 shadow-xl">
+                      <svg className="w-16 h-16 text-white" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                        <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M4 7v10c0 2.21 3.582 4 8 4s8-1.79 8-4V7M4 7c0 2.21 3.582 4 8 4s8-1.79 8-4M4 7c0-2.21 3.582-4 8-4s8 1.79 8 4m0 5c0 2.21-3.582 4-8 4s-8-1.79-8-4" />
+                      </svg>
+                    </div>
+                    <h4 className="text-xl font-bold text-gray-900">Smart Test Data</h4>
+                  </div>
+                </div>
+              </div>
+            </div>
+
+            {/* Feature 6: AI-Driven Regression Testing */}
+            <div className="grid grid-cols-1 lg:grid-cols-2 gap-12 items-center">
+              <div className="order-1">
+                <div className="bg-gradient-to-br from-indigo-100 to-purple-100 rounded-3xl p-8 h-80 flex items-center justify-center">
+                  <div className="text-center">
+                    <div className="w-32 h-32 bg-gradient-to-br from-indigo-500 to-purple-600 rounded-full flex items-center justify-center mx-auto mb-4 shadow-xl">
+                      <svg className="w-16 h-16 text-white" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                        <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M9 19v-6a2 2 0 00-2-2H5a2 2 0 00-2 2v6a2 2 0 002 2h2a2 2 0 002-2zm0 0V9a2 2 0 012-2h2a2 2 0 012 2v10m-6 0a2 2 0 002 2h2a2 2 0 002-2m0 0V5a2 2 0 012-2h2a2 2 0 012 2v14a2 2 0 01-2 2h-2a2 2 0 01-2-2z" />
+                      </svg>
+                    </div>
+                    <h4 className="text-xl font-bold text-gray-900">Smart Regression</h4>
+                  </div>
+                </div>
+              </div>
+              <div className="order-2">
+                <div className="bg-gradient-to-br from-indigo-500 to-purple-600 w-16 h-16 rounded-2xl flex items-center justify-center mb-6 shadow-lg">
+                  <span className="text-white text-2xl font-bold">6</span>
+                </div>
+                <h3 className="text-3xl font-bold text-gray-900 mb-4">
+                  AI-Driven Regression Testing
+                </h3>
+                <div className="mb-6">
+                  <h4 className="text-lg font-semibold text-red-600 mb-2">Problem:</h4>
+                  <p className="text-gray-600 mb-4">
+                    Exhaustive regression testing is time-consuming and expensive, often delaying release cycles.
+                  </p>
+                  <h4 className="text-lg font-semibold text-blue-600 mb-2">Solution:</h4>
+                  <p className="text-gray-600 mb-6">
+                    Our AI-powered analytics engine identifies the highest-risk test cases based on change impact analysis, business risk, and historical defect trends. It intelligently selects the most critical tests to run, optimizing resource use and execution time.
+                  </p>
+                  <h4 className="text-lg font-semibold text-green-600 mb-3">Benefits:</h4>
+                  <ul className="space-y-2">
+                    <li className="flex items-start">
+                      <div className="w-2 h-2 bg-green-500 rounded-full mr-3 mt-2"></div>
+                      <div>
+                        <span className="font-medium text-gray-900">Optimize Resources:</span>
+                        <span className="text-gray-600"> Focus your testing efforts where they matter most.</span>
+                      </div>
+                    </li>
+                    <li className="flex items-start">
+                      <div className="w-2 h-2 bg-green-500 rounded-full mr-3 mt-2"></div>
+                      <div>
+                        <span className="font-medium text-gray-900">Accelerate Release Cycles:</span>
+                        <span className="text-gray-600"> Run only the necessary tests to ensure quality, enabling faster releases.</span>
+                      </div>
+                    </li>
+                    <li className="flex items-start">
+                      <div className="w-2 h-2 bg-green-500 rounded-full mr-3 mt-2"></div>
+                      <div>
+                        <span className="font-medium text-gray-900">Ensure High-Quality Delivery:</span>
+                        <span className="text-gray-600"> Minimize risk and confidently deploy software with continuous regression optimization.</span>
+                      </div>
+                    </li>
+                  </ul>
+                </div>
+              </div>
+            </div>
+
+            {/* Feature 7: AI Chatbot Assistant */}
+            <div className="grid grid-cols-1 lg:grid-cols-2 gap-12 items-center">
+              <div className="order-2 lg:order-1">
+                <div className="bg-gradient-to-br from-teal-500 to-green-600 w-16 h-16 rounded-2xl flex items-center justify-center mb-6 shadow-lg">
+                  <span className="text-white text-2xl font-bold">7</span>
+                </div>
+                <h3 className="text-3xl font-bold text-gray-900 mb-4">
+                  AI Chatbot Assistant
+                </h3>
+                <div className="mb-6">
+                  <h4 className="text-lg font-semibold text-red-600 mb-2">Problem:</h4>
+                  <p className="text-gray-600 mb-4">
+                    Teams face communication bottlenecks and struggle to find quick answers or documentation, slowing down defect resolution.
+                  </p>
+                  <h4 className="text-lg font-semibold text-blue-600 mb-2">Solution:</h4>
+                  <p className="text-gray-600 mb-6">
+                    The integrated AI chatbot is a conversational assistant that understands natural language queries. It provides instant answers, access to documentation, and troubleshooting help for testers and developers.
+                  </p>
+                  <h4 className="text-lg font-semibold text-green-600 mb-3">Benefits:</h4>
+                  <ul className="space-y-2">
+                    <li className="flex items-start">
+                      <div className="w-2 h-2 bg-green-500 rounded-full mr-3 mt-2"></div>
+                      <div>
+                        <span className="font-medium text-gray-900">Boost Team Productivity:</span>
+                        <span className="text-gray-600"> Get real-time, contextual help to resolve issues on the fly.</span>
+                      </div>
+                    </li>
+                    <li className="flex items-start">
+                      <div className="w-2 h-2 bg-green-500 rounded-full mr-3 mt-2"></div>
+                      <div>
+                        <span className="font-medium text-gray-900">Enhance Collaboration:</span>
+                        <span className="text-gray-600"> Provide a central point for guidance, reducing bottlenecks and improving communication.</span>
+                      </div>
+                    </li>
+                    <li className="flex items-start">
+                      <div className="w-2 h-2 bg-green-500 rounded-full mr-3 mt-2"></div>
+                      <div>
+                        <span className="font-medium text-gray-900">Accelerate Resolution:</span>
+                        <span className="text-gray-600"> Get faster defect resolution and seamless process guidance.</span>
+                      </div>
+                    </li>
+                  </ul>
+                </div>
+              </div>
+              <div className="order-1 lg:order-2">
+                <div className="bg-gradient-to-br from-teal-100 to-green-100 rounded-3xl p-8 h-80 flex items-center justify-center">
+                  <div className="text-center">
+                    <div className="w-32 h-32 bg-gradient-to-br from-teal-500 to-green-600 rounded-full flex items-center justify-center mx-auto mb-4 shadow-xl">
+                      <svg className="w-16 h-16 text-white" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                        <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M8 12h.01M12 12h.01M16 12h.01M21 12c0 4.418-4.03 8-9 8a9.863 9.863 0 01-4.255-.949L3 20l1.395-3.72C3.512 15.042 3 13.574 3 12c0-4.418 4.03-8 9-8s9 3.582 9 8z" />
+                      </svg>
+                    </div>
+                    <h4 className="text-xl font-bold text-gray-900">AI Assistant</h4>
+                  </div>
+                </div>
+              </div>
+            </div>
+          </div>
+
+          {/* Bottom CTA */}
+          <div className="text-center mt-16">
+            <div className="bg-gradient-to-r from-blue-600 to-purple-600 rounded-3xl p-12 text-white shadow-2xl">
+              <h3 className="text-3xl font-bold mb-4">Ready to Transform Your ALM with AI?</h3>
+              <p className="text-xl text-blue-100 mb-8 max-w-3xl mx-auto">
+                Experience the power of AI-driven Application Lifecycle Management and see how it can revolutionize your development process.
+              </p>
+              <div className="flex flex-col sm:flex-row gap-4 justify-center">
+                <button className="bg-white hover:bg-gray-50 text-blue-600 px-8 py-4 rounded-lg text-lg font-semibold transition-all transform hover:scale-105 flex items-center justify-center">
+                  Start Free Trial
+                  <ArrowRight className="ml-2 h-5 w-5" />
+                </button>
+                <button className="border border-blue-300 hover:border-white text-white hover:bg-white hover:text-blue-600 px-8 py-4 rounded-lg text-lg font-semibold transition-all">
+                  Schedule AI Demo
+                </button>
+              </div>
+            </div>
+          </div>
+        </div>
+      </section>
+
       {/* Automation Capabilities Section */}
       <section className="py-20 bg-white">
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
