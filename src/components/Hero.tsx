@@ -1,8 +1,13 @@
-import React, { useState, useEffect } from 'react';
-import { ArrowRight, Play, Brain, FileText, Bug, BarChart3, GitBranch, Users, Layers, Code, Settings } from 'lucide-react';
+import { ArrowRight, BarChart3, Brain, Bug, GitBranch, Settings, Users } from 'lucide-react';
+import { useEffect, useState } from 'react';
+import CalendlyPopup from './CalendlyPopup';
+import { TrialForm } from './TrialForm';
 
 const Hero = () => {
   const [currentPhase, setCurrentPhase] = useState(0);
+  const [isTourOpen, setIsTourOpen] = useState(false);
+  const [isTrialFormOpen, setIsTrialFormOpen] = useState(false);
+  const [isCalendlyOpen, setIsCalendlyOpen] = useState(false);
 
   const almPhases = [
     { 
@@ -42,14 +47,14 @@ const Hero = () => {
   const currentALM = almPhases[currentPhase];
 
   return (
-    <section className="relative bg-gradient-to-br from-slate-900 via-blue-900 to-slate-900 overflow-hidden">
+    <section className="relative bg-black overflow-hidden min-h-screen flex flex-col justify-center">
       {/* Subtle Background Effects */}
-      <div className="absolute inset-0 opacity-20">
+      {/* <div className="absolute inset-0 opacity-20">
         <div className="absolute top-20 left-20 w-64 h-64 bg-blue-500 rounded-full mix-blend-multiply filter blur-xl animate-pulse"></div>
         <div className="absolute bottom-20 right-20 w-64 h-64 bg-purple-500 rounded-full mix-blend-multiply filter blur-xl animate-pulse" style={{ animationDelay: '2s' }}></div>
-      </div>
+      </div> */}
 
-      <div className="relative max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-32">
+      <div className="relative max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-16" style={{zoom: 1.1}}>
         {/* Main Content */}
         <div className="text-center mb-16">
           {/* AI Badge */}
@@ -132,20 +137,39 @@ const Hero = () => {
 
           {/* CTA Buttons */}
           <div className="flex flex-col sm:flex-row gap-4 justify-center mb-16">
-            <button className="bg-gradient-to-r from-blue-600 to-purple-600 hover:from-blue-700 hover:to-purple-700 text-white px-8 py-3 rounded-lg font-semibold transition-all flex items-center justify-center">
+            <button
+              onClick={() => setIsCalendlyOpen(true)}
+              className="text-white px-8 py-3 rounded-lg font-semibold transition-all flex items-center justify-center hover:scale-105"
+              style={{
+                background: 'linear-gradient(120deg, #3b82f6, #a855f7)',
+                boxShadow: '0 10px 25px rgba(168, 85, 247, 0.25)'
+              }}
+            >
               Start Free Trial
               <ArrowRight className="ml-2 h-4 w-4" />
             </button>
             
-            <button className="flex items-center justify-center px-8 py-3 text-white border border-white/30 hover:border-blue-400/50 rounded-lg font-semibold transition-all hover:bg-white/10">
+            {/* <button onClick={() => setIsTourOpen(true)} className="flex items-center justify-center px-8 py-3 text-white border border-white/30 hover:border-blue-400/50 rounded-lg font-semibold transition-all hover:bg-white/10">
               <Play className="h-4 w-4 mr-2" />
-              Watch Demo
-            </button>
+              Product Tour
+            </button> */}
           </div>
         </div>
 
         {/* ALM Phases */}
-        <div className="mb-16">
+        <div>
+        {isTourOpen && (
+          <div className="fixed inset-0 z-50 flex items-center justify-center bg-black bg-opacity-70">
+            <div className="bg-black rounded-lg w-full max-w-4xl h-[60vh] overflow-hidden">
+              <div className="p-3 flex justify-end">
+                <button className="text-white text-xl" onClick={() => setIsTourOpen(false)}>✕</button>
+              </div>
+              <div className="h-full">
+                <iframe className="w-full h-full" src="https://www.youtube.com/embed/4IUKqRsq_oc" title="Product Tour" frameBorder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" allowFullScreen />
+              </div>
+            </div>
+          </div>
+        )}
           <div className="grid grid-cols-2 md:grid-cols-3 lg:grid-cols-5 gap-4 max-w-4xl mx-auto">
             {almPhases.map((phase, index) => (
               <div 
@@ -170,34 +194,13 @@ const Hero = () => {
           </div>
         </div>
 
-        {/* Stats */}
-        <div className="grid grid-cols-2 md:grid-cols-4 gap-8 max-w-4xl mx-auto">
-          <div className="text-center">
-            <div className="text-3xl md:text-4xl font-bold text-transparent bg-clip-text bg-gradient-to-r from-blue-400 to-purple-400 mb-1">
-              10x
-            </div>
-            <div className="text-gray-400 text-sm">Faster Execution</div>
-          </div>
-          <div className="text-center">
-            <div className="text-3xl md:text-4xl font-bold text-transparent bg-clip-text bg-gradient-to-r from-green-400 to-blue-400 mb-1">
-              85%
-            </div>
-            <div className="text-gray-400 text-sm">Efficiency Gain</div>
-          </div>
-          <div className="text-center">
-            <div className="text-3xl md:text-4xl font-bold text-transparent bg-clip-text bg-gradient-to-r from-purple-400 to-pink-400 mb-1">
-              95%
-            </div>
-            <div className="text-gray-400 text-sm">Stabilize Tests</div>
-          </div>
-          <div className="text-center">
-            <div className="text-3xl md:text-4xl font-bold text-transparent bg-clip-text bg-gradient-to-r from-yellow-400 to-orange-400 mb-1">
-              70%
-            </div>
-            <div className="text-gray-400 text-sm">Reduce Maintenance</div>
-          </div>
-        </div>
       </div>
+
+      {/* Trial Form Modal */}
+      <TrialForm isOpen={isTrialFormOpen} onClose={() => setIsTrialFormOpen(false)} />
+      
+      {/* Calendly Popup Modal */}
+      <CalendlyPopup isOpen={isCalendlyOpen} onClose={() => setIsCalendlyOpen(false)} />
     </section>
   );
 };

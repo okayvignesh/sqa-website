@@ -1,5 +1,5 @@
+import { Calendar, CheckCircle, Mail, X } from 'lucide-react';
 import React, { useState } from 'react';
-import { X, Calendar, Users, CheckCircle, ArrowRight, Building, Mail, Phone } from 'lucide-react';
 
 interface DemoRequestFormProps {
   isOpen: boolean;
@@ -8,20 +8,13 @@ interface DemoRequestFormProps {
 
 const DemoRequestForm: React.FC<DemoRequestFormProps> = ({ isOpen, onClose }) => {
   const [formData, setFormData] = useState({
-    firstName: '',
-    lastName: '',
-    email: '',
+    name: '',
+    phoneCountry: '+91',
     phone: '',
-    company: '',
-    jobTitle: '',
-    teamSize: '',
-    currentTools: '',
-    challenges: '',
-    timeframe: '',
-    preferredDate: '',
-    preferredTime: '',
-    additionalInfo: '',
-    marketingConsent: false
+    email: '',
+    organisation: '',
+    designation: '',
+    comments: '',
   });
 
   const [isSubmitted, setIsSubmitted] = useState(false);
@@ -41,31 +34,7 @@ const DemoRequestForm: React.FC<DemoRequestFormProps> = ({ isOpen, onClose }) =>
     }));
   };
 
-  const teamSizes = [
-    '1-10 people',
-    '11-50 people',
-    '51-200 people',
-    '201-1000 people',
-    '1000+ people'
-  ];
-
-  const timeframes = [
-    'Immediately',
-    'Within 1 month',
-    'Within 3 months',
-    'Within 6 months',
-    'Just exploring'
-  ];
-
-  const preferredTimes = [
-    '9:00 AM - 10:00 AM EST',
-    '10:00 AM - 11:00 AM EST',
-    '11:00 AM - 12:00 PM EST',
-    '1:00 PM - 2:00 PM EST',
-    '2:00 PM - 3:00 PM EST',
-    '3:00 PM - 4:00 PM EST',
-    '4:00 PM - 5:00 PM EST'
-  ];
+  
 
   if (!isOpen) return null;
 
@@ -82,12 +51,9 @@ const DemoRequestForm: React.FC<DemoRequestFormProps> = ({ isOpen, onClose }) =>
               >
                 <X className="h-6 w-6" />
               </button>
-              <div className="flex items-center mb-4">
-                <Building className="h-8 w-8 mr-3" />
-                <div>
-                  <h2 className="text-2xl font-bold">Request a Personalized Demo</h2>
-                  <p className="text-blue-100">See SimplifyQA in action with your use case</p>
-                </div>
+              <div className="text-center">
+                <h2 className="text-2xl font-bold">Request a Demo</h2>
+                <p className="text-sm mt-1 opacity-90">Fill the form and our team will reach out to schedule your demo.</p>
               </div>
             </div>
 
@@ -116,46 +82,51 @@ const DemoRequestForm: React.FC<DemoRequestFormProps> = ({ isOpen, onClose }) =>
 
             {/* Registration Form */}
             <form onSubmit={handleSubmit} className="p-6">
-              {/* Personal Information */}
+              {/* Simplified form: Name, Phone (country+number), Email, Organisation, Designation, Comments */}
               <div className="mb-6">
-                <h4 className="text-lg font-semibold text-gray-900 mb-4">Personal Information</h4>
-                <div className="grid grid-cols-1 md:grid-cols-2 gap-4">
-                  <div>
-                    <label className="block text-sm font-medium text-gray-700 mb-2">
-                      First Name *
-                    </label>
+                <div className="grid grid-cols-1 md:grid-cols-3 gap-4">
+                  <div className="md:col-span-2">
+                    <label className="block text-sm font-medium text-gray-700 mb-2">Name *</label>
                     <input
                       type="text"
-                      name="firstName"
-                      value={formData.firstName}
+                      name="name"
+                      value={formData.name}
                       onChange={handleInputChange}
                       required
                       className="w-full px-4 py-3 rounded-lg border border-gray-300 focus:ring-2 focus:ring-blue-500 focus:border-blue-500 transition-colors"
-                      placeholder="John"
+                      placeholder="Full name"
                     />
                   </div>
                   <div>
-                    <label className="block text-sm font-medium text-gray-700 mb-2">
-                      Last Name *
-                    </label>
-                    <input
-                      type="text"
-                      name="lastName"
-                      value={formData.lastName}
-                      onChange={handleInputChange}
-                      required
-                      className="w-full px-4 py-3 rounded-lg border border-gray-300 focus:ring-2 focus:ring-blue-500 focus:border-blue-500 transition-colors"
-                      placeholder="Doe"
-                    />
+                    <label className="block text-sm font-medium text-gray-700 mb-2">Phone *</label>
+                    <div className="flex">
+                      <select
+                        name="phoneCountry"
+                        value={formData.phoneCountry}
+                        onChange={handleInputChange}
+                        className="px-3 py-3 rounded-l-lg border border-r-0 border-gray-300 bg-white"
+                      >
+                        <option value="+91">+91</option>
+                        <option value="+1">+1</option>
+                        <option value="+44">+44</option>
+                      </select>
+                      <input
+                        type="tel"
+                        name="phone"
+                        value={formData.phone}
+                        onChange={handleInputChange}
+                        required
+                        className="w-full px-4 py-3 rounded-r-lg border border-gray-300 focus:ring-2 focus:ring-blue-500 focus:border-blue-500 transition-colors"
+                        placeholder="123 456 7890"
+                      />
+                    </div>
                   </div>
                 </div>
               </div>
 
               <div className="grid grid-cols-1 md:grid-cols-2 gap-4 mb-6">
                 <div>
-                  <label className="block text-sm font-medium text-gray-700 mb-2">
-                    Work Email *
-                  </label>
+                  <label className="block text-sm font-medium text-gray-700 mb-2">Email *</label>
                   <input
                     type="email"
                     name="email"
@@ -163,199 +134,74 @@ const DemoRequestForm: React.FC<DemoRequestFormProps> = ({ isOpen, onClose }) =>
                     onChange={handleInputChange}
                     required
                     className="w-full px-4 py-3 rounded-lg border border-gray-300 focus:ring-2 focus:ring-blue-500 focus:border-blue-500 transition-colors"
-                    placeholder="john.doe@company.com"
+                    placeholder="name@company.com"
                   />
                 </div>
                 <div>
-                  <label className="block text-sm font-medium text-gray-700 mb-2">
-                    Phone Number
-                  </label>
-                  <input
-                    type="tel"
-                    name="phone"
-                    value={formData.phone}
-                    onChange={handleInputChange}
-                    className="w-full px-4 py-3 rounded-lg border border-gray-300 focus:ring-2 focus:ring-blue-500 focus:border-blue-500 transition-colors"
-                    placeholder="+1 (555) 123-4567"
-                  />
-                </div>
-              </div>
-
-              {/* Company Information */}
-              <div className="mb-6">
-                <h4 className="text-lg font-semibold text-gray-900 mb-4">Company Information</h4>
-                <div className="grid grid-cols-1 md:grid-cols-2 gap-4">
-                  <div>
-                    <label className="block text-sm font-medium text-gray-700 mb-2">
-                      Company *
-                    </label>
-                    <input
-                      type="text"
-                      name="company"
-                      value={formData.company}
-                      onChange={handleInputChange}
-                      required
-                      className="w-full px-4 py-3 rounded-lg border border-gray-300 focus:ring-2 focus:ring-blue-500 focus:border-blue-500 transition-colors"
-                      placeholder="Your Company"
-                    />
-                  </div>
-                  <div>
-                    <label className="block text-sm font-medium text-gray-700 mb-2">
-                      Job Title *
-                    </label>
-                    <input
-                      type="text"
-                      name="jobTitle"
-                      value={formData.jobTitle}
-                      onChange={handleInputChange}
-                      required
-                      className="w-full px-4 py-3 rounded-lg border border-gray-300 focus:ring-2 focus:ring-blue-500 focus:border-blue-500 transition-colors"
-                      placeholder="QA Manager"
-                    />
-                  </div>
-                </div>
-              </div>
-
-              <div className="mb-6">
-                <label className="block text-sm font-medium text-gray-700 mb-2">
-                  Team Size *
-                </label>
-                <select
-                  name="teamSize"
-                  value={formData.teamSize}
-                  onChange={handleInputChange}
-                  required
-                  className="w-full px-4 py-3 rounded-lg border border-gray-300 focus:ring-2 focus:ring-blue-500 focus:border-blue-500 transition-colors"
-                >
-                  <option value="">Select team size</option>
-                  {teamSizes.map((size) => (
-                    <option key={size} value={size}>{size}</option>
-                  ))}
-                </select>
-              </div>
-
-              {/* Project Details */}
-              <div className="mb-6">
-                <h4 className="text-lg font-semibold text-gray-900 mb-4">Project Details</h4>
-                <div className="mb-4">
-                  <label className="block text-sm font-medium text-gray-700 mb-2">
-                    Current Testing Tools
-                  </label>
+                  <label className="block text-sm font-medium text-gray-700 mb-2">Organisation *</label>
                   <input
                     type="text"
-                    name="currentTools"
-                    value={formData.currentTools}
+                    name="organisation"
+                    value={formData.organisation}
                     onChange={handleInputChange}
+                    required
                     className="w-full px-4 py-3 rounded-lg border border-gray-300 focus:ring-2 focus:ring-blue-500 focus:border-blue-500 transition-colors"
-                    placeholder="e.g., Selenium, Cypress, Manual Testing"
+                    placeholder="Your Organisation"
                   />
-                </div>
-
-                <div className="mb-4">
-                  <label className="block text-sm font-medium text-gray-700 mb-2">
-                    Main Testing Challenges
-                  </label>
-                  <textarea
-                    name="challenges"
-                    value={formData.challenges}
-                    onChange={handleInputChange}
-                    rows={3}
-                    className="w-full px-4 py-3 rounded-lg border border-gray-300 focus:ring-2 focus:ring-blue-500 focus:border-blue-500 transition-colors"
-                    placeholder="Describe your current testing pain points..."
-                  />
-                </div>
-
-                <div className="mb-4">
-                  <label className="block text-sm font-medium text-gray-700 mb-2">
-                    Implementation Timeframe
-                  </label>
-                  <select
-                    name="timeframe"
-                    value={formData.timeframe}
-                    onChange={handleInputChange}
-                    className="w-full px-4 py-3 rounded-lg border border-gray-300 focus:ring-2 focus:ring-blue-500 focus:border-blue-500 transition-colors"
-                  >
-                    <option value="">Select timeframe</option>
-                    {timeframes.map((timeframe) => (
-                      <option key={timeframe} value={timeframe}>{timeframe}</option>
-                    ))}
-                  </select>
                 </div>
               </div>
 
-              {/* Demo Scheduling */}
-              <div className="mb-6">
-                <h4 className="text-lg font-semibold text-gray-900 mb-4">Demo Scheduling</h4>
-                <div className="grid grid-cols-1 md:grid-cols-2 gap-4">
-                  <div>
-                    <label className="block text-sm font-medium text-gray-700 mb-2">
-                      Preferred Date
-                    </label>
-                    <input
-                      type="date"
-                      name="preferredDate"
-                      value={formData.preferredDate}
-                      onChange={handleInputChange}
-                      min={new Date().toISOString().split('T')[0]}
-                      className="w-full px-4 py-3 rounded-lg border border-gray-300 focus:ring-2 focus:ring-blue-500 focus:border-blue-500 transition-colors"
-                    />
-                  </div>
-                  <div>
-                    <label className="block text-sm font-medium text-gray-700 mb-2">
-                      Preferred Time
-                    </label>
-                    <select
-                      name="preferredTime"
-                      value={formData.preferredTime}
-                      onChange={handleInputChange}
-                      className="w-full px-4 py-3 rounded-lg border border-gray-300 focus:ring-2 focus:ring-blue-500 focus:border-blue-500 transition-colors"
-                    >
-                      <option value="">Select preferred time</option>
-                      {preferredTimes.map((time) => (
-                        <option key={time} value={time}>{time}</option>
-                      ))}
-                    </select>
-                  </div>
+              <div className="grid grid-cols-1 md:grid-cols-2 gap-4 mb-6">
+                <div>
+                  <label className="block text-sm font-medium text-gray-700 mb-2">Designation *</label>
+                  <input
+                    type="text"
+                    name="designation"
+                    value={formData.designation}
+                    onChange={handleInputChange}
+                    required
+                    className="w-full px-4 py-3 rounded-lg border border-gray-300 focus:ring-2 focus:ring-blue-500 focus:border-blue-500 transition-colors"
+                    placeholder="e.g., QA Manager"
+                  />
+                </div>
+                <div>
+                  <label className="block text-sm font-medium text-gray-700 mb-2">&nbsp;</label>
+                  <div />
                 </div>
               </div>
 
               <div className="mb-6">
-                <label className="block text-sm font-medium text-gray-700 mb-2">
-                  Additional Information
-                </label>
+                <label className="block text-sm font-medium text-gray-700 mb-2">Comments</label>
                 <textarea
-                  name="additionalInfo"
-                  value={formData.additionalInfo}
+                  name="comments"
+                  value={formData.comments}
                   onChange={handleInputChange}
-                  rows={3}
+                  rows={6}
                   className="w-full px-4 py-3 rounded-lg border border-gray-300 focus:ring-2 focus:ring-blue-500 focus:border-blue-500 transition-colors"
-                  placeholder="Any specific features you'd like to see or questions you have..."
+                  placeholder="Any specific requirements or questions..."
                 />
               </div>
 
-              <div className="mb-6">
-                <label className="flex items-start cursor-pointer">
-                  <input
-                    type="checkbox"
-                    name="marketingConsent"
-                    checked={formData.marketingConsent}
-                    onChange={handleInputChange}
-                    className="h-4 w-4 text-blue-600 focus:ring-blue-500 border-gray-300 rounded mr-3 mt-0.5"
-                  />
-                  <span className="text-sm text-gray-700">
-                    I agree to receive marketing communications from SimplifyQA about product updates, 
-                    testing resources, and relevant content. You can unsubscribe at any time.
-                  </span>
-                </label>
-              </div>
+              {/* no extra checkbox: only requested fields are present */}
 
-              <button
-                type="submit"
-                className="w-full bg-gradient-to-r from-blue-600 to-cyan-600 hover:from-blue-700 hover:to-cyan-700 text-white px-6 py-4 rounded-lg text-lg font-semibold transition-all flex items-center justify-center"
-              >
-                Schedule My Demo
-                <Calendar className="ml-2 h-5 w-5" />
-              </button>
+              <div className="grid grid-cols-1 md:grid-cols-2 gap-4">
+                <button
+                  type="submit"
+                  className="w-full bg-gradient-to-r from-blue-600 to-cyan-600 hover:from-blue-700 hover:to-cyan-700 text-white px-6 py-4 rounded-lg text-lg font-semibold transition-all flex items-center justify-center"
+                >
+                  Schedule My Demo
+                  <Calendar className="ml-2 h-5 w-5" />
+                </button>
+
+                <a
+                  href="https://calendly.com/simplifyqa/30min" 
+                  target="_blank" 
+                  rel="noopener noreferrer"
+                  className="w-full inline-flex items-center justify-center border border-gray-200 rounded-lg px-6 py-4 text-gray-700 hover:bg-gray-50 transition-colors"
+                >
+                  Schedule via Calendly
+                </a>
+              </div>
 
               <p className="mt-4 text-xs text-gray-500 text-center">
                 By submitting this form, you agree to our Terms of Service and Privacy Policy. 

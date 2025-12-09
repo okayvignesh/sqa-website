@@ -1,3 +1,93 @@
+/* Dissolve Animation for Client Logo */
+.image-dissolve-container {
+  position: relative;
+  width: 160px;
+  height: 60px;
+  overflow: hidden;
+}
+.image-dissolve {
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  object-fit: contain;
+  opacity: 0;
+  transform: scale(1.1);
+  transition: opacity 1s cubic-bezier(.77,0,.18,1), transform 1s cubic-bezier(.77,0,.18,1);
+}
+.image-dissolve.active {
+  opacity: 1;
+  transform: scale(1);
+}
+body {
+  /* background: #08090a !important;
+  color: #8a8f98 !important; */
+  background-color: #0f172a;
+  /* background-image: radial-gradient(at 50% 0%, rgba(6, 182, 212, 0.15) 0px, transparent 50%), radial-gradient(at 100% 0%, rgba(59, 130, 246, 0.1) 0px, transparent 50%), linear-gradient(rgba(255, 255, 255, 0.03) 1px, transparent 1px), linear-gradient(90deg, rgba(255, 255, 255, 0.03) 1px, transparent 1px); */
+  background-size: 100% 100%, 100% 100%, 50px 50px, 50px 50px;
+  background-attachment: fixed;
+  background-image: radial-gradient(circle at 50% 0%, rgb(0 95 111 / 20%), transparent 70%), radial-gradient(circle at 100% 0%, rgb(0 47 123 / 15%), transparent 70%);
+  zoom: 0.9;
+}
+
+section, .bg-gray-50, .bg-white {
+  /* background: #08090a !important; */
+  color: #f3f3f3 !important;
+}
+
+.comprehensive_card_main, .group.bg-white, .group.bg-gray-50 {
+   background: #08090a !important;
+  color: #f3f3f3 !important;
+  border-color: #333 !important;
+}
+
+.text-gray-900, .text-gray-600, .text-gray-700 {
+  color: #f3f3f3 !important;
+}
+
+.text-blue-600, .text-green-600, .text-purple-600, .text-orange-600, .text-cyan-600, .text-pink-600, .text-indigo-600, .text-red-500, .text-red-600, .text-red-700 {
+  color: rgb(168 85 247 / var(--tw-bg-opacity, 1)) !important;
+}
+
+.bg-gradient-to-br, .bg-blue-50, .bg-cyan-50, .bg-green-50, .bg-emerald-50, .bg-purple-50, .bg-indigo-50, .bg-orange-50, .bg-red-50, .bg-pink-50, .bg-rose-50 {
+  background: #232323 !important;
+}
+body {
+  /* background: #111;
+  color: #f3f3f3; */
+  background-color: #0f172a;
+  /* background-image: radial-gradient(at 50% 0%, rgba(6, 182, 212, 0.15) 0px, transparent 50%), radial-gradient(at 100% 0%, rgba(59, 130, 246, 0.1) 0px, transparent 50%), linear-gradient(rgba(255, 255, 255, 0.03) 1px, transparent 1px), linear-gradient(90deg, rgba(255, 255, 255, 0.03) 1px, transparent 1px); */
+  background-size: 100% 100%, 100% 100%, 50px 50px, 50px 50px;
+  background-attachment: fixed;
+  background-image: radial-gradient(circle at 50% 0%, rgb(0 95 111 / 20%), transparent 70%), radial-gradient(circle at 100% 0%, rgb(0 47 123 / 15%), transparent 70%);
+}
+
+section, .bg-gray-50, .bg-white {
+  color: #f3f3f3 !important;
+}
+
+.card-hover-group, .comprehensive_card_main {
+  background: #232323 !important;
+  color: #f3f3f3 !important;
+  border-color: #333 !important;
+}
+
+.text-gray-900, .text-gray-600, .text-gray-700 {
+  color: #f3f3f3 !important;
+}
+
+.text-blue-600, .text-green-600, .text-purple-600, .text-orange-600, .text-cyan-600, .text-pink-600, .text-indigo-600, .text-red-500, .text-red-600, .text-red-700 {
+  color: rgb(168 85 247 / var(--tw-bg-opacity, 1)) !important;
+}
+
+.bg-gradient-to-br, .bg-blue-50, .bg-cyan-50, .bg-green-50, .bg-emerald-50, .bg-purple-50, .bg-indigo-50, .bg-orange-50, .bg-red-50, .bg-pink-50, .bg-rose-50 {
+  background: #232323 !important;
+}
+:root {
+  --color-bg-translucent: rgba(255, 255, 255, .05);
+}
+
 @tailwind base;
 @tailwind components;
 @tailwind utilities;
@@ -12,6 +102,14 @@
     transform: translateY(0);
   }
 }
+  body, html {
+    background-color: #0f172a;
+    /* background-image: radial-gradient(at 50% 0%, rgba(6, 182, 212, 0.15) 0px, transparent 50%), radial-gradient(at 100% 0%, rgba(59, 130, 246, 0.1) 0px, transparent 50%), linear-gradient(rgba(255, 255, 255, 0.03) 1px, transparent 1px), linear-gradient(90deg, rgba(255, 255, 255, 0.03) 1px, transparent 1px); */
+    background-size: 100% 100%, 100% 100%, 50px 50px, 50px 50px;
+    background-attachment: fixed;
+    background-image: radial-gradient(circle at 50% 0%, rgb(0 95 111 / 20%), transparent 70%), radial-gradient(circle at 100% 0%, rgb(0 47 123 / 15%), transparent 70%);
+    font-family: "Inter Variable", "SF Pro Display", -apple-system, BlinkMacSystemFont, "Segoe UI", "Roboto", "Oxygen", "Ubuntu", "Cantarell", "Open Sans", "Helvetica Neue", sans-serif;
+  }
 
 .animate-fadeIn {
   animation: fadeIn 0.5s ease-out;
@@ -48,4 +146,205 @@
 
 .animate-float {
   animation: float 3s ease-in-out infinite;
+}
+
+.comprehensive_card_main{
+  padding: 15px;
+    border-radius: 10px;
+    cursor: pointer;
+}
+
+.comprehensive_card_main {
+  padding: 15px;
+  border-radius: 10px;
+  cursor: pointer;
+  transition: background 0.3s, box-shadow 0.3s, transform 0.3s;
+}
+
+.comprehensive_card_main:hover {
+  background: #f7f7f7;
+  box-shadow: 0 8px 24px 0 rgba(0,0,0,0.08), 0 1.5px 6px 0 rgba(0,0,0,0.08);
+  transform: translateY(-6px) scale(1.03);
+}
+.comprehensive_card_header{
+      font-size: 1rem;
+    font-weight: 700;
+    color: #1f2937;
+    line-height: 20px;
+    margin-top: 10px;
+}
+.comprehensive_card_subHeader{
+    font-weight: 500;
+    font-size: 15px;
+    margin-top: 10px;
+    color: rgb(75 85 99 / var(--tw-text-opacity, 1));
+}
+.text-white{
+  color: #fff !important;
+}
+
+/* Custom min-height utility for cards */
+.min-h-365 {
+  min-height: 365px;
+}
+
+.bg_white{
+  background: #ffffff !important;
+}
+/* .feature-gradient-bg {
+  background: linear-gradient(180deg,rgba(6, 1, 19, 1) 0%, rgba(86, 84, 94, 1) 82%) !important;
+} */
+
+.liener_bg{
+  background: #141516 !important;
+  border: 1px solid hsla(0, 0%, 100%, .05);
+}
+
+.light_grey{
+  color: #8a8f98 !important;
+}
+
+/* Ensure hover overlay shows 30% black when parent .group is hovered */
+.group .group-hover\:bg-black\/30 {
+  /* smooth transition for overlay when hover state changes */
+  transition: background-color 0.6s ease;
+}
+
+.group:hover .group-hover\:bg-black\/30 {
+  /* increase overlay to 60% black on hover */
+  background-color: rgb(0 0 0 / 0.6);
+}
+section.bg-black{
+  background: unset !important;
+}
+
+.bg-gray-900 {
+  background: unset !important;
+}
+
+.navbar-bg {
+  /* background: rgb(8, 9, 10) !important; */
+  /* background: #060e1f;; */
+  background: #09152f;
+}
+
+section.plan_white_bg {
+  background: #ffffff !important;
+}
+
+.wheel-option {
+  opacity: 0.6;
+  cursor: pointer;
+
+}
+
+.wheel-option:hover {
+    opacity: 1;
+  }
+
+.wheel-option-show {
+  opacity: 1;
+}
+.wheel-option-hide {
+  opacity: 0.6;
+}
+
+/* Custom Scrollbar for Modal */
+.modal-scrollbar::-webkit-scrollbar {
+  width: 8px;
+}
+
+.modal-scrollbar::-webkit-scrollbar-track {
+  background: #121212;
+  border-radius: 4px;
+}
+
+.modal-scrollbar::-webkit-scrollbar-thumb {
+  background: #3a3a3a;
+  border-radius: 4px;
+}
+
+.modal-scrollbar::-webkit-scrollbar-thumb:hover {
+  background: #4a4a4a;
+}
+
+/* Firefox scrollbar */
+.modal-scrollbar {
+  scrollbar-width: thin;
+  scrollbar-color: #3a3a3a #121212;
+}
+
+/* Heading class for consistent styling */
+.heading {
+  font-size: 2.25rem; /* text-4xl */
+}
+
+@media (min-width: 768px) {
+  .heading {
+    font-size: 3rem; /* md:text-5xl */
+  }
+}
+
+/* Subheading class for consistent styling */
+.subheading {
+  font-size: 1.125rem; /* text-lg / 18px */
+}
+
+/* Hide scrollbar utility */
+.scrollbar-hide {
+  -ms-overflow-style: none;  /* Internet Explorer 10+ */
+  scrollbar-width: none;  /* Firefox */
+}
+.scrollbar-hide::-webkit-scrollbar { 
+  display: none;  /* Safari and Chrome */
+}
+
+/* Feature showcase animations */
+.feature-section-enter {
+  opacity: 0;
+  transform: translateY(30px) scale(0.95);
+  transition: all 0.6s cubic-bezier(0.4, 0, 0.2, 1);
+}
+
+.feature-section-enter-active {
+  opacity: 1;
+  transform: translateY(0) scale(1);
+}
+
+.feature-section-exit {
+  opacity: 1;
+  transform: translateY(0) scale(1);
+  transition: all 0.4s cubic-bezier(0.4, 0, 0.2, 1);
+}
+
+.feature-section-exit-active {
+  opacity: 0;
+  transform: translateY(-20px) scale(0.95);
+}
+
+/* Smooth scroll snap */
+.scroll-snap-smooth {
+  scroll-snap-type: y mandatory;
+  scroll-behavior: smooth;
+}
+
+.scroll-snap-item {
+  scroll-snap-align: start;
+  scroll-snap-stop: always;
+}
+
+/* Glowing border animations for pricing cards */
+@keyframes sq-agent-pulse {
+  0%, 100% { 
+    border-color: rgba(6, 182, 212, 0.5); 
+    box-shadow: 0 0 15px rgba(6, 182, 212, 0.1); 
+  }
+  50% { 
+    border-color: rgba(6, 182, 212, 0.8); 
+    box-shadow: 0 0 25px rgba(6, 182, 212, 0.3); 
+  }
+}
+
+.sq-border-glow-cyan { 
+  animation: sq-agent-pulse 4s infinite ease-in-out; 
 }

@@ -1,7 +1,88 @@
-import React from 'react';
-import { Calendar, Download, Play, BookOpen, Users, ArrowRight } from 'lucide-react';
+import {
+    ArrowRight,
+    BookOpen,
+    Calendar,
+    Download,
+    ExternalLink,
+    Play,
+    Users
+} from 'lucide-react';
+import { useState } from 'react';
+
+import { useEffect } from 'react';
+import { useScrollAnimations } from '../utils/useScrollAnimations';
 
 const ResourcesPage = () => {
+  useScrollAnimations();
+  
+  useEffect(() => {
+    window.scrollTo(0, 0);
+  }, []);
+  // Webinar modal state
+  const [isWebinarFormOpen, setIsWebinarFormOpen] = useState(false);
+
+  // Upcoming webinar data
+  const upcomingWebinar = {
+    title: "Advanced Test Automation with AI: Best Practices for 2025",
+    date: "January 30, 2025",
+    time: "2:00 PM EST",
+    presenter: "Dr. Sarah Kim, CTO",
+    description: "Learn how to leverage AI-powered testing to reduce manual effort by 80% and improve test coverage.",
+    registrations: 1247,
+    image: "https://images.pexels.com/photos/3184465/pexels-photo-3184465.jpeg?auto=compress&cs=tinysrgb&w=600&h=400&fit=crop"
+  };
+
+  // Past webinars data
+  const pastWebinars = [
+    {
+      title: "Building Scalable Test Automation Frameworks",
+      presenter: "Alex Rivera, CEO",
+      date: "December 15, 2024",
+      duration: "45 min",
+      views: 2340,
+      thumbnail: "https://images.pexels.com/photos/3184418/pexels-photo-3184418.jpeg?auto=compress&cs=tinysrgb&w=400&h=225&fit=crop"
+    },
+    {
+      title: "Mobile Testing Strategies for Modern Apps",
+      presenter: "Marcus Johnson, VP Engineering",
+      date: "November 28, 2024", 
+      duration: "38 min",
+      views: 1890,
+      thumbnail: "https://images.pexels.com/photos/607812/pexels-photo-607812.jpeg?auto=compress&cs=tinysrgb&w=400&h=225&fit=crop"
+    },
+    {
+      title: "Enterprise Security in Test Automation",
+      presenter: "Elena Rodriguez, VP Customer Success",
+      date: "November 10, 2024",
+      duration: "42 min", 
+      views: 1650,
+      thumbnail: "https://images.pexels.com/photos/60504/security-protection-anti-virus-software-60504.jpeg?auto=compress&cs=tinysrgb&w=400&h=225&fit=crop"
+    },
+    {
+      title: "CI/CD Integration Best Practices",
+      presenter: "Michael Chen, Lead Developer",
+      date: "October 25, 2024",
+      duration: "50 min",
+      views: 2100,
+      thumbnail: "https://images.pexels.com/photos/574073/pexels-photo-574073.jpeg?auto=compress&cs=tinysrgb&w=400&h=225&fit=crop"
+    },
+    {
+      title: "Performance Testing at Scale",
+      presenter: "Sarah Johnson, QA Director",
+      date: "October 12, 2024",
+      duration: "35 min",
+      views: 1780,
+      thumbnail: "https://images.pexels.com/photos/380769/pexels-photo-380769.jpeg?auto=compress&cs=tinysrgb&w=400&h=225&fit=crop"
+    },
+    {
+      title: "API Testing Automation Masterclass",
+      presenter: "David Park, Senior Engineer",
+      date: "September 28, 2024",
+      duration: "55 min",
+      views: 2450,
+      thumbnail: "https://images.pexels.com/photos/230544/pexels-photo-230544.jpeg?auto=compress&cs=tinysrgb&w=400&h=225&fit=crop"
+    }
+  ];
   const blogPosts = [
     {
       title: "10 Best Practices for Test Automation",
@@ -70,13 +151,13 @@ const ResourcesPage = () => {
   return (
     <div className="pt-16">
       {/* Hero Section */}
-      <section className="bg-gradient-to-br from-blue-50 to-cyan-50 py-20">
+      <section className="bg-gradient-to-br from-blue-50 to-cyan-50 py-16">
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 text-center">
-          <h1 className="text-5xl font-bold text-gray-900 mb-6">
+          <h1 className="text-5xl font-bold text-gray-900 mb-6 animate-on-scroll">
             Resources & 
             <span className="text-transparent bg-clip-text bg-gradient-to-r from-blue-600 to-cyan-600"> Learning Hub</span>
           </h1>
-          <p className="text-xl text-gray-600 max-w-3xl mx-auto">
+          <p className="text-xl text-gray-600 max-w-3xl mx-auto animate-on-scroll animate-delay-200">
             Expand your testing knowledge with our comprehensive collection of guides, 
             best practices, and expert insights.
           </p>
@@ -84,14 +165,14 @@ const ResourcesPage = () => {
       </section>
 
       {/* Blog Section */}
-      <section className="py-20 bg-white">
+      <section className="py-16 bg-white">
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
-          <div className="flex justify-between items-center mb-12">
+          <div className="flex justify-between items-center mb-12 animate-on-scroll">
             <div>
               <h2 className="text-4xl font-bold text-gray-900 mb-4">Latest from Our Blog</h2>
               <p className="text-lg text-gray-600">Stay up-to-date with testing trends and SimplifyQA updates</p>
             </div>
-            <button className="hidden md:flex bg-blue-600 hover:bg-blue-700 text-white px-6 py-3 rounded-lg font-semibold transition-colors items-center">
+            <button className="hidden md:flex px-6 py-3 rounded-lg font-semibold transition-colors items-center" style={{background: 'rgb(255, 255, 255)', color: 'rgb(0, 0, 0)'}}>
               View All Posts
               <ArrowRight className="ml-2 h-4 w-4" />
             </button>
@@ -99,7 +180,7 @@ const ResourcesPage = () => {
           
           <div className="grid grid-cols-1 md:grid-cols-3 gap-8">
             {blogPosts.map((post, index) => (
-              <article key={index} className="bg-white rounded-xl shadow-sm border border-gray-100 hover:shadow-lg transition-all duration-300 overflow-hidden group">
+              <article key={index} className={`bg-white rounded-xl shadow-sm border border-gray-100 hover:shadow-lg transition-all duration-300 overflow-hidden group animate-on-scroll ${index % 3 === 1 ? 'animate-delay-200' : index % 3 === 2 ? 'animate-delay-300' : ''}`}>
                 <div className="relative overflow-hidden">
                   <img
                     src={post.image}
@@ -117,7 +198,7 @@ const ResourcesPage = () => {
                     <Calendar className="h-4 w-4 mr-1" />
                     {post.date}
                     <span className="mx-2">•</span>
-                    {post.readTime}
+                    {post.readTime}r
                   </div>
                   <h3 className="text-xl font-bold text-gray-900 mb-3 group-hover:text-blue-600 transition-colors">
                     {post.title}
@@ -125,10 +206,6 @@ const ResourcesPage = () => {
                   <p className="text-gray-600 mb-4 leading-relaxed">
                     {post.excerpt}
                   </p>
-                  <button className="text-blue-600 hover:text-blue-700 font-semibold flex items-center">
-                    Read More
-                    <ArrowRight className="ml-2 h-4 w-4" />
-                  </button>
                 </div>
               </article>
             ))}
@@ -137,7 +214,7 @@ const ResourcesPage = () => {
       </section>
 
       {/* Whitepapers Section */}
-      <section className="py-20 bg-gray-50">
+      <section className="py-16 bg-gray-50">
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
           <div className="text-center mb-16">
             <h2 className="text-4xl font-bold text-gray-900 mb-4">
@@ -167,7 +244,7 @@ const ResourcesPage = () => {
                   <p className="text-gray-600 mb-6 leading-relaxed">
                     {whitepaper.description}
                   </p>
-                  <button className="bg-blue-600 hover:bg-blue-700 text-white px-6 py-3 rounded-lg font-semibold transition-all w-full flex items-center justify-center">
+                  <button className="px-6 py-3 rounded-lg font-semibold transition-all w-full flex items-center justify-center" style={{background: 'rgb(255, 255, 255)', color: 'rgb(0, 0, 0)'}}>
                     <Download className="mr-2 h-4 w-4" />
                     Download Free
                   </button>
@@ -178,66 +255,90 @@ const ResourcesPage = () => {
         </div>
       </section>
 
-      {/* Webinars Section */}
-      <section className="py-20 bg-white">
+      
+
+      {/* Comprehensive Webinar Section */}
+      <section className="py-16 bg-white">
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
           <div className="text-center mb-16">
-            <h2 className="text-4xl font-bold text-gray-900 mb-4">
-              Upcoming Webinars
+            {/* <div className="inline-flex items-center px-6 py-3 bg-blue-100 rounded-full mb-6">
+              <Play className="w-5 h-5 text-blue-600 mr-2" />
+              <span className="text-blue-800 font-semibold">Expert Webinars</span>
+            </div> */}
+            {/* <h2 className="text-4xl md:text-5xl font-bold text-gray-900 mb-6">
+              Learn from Industry Experts
             </h2>
-            <p className="text-xl text-gray-600 max-w-3xl mx-auto">
-              Join our experts for live sessions on testing best practices and SimplifyQA features.
-            </p>
+            <p className="text-xl text-gray-600 max-w-4xl mx-auto leading-relaxed">
+              Join our live sessions and access our extensive library of on-demand webinars covering 
+              everything from automation basics to advanced enterprise strategies.
+            </p> */}
           </div>
-          
-          <div className="grid grid-cols-1 md:grid-cols-2 gap-8">
-            {webinars.map((webinar, index) => (
-              <div key={index} className="bg-white rounded-xl shadow-sm border border-gray-100 hover:shadow-lg transition-all duration-300 overflow-hidden">
-                <div className="relative">
-                  <img
-                    src={webinar.image}
-                    alt={webinar.title}
-                    className="w-full h-48 object-cover"
-                  />
-                  <div className="absolute inset-0 bg-black bg-opacity-40 flex items-center justify-center">
-                    <Play className="h-16 w-16 text-white opacity-80" />
-                  </div>
-                </div>
-                <div className="p-6">
-                  <h3 className="text-xl font-bold text-gray-900 mb-3">
-                    {webinar.title}
-                  </h3>
-                  <div className="flex items-center text-gray-600 mb-2">
-                    <Users className="h-4 w-4 mr-2" />
-                    {webinar.presenter}
-                  </div>
-                  <div className="flex items-center text-gray-600 mb-6">
-                    <Calendar className="h-4 w-4 mr-2" />
-                    {webinar.date} at {webinar.time}
-                  </div>
-                  <button className="bg-blue-600 hover:bg-blue-700 text-white px-6 py-3 rounded-lg font-semibold transition-all w-full">
-                    Register Now
-                  </button>
-                </div>
-              </div>
-            ))}
-          </div>
-        </div>
-      </section>
 
-      {/* CTA Section */}
-      <section className="py-20 bg-gradient-to-r from-blue-600 to-cyan-600">
-        <div className="max-w-4xl mx-auto text-center px-4 sm:px-6 lg:px-8">
-          <h2 className="text-4xl font-bold text-white mb-6">
-            Get Started with SimplifyQA Today
-          </h2>
-          <p className="text-xl text-blue-100 mb-8">
-            Ready to put your new knowledge into practice? Start your free trial now.
-          </p>
-          <button className="bg-white hover:bg-gray-50 text-blue-600 px-8 py-4 rounded-lg text-lg font-semibold transition-all transform hover:scale-105 flex items-center mx-auto">
-            Start Free Trial
-            <ArrowRight className="ml-2 h-5 w-5" />
-          </button>
+          {/* Upcoming Webinar Spotlight */}
+          {/* <div className="bg-gradient-to-br from-blue-600 to-purple-700 rounded-3xl p-12 mb-16 text-white relative overflow-hidden">
+            <div className="absolute top-0 right-0 w-64 h-64 bg-white opacity-5 rounded-full -translate-y-32 translate-x-32"></div>
+            <div className="absolute bottom-0 left-0 w-48 h-48 bg-white opacity-5 rounded-full translate-y-24 -translate-x-24"></div> */}
+            
+          
+          {/* </div> */}
+
+          {/* Past Webinars Library */}
+          <div>
+            <div className="flex justify-between items-center mb-12">
+              <div>
+                <h3 className="text-3xl font-bold text-gray-900 mb-2">On-Demand Webinar Library</h3>
+                <p className="text-lg text-gray-600">Access our complete collection of expert-led sessions</p>
+              </div>
+              <button className="hidden md:flex px-6 py-3 rounded-lg font-semibold transition-all items-center" style={{background: 'rgb(255, 255, 255)', color: 'rgb(0, 0, 0)'}}>
+                View All Sessions
+                <ExternalLink className="ml-2 h-4 w-4" />
+              </button>
+            </div>
+            
+            <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8">
+              {pastWebinars.map((webinar, index) => (
+                <div key={index} className="bg-white rounded-xl shadow-sm border border-gray-100 hover:shadow-lg transition-all duration-300 overflow-hidden group cursor-pointer">
+                  <div className="relative">
+                    <img
+                      src={webinar.thumbnail}
+                      alt={webinar.title}
+                      className="w-full h-40 object-cover group-hover:scale-105 transition-transform duration-300"
+                    />
+                    <div className="absolute inset-0 bg-black bg-opacity-40 flex items-center justify-center opacity-0 group-hover:opacity-100 transition-opacity duration-300">
+                      <div className="bg-white/20 backdrop-blur-sm rounded-full p-4">
+                        <Play className="h-8 w-8 text-white" />
+                      </div>
+                    </div>
+                    <div className="absolute top-3 right-3 bg-black bg-opacity-70 text-white text-xs px-3 py-1 rounded-full font-medium">
+                      {webinar.duration}
+                    </div>
+                    <div className="absolute bottom-3 left-3 bg-blue-600 text-white text-xs px-3 py-1 rounded-full font-medium">
+                      {webinar.views.toLocaleString()} views
+                    </div>
+                  </div>
+                  <div className="p-6">
+                    <h4 className="text-lg font-bold text-gray-900 mb-3 line-clamp-2 group-hover:text-blue-600 transition-colors">
+                      {webinar.title}
+                    </h4>
+                    <div className="flex items-center text-sm text-gray-600 mb-4">
+                      <Users className="h-4 w-4 mr-2" />
+                      <span className="font-medium">{webinar.presenter}</span>
+                    </div>
+                    <div className="flex items-center justify-between">
+                      <div className="flex items-center text-sm text-gray-500">
+                        <Calendar className="h-4 w-4 mr-1" />
+                        <span>{webinar.date}</span>
+                      </div>
+                      <button className="font-semibold text-sm flex items-center" style={{background: 'rgb(255, 255, 255)', color: 'rgb(0, 0, 0)'}}>
+                        Watch Now
+                        <ArrowRight className="ml-1 h-3 w-3" />
+                      </button>
+                    </div>
+                  </div>
+                </div>
+              ))}
+            </div>
+          </div>
         </div>
       </section>
     </div>

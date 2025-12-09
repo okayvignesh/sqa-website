@@ -1,16 +1,15 @@
-import React from 'react';
-import { BrowserRouter as Router, Routes, Route } from 'react-router-dom';
-import Navbar from './components/Navbar';
+import { Route, BrowserRouter as Router, Routes } from 'react-router-dom';
 import Footer from './components/Footer';
-import HomePage from './pages/HomePage';
-import FeaturesPage from './pages/FeaturesPage';
-import SolutionsPage from './pages/SolutionsPage';
-import IntegrationsPage from './pages/IntegrationsPage';
-import PricingPage from './pages/PricingPage';
-import ResourcesPage from './pages/ResourcesPage';
+import Navbar from './components/Navbar';
 import AboutPage from './pages/AboutPage';
 import ContactPage from './pages/ContactPage';
 import CustomerSuccessPage from './pages/CustomerSuccessPage';
+import HomePage from './pages/HomePage';
+import IntegrationsPage from './pages/IntegrationsPage';
+import PricingPage from './pages/PricingPage';
+import RequestDemoPage from './pages/RequestDemoPage';
+import ResourcesPage from './pages/ResourcesPage';
+import SolutionsPage from './pages/SolutionsPage';
 
 function App() {
   return (
@@ -27,6 +26,7 @@ function App() {
             <Route path="/about" element={<AboutPage />} />
             <Route path="/contact" element={<ContactPage />} />
             <Route path="/customer-success" element={<CustomerSuccessPage />} />
+            <Route path="/request-demo" element={<RequestDemoPage />} />
           </Routes>
         </main>
         <Footer />

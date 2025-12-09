@@ -1,30 +1,38 @@
-import React from 'react';
+import { FileText, Linkedin, Mail, MessageCircle } from 'lucide-react';
 import { Link } from 'react-router-dom';
-import { TestTube2, Mail, Phone, MapPin, Linkedin, Twitter, Github, Play, MessageCircle, FileText, Shield } from 'lucide-react';
 
 const Footer = () => {
   return (
-    <footer className="bg-gray-900 text-white">
+    <footer className="text-white" style={{ background: 'linear-gradient(180deg, #06132d 0%, #040b1a 100%)' }}>
       <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-12">
         <div className="grid grid-cols-1 md:grid-cols-5 gap-8">
           <div className="col-span-1 md:col-span-2">
             <div className="flex items-center space-x-2 mb-4">
-              <TestTube2 className="h-8 w-8 text-blue-400" />
-              <span className="text-xl font-bold">SimplifyQA</span>
+              {/* <TestTube2 className="h-8 w-8 text-blue-400" />
+              <span className="text-xl font-bold">SimplifyQA</span> */}
+              <Link 
+                to="/" 
+                className="flex items-center space-x-2 group"
+                onClick={() => window.scrollTo({ top: 0, behavior: 'smooth' })}
+              >
+              <img 
+                src="/simplify_logo.svg" 
+                alt="SimplifyQA" 
+                className="h-4 w-auto"
+              />
+            </Link>
             </div>
             <p className="text-gray-400 mb-6 max-w-md">
-              Streamline your testing workflows with our AI-powered automation platform. 
-              Built for modern development teams who demand quality and speed.
+              Streamline your product workflows with our AI-powered Application Lifecycle Management platform. Built for modern teams who demand quality and speed.
             </p>
             <div className="flex space-x-4">
-              <a href="#" className="text-gray-400 hover:text-white transition-colors">
+              <a href="https://www.linkedin.com/company/simplifyqa-ai" target="_blank" rel="noopener noreferrer" className="text-gray-400 hover:text-white transition-colors">
                 <Linkedin className="h-5 w-5" />
               </a>
-              <a href="#" className="text-gray-400 hover:text-white transition-colors">
-                <Twitter className="h-5 w-5" />
-              </a>
-              <a href="#" className="text-gray-400 hover:text-white transition-colors">
-                <Github className="h-5 w-5" />
+              <a href="https://www.youtube.com/@simplify3xQA" target="_blank" rel="noopener noreferrer" className="text-gray-400 hover:text-white transition-colors">
+                <svg className="h-5 w-5" fill="currentColor" viewBox="0 0 24 24">
+                  <path d="M23.498 6.186a3.016 3.016 0 0 0-2.122-2.136C19.505 3.545 12 3.545 12 3.545s-7.505 0-9.377.505A3.017 3.017 0 0 0 .502 6.186C0 8.07 0 12 0 12s0 3.93.502 5.814a3.016 3.016 0 0 0 2.122 2.136c1.871.505 9.376.505 9.376.505s7.505 0 9.377-.505a3.015 3.015 0 0 0 2.122-2.136C24 15.93 24 12 24 12s0-3.93-.502-5.814zM9.545 15.568V8.432L15.818 12l-6.273 3.568z"/>
+                </svg>
               </a>
             </div>
           </div>
@@ -32,9 +40,48 @@ const Footer = () => {
           <div>
             <h3 className="text-sm font-semibold text-white uppercase tracking-wider mb-4">Product</h3>
             <ul className="space-y-2">
-              <li><Link to="/features" className="text-gray-400 hover:text-white transition-colors">Features</Link></li>
-              <li><Link to="/solutions" className="text-gray-400 hover:text-white transition-colors">Solutions</Link></li>
-              <li><Link to="/integrations" className="text-gray-400 hover:text-white transition-colors">Integrations</Link></li>
+              <li>
+                <a
+                  href="/#why-choose-simplifyqa"
+                  onClick={(e) => {
+                    e.preventDefault();
+                    const el = document.getElementById('why-choose-simplifyqa');
+                    if (el) el.scrollIntoView({ behavior: 'smooth' });
+                    else window.location.href = '/?scrollTo=why-choose-simplifyqa';
+                  }}
+                  className="text-gray-400 hover:text-white transition-colors cursor-pointer"
+                >
+                  Why Choose SimplifyQA
+                </a>
+              </li>
+              <li>
+                <a
+                  href="/#feature-showcase"
+                  onClick={(e) => {
+                    e.preventDefault();
+                    const el = document.getElementById('feature-showcase');
+                    if (el) el.scrollIntoView({ behavior: 'smooth' });
+                    else window.location.href = '/?scrollTo=feature-showcase';
+                  }}
+                  className="text-gray-400 hover:text-white transition-colors cursor-pointer"
+                >
+                  AI Features
+                </a>
+              </li>
+              <li>
+                <a
+                  href="/#honeycomb-grid"
+                  onClick={(e) => {
+                    e.preventDefault();
+                    const el = document.getElementById('honeycomb-grid');
+                    if (el) el.scrollIntoView({ behavior: 'smooth' });
+                    else window.location.href = '/?scrollTo=honeycomb-grid';
+                  }}
+                  className="text-gray-400 hover:text-white transition-colors cursor-pointer"
+                >
+                  Integrations
+                </a>
+              </li>
               <li><Link to="/pricing" className="text-gray-400 hover:text-white transition-colors">Pricing</Link></li>
             </ul>
           </div>
@@ -43,82 +90,33 @@ const Footer = () => {
             <h3 className="text-sm font-semibold text-white uppercase tracking-wider mb-4">Resources</h3>
             <ul className="space-y-2">
               <li>
-                <a href="#" className="text-gray-400 hover:text-white transition-colors flex items-center">
-                  <Play className="h-4 w-4 mr-2" />
-                  Webinars
-                </a>
-              </li>
-              <li>
-                <a href="https://discord.gg/simplifyqa" target="_blank" rel="noopener noreferrer" className="text-gray-400 hover:text-white transition-colors flex items-center">
+                <a href="https://discord.gg/e58NZySa2T" target="_blank" rel="noopener noreferrer" className="text-gray-400 hover:text-white transition-colors flex items-center">
                   <MessageCircle className="h-4 w-4 mr-2" />
                   Join Discord
                 </a>
               </li>
               <li>
-                <a href="#" className="text-gray-400 hover:text-white transition-colors flex items-center">
+                <a href="https://docs.simplifyqa.ai/" target="_blank" rel="noopener noreferrer" className="text-gray-400 hover:text-white transition-colors flex items-center">
                   <FileText className="h-4 w-4 mr-2" />
                   Help Documents
                 </a>
               </li>
-              <li><Link to="/resources" className="text-gray-400 hover:text-white transition-colors">Blog & Guides</Link></li>
             </ul>
           </div>
           <div>
             <h3 className="text-sm font-semibold text-white uppercase tracking-wider mb-4">Company</h3>
             <ul className="space-y-2">
-              <li><Link to="/about" className="text-gray-400 hover:text-white transition-colors">About Us</Link></li>
-              <li><Link to="/customer-success" className="text-gray-400 hover:text-white transition-colors">Customer Success</Link></li>
-              <li><Link to="/contact" className="text-gray-400 hover:text-white transition-colors">Contact</Link></li>
-              <li><a href="#" className="text-gray-400 hover:text-white transition-colors">Careers</a></li>
+              <li><Link to="/about" className="text-gray-400 hover:text-white transition-colors">Our Story</Link></li>
             </ul>
           </div>
         </div>
 
-        {/* Security Certifications */}
-        <div className="border-t border-gray-800 pt-8 mt-8">
-          <div className="mb-6">
-            <h4 className="text-sm font-semibold text-white uppercase tracking-wider mb-4 flex items-center">
-              <Shield className="h-4 w-4 mr-2" />
-              Security & Compliance
-            </h4>
-            <div className="grid grid-cols-2 md:grid-cols-4 lg:grid-cols-6 gap-4">
-              <div className="bg-gray-800 rounded-lg p-3 text-center hover:bg-gray-700 transition-colors">
-                <div className="text-xs font-semibold text-blue-400 mb-1">SOC 2</div>
-                <div className="text-xs text-gray-400">Type II</div>
-              </div>
-              <div className="bg-gray-800 rounded-lg p-3 text-center hover:bg-gray-700 transition-colors">
-                <div className="text-xs font-semibold text-green-400 mb-1">ISO 27001</div>
-                <div className="text-xs text-gray-400">Certified</div>
-              </div>
-              <div className="bg-gray-800 rounded-lg p-3 text-center hover:bg-gray-700 transition-colors">
-                <div className="text-xs font-semibold text-purple-400 mb-1">GDPR</div>
-                <div className="text-xs text-gray-400">Compliant</div>
-              </div>
-              <div className="bg-gray-800 rounded-lg p-3 text-center hover:bg-gray-700 transition-colors">
-                <div className="text-xs font-semibold text-orange-400 mb-1">HIPAA</div>
-                <div className="text-xs text-gray-400">Ready</div>
-              </div>
-              <div className="bg-gray-800 rounded-lg p-3 text-center hover:bg-gray-700 transition-colors">
-                <div className="text-xs font-semibold text-red-400 mb-1">PCI DSS</div>
-                <div className="text-xs text-gray-400">Level 1</div>
-              </div>
-              <div className="bg-gray-800 rounded-lg p-3 text-center hover:bg-gray-700 transition-colors">
-                <div className="text-xs font-semibold text-cyan-400 mb-1">FedRAMP</div>
-                <div className="text-xs text-gray-400">Authorized</div>
-              </div>
-            </div>
-          </div>
-        </div>
         <div className="border-t border-gray-800 pt-8 mt-8">
           <div className="flex flex-col md:flex-row justify-between items-center">
             <div className="flex items-center space-x-6 text-gray-400 text-sm">
               <div className="flex items-center">
                 <Mail className="h-4 w-4 mr-2" />
-                hello@simplifyqa.com
-              </div>
-              <div className="flex items-center">
-                <Phone className="h-4 w-4 mr-2" />
-                +1 (555) 123-4567
+                support@simplify3x.com
               </div>
             </div>
             <div className="mt-4 md:mt-0">
