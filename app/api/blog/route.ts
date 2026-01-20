@@ -125,10 +125,8 @@ export async function POST(request: NextRequest) {
     // Calculate reading time
     const readingTime = calculateReadingTime(content)
 
-    // Set publishedAt if status is PUBLISHED
-    const publishedAt = status === 'PUBLISHED' ? new Date() : null
-
-    const post = await Post.create({
+    // Build post data object
+    const postData: Record<string, unknown> = {
       title,
       slug,
       description,
@@ -143,9 +141,15 @@ export async function POST(request: NextRequest) {
       author: authorId,
       status,
       featured,
-      publishedAt,
       readingTime,
-    })
+    }
+
+    // Set publishedAt only if status is PUBLISHED
+    if (status === 'PUBLISHED') {
+      postData.publishedAt = new Date()
+    }
+
+    const post = await Post.create(postData)
 
     const populatedPost = await Post.findById(post._id)
       .populate('author')

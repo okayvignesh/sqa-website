@@ -32,7 +32,7 @@ async function main() {
     name: 'SimplifyQA Team',
     email: 'team@simplifyqa.ai',
     bio: 'The SimplifyQA team shares insights on test automation and quality engineering.',
-    avatar: null,
+    avatar: '',
   }
 
   const existingAuthor = await Author.findOne({ email: author.email })

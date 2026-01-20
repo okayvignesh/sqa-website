@@ -68,7 +68,7 @@ export async function POST(request: NextRequest) {
       url,
       mimeType: file.type,
       size: file.size,
-      alt: alt || null,
+      alt: alt || '',
     })
 
     return NextResponse.json({
