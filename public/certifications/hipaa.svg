@@ -1,0 +1,8 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 120 120" fill="none">
+  <circle cx="60" cy="60" r="56" stroke="#DC2626" stroke-width="3" fill="#FEF2F2"/>
+  <circle cx="60" cy="60" r="48" stroke="#EF4444" stroke-width="2" fill="white"/>
+  <path d="M60 30L70 50H50L60 30Z" fill="#DC2626"/>
+  <rect x="55" y="50" width="10" height="25" fill="#DC2626"/>
+  <text x="60" y="92" text-anchor="middle" font-family="Arial, sans-serif" font-size="12" font-weight="bold" fill="#DC2626">HIPAA</text>
+  <text x="60" y="104" text-anchor="middle" font-family="Arial, sans-serif" font-size="8" fill="#64748B">COMPLIANT</text>
+</svg>

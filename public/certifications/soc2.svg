@@ -1,0 +1,9 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 120 120" fill="none">
+  <circle cx="60" cy="60" r="56" stroke="#1E40AF" stroke-width="3" fill="#EFF6FF"/>
+  <circle cx="60" cy="60" r="48" stroke="#3B82F6" stroke-width="2" fill="white"/>
+  <path d="M60 25L65 35H55L60 25Z" fill="#1E40AF"/>
+  <text x="60" y="58" text-anchor="middle" font-family="Arial, sans-serif" font-size="14" font-weight="bold" fill="#1E40AF">SOC 2</text>
+  <text x="60" y="73" text-anchor="middle" font-family="Arial, sans-serif" font-size="10" fill="#3B82F6">TYPE II</text>
+  <path d="M40 85h40" stroke="#1E40AF" stroke-width="2"/>
+  <text x="60" y="98" text-anchor="middle" font-family="Arial, sans-serif" font-size="8" fill="#64748B">CERTIFIED</text>
+</svg>

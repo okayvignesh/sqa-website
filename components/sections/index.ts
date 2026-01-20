@@ -1,0 +1,8 @@
+export { Hero } from './hero'
+export { TrustedBy } from './trusted-by'
+export { Capabilities } from './capabilities'
+export { Results } from './results'
+export { HowItWorks } from './how-it-works'
+export { Testimonial } from './testimonial'
+export { Certifications } from './certifications'
+export { CTASection } from './cta-section'
