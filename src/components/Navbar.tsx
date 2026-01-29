@@ -87,17 +87,6 @@ const Navbar = () => {
               >
                 Pricing
               </Link>
-              {/* <Link
-                to="/resources"
-                className={`font-medium transition-colors duration-200 ${
-                  isActive('/resources')
-                    ? 'text-purple-600'
-                    : 'text-gray-300 hover:text-purple-600'
-                }`}
-              >
-                Resources
-              </Link> */}
-              
               <Link
                 to="/about"
                 className={`font-medium transition-colors duration-200 ${

@@ -56,7 +56,7 @@ const Hero = () => {
 
       <div className="relative max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-16" style={{zoom: 1.1}}>
         {/* Main Content */}
-        <div className="text-center mb-16">
+        <div className="text-center mb-16 mt-4">
           {/* AI Badge */}
           <div className="inline-flex items-center px-4 py-2 bg-blue-500/20 backdrop-blur-sm border border-blue-400/30 rounded-full text-blue-300 font-medium mb-6">
             <Brain className="w-4 h-4 mr-2" />

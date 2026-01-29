@@ -1,4 +1,5 @@
 import {
+  ArrowRight,
   BarChart3,
   Bug,
   Calendar,
@@ -16,6 +17,7 @@ import {
   Zap
 } from 'lucide-react';
 import React, { useEffect, useState } from 'react';
+import BlogCard from '../components/BlogCard';
 import ClientLogoSlider from '../components/ClientLogoSlider';
 import DemoRequestForm from '../components/DemoRequestForm';
 import Hero from '../components/Hero';
@@ -27,6 +29,8 @@ import PlatformArchitectureShowcase from '../components/PlatformArchitectureShow
 import SuccessStoriesCarousel from '../components/SuccessStoriesCarousel';
 import { TrialForm } from '../components/TrialForm';
 import WhyChooseTechBackground from '../components/WhyChooseTechBackground';
+import { blogPosts } from '../utils/blogData';
+import { Link } from 'react-router-dom';
 
 const HomePage = () => {
   const [isLoaded, setIsLoaded] = useState(false);
@@ -505,8 +509,69 @@ const HomePage = () => {
 
 
 
+      {/* Blog Section */}
+      <section className="py-20 px-4">
+        <div className="max-w-6xl mx-auto">
+          {/* Section Header */}
+          <div className="flex items-center justify-between mb-10 animate-on-scroll">
+            <h2 className="text-3xl md:text-4xl font-bold text-white">
+              Latest Blogs
+            </h2>
+{/* <Link
+              to="/blog"
+              className="px-6 py-2 border border-gray-600 rounded-full text-white hover:border-cyan-400 hover:text-cyan-400 transition-colors text-sm"
+            >
+              View blog
+            </Link> */}
+          </div>
+
+          {/* Blog Cards Grid */}
+          <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8">
+            {blogPosts.slice(0, 3).map((post, index) => (
+              <div
+                key={post.id}
+                className={`group animate-on-scroll ${
+                  index % 3 === 1 ? 'animate-delay-200' : index % 3 === 2 ? 'animate-delay-300' : ''
+                }`}
+              >
+                {/* Image */}
+                <Link to={`/blog/${post.slug}`} className="block mb-4">
+                  <div className="relative overflow-hidden rounded-2xl aspect-square bg-gray-900">
+                    <img
+                      src={post.featuredImage}
+                      alt={post.title}
+                      className="w-full h-full object-cover group-hover:scale-105 transition-transform duration-500"
+                    />
+                  </div>
+                </Link>
+
+                {/* Content */}
+                <div>
+                  <Link to={`/blog/${post.slug}`}>
+                    <h3 className="text-xl font-semibold text-white mb-3 group-hover:text-cyan-400 transition-colors leading-tight">
+                      {post.title}
+                    </h3>
+                  </Link>
+                  <div className="flex items-center gap-3 text-sm text-gray-400 mb-3">
+                    <span>{post.publishedDate}</span>
+                    <span>{post.category}</span>
+                  </div>
+                  <Link
+                    to={`/blog/${post.slug}`}
+                    className="inline-flex items-center text-sm text-gray-400 hover:text-cyan-400 transition-colors"
+                  >
+                    Read blog
+                    <ArrowRight className="ml-1 h-3 w-3" />
+                  </Link>
+                </div>
+              </div>
+            ))}
+          </div>
+        </div>
+      </section>
+
       {/* Compliance Badges Section */}
-      <section 
+      <section
         className="py-16"
       >
         <div className="max-w-4xl mx-auto px-4 sm:px-6 lg:px-8 animate-on-scroll" id="compliance-badges">
@@ -515,7 +580,7 @@ const HomePage = () => {
           Our Certifications & Compliance
           </h2>
           <p className="text-base md:text-lg lg:text-xl text-blue-100 max-w-3xl mx-auto leading-relaxed">
-          Real stories of how we helped enterprises conquer technical debt, crush bottlenecks, and modernize their QA. 
+          Real stories of how we helped enterprises conquer technical debt, crush bottlenecks, and modernize their QA.
           </p>
         </div>
           <div className="flex flex-col sm:flex-row items-center justify-center gap-8 sm:gap-12 md:gap-16 lg:gap-20">
