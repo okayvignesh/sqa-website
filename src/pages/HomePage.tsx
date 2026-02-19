@@ -517,12 +517,12 @@ const HomePage = () => {
             <h2 className="text-3xl md:text-4xl font-bold text-white">
               Latest Blogs
             </h2>
-{/* <Link
+            <Link
               to="/blog"
               className="px-6 py-2 border border-gray-600 rounded-full text-white hover:border-cyan-400 hover:text-cyan-400 transition-colors text-sm"
             >
               View blog
-            </Link> */}
+            </Link>
           </div>
 
           {/* Blog Cards Grid */}

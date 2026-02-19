@@ -1,5 +1,5 @@
-import { X, Loader2 } from 'lucide-react';
-import React, { useEffect, useRef, useState } from 'react';
+import { X } from 'lucide-react';
+import React, { useEffect, useRef } from 'react';
 
 interface CalendlyPopupProps {
   isOpen: boolean;
@@ -21,7 +21,6 @@ declare global {
 
 const CalendlyPopup: React.FC<CalendlyPopupProps> = ({ isOpen, onClose }) => {
   const calendlyContainerRef = useRef<HTMLDivElement>(null);
-  const [isLoading, setIsLoading] = useState(true);
 
   // Prevent background scrolling when popup is open
   useEffect(() => {
@@ -40,29 +39,19 @@ const CalendlyPopup: React.FC<CalendlyPopupProps> = ({ isOpen, onClose }) => {
   useEffect(() => {
     if (!isOpen || !calendlyContainerRef.current) return;
 
-    setIsLoading(true);
-
     const initCalendly = () => {
       if (window.Calendly && calendlyContainerRef.current) {
-        // Clear the container first
         calendlyContainerRef.current.innerHTML = '';
-
-        // Initialize Calendly widget
         window.Calendly.initInlineWidget({
           url: 'https://calendly.com/ankita-simplify3x/new-meeting?hide_gdpr_banner=1',
           parentElement: calendlyContainerRef.current,
         });
-
-        // Hide loader after widget loads
-        setTimeout(() => setIsLoading(false), 1500);
       }
     };
 
-    // Check if Calendly is already loaded
     if (window.Calendly) {
       initCalendly();
     } else {
-      // Wait for Calendly to load
       const checkCalendly = setInterval(() => {
         if (window.Calendly) {
           clearInterval(checkCalendly);
@@ -70,7 +59,6 @@ const CalendlyPopup: React.FC<CalendlyPopupProps> = ({ isOpen, onClose }) => {
         }
       }, 100);
 
-      // Cleanup interval after 10 seconds
       setTimeout(() => clearInterval(checkCalendly), 10000);
     }
   }, [isOpen]);
@@ -88,13 +76,6 @@ const CalendlyPopup: React.FC<CalendlyPopupProps> = ({ isOpen, onClose }) => {
         >
           <X className="h-6 w-6" />
         </button>
-
-        {/* Loader */}
-        {isLoading && (
-          <div className="absolute inset-0 flex items-center justify-center z-20">
-            <Loader2 className="w-12 h-12 text-cyan-400 animate-spin" />
-          </div>
-        )}
 
         {/* Calendly widget container */}
         <div
