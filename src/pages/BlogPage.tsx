@@ -1,3 +1,22 @@
+import { useEffect } from 'react';
+import { useNavigate } from 'react-router-dom';
+
+// Blog page content commented out - will enable when blog posts exceed 4
+// Redirects to homepage blog section for now
+
+const BlogPage = () => {
+  const navigate = useNavigate();
+
+  useEffect(() => {
+    navigate('/#blog-section', { replace: true });
+  }, [navigate]);
+
+  return null;
+};
+
+export default BlogPage;
+
+/* COMMENTED OUT - Original BlogPage content (enable when blogs > 4)
 import { Search, Tag } from 'lucide-react';
 import { useEffect, useState } from 'react';
 import BlogCard from '../components/BlogCard';
@@ -15,7 +34,6 @@ const BlogPage = () => {
   const [selectedCategory, setSelectedCategory] = useState<string>('All');
   const [selectedTag, setSelectedTag] = useState<string>('');
 
-  // Filter blog posts based on search and filters
   const filteredPosts = blogPosts.filter(post => {
     const matchesSearch =
       post.title.toLowerCase().includes(searchQuery.toLowerCase()) ||
@@ -33,7 +51,6 @@ const BlogPage = () => {
 
   return (
     <div className="pt-16">
-      {/* Hero Section */}
       <section className="py-20 px-4" style={{ background: 'linear-gradient(180deg, #09152f 0%, #0f172a 100%)' }}>
         <div className="max-w-7xl mx-auto text-center">
           <h1 className="text-5xl md:text-6xl font-bold text-white mb-6 animate-on-scroll">
@@ -44,7 +61,6 @@ const BlogPage = () => {
             Insights, best practices, and innovations in software testing and quality assurance
           </p>
 
-          {/* Search Bar */}
           <div className="max-w-2xl mx-auto animate-on-scroll animate-delay-300">
             <div className="relative">
               <Search className="absolute left-4 top-1/2 transform -translate-y-1/2 h-5 w-5 text-gray-400" />
@@ -60,7 +76,6 @@ const BlogPage = () => {
         </div>
       </section>
 
-      {/* Category Filter */}
       <section className="py-8 px-4 border-b border-gray-800">
         <div className="max-w-7xl mx-auto">
           <div className="flex flex-wrap gap-3 justify-center">
@@ -97,7 +112,6 @@ const BlogPage = () => {
         </div>
       </section>
 
-      {/* Tags Section */}
       <section className="py-6 px-4 bg-gray-900/30">
         <div className="max-w-7xl mx-auto">
           <div className="flex items-center flex-wrap gap-2">
@@ -131,7 +145,6 @@ const BlogPage = () => {
         </div>
       </section>
 
-      {/* Featured Post */}
       {selectedCategory === 'All' && !searchQuery && !selectedTag && (
         <section className="py-12 px-4">
           <div className="max-w-7xl mx-auto">
@@ -140,7 +153,6 @@ const BlogPage = () => {
         </section>
       )}
 
-      {/* Blog Grid */}
       <section className="py-12 px-4">
         <div className="max-w-7xl mx-auto">
           {filteredPosts.length === 0 ? (
@@ -180,7 +192,6 @@ const BlogPage = () => {
         </div>
       </section>
 
-      {/* CTA Section */}
       <section className="py-20 px-4" style={{ background: 'linear-gradient(180deg, #0f172a 0%, #09152f 100%)' }}>
         <div className="max-w-4xl mx-auto text-center">
           <h2 className="text-4xl font-bold text-white mb-6 animate-on-scroll">
@@ -212,3 +223,4 @@ const BlogPage = () => {
 };
 
 export default BlogPage;
+*/

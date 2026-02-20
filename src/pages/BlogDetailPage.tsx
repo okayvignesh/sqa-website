@@ -24,7 +24,7 @@ const BlogDetailPage = () => {
           <h1 className="text-4xl font-bold text-white mb-4">Post Not Found</h1>
           <p className="text-gray-400 mb-8">The blog post you're looking for doesn't exist.</p>
           <Link
-            to="/blog"
+            to="/#blog-section"
             className="inline-flex items-center px-6 py-3 rounded-lg font-semibold transition-all"
             style={{ background: '#26c8ef', color: '#000' }}
           >
@@ -43,7 +43,7 @@ const BlogDetailPage = () => {
       {/* Back Button */}
       <div className="max-w-5xl mx-auto px-4 py-8">
         <button
-          onClick={() => navigate('/blog')}
+          onClick={() => navigate('/#blog-section')}
           className="inline-flex items-center text-gray-400 hover:text-cyan-400 transition-colors"
         >
           <ArrowLeft className="mr-2 h-4 w-4" />
