@@ -2,13 +2,13 @@ import { motion } from 'framer-motion';
 import { ArrowRight, Plug } from 'lucide-react';
 import { Link } from 'react-router-dom';
 import { Container, Eyebrow, Reveal } from '../../design';
+import { integrations } from '../data/integrations';
 
-const integrations = [
-  'Jira', 'GitLab', 'GitHub', 'Jenkins', 'Azure DevOps', 'Bitbucket',
-  'Slack', 'Teams', 'ServiceNow', 'Salesforce', 'SAP', 'Selenium',
-  'Appium', 'Postman', 'Cypress', 'Playwright', 'Datadog', 'Splunk',
-  'Okta', 'Azure AD', 'AWS', 'GCP', 'Kubernetes', 'Docker',
-];
+// Pick a curated set for the home section — visually balanced across categories
+const featured = [
+  'Jira', 'Slack', 'Microsoft Teams', 'GitHub', 'GitLab', 'Jenkins',
+  'Azure DevOps', 'AWS', 'Postman', 'Selenium', 'Playwright', 'BrowserStack',
+].map((n) => integrations.find((t) => t.name === n)!).filter(Boolean);
 
 export default function Integrations() {
   return (
@@ -26,8 +26,9 @@ export default function Integrations() {
             </Reveal>
             <Reveal delay={0.1}>
               <p className="mt-5 text-[17px] text-ink-500 max-w-xl">
-                100+ deep integrations across project management, version control, CI/CD,
-                identity, observability, and enterprise apps. Two-way sync — not just webhooks.
+                Deep, two-way integrations across project management, source control, CI/CD,
+                chat, cloud, identity, and test grids. Drop SimplifyQA into your stack —
+                not the other way around.
               </p>
             </Reveal>
 
@@ -46,22 +47,24 @@ export default function Integrations() {
           <div className="relative">
             <div aria-hidden className="absolute -inset-8 rounded-[40px] bg-mesh opacity-70 -z-10" />
             <div className="grid grid-cols-4 gap-3 sm:gap-4">
-              {integrations.map((name, i) => (
+              {featured.map((tool, i) => (
                 <motion.div
-                  key={name}
+                  key={tool.name}
                   initial={{ opacity: 0, y: 10, scale: 0.96 }}
                   whileInView={{ opacity: 1, y: 0, scale: 1 }}
                   viewport={{ once: true, margin: '-40px' }}
                   transition={{ duration: 0.5, delay: (i % 8) * 0.04, ease: [0.16, 1, 0.3, 1] }}
                   whileHover={{ y: -4 }}
-                  className="aspect-square rounded-2xl glass-card grid place-items-center text-center px-2"
+                  className="aspect-square rounded-2xl glass-card flex items-center justify-center p-4"
+                  title={tool.name}
                 >
-                  <div>
-                    <div className="mx-auto w-8 h-8 rounded-lg bg-gradient-to-br from-brand-50 to-white border border-brand-100 grid place-items-center">
-                      <span className="text-[11px] font-bold text-brand-700">{name.slice(0,2)}</span>
-                    </div>
-                    <div className="mt-2 text-[11.5px] font-medium text-ink-700 leading-tight">{name}</div>
-                  </div>
+                  <img
+                    src={tool.src}
+                    alt={tool.name}
+                    className="max-w-[64%] max-h-[64%] object-contain"
+                    loading="lazy"
+                    draggable={false}
+                  />
                 </motion.div>
               ))}
             </div>

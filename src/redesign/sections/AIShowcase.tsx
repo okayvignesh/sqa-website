@@ -66,7 +66,7 @@ export default function AIShowcase() {
 
           <Reveal delay={0.25}>
             <div className="mt-8">
-              <Link to="/solutions#ai" className="btn-primary">
+              <Link to="/platform/ai-test-assistant" className="btn-primary">
                 Explore AI Studio
                 <ArrowRight className="w-4 h-4" />
               </Link>

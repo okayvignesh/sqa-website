@@ -2,7 +2,20 @@ import { motion } from 'framer-motion';
 import {
   Bot, FlaskConical, GitBranch, LineChart, ShieldCheck, Sparkles, Workflow, Zap,
 } from 'lucide-react';
-import { Container, Eyebrow, Reveal, RevealGroup, fadeUp } from '../../design';
+import {
+  Container, Eyebrow, Reveal, RevealGroup,
+  fadeFromLeft, fadeFromRight, fadeFromBottom, subtleScale,
+} from '../../design';
+import { certs } from '../data/assets';
+
+// Buttery hover for any bento card — spring lift, no CSS conflict with entrance transforms.
+const cardHover = {
+  whileHover: { y: -4 },
+  transition: { type: 'spring' as const, stiffness: 240, damping: 22 },
+};
+
+const cardBase =
+  'relative rounded-3xl overflow-hidden border border-ink-900/[0.06] bg-white';
 
 export default function BentoFeatures() {
   return (
@@ -26,9 +39,13 @@ export default function BentoFeatures() {
           </Reveal>
         </div>
 
-        <RevealGroup className="mt-14 grid grid-cols-12 gap-4 sm:gap-5">
-          {/* Big AI card */}
-          <motion.div variants={fadeUp} className="col-span-12 lg:col-span-7 relative rounded-3xl overflow-hidden border border-ink-900/[0.06] bg-white lift">
+        <RevealGroup className="mt-14 grid grid-cols-12 gap-4 sm:gap-5" delay={0.11}>
+          {/* AI Studio — big left card · gentle scale-in */}
+          <motion.div
+            variants={subtleScale}
+            {...cardHover}
+            className={`${cardBase} col-span-12 lg:col-span-7`}
+          >
             <div aria-hidden className="absolute inset-0 bg-mesh opacity-60" />
             <div className="relative p-8 sm:p-10">
               <div className="flex items-center gap-2 text-[12.5px] font-semibold text-brand-700">
@@ -58,8 +75,12 @@ export default function BentoFeatures() {
             </div>
           </motion.div>
 
-          {/* Automation */}
-          <motion.div variants={fadeUp} className="col-span-12 lg:col-span-5 relative rounded-3xl overflow-hidden border border-ink-900/[0.06] bg-white p-8 sm:p-10 lift">
+          {/* Automation — right top · slides from right */}
+          <motion.div
+            variants={fadeFromRight}
+            {...cardHover}
+            className={`${cardBase} col-span-12 lg:col-span-5 p-8 sm:p-10`}
+          >
             <div className="flex items-center gap-2 text-[12.5px] font-semibold text-brand-700">
               <Zap className="w-3.5 h-3.5" /> Test Automation
             </div>
@@ -78,8 +99,12 @@ export default function BentoFeatures() {
             </div>
           </motion.div>
 
-          {/* Test Management */}
-          <motion.div variants={fadeUp} className="col-span-12 md:col-span-6 lg:col-span-4 relative rounded-3xl overflow-hidden border border-ink-900/[0.06] bg-white p-7 lift">
+          {/* Test Management — middle row left · slides from left */}
+          <motion.div
+            variants={fadeFromLeft}
+            {...cardHover}
+            className={`${cardBase} col-span-12 md:col-span-6 lg:col-span-4 p-7`}
+          >
             <div className="flex items-center gap-2 text-[12.5px] font-semibold text-brand-700">
               <FlaskConical className="w-3.5 h-3.5" /> Test Management
             </div>
@@ -90,8 +115,12 @@ export default function BentoFeatures() {
             <TraceabilityBars />
           </motion.div>
 
-          {/* Defects */}
-          <motion.div variants={fadeUp} className="col-span-12 md:col-span-6 lg:col-span-4 relative rounded-3xl overflow-hidden border border-ink-900/[0.06] bg-white p-7 lift">
+          {/* Defects — middle row center · rises from below */}
+          <motion.div
+            variants={fadeFromBottom}
+            {...cardHover}
+            className={`${cardBase} col-span-12 md:col-span-6 lg:col-span-4 p-7`}
+          >
             <div className="flex items-center gap-2 text-[12.5px] font-semibold text-brand-700">
               <Bot className="w-3.5 h-3.5" /> Defect Intelligence
             </div>
@@ -113,8 +142,12 @@ export default function BentoFeatures() {
             </div>
           </motion.div>
 
-          {/* Insights */}
-          <motion.div variants={fadeUp} className="col-span-12 md:col-span-12 lg:col-span-4 relative rounded-3xl overflow-hidden border border-ink-900/[0.06] bg-white p-7 lift">
+          {/* Insights — middle row right · slides from right */}
+          <motion.div
+            variants={fadeFromRight}
+            {...cardHover}
+            className={`${cardBase} col-span-12 md:col-span-12 lg:col-span-4 p-7`}
+          >
             <div className="flex items-center gap-2 text-[12.5px] font-semibold text-brand-700">
               <LineChart className="w-3.5 h-3.5" /> Insights & Reports
             </div>
@@ -125,8 +158,12 @@ export default function BentoFeatures() {
             <MiniBars />
           </motion.div>
 
-          {/* Release */}
-          <motion.div variants={fadeUp} className="col-span-12 md:col-span-6 lg:col-span-6 relative rounded-3xl overflow-hidden border border-ink-900/[0.06] bg-white p-8 lift">
+          {/* Release — bottom left · slides from left */}
+          <motion.div
+            variants={fadeFromLeft}
+            {...cardHover}
+            className={`${cardBase} col-span-12 md:col-span-6 lg:col-span-6 p-8`}
+          >
             <div className="flex items-center gap-2 text-[12.5px] font-semibold text-brand-700">
               <GitBranch className="w-3.5 h-3.5" /> Release Orchestration
             </div>
@@ -136,18 +173,40 @@ export default function BentoFeatures() {
             </p>
           </motion.div>
 
-          {/* Security */}
-          <motion.div variants={fadeUp} className="col-span-12 md:col-span-6 lg:col-span-6 relative rounded-3xl overflow-hidden border border-ink-900/[0.06] bg-white p-8 lift">
+          {/* Security — bottom right · slides from right */}
+          <motion.div
+            variants={fadeFromRight}
+            {...cardHover}
+            className={`${cardBase} col-span-12 md:col-span-6 lg:col-span-6 p-8`}
+          >
             <div className="flex items-center gap-2 text-[12.5px] font-semibold text-brand-700">
               <ShieldCheck className="w-3.5 h-3.5" /> Enterprise Security
             </div>
-            <h3 className="mt-3 font-display text-xl text-ink-900">SOC 2, ISO 27001, SSO, RBAC.</h3>
+            <h3 className="mt-3 font-display text-xl text-ink-900">Certified, compliant, and audit-ready.</h3>
             <p className="mt-2 text-[13.5px] text-ink-500 leading-relaxed">
               Built for regulated environments. Single tenant, on-prem, or VPC — your choice.
             </p>
-            <div className="mt-5 flex items-center gap-2 flex-wrap">
-              {['SOC 2', 'ISO 27001', 'GDPR', 'HIPAA', 'SSO/SAML', 'RBAC'].map((b) => (
-                <span key={b} className="text-[11.5px] font-medium text-ink-700 bg-ink-50 border border-ink-100 rounded-full px-2.5 py-1">
+            <div className="mt-6 grid grid-cols-4 gap-3">
+              {certs.map((c) => (
+                <div
+                  key={c.name}
+                  className="aspect-square flex items-center justify-center rounded-2xl bg-white border border-ink-900/[0.06] p-2.5"
+                  title={c.name}
+                >
+                  <img
+                    src={c.src}
+                    alt={c.alt}
+                    className="max-w-full max-h-full object-contain"
+                    loading="lazy"
+                    draggable={false}
+                  />
+                </div>
+              ))}
+            </div>
+            <div className="mt-4 flex items-center gap-2 flex-wrap text-[11.5px] text-ink-500">
+              <span className="font-medium text-ink-700">Also:</span>
+              {['SSO/SAML', 'SCIM', 'RBAC', 'Audit logs', 'BYOK'].map((b) => (
+                <span key={b} className="bg-ink-50 border border-ink-100 rounded-full px-2.5 py-0.5">
                   {b}
                 </span>
               ))}

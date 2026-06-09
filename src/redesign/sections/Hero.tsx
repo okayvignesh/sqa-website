@@ -3,7 +3,8 @@ import {
   ArrowRight, Bot, CheckCircle2, Cpu, FlaskConical, GitBranch, LineChart, Play, Sparkles,
 } from 'lucide-react';
 import { Link } from 'react-router-dom';
-import { Container, GradientOrb, Eyebrow } from '../../design';
+import { Container, Eyebrow } from '../../design';
+import InteractiveDotGrid from '../components/InteractiveDotGrid';
 
 const lifecycleChips = [
   { icon: <FlaskConical className="w-3.5 h-3.5" />, label: 'Plan' },
@@ -17,14 +18,10 @@ export default function Hero() {
   const reduce = useReducedMotion();
 
   return (
-    <section className="relative pt-32 sm:pt-36 pb-20 sm:pb-28 overflow-hidden">
-      {/* Background system */}
+    <section className="relative isolate pt-32 sm:pt-36 pb-20 sm:pb-28 overflow-hidden">
+      {/* Background system — plain white. The cursor orb is the only accent. */}
       <div aria-hidden className="absolute inset-0 -z-10">
-        <div className="absolute inset-0 bg-grid" />
-        <div className="absolute inset-0 bg-mesh opacity-90" />
-        <GradientOrb className="-top-40 -left-40" color="brand" size={680} opacity={0.45} />
-        <GradientOrb className="-top-32 -right-32" color="rose" size={620} opacity={0.4} blur={110} />
-        <GradientOrb className="bottom-0 left-1/3" color="plum" size={520} opacity={0.25} blur={120} />
+        <InteractiveDotGrid />
       </div>
 
       <Container size="wide" className="relative">

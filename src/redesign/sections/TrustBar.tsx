@@ -1,10 +1,5 @@
 import { Container } from '../../design';
-
-const logos = [
-  'Atlassian', 'GitLab', 'GitHub', 'Jenkins', 'Azure DevOps',
-  'Jira', 'Slack', 'ServiceNow', 'Salesforce', 'SAP',
-  'Microsoft', 'Oracle', 'AWS',
-];
+import { clients } from '../data/clients';
 
 export default function TrustBar() {
   return (
@@ -14,15 +9,23 @@ export default function TrustBar() {
           Trusted by enterprise QA, automation & engineering teams worldwide
         </p>
 
-        <div className="mt-8 marquee-mask overflow-hidden">
-          <div className="marquee-track gap-12 sm:gap-16">
-            {[...logos, ...logos].map((name, i) => (
+        <div className="mt-10 marquee-mask overflow-hidden">
+          <div className="marquee-track gap-10 sm:gap-14 items-center">
+            {[...clients, ...clients].map((c, i) => (
               <div
-                key={`${name}-${i}`}
-                className="shrink-0 flex items-center justify-center h-10 px-2 text-ink-400/80 font-semibold tracking-tight text-[18px] sm:text-[20px] hover:text-ink-700 transition-colors"
-                aria-label={name}
+                key={`${c.name}-${i}`}
+                className="shrink-0 flex items-center justify-center h-16 w-[140px] sm:w-[160px] opacity-80 hover:opacity-100 transition-opacity"
+                title={c.name}
               >
-                {name}
+                <img
+                  src={c.src}
+                  alt={c.alt}
+                  className="max-h-12 max-w-full object-contain"
+                  draggable={false}
+                  onError={(e) => {
+                    (e.currentTarget as HTMLImageElement).style.display = 'none';
+                  }}
+                />
               </div>
             ))}
           </div>

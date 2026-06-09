@@ -5,19 +5,19 @@ const col = (title: string, items: { label: string; to: string }[]) => ({ title,
 
 const columns = [
   col('Platform', [
-    { label: 'Test Management',  to: '/solutions#test-management' },
-    { label: 'Test Automation',  to: '/solutions#automation' },
-    { label: 'AI Test Assistant', to: '/solutions#ai' },
-    { label: 'Defect Management', to: '/solutions#defects' },
-    { label: 'Release Orchestration', to: '/solutions#release' },
-    { label: 'Insights & Reports', to: '/solutions#insights' },
+    { label: 'Test Management',  to: '/platform/test-management' },
+    { label: 'Test Automation',  to: '/platform/test-automation' },
+    { label: 'AI Test Assistant', to: '/platform/ai-test-assistant' },
+    { label: 'Defect Management', to: '/platform/defect-management' },
+    { label: 'Release Orchestration', to: '/platform/release-orchestration' },
+    { label: 'Insights & Reports', to: '/platform/insights-reports' },
   ]),
   col('Solutions', [
-    { label: 'Enterprise QA',       to: '/solutions#enterprise' },
-    { label: 'Automation Teams',    to: '/solutions#automation-teams' },
-    { label: 'Engineering Leaders', to: '/solutions#leaders' },
-    { label: 'Agile / Scrum',       to: '/solutions#agile' },
-    { label: 'Industries',          to: '/solutions#industries' },
+    { label: 'Enterprise QA',       to: '/solutions/enterprise-qa' },
+    { label: 'Automation Teams',    to: '/solutions/automation-teams' },
+    { label: 'Engineering Leaders', to: '/solutions/engineering-leaders' },
+    { label: 'Agile / Scrum',       to: '/solutions/agile-scrum' },
+    { label: 'Industries',          to: '/solutions/industries' },
   ]),
   col('Resources', [
     { label: 'Docs',         to: '/resources' },
@@ -31,7 +31,7 @@ const columns = [
     { label: 'Customers', to: '/customer-success' },
     { label: 'Pricing',   to: '/pricing' },
     { label: 'Contact',   to: '/contact' },
-    { label: 'Security',  to: '/about#security' },
+    { label: 'Careers',   to: '/careers' },
   ]),
 ];
 
@@ -65,8 +65,8 @@ export default function FooterV2() {
         {/* Link grid */}
         <div className="mt-16 grid grid-cols-2 md:grid-cols-5 gap-10">
           <div className="col-span-2 md:col-span-1">
-            <Link to="/" className="font-display text-xl font-semibold tracking-tight text-ink-900">
-              Simplify<span className="text-brand-600">QA</span>
+            <Link to="/" className="inline-flex items-center" aria-label="SimplifyQA home">
+              <img src="/SimplifyQA%20logo%20Grey.png" alt="SimplifyQA" className="h-5 w-auto" draggable={false} />
             </Link>
             <p className="mt-3 text-[13.5px] text-ink-500 leading-relaxed max-w-[260px]">
               The intelligent ALM and test management platform for modern QA teams.
@@ -104,10 +104,10 @@ export default function FooterV2() {
             © {new Date().getFullYear()} SimplifyQA. All rights reserved.
           </p>
           <div className="flex items-center gap-5 text-[12.5px] text-ink-400">
-            <Link to="/about#privacy" className="hover:text-ink-700">Privacy</Link>
-            <Link to="/about#terms" className="hover:text-ink-700">Terms</Link>
-            <Link to="/about#security" className="hover:text-ink-700">Security</Link>
-            <Link to="/about#status" className="hover:text-ink-700">Status</Link>
+            <Link to="/privacy" className="hover:text-ink-700">Privacy</Link>
+            <Link to="/terms" className="hover:text-ink-700">Terms</Link>
+            <Link to="/security" className="hover:text-ink-700">Security</Link>
+            <Link to="/status" className="hover:text-ink-700">Status</Link>
           </div>
         </div>
       </div>
