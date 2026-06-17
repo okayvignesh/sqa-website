@@ -1,0 +1,200 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+/* ============================================================
+   SimplifyQA — Premium Light Theme
+   Tokens, base, and utilities for the redesigned experience.
+   ============================================================ */
+
+:root {
+  --brand-50:  #FDF3F4;
+  --brand-100: #FCE3E5;
+  --brand-200: #F7C1C6;
+  --brand-400: #E4646E;
+  --brand-500: #D43846;
+  --brand-600: #B91D2D;
+  --brand-700: #9A1525;
+  --brand-900: #6B1521;
+
+  --ink-50:  #F7F8FA;
+  --ink-100: #EEF0F4;
+  --ink-200: #DDE1E8;
+  --ink-300: #BCC3CF;
+  --ink-400: #8B94A6;
+  --ink-500: #5F6B81;
+  --ink-700: #2B3447;
+  --ink-900: #0E1322;
+
+  --surface:       #FFFFFF;
+  --surface-soft:  #FAFAFB;
+  --surface-warm:  #FBF8F6;
+  --surface-tint:  #FBF5F5;
+
+  --ease-spring: cubic-bezier(0.22, 1, 0.36, 1);
+  --ease-expo:   cubic-bezier(0.16, 1, 0.3, 1);
+}
+
+@layer base {
+  html {
+    -webkit-font-smoothing: antialiased;
+    -moz-osx-font-smoothing: grayscale;
+    text-rendering: optimizeLegibility;
+    scroll-behavior: smooth;
+  }
+
+  html, body {
+    background: var(--surface);
+    color: var(--ink-900);
+    font-family: 'Inter', -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, sans-serif;
+    font-feature-settings: 'cv11', 'ss01', 'ss03';
+  }
+
+  ::selection {
+    background: var(--brand-100);
+    color: var(--brand-900);
+  }
+
+  h1, h2, h3, h4 {
+    font-family: 'Geist', 'Inter', sans-serif;
+    letter-spacing: -0.022em;
+    color: var(--ink-900);
+  }
+}
+
+@layer components {
+  /* === Glass surfaces === */
+  .glass {
+    background: linear-gradient(180deg, rgba(255,255,255,0.85), rgba(255,255,255,0.6));
+    backdrop-filter: saturate(180%) blur(18px);
+    -webkit-backdrop-filter: saturate(180%) blur(18px);
+    border: 1px solid rgba(15, 19, 34, 0.06);
+  }
+
+  .glass-strong {
+    background: linear-gradient(180deg, rgba(255,255,255,0.92), rgba(255,255,255,0.78));
+    backdrop-filter: saturate(180%) blur(24px);
+    -webkit-backdrop-filter: saturate(180%) blur(24px);
+    border: 1px solid rgba(15, 19, 34, 0.08);
+  }
+
+  .glass-card {
+    background: rgba(255, 255, 255, 0.72);
+    backdrop-filter: saturate(160%) blur(14px);
+    -webkit-backdrop-filter: saturate(160%) blur(14px);
+    border: 1px solid rgba(15, 19, 34, 0.06);
+    box-shadow: 0 1px 0 rgba(255,255,255,0.6) inset, 0 8px 30px -10px rgba(15,19,34,0.08);
+  }
+
+  /* === Gradient text === */
+  .gradient-text {
+    background: linear-gradient(120deg, #2B3447 0%, #B91D2D 55%, #6B1521 100%);
+    -webkit-background-clip: text;
+    background-clip: text;
+    -webkit-text-fill-color: transparent;
+    color: transparent;
+  }
+
+  /* === Hairline borders === */
+  .hairline { border: 1px solid rgba(15, 19, 34, 0.07); }
+  .hairline-b { border-bottom: 1px solid rgba(15, 19, 34, 0.07); }
+  .hairline-t { border-top: 1px solid rgba(15, 19, 34, 0.07); }
+
+  /* === Premium button styles === */
+  .btn-primary {
+    @apply inline-flex items-center justify-center gap-2 px-5 py-3 rounded-full text-sm font-medium text-white relative overflow-hidden;
+    background: linear-gradient(180deg, #C8253A 0%, #B91D2D 60%, #9A1525 100%);
+    box-shadow: 0 1px 0 rgba(255,255,255,0.25) inset, 0 10px 30px -10px rgba(185,29,45,0.45), 0 1px 2px rgba(15,19,34,0.10);
+    transition: transform .25s var(--ease-spring), box-shadow .25s var(--ease-spring), filter .25s var(--ease-spring);
+  }
+  .btn-primary:hover {
+    transform: translateY(-1px);
+    box-shadow: 0 1px 0 rgba(255,255,255,0.3) inset, 0 16px 40px -10px rgba(185,29,45,0.55), 0 2px 4px rgba(15,19,34,0.12);
+    filter: saturate(108%);
+  }
+
+  .btn-ghost {
+    @apply inline-flex items-center justify-center gap-2 px-5 py-3 rounded-full text-sm font-medium text-ink-900;
+    background: rgba(255,255,255,0.75);
+    backdrop-filter: blur(8px);
+    border: 1px solid rgba(15,19,34,0.10);
+    transition: all .25s var(--ease-spring);
+  }
+  .btn-ghost:hover {
+    background: #fff;
+    border-color: rgba(15,19,34,0.18);
+    transform: translateY(-1px);
+    box-shadow: 0 8px 20px -10px rgba(15,19,34,0.16);
+  }
+
+  /* === Eyebrow chip === */
+  .eyebrow {
+    @apply inline-flex items-center gap-2 px-3 py-1.5 rounded-full text-xs font-medium;
+    background: linear-gradient(180deg, #fff, #FBF5F5);
+    color: var(--brand-700);
+    border: 1px solid rgba(185,29,45,0.18);
+    box-shadow: 0 1px 0 rgba(255,255,255,0.6) inset, 0 4px 14px -6px rgba(185,29,45,0.18);
+  }
+
+  /* === Backgrounds === */
+  .bg-grid {
+    background-image:
+      linear-gradient(to right, rgba(15,19,34,0.05) 1px, transparent 1px),
+      linear-gradient(to bottom, rgba(15,19,34,0.05) 1px, transparent 1px);
+    background-size: 32px 32px;
+    -webkit-mask-image: radial-gradient(ellipse 80% 60% at 50% 30%, black 40%, transparent 75%);
+            mask-image: radial-gradient(ellipse 80% 60% at 50% 30%, black 40%, transparent 75%);
+  }
+
+  .bg-dots {
+    background-image: radial-gradient(rgba(15,19,34,0.10) 1px, transparent 1px);
+    background-size: 22px 22px;
+    -webkit-mask-image: radial-gradient(ellipse 70% 60% at 50% 30%, black 40%, transparent 80%);
+            mask-image: radial-gradient(ellipse 70% 60% at 50% 30%, black 40%, transparent 80%);
+  }
+
+  /* === Soft divider === */
+  .divider-soft {
+    height: 1px;
+    background: linear-gradient(90deg, transparent, rgba(15,19,34,0.10), transparent);
+  }
+
+  /* === Card hover lift === */
+  .lift {
+    transition: transform .35s var(--ease-spring), box-shadow .35s var(--ease-spring);
+  }
+  .lift:hover {
+    transform: translateY(-4px);
+    box-shadow: 0 24px 50px -20px rgba(15,19,34,0.16);
+  }
+
+  /* === Marquee track === */
+  .marquee-track {
+    display: flex;
+    width: max-content;
+    animation: marquee 38s linear infinite;
+  }
+  .marquee-mask {
+    -webkit-mask-image: linear-gradient(90deg, transparent, black 8%, black 92%, transparent);
+            mask-image: linear-gradient(90deg, transparent, black 8%, black 92%, transparent);
+  }
+}
+
+@layer utilities {
+  .text-balance { text-wrap: balance; }
+  .text-pretty { text-wrap: pretty; }
+
+  /* Hide scrollbar but keep functionality */
+  .scrollbar-hide { -ms-overflow-style: none; scrollbar-width: none; }
+  .scrollbar-hide::-webkit-scrollbar { display: none; }
+}
+
+/* Respect users that prefer reduced motion */
+@media (prefers-reduced-motion: reduce) {
+  *, *::before, *::after {
+    animation-duration: 0.01ms !important;
+    animation-iteration-count: 1 !important;
+    transition-duration: 0.01ms !important;
+    scroll-behavior: auto !important;
+  }
+}
