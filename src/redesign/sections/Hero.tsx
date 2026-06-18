@@ -1,8 +1,10 @@
+'use client';
+
 import { motion, useReducedMotion } from 'framer-motion';
 import {
   ArrowRight, Bot, CheckCircle2, Cpu, FlaskConical, GitBranch, LineChart, Play, Sparkles,
 } from 'lucide-react';
-import { Link } from 'react-router-dom';
+import Link from 'next/link';
 import { Container, Eyebrow } from '../../design';
 import InteractiveDotGrid from '../components/InteractiveDotGrid';
 
@@ -64,11 +66,11 @@ export default function Hero() {
             transition={{ duration: 0.7, ease: [0.16, 1, 0.3, 1], delay: 0.25 }}
             className="mt-9 flex flex-col sm:flex-row items-center justify-center gap-3"
           >
-            <Link to="/request-demo" className="btn-primary h-12 px-6 text-[15px]">
+            <Link href="/request-demo" className="btn-primary h-12 px-6 text-[15px]">
               Book a demo
               <ArrowRight className="w-4 h-4" />
             </Link>
-            <Link to="/solutions" className="btn-ghost h-12 px-6 text-[15px]">
+            <Link href="/solutions" className="btn-ghost h-12 px-6 text-[15px]">
               <Play className="w-3.5 h-3.5" />
               Watch the product tour
             </Link>

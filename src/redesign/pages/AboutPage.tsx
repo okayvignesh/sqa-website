@@ -1,3 +1,5 @@
+'use client';
+
 import { motion } from 'framer-motion';
 import {
   Award, Building2, Compass, Globe2, Heart, MapPin, Sparkles, Target, Users,

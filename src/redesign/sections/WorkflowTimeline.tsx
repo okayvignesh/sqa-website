@@ -1,3 +1,5 @@
+'use client';
+
 import { motion } from 'framer-motion';
 import { BarChart3, Bot, FlaskConical, GitBranch, Sparkles, Workflow, Zap } from 'lucide-react';
 import { Container, Eyebrow, Reveal } from '../../design';

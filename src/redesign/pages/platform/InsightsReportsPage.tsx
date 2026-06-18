@@ -1,3 +1,5 @@
+'use client';
+
 import {
   LineChart, BarChart3, PieChart, Gauge, FileText, ShieldCheck, TrendingUp,
 } from 'lucide-react';

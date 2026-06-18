@@ -1,3 +1,5 @@
+'use client';
+
 import {
   Cpu, Wand2, Smartphone, Globe, Database, Bot, Boxes,
 } from 'lucide-react';

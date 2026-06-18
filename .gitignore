@@ -12,6 +12,15 @@ dist
 dist-ssr
 *.local
 
+# Next.js
+.next/
+out/
+next-env.d.ts.bak
+.env*.local
+
+# Uploads (created at runtime by app/api/upload)
+public/uploads/
+
 # Editor directories and files
 .vscode/*
 !.vscode/extensions.json

@@ -1,6 +1,8 @@
+'use client';
+
 import { motion } from 'framer-motion';
 import { ArrowRight, BrainCircuit, MessageSquare, Sparkles, Wand2 } from 'lucide-react';
-import { Link } from 'react-router-dom';
+import Link from 'next/link';
 import { Container, Eyebrow, GradientOrb, Reveal, RevealGroup, fadeUp } from '../../design';
 
 const features = [
@@ -66,7 +68,7 @@ export default function AIShowcase() {
 
           <Reveal delay={0.25}>
             <div className="mt-8">
-              <Link to="/platform/ai-test-assistant" className="btn-primary">
+              <Link href="/platform/ai-test-assistant" className="btn-primary">
                 Explore AI Studio
                 <ArrowRight className="w-4 h-4" />
               </Link>

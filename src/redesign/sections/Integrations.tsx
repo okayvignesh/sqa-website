@@ -1,6 +1,8 @@
+'use client';
+
 import { motion } from 'framer-motion';
 import { ArrowRight, Plug } from 'lucide-react';
-import { Link } from 'react-router-dom';
+import Link from 'next/link';
 import { Container, Eyebrow, Reveal } from '../../design';
 import { integrations } from '../data/integrations';
 
@@ -34,10 +36,10 @@ export default function Integrations() {
 
             <Reveal delay={0.18}>
               <div className="mt-8 flex flex-col sm:flex-row gap-3">
-                <Link to="/integrations" className="btn-primary">
+                <Link href="/integrations" className="btn-primary">
                   Browse all integrations <ArrowRight className="w-4 h-4" />
                 </Link>
-                <Link to="/contact" className="btn-ghost">
+                <Link href="/contact" className="btn-ghost">
                   Talk to solutions
                 </Link>
               </div>

@@ -1,3 +1,5 @@
+'use client';
+
 import {
   ShieldCheck, Building2, KeyRound, Workflow, Globe2, Layers, FileLock,
 } from 'lucide-react';

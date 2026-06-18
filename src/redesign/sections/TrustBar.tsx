@@ -1,3 +1,5 @@
+'use client';
+
 import { Container } from '../../design';
 import { clients } from '../data/clients';
 

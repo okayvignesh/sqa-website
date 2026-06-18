@@ -1,3 +1,5 @@
+'use client';
+
 // Integration catalog — every entry points to a properly-colored brand SVG
 // hosted on a reliable CDN. Sources chosen per brand:
 //

@@ -1,4 +1,6 @@
-import { Link } from 'react-router-dom';
+'use client';
+
+import Link from 'next/link';
 import { Github, Linkedin, Twitter, Youtube, ArrowUpRight, Sparkles } from 'lucide-react';
 
 const col = (title: string, items: { label: string; to: string }[]) => ({ title, items });
@@ -56,8 +58,8 @@ export default function FooterV2() {
               </p>
             </div>
             <div className="flex flex-col sm:flex-row gap-3">
-              <Link to="/request-demo" className="btn-primary">Book a demo <ArrowUpRight className="w-4 h-4" /></Link>
-              <Link to="/pricing" className="btn-ghost">View pricing</Link>
+              <Link href="/request-demo" className="btn-primary">Book a demo <ArrowUpRight className="w-4 h-4" /></Link>
+              <Link href="/pricing" className="btn-ghost">View pricing</Link>
             </div>
           </div>
         </div>
@@ -65,7 +67,7 @@ export default function FooterV2() {
         {/* Link grid */}
         <div className="mt-16 grid grid-cols-2 md:grid-cols-5 gap-10">
           <div className="col-span-2 md:col-span-1">
-            <Link to="/" className="inline-flex items-center" aria-label="SimplifyQA home">
+            <Link href="/" className="inline-flex items-center" aria-label="SimplifyQA home">
               <img src="/SimplifyQA%20logo%20Grey.png" alt="SimplifyQA" className="h-5 w-auto" draggable={false} />
             </Link>
             <p className="mt-3 text-[13.5px] text-ink-500 leading-relaxed max-w-[260px]">
@@ -88,7 +90,7 @@ export default function FooterV2() {
               <ul className="mt-4 space-y-2.5">
                 {c.items.map((i) => (
                   <li key={i.label}>
-                    <Link to={i.to} className="text-[14px] text-ink-700 hover:text-brand-700">
+                    <Link href={i.to} className="text-[14px] text-ink-700 hover:text-brand-700">
                       {i.label}
                     </Link>
                   </li>
@@ -104,10 +106,10 @@ export default function FooterV2() {
             © {new Date().getFullYear()} SimplifyQA. All rights reserved.
           </p>
           <div className="flex items-center gap-5 text-[12.5px] text-ink-400">
-            <Link to="/privacy" className="hover:text-ink-700">Privacy</Link>
-            <Link to="/terms" className="hover:text-ink-700">Terms</Link>
-            <Link to="/security" className="hover:text-ink-700">Security</Link>
-            <Link to="/status" className="hover:text-ink-700">Status</Link>
+            <Link href="/privacy" className="hover:text-ink-700">Privacy</Link>
+            <Link href="/terms" className="hover:text-ink-700">Terms</Link>
+            <Link href="/security" className="hover:text-ink-700">Security</Link>
+            <Link href="/status" className="hover:text-ink-700">Status</Link>
           </div>
         </div>
       </div>

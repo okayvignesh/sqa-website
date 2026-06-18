@@ -1,3 +1,5 @@
+'use client';
+
 import {
   GitBranch, ServerCog, ShieldCheck, GitMerge, Workflow, Network, Webhook,
 } from 'lucide-react';

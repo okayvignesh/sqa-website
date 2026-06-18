@@ -1,7 +1,9 @@
+'use client';
+
 import type { ReactNode } from 'react';
 import { motion } from 'framer-motion';
 import { ArrowRight, Check } from 'lucide-react';
-import { Link } from 'react-router-dom';
+import Link from 'next/link';
 import {
   Container, Eyebrow, GradientOrb, Reveal, RevealGroup, fadeUp,
 } from '../../design';
@@ -78,10 +80,10 @@ export default function ProductPage({ config }: { config: ProductPageConfig }) {
 
               <Reveal delay={0.2}>
                 <div className="mt-9 flex flex-col sm:flex-row gap-3">
-                  <Link to={primaryCta.to} className="btn-primary h-12 px-6 text-[15px]">
+                  <Link href={primaryCta.to} className="btn-primary h-12 px-6 text-[15px]">
                     {primaryCta.label} <ArrowRight className="w-4 h-4" />
                   </Link>
-                  <Link to={secondaryCta.to} className="btn-ghost h-12 px-6 text-[15px]">
+                  <Link href={secondaryCta.to} className="btn-ghost h-12 px-6 text-[15px]">
                     {secondaryCta.label}
                   </Link>
                 </div>
@@ -174,7 +176,7 @@ export default function ProductPage({ config }: { config: ProductPageConfig }) {
               {related.map((r) => (
                 <Link
                   key={r.to}
-                  to={r.to}
+                  href={r.to}
                   className="group flex items-center justify-between rounded-2xl bg-white border border-ink-900/[0.06] p-5 lift"
                 >
                   <span className="text-[14.5px] font-semibold text-ink-900">{r.label}</span>

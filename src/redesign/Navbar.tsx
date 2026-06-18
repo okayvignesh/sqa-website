@@ -1,5 +1,8 @@
+'use client';
+
 import { useEffect, useRef, useState } from 'react';
-import { Link, NavLink } from 'react-router-dom';
+import Link from 'next/link';
+import { usePathname } from 'next/navigation';
 import { AnimatePresence, motion } from 'framer-motion';
 import {
   ArrowRight, Bot, ChevronDown, Cpu, FlaskConical, GitBranch,
@@ -97,7 +100,7 @@ export default function NavbarV2() {
           onMouseLeave={() => setOpen(null)}
         >
           {/* Logo — real SimplifyQA */}
-          <Link to="/" className="flex items-center gap-2 px-2 group" aria-label="SimplifyQA home">
+          <Link href="/" className="flex items-center gap-2 px-2 group" aria-label="SimplifyQA home">
             <img
               src="/SimplifyQA%20logo%20Grey.png"
               alt="SimplifyQA"
@@ -131,25 +134,25 @@ export default function NavbarV2() {
               </button>
             </li>
             <li onMouseEnter={() => setOpen(null)}>
-              <NavLink to="/integrations" className="inline-flex items-center h-9 px-4 text-sm font-medium text-ink-700 rounded-full hover:text-ink-900 hover:bg-ink-50">Integrations</NavLink>
+              <Link href="/integrations" className="inline-flex items-center h-9 px-4 text-sm font-medium text-ink-700 rounded-full hover:text-ink-900 hover:bg-ink-50">Integrations</Link>
             </li>
             <li onMouseEnter={() => setOpen(null)}>
-              <NavLink to="/pricing" className="inline-flex items-center h-9 px-4 text-sm font-medium text-ink-700 rounded-full hover:text-ink-900 hover:bg-ink-50">Pricing</NavLink>
+              <Link href="/pricing" className="inline-flex items-center h-9 px-4 text-sm font-medium text-ink-700 rounded-full hover:text-ink-900 hover:bg-ink-50">Pricing</Link>
             </li>
             <li onMouseEnter={() => setOpen(null)}>
-              <NavLink to="/resources" className="inline-flex items-center h-9 px-4 text-sm font-medium text-ink-700 rounded-full hover:text-ink-900 hover:bg-ink-50">Resources</NavLink>
+              <Link href="/resources" className="inline-flex items-center h-9 px-4 text-sm font-medium text-ink-700 rounded-full hover:text-ink-900 hover:bg-ink-50">Resources</Link>
             </li>
             <li onMouseEnter={() => setOpen(null)}>
-              <NavLink to="/customer-success" className="inline-flex items-center h-9 px-4 text-sm font-medium text-ink-700 rounded-full hover:text-ink-900 hover:bg-ink-50">Customers</NavLink>
+              <Link href="/customer-success" className="inline-flex items-center h-9 px-4 text-sm font-medium text-ink-700 rounded-full hover:text-ink-900 hover:bg-ink-50">Customers</Link>
             </li>
           </ul>
 
           {/* CTA */}
           <div className="hidden lg:flex items-center gap-2">
-            <NavLink to="/request-demo" className="btn-primary h-10 px-5">
+            <Link href="/request-demo" className="btn-primary h-10 px-5">
               Book a demo
               <ArrowRight className="w-3.5 h-3.5" />
-            </NavLink>
+            </Link>
           </div>
 
           {/* Mobile toggle */}
@@ -191,7 +194,7 @@ export default function NavbarV2() {
                     {(open === 'platform' ? platform : solutions).map((item) => (
                       <Link
                         key={item.label}
-                        to={item.to}
+                        href={item.to}
                         onClick={() => setOpen(null)}
                         className="group flex items-start gap-3 rounded-2xl p-3 hover:bg-white transition-colors"
                       >
@@ -210,7 +213,7 @@ export default function NavbarV2() {
                       <Sparkles className="w-3.5 h-3.5 text-brand-600" />
                       New — SimplifyQA AI Studio is live
                     </div>
-                    <Link to="/platform/ai-test-assistant" className="text-[12.5px] font-semibold text-brand-700 hover:text-brand-900 inline-flex items-center gap-1">
+                    <Link href="/platform/ai-test-assistant" className="text-[12.5px] font-semibold text-brand-700 hover:text-brand-900 inline-flex items-center gap-1">
                       Explore <ArrowRight className="w-3 h-3" />
                     </Link>
                   </div>
@@ -242,7 +245,7 @@ export default function NavbarV2() {
               ].map(([label, to]) => (
                 <Link
                   key={label}
-                  to={to}
+                  href={to}
                   onClick={() => setMobile(false)}
                   className="block px-4 py-3 rounded-2xl text-[15px] font-medium text-ink-800 hover:bg-white"
                 >
@@ -250,7 +253,7 @@ export default function NavbarV2() {
                 </Link>
               ))}
               <Link
-                to="/request-demo"
+                href="/request-demo"
                 onClick={() => setMobile(false)}
                 className="mt-2 btn-primary w-full"
               >

@@ -1,3 +1,5 @@
+'use client';
+
 import {
   Sparkles, Wand2, BrainCircuit, MessageSquare, Microscope, ShieldCheck, Zap,
 } from 'lucide-react';

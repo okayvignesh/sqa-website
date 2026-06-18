@@ -1,3 +1,5 @@
+'use client';
+
 import {
   Bot, Bug, AlertTriangle, GitMerge, Microscope, LineChart, Layers,
 } from 'lucide-react';

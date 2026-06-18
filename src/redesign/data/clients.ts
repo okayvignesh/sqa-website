@@ -1,8 +1,8 @@
 // Customer trust-bar catalog — logos sourced via logo.dev (Clearbit successor).
 // Free public demo token used; users with a logo.dev account should swap in their
-// own token via VITE_LOGO_DEV_TOKEN.
+// own token via NEXT_PUBLIC_LOGO_DEV_TOKEN.
 
-const TOKEN = (import.meta as any)?.env?.VITE_LOGO_DEV_TOKEN || 'pk_X-1ZO13GSgeOoUrIuJ6GMQ';
+const TOKEN = process.env.NEXT_PUBLIC_LOGO_DEV_TOKEN || 'pk_X-1ZO13GSgeOoUrIuJ6GMQ';
 const logo = (domain: string) =>
   `https://img.logo.dev/${domain}?token=${TOKEN}&format=png&retina=true&size=256`;
 

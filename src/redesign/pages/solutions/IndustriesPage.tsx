@@ -1,8 +1,10 @@
+'use client';
+
 import { motion } from 'framer-motion';
 import {
   Banknote, HeartPulse, Plane, ShoppingBag, Building2, Globe2, Stethoscope, Truck, GraduationCap,
 } from 'lucide-react';
-import { Link } from 'react-router-dom';
+import Link from 'next/link';
 import {
   Container, Eyebrow, GradientOrb, Reveal, RevealGroup, fadeUp,
 } from '../../../design';
@@ -136,7 +138,7 @@ export default function IndustriesPage() {
                 requirements.
               </p>
             </div>
-            <Link to="/contact" className="btn-primary">Talk to solutions</Link>
+            <Link href="/contact" className="btn-primary">Talk to solutions</Link>
           </div>
         </Container>
       </section>

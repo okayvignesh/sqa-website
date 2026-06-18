@@ -1,4 +1,6 @@
-import { Link } from 'react-router-dom';
+'use client';
+
+import Link from 'next/link';
 import { motion } from 'framer-motion';
 import {
   Briefcase, Heart, MapPin, Sparkles, Code, Bot, Megaphone, Users, ArrowRight,
@@ -50,7 +52,7 @@ export default function CareersPage() {
             </Reveal>
             <Reveal delay={0.18}>
               <div className="mt-9 flex flex-col sm:flex-row gap-3">
-                <Link to="/contact" className="btn-primary h-12 px-6 text-[15px]">
+                <Link href="/contact" className="btn-primary h-12 px-6 text-[15px]">
                   Send us your CV <ArrowRight className="w-4 h-4" />
                 </Link>
                 <a href="mailto:info@simplify3x.com" className="btn-ghost h-12 px-6 text-[15px]">
@@ -131,7 +133,7 @@ export default function CareersPage() {
           </div>
           <h3 className="mt-3 font-display text-2xl text-ink-900">Bengaluru · Orlando · Kuala Lumpur</h3>
           <p className="mt-2 text-[14px] text-ink-500 max-w-2xl">
-            Remote-friendly across our office hubs. See <Link to="/contact" className="text-brand-700 font-medium underline underline-offset-4">contact</Link> for office addresses.
+            Remote-friendly across our office hubs. See <Link href="/contact" className="text-brand-700 font-medium underline underline-offset-4">contact</Link> for office addresses.
           </p>
         </Container>
       </section>

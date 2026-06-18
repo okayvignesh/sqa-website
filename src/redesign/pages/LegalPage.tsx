@@ -1,6 +1,8 @@
+'use client';
+
 import type { ReactNode } from 'react';
 import { FileText, ScrollText, ShieldCheck, Activity } from 'lucide-react';
-import { Link } from 'react-router-dom';
+import Link from 'next/link';
 import {
   Container, Eyebrow, GradientOrb, Reveal,
 } from '../../design';
@@ -122,7 +124,7 @@ export default function LegalPage({ kind }: { kind: LegalConfig['kind'] }) {
             </div>
 
             <div className="mt-16 pt-6 border-t border-ink-900/[0.06] flex items-center justify-between text-[13px] text-ink-400">
-              <span>Questions? <Link to="/contact" className="text-brand-700 font-medium">Contact us</Link>.</span>
+              <span>Questions? <Link href="/contact" className="text-brand-700 font-medium">Contact us</Link>.</span>
               <span>SimplifyQA · part of Simplify3x</span>
             </div>
           </Container>

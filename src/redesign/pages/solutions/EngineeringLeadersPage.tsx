@@ -1,3 +1,5 @@
+'use client';
+
 import {
   LayoutDashboard, Gauge, TrendingUp, GitBranch, Users, ShieldCheck, AlertTriangle,
 } from 'lucide-react';

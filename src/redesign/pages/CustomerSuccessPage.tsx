@@ -1,6 +1,8 @@
+'use client';
+
 import { motion } from 'framer-motion';
 import { ArrowRight, Building2, Sparkles, TrendingUp } from 'lucide-react';
-import { Link } from 'react-router-dom';
+import Link from 'next/link';
 import {
   Container, Eyebrow, GradientOrb, Reveal,
 } from '../../design';
@@ -88,10 +90,10 @@ export default function CustomerSuccessPage() {
               </Reveal>
               <Reveal delay={0.18}>
                 <div className="mt-8 flex flex-col sm:flex-row gap-3">
-                  <Link to="/request-demo" className="btn-primary">
+                  <Link href="/request-demo" className="btn-primary">
                     Book a demo <ArrowRight className="w-4 h-4" />
                   </Link>
-                  <Link to="/contact" className="btn-ghost">
+                  <Link href="/contact" className="btn-ghost">
                     Request reference call
                   </Link>
                 </div>

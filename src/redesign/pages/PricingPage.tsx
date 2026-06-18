@@ -1,5 +1,7 @@
+'use client';
+
 import { useState } from 'react';
-import { Link } from 'react-router-dom';
+import Link from 'next/link';
 import { motion } from 'framer-motion';
 import {
   ArrowRight, Check, ChevronDown, Database, Globe, HelpCircle, Monitor,
@@ -180,10 +182,10 @@ export default function PricingPage() {
                       Volume-based pricing tailored to your team size, deployment model, and compliance needs.
                     </p>
 
-                    <Link to="/request-demo" className="btn-primary mt-6 w-full h-11">
+                    <Link href="/request-demo" className="btn-primary mt-6 w-full h-11">
                       Book a demo <ArrowRight className="w-4 h-4" />
                     </Link>
-                    <Link to="/contact" className="btn-ghost mt-2 w-full h-11">
+                    <Link href="/contact" className="btn-ghost mt-2 w-full h-11">
                       Talk to sales
                     </Link>
 
@@ -289,7 +291,7 @@ export default function PricingPage() {
               <Reveal delay={0.1}>
                 <p className="mt-4 text-[15px] text-ink-500">
                   Still on the fence? Talk to our solutions team —{' '}
-                  <Link to="/contact" className="text-brand-700 font-medium hover:underline underline-offset-4">info@simplify3x.com</Link>
+                  <Link href="/contact" className="text-brand-700 font-medium hover:underline underline-offset-4">info@simplify3x.com</Link>
                 </p>
               </Reveal>
             </div>

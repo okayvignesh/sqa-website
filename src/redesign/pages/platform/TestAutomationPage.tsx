@@ -1,3 +1,5 @@
+'use client';
+
 import {
   Zap, Smartphone, Globe, Database, Monitor, Cpu, Boxes,
 } from 'lucide-react';

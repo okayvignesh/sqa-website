@@ -1,10 +1,12 @@
 /** @type {import('tailwindcss').Config} */
-export default {
-  content: ['./index.html', './src/**/*.{js,ts,jsx,tsx}'],
+module.exports = {
+  content: [
+    './app/**/*.{js,ts,jsx,tsx}',
+    './src/**/*.{js,ts,jsx,tsx}',
+  ],
   theme: {
     extend: {
       colors: {
-        // Brand maroon/crimson from SimplifyQA logo
         brand: {
           50:  '#FDF3F4',
           100: '#FCE3E5',
@@ -12,7 +14,7 @@ export default {
           300: '#EF969D',
           400: '#E4646E',
           500: '#D43846',
-          600: '#B91D2D', // primary
+          600: '#B91D2D',
           700: '#9A1525',
           800: '#7F1422',
           900: '#6B1521',

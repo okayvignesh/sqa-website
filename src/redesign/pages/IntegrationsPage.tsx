@@ -1,7 +1,9 @@
+'use client';
+
 import { useMemo, useState } from 'react';
 import { motion } from 'framer-motion';
 import { ArrowRight, Plug, Search } from 'lucide-react';
-import { Link } from 'react-router-dom';
+import Link from 'next/link';
 import {
   Container, Eyebrow, GradientOrb, Reveal, cn,
 } from '../../design';
@@ -113,7 +115,7 @@ export default function IntegrationsPage() {
             ))}
             {filtered.length === 0 && (
               <div className="col-span-full text-center py-16 text-ink-500">
-                Nothing matches “{q}”. <Link to="/contact" className="text-brand-700 font-medium">Request an integration →</Link>
+                Nothing matches “{q}”. <Link href="/contact" className="text-brand-700 font-medium">Request an integration →</Link>
               </div>
             )}
           </div>
@@ -128,8 +130,8 @@ export default function IntegrationsPage() {
               </p>
             </div>
             <div className="flex gap-3">
-              <Link to="/contact" className="btn-primary">Talk to solutions <ArrowRight className="w-4 h-4" /></Link>
-              <Link to="/resources" className="btn-ghost">Read API docs</Link>
+              <Link href="/contact" className="btn-primary">Talk to solutions <ArrowRight className="w-4 h-4" /></Link>
+              <Link href="/resources" className="btn-ghost">Read API docs</Link>
             </div>
           </div>
         </Container>

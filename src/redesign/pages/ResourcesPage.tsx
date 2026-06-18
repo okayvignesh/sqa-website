@@ -1,8 +1,10 @@
+'use client';
+
 import { motion } from 'framer-motion';
 import {
   ArrowRight, BookOpen, Calendar, FileText, GraduationCap, Mic, Newspaper, Play, Sparkles,
 } from 'lucide-react';
-import { Link } from 'react-router-dom';
+import Link from 'next/link';
 import {
   Container, Eyebrow, GradientOrb, Reveal, RevealGroup, fadeUp,
 } from '../../design';
@@ -102,23 +104,29 @@ export default function ResourcesPage() {
         <Container size="wide">
           <RevealGroup className="grid md:grid-cols-2 lg:grid-cols-3 gap-4 sm:gap-5">
             {tiles.map((t) => {
-              const Wrap = t.to ? Link : 'div';
+              const inner = (
+                <>
+                  <div className="flex items-center justify-between">
+                    <span className="grid place-items-center w-10 h-10 rounded-xl bg-brand-50 text-brand-700 border border-brand-100">
+                      {t.icon}
+                    </span>
+                    <span className="text-[11.5px] font-medium uppercase tracking-wider text-ink-400">{t.tag}</span>
+                  </div>
+                  <h3 className="mt-5 font-display text-[20px] text-ink-900">{t.t}</h3>
+                  <p className="mt-2 text-[13.5px] text-ink-500 leading-relaxed">{t.d}</p>
+                  <div className="mt-5 inline-flex items-center gap-1 text-[12.5px] font-semibold text-brand-700">
+                    Browse <ArrowRight className="w-3 h-3" />
+                  </div>
+                </>
+              );
+              const className = 'block rounded-3xl bg-white border border-ink-900/[0.06] p-7 lift';
               return (
                 <motion.div key={t.t} variants={fadeUp}>
-                  {/* @ts-expect-error - polymorphic */}
-                  <Wrap to={t.to} className="block rounded-3xl bg-white border border-ink-900/[0.06] p-7 lift">
-                    <div className="flex items-center justify-between">
-                      <span className="grid place-items-center w-10 h-10 rounded-xl bg-brand-50 text-brand-700 border border-brand-100">
-                        {t.icon}
-                      </span>
-                      <span className="text-[11.5px] font-medium uppercase tracking-wider text-ink-400">{t.tag}</span>
-                    </div>
-                    <h3 className="mt-5 font-display text-[20px] text-ink-900">{t.t}</h3>
-                    <p className="mt-2 text-[13.5px] text-ink-500 leading-relaxed">{t.d}</p>
-                    <div className="mt-5 inline-flex items-center gap-1 text-[12.5px] font-semibold text-brand-700">
-                      Browse <ArrowRight className="w-3 h-3" />
-                    </div>
-                  </Wrap>
+                  {t.to ? (
+                    <Link href={t.to} className={className}>{inner}</Link>
+                  ) : (
+                    <div className={className}>{inner}</div>
+                  )}
                 </motion.div>
               );
             })}
@@ -160,7 +168,7 @@ export default function ResourcesPage() {
               </Reveal>
               <div className="mt-8 space-y-3">
                 {reads.map((r) => (
-                  <Link key={r.title} to="/blog" className="block rounded-2xl border border-ink-900/[0.06] bg-white p-5 lift">
+                  <Link key={r.title} href="/blog" className="block rounded-2xl border border-ink-900/[0.06] bg-white p-5 lift">
                     <div className="text-[12px] font-semibold uppercase tracking-wider text-brand-700">{r.tag}</div>
                     <div className="mt-1 text-[14.5px] font-semibold text-ink-900">{r.title}</div>
                     <div className="text-[12.5px] text-ink-500">{r.read}</div>

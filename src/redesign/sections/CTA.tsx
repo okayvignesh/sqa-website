@@ -1,5 +1,7 @@
+'use client';
+
 import { ArrowRight, Sparkles } from 'lucide-react';
-import { Link } from 'react-router-dom';
+import Link from 'next/link';
 import { Container, GradientOrb, Reveal } from '../../design';
 
 export default function CTA() {
@@ -29,14 +31,14 @@ export default function CTA() {
 
               <div className="mt-8 flex flex-col sm:flex-row gap-3">
                 <Link
-                  to="/request-demo"
+                  href="/request-demo"
                   className="inline-flex items-center justify-center gap-2 h-12 px-6 rounded-full text-[15px] font-medium text-ink-900 bg-white hover:bg-white/95 hover:-translate-y-px transition-all shadow-[0_10px_30px_-10px_rgba(255,255,255,0.45)]"
                 >
                   Book a personalized demo
                   <ArrowRight className="w-4 h-4" />
                 </Link>
                 <Link
-                  to="/pricing"
+                  href="/pricing"
                   className="inline-flex items-center justify-center gap-2 h-12 px-6 rounded-full text-[15px] font-medium text-white bg-white/10 hover:bg-white/15 border border-white/15 backdrop-blur"
                 >
                   View pricing

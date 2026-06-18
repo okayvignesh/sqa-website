@@ -1,3 +1,5 @@
+'use client';
+
 import Hero from './sections/Hero';
 import TrustBar from './sections/TrustBar';
 import BentoFeatures from './sections/BentoFeatures';

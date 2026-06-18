@@ -1,9 +1,11 @@
+'use client';
+
 import { motion } from 'framer-motion';
 import {
   ArrowRight, Bot, Building2, Cpu, FlaskConical, GitBranch, LayoutDashboard,
   LineChart, ShieldCheck, Sparkles, Users, Workflow, Zap,
 } from 'lucide-react';
-import { Link } from 'react-router-dom';
+import Link from 'next/link';
 import {
   Container, Eyebrow, GradientOrb, Reveal, RevealGroup, fadeUp,
 } from '../../design';
@@ -108,10 +110,10 @@ export default function SolutionsPage() {
             </Reveal>
             <Reveal delay={0.18}>
               <div className="mt-9 flex flex-col sm:flex-row items-center justify-center gap-3">
-                <Link to="/request-demo" className="btn-primary h-12 px-6 text-[15px]">
+                <Link href="/request-demo" className="btn-primary h-12 px-6 text-[15px]">
                   Book a demo <ArrowRight className="w-4 h-4" />
                 </Link>
-                <Link to="#audiences" className="btn-ghost h-12 px-6 text-[15px]">
+                <Link href="#audiences" className="btn-ghost h-12 px-6 text-[15px]">
                   Explore by role
                 </Link>
               </div>
@@ -208,7 +210,7 @@ export default function SolutionsPage() {
                     </RevealGroup>
                     <Reveal delay={0.2}>
                       <div className="mt-7">
-                        <Link to={a.ctaTo} className="btn-primary">
+                        <Link href={a.ctaTo} className="btn-primary">
                           Book a tailored demo <ArrowRight className="w-4 h-4" />
                         </Link>
                       </div>

@@ -1,3 +1,5 @@
+'use client';
+
 import {
   Users, FlaskConical, Sparkles, Workflow, GitMerge, Calendar, MessageCircle,
 } from 'lucide-react';

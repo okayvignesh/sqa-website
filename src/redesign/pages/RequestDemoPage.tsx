@@ -1,7 +1,9 @@
+'use client';
+
 import { useState } from 'react';
 import { motion } from 'framer-motion';
 import { ArrowRight, CalendarCheck, CheckCircle2, Clock, ShieldCheck, Sparkles, UserRound } from 'lucide-react';
-import { Link } from 'react-router-dom';
+import Link from 'next/link';
 import {
   Container, Eyebrow, GradientOrb, Reveal,
 } from '../../design';
@@ -117,7 +119,7 @@ export default function RequestDemoPage() {
                     Book my demo <ArrowRight className="w-4 h-4" />
                   </button>
                   <p className="mt-3 text-[11.5px] text-ink-400 text-center">
-                    By submitting, you agree to our <Link to="/privacy" className="underline underline-offset-4">privacy policy</Link>.
+                    By submitting, you agree to our <Link href="/privacy" className="underline underline-offset-4">privacy policy</Link>.
                   </p>
                 </>
               ) : (
@@ -130,7 +132,7 @@ export default function RequestDemoPage() {
                   </div>
                   <h3 className="mt-5 font-display text-2xl text-ink-900">You’re booked.</h3>
                   <p className="mt-2 text-[14.5px] text-ink-500">A solutions engineer will reach out within one business day to lock in a time.</p>
-                  <Link to="/" className="mt-7 inline-flex items-center gap-2 text-[13.5px] font-semibold text-brand-700">
+                  <Link href="/" className="mt-7 inline-flex items-center gap-2 text-[13.5px] font-semibold text-brand-700">
                     Back to home <ArrowRight className="w-3.5 h-3.5" />
                   </Link>
                 </motion.div>

@@ -1,3 +1,5 @@
+'use client';
+
 import { motion } from 'framer-motion';
 import {
   Bot, FlaskConical, GitBranch, LineChart, ShieldCheck, Sparkles, Workflow, Zap,

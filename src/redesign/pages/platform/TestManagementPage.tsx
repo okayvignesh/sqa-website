@@ -1,3 +1,5 @@
+'use client';
+
 import {
   FlaskConical, ListChecks, Workflow, History, Layers, FileCheck2, Network,
 } from 'lucide-react';
