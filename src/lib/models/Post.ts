@@ -9,6 +9,15 @@ const AuthorSchema = new Schema(
   { _id: false },
 );
 
+const SeoSchema = new Schema(
+  {
+    metaTitle: { type: String, default: '' },
+    metaDescription: { type: String, default: '' },
+    ogImage: { type: String, default: '' },
+  },
+  { _id: false },
+);
+
 const PostSchema = new Schema(
   {
     slug: { type: String, required: true, unique: true, index: true },
@@ -22,6 +31,7 @@ const PostSchema = new Schema(
     featuredImage: { type: String, default: '' },
     tags: { type: [String], default: [] },
     published: { type: Boolean, default: true, index: true },
+    seo: { type: SeoSchema, default: () => ({}) },
   },
   { timestamps: true },
 );

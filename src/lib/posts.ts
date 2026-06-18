@@ -11,6 +11,11 @@ export type PublicPost = {
   readTime: string;
   featuredImage: string;
   tags: string[];
+  seo?: {
+    metaTitle?: string;
+    metaDescription?: string;
+    ogImage?: string;
+  };
 };
 
 import { connectMongo } from './mongodb';
@@ -56,6 +61,11 @@ function serialize(doc: any): PublicPost {
     readTime: doc.readTime ?? '5 min read',
     featuredImage: doc.featuredImage ?? '',
     tags: Array.isArray(doc.tags) ? doc.tags : [],
+    seo: {
+      metaTitle: doc.seo?.metaTitle ?? '',
+      metaDescription: doc.seo?.metaDescription ?? '',
+      ogImage: doc.seo?.ogImage ?? '',
+    },
   };
 }
 

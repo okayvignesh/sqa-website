@@ -14,32 +14,34 @@ export async function generateMetadata({ params }: Props): Promise<Metadata> {
   if (!post) return { title: 'Post not found' };
 
   const url = absoluteUrl(`/blog/${post.slug}`);
-  const image = post.featuredImage || undefined;
+  const title = post.seo?.metaTitle?.trim() || post.title;
+  const description = post.seo?.metaDescription?.trim() || post.excerpt;
+  const ogImage = post.seo?.ogImage?.trim() || post.featuredImage || undefined;
 
   return {
-    title: post.title,
-    description: post.excerpt,
+    title,
+    description,
     keywords: post.tags,
     authors: [{ name: post.author.name }],
     alternates: { canonical: `/blog/${post.slug}` },
     openGraph: {
       type: 'article',
       siteName: SITE_NAME,
-      title: post.title,
-      description: post.excerpt,
+      title,
+      description,
       url,
       publishedTime: post.publishedAt,
       authors: [post.author.name],
       tags: post.tags,
-      ...(image ? { images: [{ url: image, alt: post.title }] } : {}),
+      ...(ogImage ? { images: [{ url: ogImage, alt: title }] } : {}),
     },
     twitter: {
       card: 'summary_large_image',
-      title: post.title,
-      description: post.excerpt,
+      title,
+      description,
       site: SITE_TWITTER,
       creator: SITE_TWITTER,
-      ...(image ? { images: [image] } : {}),
+      ...(ogImage ? { images: [ogImage] } : {}),
     },
   };
 }
@@ -60,12 +62,14 @@ export default async function Page({ params }: Props) {
 
   const url = absoluteUrl(`/blog/${post.slug}`);
 
+  const heroImage = post.seo?.ogImage?.trim() || post.featuredImage;
+
   const articleJsonLd = {
     '@context': 'https://schema.org',
     '@type': 'BlogPosting',
-    headline: post.title,
-    description: post.excerpt,
-    image: post.featuredImage ? [post.featuredImage] : undefined,
+    headline: post.seo?.metaTitle?.trim() || post.title,
+    description: post.seo?.metaDescription?.trim() || post.excerpt,
+    image: heroImage ? [heroImage] : undefined,
     datePublished: post.publishedAt,
     dateModified: post.publishedAt,
     author: {

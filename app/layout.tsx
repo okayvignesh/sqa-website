@@ -1,7 +1,6 @@
 import type { Metadata, Viewport } from 'next';
 import Script from 'next/script';
-import Navbar from '../src/redesign/Navbar';
-import Footer from '../src/redesign/Footer';
+import MarketingChrome from './MarketingChrome';
 import ScrollToTop from './ScrollToTop';
 import { SITE_URL, SITE_NAME, SITE_DESCRIPTION, SITE_TWITTER } from '../src/lib/site';
 import './globals.css';
@@ -172,11 +171,7 @@ export default function RootLayout({ children }: { children: React.ReactNode }) 
         />
 
         <ScrollToTop />
-        <div className="flex flex-col min-h-screen">
-          <Navbar />
-          <main className="flex-grow pt-20">{children}</main>
-          <Footer />
-        </div>
+        <MarketingChrome>{children}</MarketingChrome>
       </body>
     </html>
   );
