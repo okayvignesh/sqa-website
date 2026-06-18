@@ -1,7 +1,5 @@
 import mongoose from 'mongoose';
 
-const MONGODB_URI = process.env.MONGODB_URI;
-
 // Cached connection across hot reloads in dev / lambda warm starts in prod.
 type Cached = {
   conn: typeof mongoose | null;
@@ -17,14 +15,15 @@ const cached: Cached = global._mongoose ?? { conn: null, promise: null };
 if (!global._mongoose) global._mongoose = cached;
 
 export async function connectMongo() {
-  if (!MONGODB_URI) {
+  const uri = process.env.MONGODB_URI;
+  if (!uri) {
     throw new Error(
       'MONGODB_URI is not defined. Add it to .env.local — e.g. MONGODB_URI="mongodb://localhost:27017/simplifyqa"',
     );
   }
   if (cached.conn) return cached.conn;
   if (!cached.promise) {
-    cached.promise = mongoose.connect(MONGODB_URI, {
+    cached.promise = mongoose.connect(uri, {
       bufferCommands: false,
     });
   }

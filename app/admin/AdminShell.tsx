@@ -48,14 +48,16 @@ export default function AdminShell({ user, children }: Props) {
         } md:translate-x-0`}
       >
         <div className="flex h-16 items-center justify-between gap-3 px-5 border-b border-ink-200/70">
-          <Link href="/admin" className="flex items-center gap-2 group">
-            <span className="grid place-items-center w-8 h-8 rounded-lg bg-gradient-to-br from-brand-600 to-brand-800 text-white font-bold">
-              S
+          <Link href="/admin" className="flex items-center gap-2.5 group">
+            {/* eslint-disable-next-line @next/next/no-img-element */}
+            <img
+              src="/SimplifyQA%20logo%20Grey.png"
+              alt="SimplifyQA"
+              className="h-5 w-auto"
+            />
+            <span className="text-[10.5px] uppercase tracking-wider text-ink-400 border-l border-ink-200 pl-2.5">
+              Admin
             </span>
-            <div className="flex flex-col leading-tight">
-              <span className="font-display text-[15px] font-semibold tracking-tight">SimplifyQA</span>
-              <span className="text-[10.5px] uppercase tracking-wider text-ink-400">Admin</span>
-            </div>
           </Link>
           <button
             type="button"

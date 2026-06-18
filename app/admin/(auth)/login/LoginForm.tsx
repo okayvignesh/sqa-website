@@ -49,19 +49,21 @@ export default function LoginForm() {
           <div className="absolute inset-0 bg-[radial-gradient(rgba(255,255,255,0.05)_1px,transparent_1px)] bg-[size:22px_22px]" />
         </div>
 
-        <Link href="/" className="relative flex items-center gap-2 z-10">
-          <span className="grid place-items-center w-9 h-9 rounded-lg bg-gradient-to-br from-brand-500 to-brand-700 font-bold">
-            S
-          </span>
-          <span className="font-display text-lg font-semibold tracking-tight">SimplifyQA</span>
+        <Link href="/" className="relative z-10 inline-flex items-center">
+          {/* eslint-disable-next-line @next/next/no-img-element */}
+          <img
+            src="/simplify_logo.svg"
+            alt="SimplifyQA"
+            className="h-6 w-auto"
+          />
         </Link>
 
         <div className="relative z-10 space-y-5">
-          <div className="inline-flex items-center gap-1.5 rounded-full bg-white/10 px-3 py-1 text-[11.5px] font-medium uppercase tracking-wider">
+          <div className="inline-flex items-center gap-1.5 rounded-full bg-white/10 px-3 py-1 text-[11.5px] font-medium uppercase tracking-wider text-white/90">
             <span className="w-1.5 h-1.5 rounded-full bg-brand-300" />
             Admin console
           </div>
-          <h1 className="font-display text-4xl font-semibold leading-tight tracking-tight">
+          <h1 className="!text-white font-display text-4xl font-semibold leading-tight tracking-tight">
             Ship stories that drive
             <br />
             <span className="bg-gradient-to-r from-white via-brand-200 to-brand-400 bg-clip-text text-transparent">
@@ -82,11 +84,13 @@ export default function LoginForm() {
       {/* Right form panel */}
       <div className="flex items-center justify-center p-6 sm:p-12">
         <div className="w-full max-w-sm">
-          <div className="lg:hidden mb-8 flex items-center gap-2">
-            <span className="grid place-items-center w-9 h-9 rounded-lg bg-gradient-to-br from-brand-600 to-brand-800 text-white font-bold">
-              S
-            </span>
-            <span className="font-display text-lg font-semibold tracking-tight">SimplifyQA</span>
+          <div className="lg:hidden mb-8">
+            {/* eslint-disable-next-line @next/next/no-img-element */}
+            <img
+              src="/SimplifyQA%20logo%20Grey.png"
+              alt="SimplifyQA"
+              className="h-6 w-auto"
+            />
           </div>
 
           <div className="mb-8">

@@ -3,7 +3,9 @@
 // Usage:
 //   1) Put MONGODB_URI in .env.local
 //   2) npm run seed
-import 'dotenv/config';
+import { config as loadEnv } from 'dotenv';
+loadEnv({ path: '.env.local' });
+loadEnv(); // also load .env if present, without overriding
 import { connectMongo } from '../src/lib/mongodb';
 import { Post } from '../src/lib/models/Post';
 import { blogPosts } from '../src/utils/blogData';

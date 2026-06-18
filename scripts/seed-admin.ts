@@ -2,7 +2,9 @@
 // Creates (or resets the password of) the first admin user.
 // Usage:
 //   ADMIN_EMAIL=you@example.com ADMIN_PASSWORD=changeme ADMIN_NAME='Your Name' npm run seed:admin
-import 'dotenv/config';
+import { config as loadEnv } from 'dotenv';
+loadEnv({ path: '.env.local' });
+loadEnv(); // also load .env if present, without overriding
 import { connectMongo } from '../src/lib/mongodb';
 import { User } from '../src/lib/models/User';
 import { hashPassword } from '../src/lib/auth';
