@@ -41,7 +41,7 @@ export default function BlogPage({ posts }: Props) {
   return (
     <>
       {/* Hero */}
-      <section className="relative pt-20 sm:pt-24 pb-12 overflow-hidden">
+      <section className="relative pt-20 sm:pt-24 pb-8 overflow-hidden">
         <div aria-hidden className="absolute inset-0 -z-10">
           <div className="absolute inset-0 bg-grid" />
           <div className="absolute inset-0 bg-mesh opacity-90" />
@@ -101,7 +101,7 @@ export default function BlogPage({ posts }: Props) {
       </section>
 
       {/* Hero post + grid */}
-      <section className="relative pb-24 sm:pb-28">
+      <section className="relative pb-16 sm:pb-20">
         <Container size="wide">
           {hero ? (
             <Link href={`/blog/${hero.slug}`} className="block rounded-3xl overflow-hidden border border-ink-900/[0.06] bg-white lift">

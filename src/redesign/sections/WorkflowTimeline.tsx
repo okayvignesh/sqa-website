@@ -16,7 +16,7 @@ const stages = [
 
 export default function WorkflowTimeline() {
   return (
-    <section className="relative py-24 sm:py-32 bg-surface-warm overflow-hidden">
+    <section className="relative py-16 sm:py-24 bg-surface-warm overflow-hidden">
       <Container size="wide">
         <div className="max-w-3xl">
           <Reveal>

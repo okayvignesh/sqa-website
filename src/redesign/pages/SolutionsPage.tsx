@@ -84,7 +84,7 @@ export default function SolutionsPage() {
   return (
     <>
       {/* Hero */}
-      <section className="relative pt-20 sm:pt-24 pb-20 overflow-hidden">
+      <section className="relative pt-20 sm:pt-24 pb-14 overflow-hidden">
         <div aria-hidden className="absolute inset-0 -z-10">
           <div className="absolute inset-0 bg-grid" />
           <div className="absolute inset-0 bg-mesh opacity-90" />
@@ -123,7 +123,7 @@ export default function SolutionsPage() {
       </section>
 
       {/* Platform tiles */}
-      <section id="platform" className="relative py-20 sm:py-24 bg-surface-soft">
+      <section id="platform" className="relative py-14 sm:py-20 bg-surface-soft">
         <Container size="wide">
           <div className="max-w-3xl">
             <Reveal>
@@ -160,7 +160,7 @@ export default function SolutionsPage() {
       </section>
 
       {/* Audiences — alternating layout */}
-      <section id="audiences" className="relative py-24 sm:py-28 bg-white">
+      <section id="audiences" className="relative py-16 sm:py-20 bg-white">
         <Container size="wide">
           <div className="max-w-3xl">
             <Reveal>

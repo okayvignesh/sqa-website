@@ -6,7 +6,7 @@ import { Container, GradientOrb, Reveal } from '../../design';
 
 export default function CTA() {
   return (
-    <section className="relative py-20 sm:py-28 bg-white overflow-hidden">
+    <section className="relative py-14 sm:py-20 bg-white overflow-hidden">
       <Container size="wide">
         <Reveal>
           <div className="relative rounded-[32px] overflow-hidden p-10 sm:p-16 bg-ink-900 text-white">

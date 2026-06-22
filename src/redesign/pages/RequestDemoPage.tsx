@@ -17,7 +17,7 @@ const steps = [
 export default function RequestDemoPage() {
   const [submitted, setSubmitted] = useState(false);
   return (
-    <section className="relative pt-20 sm:pt-24 pb-24 overflow-hidden">
+    <section className="relative pt-20 sm:pt-24 pb-16 overflow-hidden">
       <div aria-hidden className="absolute inset-0 -z-10">
         <div className="absolute inset-0 bg-grid" />
         <div className="absolute inset-0 bg-mesh opacity-90" />

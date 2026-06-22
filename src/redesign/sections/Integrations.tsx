@@ -14,7 +14,7 @@ const featured = [
 
 export default function Integrations() {
   return (
-    <section id="integrations" className="relative py-24 sm:py-32 bg-white">
+    <section id="integrations" className="relative py-16 sm:py-24 bg-white">
       <Container size="wide">
         <div className="grid lg:grid-cols-2 gap-12 lg:gap-16 items-center">
           <div>

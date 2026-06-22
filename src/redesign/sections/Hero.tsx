@@ -20,7 +20,7 @@ export default function Hero() {
   const reduce = useReducedMotion();
 
   return (
-    <section className="relative isolate pt-32 sm:pt-36 pb-20 sm:pb-28 overflow-hidden">
+    <section className="relative isolate pt-28 sm:pt-32 pb-14 sm:pb-20 overflow-hidden">
       {/* Background system — plain white. The cursor orb is the only accent. */}
       <div aria-hidden className="absolute inset-0 -z-10">
         <InteractiveDotGrid />

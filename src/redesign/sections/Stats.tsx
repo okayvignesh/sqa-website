@@ -14,7 +14,7 @@ const stats = [
 
 export default function Stats() {
   return (
-    <section className="relative py-20 sm:py-24 bg-surface-soft">
+    <section className="relative py-14 sm:py-20 bg-surface-soft">
       <Container size="wide">
         <div className="max-w-3xl">
           <Reveal>

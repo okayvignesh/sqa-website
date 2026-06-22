@@ -21,7 +21,7 @@ const cardBase =
 
 export default function BentoFeatures() {
   return (
-    <section id="platform" className="relative py-24 sm:py-32 bg-surface-soft">
+    <section id="platform" className="relative py-16 sm:py-24 bg-surface-soft">
       <div aria-hidden className="absolute inset-x-0 top-0 h-px bg-gradient-to-r from-transparent via-ink-900/10 to-transparent" />
       <Container size="wide">
         <div className="max-w-3xl">
@@ -81,7 +81,7 @@ export default function BentoFeatures() {
           <motion.div
             variants={fadeFromRight}
             {...cardHover}
-            className={`${cardBase} col-span-12 lg:col-span-5 p-8 sm:p-10`}
+            className={`${cardBase} col-span-12 lg:col-span-5 p-8 sm:p-10 flex flex-col`}
           >
             <div className="flex items-center gap-2 text-[12.5px] font-semibold text-brand-700">
               <Zap className="w-3.5 h-3.5" /> Test Automation
@@ -97,6 +97,19 @@ export default function BentoFeatures() {
                 <span key={t} className="text-center text-[11.5px] font-medium text-ink-600 bg-ink-50 border border-ink-100 rounded-lg px-1.5 py-2">
                   {t}
                 </span>
+              ))}
+            </div>
+
+            <div className="mt-6 grid grid-cols-3 gap-3">
+              {[
+                ['200×', 'parallel shards'],
+                ['65%', 'faster CI runs'],
+                ['90%', 'less maintenance'],
+              ].map(([v, l]) => (
+                <div key={l} className="rounded-xl bg-ink-50/70 border border-ink-100 px-3 py-2.5">
+                  <div className="font-display text-lg text-ink-900 leading-none">{v}</div>
+                  <div className="mt-1 text-[11px] text-ink-500 leading-tight">{l}</div>
+                </div>
               ))}
             </div>
           </motion.div>
@@ -164,7 +177,7 @@ export default function BentoFeatures() {
           <motion.div
             variants={fadeFromLeft}
             {...cardHover}
-            className={`${cardBase} col-span-12 md:col-span-6 lg:col-span-6 p-8`}
+            className={`${cardBase} col-span-12 md:col-span-6 lg:col-span-6 p-8 flex flex-col`}
           >
             <div className="flex items-center gap-2 text-[12.5px] font-semibold text-brand-700">
               <GitBranch className="w-3.5 h-3.5" /> Release Orchestration
@@ -173,6 +186,39 @@ export default function BentoFeatures() {
             <p className="mt-2 text-[13.5px] text-ink-500 leading-relaxed">
               Pipelines, environments, approvals, and quality gates — connected to Jenkins, GitLab CI, GitHub Actions, and Azure DevOps.
             </p>
+
+            <div className="mt-6 rounded-2xl bg-ink-50/70 border border-ink-100 p-4">
+              <div className="flex items-center justify-between gap-2 text-[11.5px] font-medium">
+                {[
+                  ['Build',   'bg-emerald-500'],
+                  ['Test',    'bg-emerald-500'],
+                  ['Scan',    'bg-emerald-500'],
+                  ['Gate',    'bg-amber-500'],
+                  ['Deploy',  'bg-ink-300'],
+                ].map(([label, dot], i, arr) => (
+                  <div key={label} className="flex items-center gap-2 flex-1 min-w-0">
+                    <span className={`w-1.5 h-1.5 rounded-full ${dot} shrink-0`} />
+                    <span className="truncate text-ink-700">{label}</span>
+                    {i < arr.length - 1 && (
+                      <span className="hidden sm:block flex-1 h-px bg-ink-200" />
+                    )}
+                  </div>
+                ))}
+              </div>
+              <div className="mt-3 flex items-center justify-between text-[11px] text-ink-500">
+                <span>Release <span className="font-mono text-ink-700">v4.18.2</span></span>
+                <span className="text-emerald-700 font-medium">Quality 96%</span>
+              </div>
+            </div>
+
+            <div className="mt-4 flex items-center gap-2 flex-wrap text-[11.5px] text-ink-500">
+              <span className="font-medium text-ink-700">Pipelines:</span>
+              {['Jenkins', 'GitLab CI', 'GitHub Actions', 'Azure DevOps'].map((b) => (
+                <span key={b} className="bg-ink-50 border border-ink-100 rounded-full px-2.5 py-0.5">
+                  {b}
+                </span>
+              ))}
+            </div>
           </motion.div>
 
           {/* Security — bottom right · slides from right */}

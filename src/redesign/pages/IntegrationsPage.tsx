@@ -29,7 +29,7 @@ export default function IntegrationsPage() {
   return (
     <>
       {/* Hero */}
-      <section className="relative pt-20 sm:pt-24 pb-16 overflow-hidden">
+      <section className="relative pt-20 sm:pt-24 pb-12 overflow-hidden">
         <div aria-hidden className="absolute inset-0 -z-10">
           <div className="absolute inset-0 bg-grid" />
           <div className="absolute inset-0 bg-mesh opacity-90" />
@@ -58,7 +58,7 @@ export default function IntegrationsPage() {
       </section>
 
       {/* Filter + grid */}
-      <section className="relative pb-24 sm:pb-28">
+      <section className="relative pb-16 sm:pb-20">
         <Container size="wide">
           {/* Controls */}
           <div className="rounded-3xl glass-strong p-4 sm:p-5 flex flex-col lg:flex-row gap-4 items-stretch lg:items-center justify-between">

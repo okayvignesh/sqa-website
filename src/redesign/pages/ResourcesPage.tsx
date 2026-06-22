@@ -42,7 +42,7 @@ const reads = [
 export default function ResourcesPage() {
   return (
     <>
-      <section className="relative pt-20 sm:pt-24 pb-16 overflow-hidden">
+      <section className="relative pt-20 sm:pt-24 pb-12 overflow-hidden">
         <div aria-hidden className="absolute inset-0 -z-10">
           <div className="absolute inset-0 bg-grid" />
           <div className="absolute inset-0 bg-mesh opacity-90" />
@@ -100,7 +100,7 @@ export default function ResourcesPage() {
       </section>
 
       {/* Category tiles */}
-      <section className="relative py-20 sm:py-24 bg-surface-soft">
+      <section className="relative py-14 sm:py-20 bg-surface-soft">
         <Container size="wide">
           <RevealGroup className="grid md:grid-cols-2 lg:grid-cols-3 gap-4 sm:gap-5">
             {tiles.map((t) => {
@@ -135,7 +135,7 @@ export default function ResourcesPage() {
       </section>
 
       {/* Upcoming + reading */}
-      <section className="relative py-24 sm:py-28 bg-white">
+      <section className="relative py-16 sm:py-20 bg-white">
         <Container size="wide">
           <div className="grid lg:grid-cols-2 gap-10">
             <div>

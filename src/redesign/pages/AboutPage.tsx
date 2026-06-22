@@ -29,7 +29,7 @@ export default function AboutPage() {
   return (
     <>
       {/* Hero */}
-      <section className="relative pt-20 sm:pt-24 pb-16 overflow-hidden">
+      <section className="relative pt-20 sm:pt-24 pb-12 overflow-hidden">
         <div aria-hidden className="absolute inset-0 -z-10">
           <div className="absolute inset-0 bg-grid" />
           <div className="absolute inset-0 bg-mesh opacity-90" />
@@ -75,7 +75,7 @@ export default function AboutPage() {
       </section>
 
       {/* Mission */}
-      <section className="relative py-20 sm:py-24 bg-surface-soft">
+      <section className="relative py-14 sm:py-20 bg-surface-soft">
         <Container size="wide">
           <div className="grid lg:grid-cols-2 gap-10 lg:gap-16 items-start">
             <div>
@@ -116,7 +116,7 @@ export default function AboutPage() {
       </section>
 
       {/* Timeline */}
-      <section className="relative py-24 sm:py-28 bg-white">
+      <section className="relative py-16 sm:py-20 bg-white">
         <Container size="wide">
           <div className="max-w-3xl">
             <Reveal>
@@ -152,7 +152,7 @@ export default function AboutPage() {
       </section>
 
       {/* Offices */}
-      <section id="offices" className="relative py-24 sm:py-28 bg-surface-soft">
+      <section id="offices" className="relative py-16 sm:py-20 bg-surface-soft">
         <Container size="wide">
           <div className="max-w-3xl">
             <Reveal>
@@ -190,7 +190,7 @@ export default function AboutPage() {
       </section>
 
       {/* Team note */}
-      <section className="relative py-20 bg-white">
+      <section className="relative py-14 bg-white">
         <Container size="wide">
           <div className="rounded-3xl overflow-hidden border border-ink-900/[0.06] bg-gradient-to-br from-white to-surface-warm p-8 sm:p-12 flex flex-col lg:flex-row items-start lg:items-center gap-8">
             <div className="grid place-items-center w-14 h-14 rounded-2xl bg-brand-50 text-brand-700 border border-brand-100">

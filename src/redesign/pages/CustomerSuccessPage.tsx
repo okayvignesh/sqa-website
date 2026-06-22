@@ -13,7 +13,7 @@ export default function CustomerSuccessPage() {
   return (
     <>
       {/* Hero */}
-      <section className="relative pt-20 sm:pt-24 pb-16 overflow-hidden">
+      <section className="relative pt-20 sm:pt-24 pb-12 overflow-hidden">
         <div aria-hidden className="absolute inset-0 -z-10">
           <div className="absolute inset-0 bg-grid" />
           <div className="absolute inset-0 bg-mesh opacity-90" />
@@ -41,7 +41,7 @@ export default function CustomerSuccessPage() {
       </section>
 
       {/* Client logo wall */}
-      <section className="relative py-16 sm:py-20 bg-surface-soft">
+      <section className="relative py-12 sm:py-16 bg-surface-soft">
         <Container size="wide">
           <Reveal>
             <div className="text-center">
@@ -69,7 +69,7 @@ export default function CustomerSuccessPage() {
       </section>
 
       {/* Case studies placeholder */}
-      <section className="relative py-24 sm:py-28 bg-white">
+      <section className="relative py-16 sm:py-20 bg-white">
         <Container size="wide">
           <div className="grid lg:grid-cols-2 gap-10 lg:gap-16 items-center">
             <div>

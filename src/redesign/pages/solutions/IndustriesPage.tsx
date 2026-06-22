@@ -70,7 +70,7 @@ const industries = [
 export default function IndustriesPage() {
   return (
     <>
-      <section className="relative pt-20 sm:pt-24 pb-16 overflow-hidden">
+      <section className="relative pt-20 sm:pt-24 pb-12 overflow-hidden">
         <div aria-hidden className="absolute inset-0 -z-10">
           <div className="absolute inset-0 bg-grid" />
           <div className="absolute inset-0 bg-mesh opacity-90" />
@@ -97,7 +97,7 @@ export default function IndustriesPage() {
         </Container>
       </section>
 
-      <section className="relative py-20 sm:py-24 bg-surface-soft">
+      <section className="relative py-14 sm:py-20 bg-surface-soft">
         <Container size="wide">
           <RevealGroup className="grid md:grid-cols-2 lg:grid-cols-3 gap-4 sm:gap-5" delay={0.06}>
             {industries.map((ind) => (
@@ -127,7 +127,7 @@ export default function IndustriesPage() {
         </Container>
       </section>
 
-      <section className="relative py-20 bg-white">
+      <section className="relative py-14 bg-white">
         <Container size="wide">
           <div className="rounded-3xl bg-surface-soft border border-ink-900/[0.06] p-8 sm:p-12 flex flex-col lg:flex-row items-start lg:items-center justify-between gap-6">
             <div className="max-w-2xl">

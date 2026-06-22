@@ -23,7 +23,7 @@ export function Section({
   return (
     <section
       id={id}
-      className={cn('relative overflow-hidden py-20 sm:py-28', tones[tone], className)}
+      className={cn('relative overflow-hidden py-14 sm:py-20', tones[tone], className)}
     >
       {children}
     </section>
