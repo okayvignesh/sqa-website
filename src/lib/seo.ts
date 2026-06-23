@@ -1,5 +1,5 @@
 import type { Metadata } from 'next';
-import { SITE_NAME, SITE_TWITTER } from './site';
+import { SITE_NAME, SITE_TWITTER, SITE_URL } from './site';
 
 type Args = {
   title: string;
@@ -40,3 +40,19 @@ export function buildMetadata({ title, description, path, image, keywords }: Arg
     },
   };
 }
+
+export type Breadcrumb = { name: string; path: string };
+
+export function buildBreadcrumbJsonLd(trail: Breadcrumb[]) {
+  return {
+    '@context': 'https://schema.org',
+    '@type': 'BreadcrumbList',
+    itemListElement: trail.map((b, i) => ({
+      '@type': 'ListItem',
+      position: i + 1,
+      name: b.name,
+      item: `${SITE_URL}${b.path.startsWith('/') ? b.path : `/${b.path}`}`,
+    })),
+  };
+}
+

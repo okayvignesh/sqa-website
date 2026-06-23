@@ -1,9 +1,31 @@
 import type { Metadata, Viewport } from 'next';
 import Script from 'next/script';
+import { Geist, Geist_Mono, Inter } from 'next/font/google';
 import MarketingChrome from './MarketingChrome';
 import ScrollToTop from './ScrollToTop';
 import { SITE_URL, SITE_NAME, SITE_DESCRIPTION, SITE_TWITTER } from '../src/lib/site';
 import './globals.css';
+
+const geist = Geist({
+  subsets: ['latin'],
+  weight: ['400', '500', '600', '700', '800'],
+  variable: '--font-geist',
+  display: 'swap',
+});
+
+const geistMono = Geist_Mono({
+  subsets: ['latin'],
+  weight: ['400', '500'],
+  variable: '--font-geist-mono',
+  display: 'swap',
+});
+
+const inter = Inter({
+  subsets: ['latin'],
+  weight: ['400', '500', '600', '700'],
+  variable: '--font-inter',
+  display: 'swap',
+});
 
 const TITLE = 'SimplifyQA — Intelligent ALM & Test Management Platform';
 
@@ -132,14 +154,8 @@ const softwareJsonLd = {
 
 export default function RootLayout({ children }: { children: React.ReactNode }) {
   return (
-    <html lang="en">
+    <html lang="en" className={`${geist.variable} ${geistMono.variable} ${inter.variable}`}>
       <head>
-        <link rel="preconnect" href="https://fonts.googleapis.com" />
-        <link rel="preconnect" href="https://fonts.gstatic.com" crossOrigin="" />
-        <link
-          rel="stylesheet"
-          href="https://fonts.googleapis.com/css2?family=Geist:wght@400;500;600;700;800&family=Geist+Mono:wght@400;500&family=Inter:wght@400;500;600;700&display=swap"
-        />
         <link href="https://assets.calendly.com/assets/external/widget.css" rel="stylesheet" />
         <script
           type="application/ld+json"

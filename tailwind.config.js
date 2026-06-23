@@ -40,9 +40,9 @@ module.exports = {
         },
       },
       fontFamily: {
-        display: ['"Geist"', '"Inter"', '-apple-system', 'BlinkMacSystemFont', 'sans-serif'],
-        sans:    ['"Inter"', '-apple-system', 'BlinkMacSystemFont', 'sans-serif'],
-        mono:    ['"Geist Mono"', 'ui-monospace', 'SFMono-Regular', 'monospace'],
+        display: ['var(--font-geist)', '"Geist"', '"Inter"', '-apple-system', 'BlinkMacSystemFont', 'sans-serif'],
+        sans:    ['var(--font-inter)', '"Inter"', '-apple-system', 'BlinkMacSystemFont', 'sans-serif'],
+        mono:    ['var(--font-geist-mono)', '"Geist Mono"', 'ui-monospace', 'SFMono-Regular', 'monospace'],
       },
       fontSize: {
         'display-xl': ['clamp(3rem, 6.4vw, 5.75rem)', { lineHeight: '1.02', letterSpacing: '-0.035em' }],

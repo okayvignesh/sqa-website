@@ -1,5 +1,5 @@
 import EnterpriseQAPage from '../../../src/redesign/pages/solutions/EnterpriseQAPage';
-import { buildMetadata } from '../../../src/lib/seo';
+import { buildMetadata, buildBreadcrumbJsonLd } from '../../../src/lib/seo';
 
 export const metadata = buildMetadata({
   title: 'Enterprise QA',
@@ -8,6 +8,17 @@ export const metadata = buildMetadata({
   path: '/solutions/enterprise-qa',
 });
 
+const breadcrumb = buildBreadcrumbJsonLd([
+  { name: 'Home',          path: '/' },
+  { name: 'Solutions',      path: '/solutions' },
+  { name: 'Enterprise QA',  path: '/solutions/enterprise-qa' },
+]);
+
 export default function Page() {
-  return <EnterpriseQAPage />;
+  return (
+    <>
+      <script type="application/ld+json" dangerouslySetInnerHTML={{ __html: JSON.stringify(breadcrumb) }} />
+      <EnterpriseQAPage />
+    </>
+  );
 }

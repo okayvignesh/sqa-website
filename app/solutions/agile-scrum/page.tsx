@@ -1,5 +1,5 @@
 import AgileScrumPage from '../../../src/redesign/pages/solutions/AgileScrumPage';
-import { buildMetadata } from '../../../src/lib/seo';
+import { buildMetadata, buildBreadcrumbJsonLd } from '../../../src/lib/seo';
 
 export const metadata = buildMetadata({
   title: 'Agile & Scrum',
@@ -8,6 +8,17 @@ export const metadata = buildMetadata({
   path: '/solutions/agile-scrum',
 });
 
+const breadcrumb = buildBreadcrumbJsonLd([
+  { name: 'Home',         path: '/' },
+  { name: 'Solutions',     path: '/solutions' },
+  { name: 'Agile & Scrum', path: '/solutions/agile-scrum' },
+]);
+
 export default function Page() {
-  return <AgileScrumPage />;
+  return (
+    <>
+      <script type="application/ld+json" dangerouslySetInnerHTML={{ __html: JSON.stringify(breadcrumb) }} />
+      <AgileScrumPage />
+    </>
+  );
 }

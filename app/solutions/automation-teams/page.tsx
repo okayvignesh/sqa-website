@@ -1,5 +1,5 @@
 import AutomationTeamsPage from '../../../src/redesign/pages/solutions/AutomationTeamsPage';
-import { buildMetadata } from '../../../src/lib/seo';
+import { buildMetadata, buildBreadcrumbJsonLd } from '../../../src/lib/seo';
 
 export const metadata = buildMetadata({
   title: 'For Automation Teams',
@@ -8,6 +8,17 @@ export const metadata = buildMetadata({
   path: '/solutions/automation-teams',
 });
 
+const breadcrumb = buildBreadcrumbJsonLd([
+  { name: 'Home',                 path: '/' },
+  { name: 'Solutions',             path: '/solutions' },
+  { name: 'For Automation Teams',  path: '/solutions/automation-teams' },
+]);
+
 export default function Page() {
-  return <AutomationTeamsPage />;
+  return (
+    <>
+      <script type="application/ld+json" dangerouslySetInnerHTML={{ __html: JSON.stringify(breadcrumb) }} />
+      <AutomationTeamsPage />
+    </>
+  );
 }

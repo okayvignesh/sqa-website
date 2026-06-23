@@ -1,5 +1,5 @@
 import EngineeringLeadersPage from '../../../src/redesign/pages/solutions/EngineeringLeadersPage';
-import { buildMetadata } from '../../../src/lib/seo';
+import { buildMetadata, buildBreadcrumbJsonLd } from '../../../src/lib/seo';
 
 export const metadata = buildMetadata({
   title: 'For Engineering Leaders',
@@ -8,6 +8,17 @@ export const metadata = buildMetadata({
   path: '/solutions/engineering-leaders',
 });
 
+const breadcrumb = buildBreadcrumbJsonLd([
+  { name: 'Home',                  path: '/' },
+  { name: 'Solutions',              path: '/solutions' },
+  { name: 'For Engineering Leaders', path: '/solutions/engineering-leaders' },
+]);
+
 export default function Page() {
-  return <EngineeringLeadersPage />;
+  return (
+    <>
+      <script type="application/ld+json" dangerouslySetInnerHTML={{ __html: JSON.stringify(breadcrumb) }} />
+      <EngineeringLeadersPage />
+    </>
+  );
 }

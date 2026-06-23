@@ -1,5 +1,6 @@
 'use client';
 
+import Image from 'next/image';
 import Link from 'next/link';
 import { ArrowLeft, ArrowRight, Calendar, Clock, Share2 } from 'lucide-react';
 import {
@@ -59,8 +60,14 @@ export default function BlogDetailPage({ post, related = [] }: Props) {
         <Reveal delay={0.15}>
           <div className="rounded-3xl overflow-hidden border border-ink-900/[0.06] bg-gradient-to-br from-brand-50 via-white to-brand-100 aspect-[16/8] relative">
             {post.featuredImage ? (
-              // eslint-disable-next-line @next/next/no-img-element
-              <img src={post.featuredImage} alt={post.title} className="absolute inset-0 w-full h-full object-cover" />
+              <Image
+                src={post.featuredImage}
+                alt={post.title}
+                fill
+                priority
+                sizes="(min-width: 1024px) 720px, 100vw"
+                className="object-cover"
+              />
             ) : (
               <div aria-hidden className="absolute inset-0 bg-mesh opacity-80" />
             )}

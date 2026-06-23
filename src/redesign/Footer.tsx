@@ -1,5 +1,6 @@
 'use client';
 
+import Image from 'next/image';
 import Link from 'next/link';
 import { Github, Linkedin, Twitter, Youtube, ArrowUpRight, Sparkles } from 'lucide-react';
 
@@ -68,7 +69,15 @@ export default function FooterV2() {
         <div className="mt-16 grid grid-cols-2 md:grid-cols-5 gap-10">
           <div className="col-span-2 md:col-span-1">
             <Link href="/" className="inline-flex items-center" aria-label="SimplifyQA home">
-              <img src="/SimplifyQA%20logo%20Grey.png" alt="SimplifyQA" className="h-5 w-auto" draggable={false} />
+              <Image
+                src="/SimplifyQA logo Grey.png"
+                alt="SimplifyQA"
+                width={140}
+                height={20}
+                className="h-5 w-auto"
+                draggable={false}
+                priority={false}
+              />
             </Link>
             <p className="mt-3 text-[13.5px] text-ink-500 leading-relaxed max-w-[260px]">
               The intelligent ALM and test management platform for modern QA teams.

@@ -1,5 +1,5 @@
 import InsightsReportsPage from '../../../src/redesign/pages/platform/InsightsReportsPage';
-import { buildMetadata } from '../../../src/lib/seo';
+import { buildMetadata, buildBreadcrumbJsonLd } from '../../../src/lib/seo';
 
 export const metadata = buildMetadata({
   title: 'Insights & Reports',
@@ -8,6 +8,17 @@ export const metadata = buildMetadata({
   path: '/platform/insights-reports',
 });
 
+const breadcrumb = buildBreadcrumbJsonLd([
+  { name: 'Home',                path: '/' },
+  { name: 'Platform',             path: '/platform/insights-reports' },
+  { name: 'Insights & Reports',   path: '/platform/insights-reports' },
+]);
+
 export default function Page() {
-  return <InsightsReportsPage />;
+  return (
+    <>
+      <script type="application/ld+json" dangerouslySetInnerHTML={{ __html: JSON.stringify(breadcrumb) }} />
+      <InsightsReportsPage />
+    </>
+  );
 }

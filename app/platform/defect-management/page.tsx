@@ -1,5 +1,5 @@
 import DefectManagementPage from '../../../src/redesign/pages/platform/DefectManagementPage';
-import { buildMetadata } from '../../../src/lib/seo';
+import { buildMetadata, buildBreadcrumbJsonLd } from '../../../src/lib/seo';
 
 export const metadata = buildMetadata({
   title: 'Defect Management',
@@ -8,6 +8,17 @@ export const metadata = buildMetadata({
   path: '/platform/defect-management',
 });
 
+const breadcrumb = buildBreadcrumbJsonLd([
+  { name: 'Home',              path: '/' },
+  { name: 'Platform',           path: '/platform/defect-management' },
+  { name: 'Defect Management',  path: '/platform/defect-management' },
+]);
+
 export default function Page() {
-  return <DefectManagementPage />;
+  return (
+    <>
+      <script type="application/ld+json" dangerouslySetInnerHTML={{ __html: JSON.stringify(breadcrumb) }} />
+      <DefectManagementPage />
+    </>
+  );
 }

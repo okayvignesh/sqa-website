@@ -1,5 +1,5 @@
 import ReleaseOrchestrationPage from '../../../src/redesign/pages/platform/ReleaseOrchestrationPage';
-import { buildMetadata } from '../../../src/lib/seo';
+import { buildMetadata, buildBreadcrumbJsonLd } from '../../../src/lib/seo';
 
 export const metadata = buildMetadata({
   title: 'Release Orchestration',
@@ -8,6 +8,17 @@ export const metadata = buildMetadata({
   path: '/platform/release-orchestration',
 });
 
+const breadcrumb = buildBreadcrumbJsonLd([
+  { name: 'Home',                   path: '/' },
+  { name: 'Platform',                path: '/platform/release-orchestration' },
+  { name: 'Release Orchestration',   path: '/platform/release-orchestration' },
+]);
+
 export default function Page() {
-  return <ReleaseOrchestrationPage />;
+  return (
+    <>
+      <script type="application/ld+json" dangerouslySetInnerHTML={{ __html: JSON.stringify(breadcrumb) }} />
+      <ReleaseOrchestrationPage />
+    </>
+  );
 }

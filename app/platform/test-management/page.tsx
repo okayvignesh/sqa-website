@@ -1,5 +1,5 @@
 import TestManagementPage from '../../../src/redesign/pages/platform/TestManagementPage';
-import { buildMetadata } from '../../../src/lib/seo';
+import { buildMetadata, buildBreadcrumbJsonLd } from '../../../src/lib/seo';
 
 export const metadata = buildMetadata({
   title: 'Test Management',
@@ -8,6 +8,17 @@ export const metadata = buildMetadata({
   path: '/platform/test-management',
 });
 
+const breadcrumb = buildBreadcrumbJsonLd([
+  { name: 'Home',             path: '/' },
+  { name: 'Platform',          path: '/platform/test-management' },
+  { name: 'Test Management',   path: '/platform/test-management' },
+]);
+
 export default function Page() {
-  return <TestManagementPage />;
+  return (
+    <>
+      <script type="application/ld+json" dangerouslySetInnerHTML={{ __html: JSON.stringify(breadcrumb) }} />
+      <TestManagementPage />
+    </>
+  );
 }

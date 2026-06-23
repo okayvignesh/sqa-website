@@ -1,5 +1,5 @@
 import TestAutomationPage from '../../../src/redesign/pages/platform/TestAutomationPage';
-import { buildMetadata } from '../../../src/lib/seo';
+import { buildMetadata, buildBreadcrumbJsonLd } from '../../../src/lib/seo';
 
 export const metadata = buildMetadata({
   title: 'Test Automation',
@@ -8,6 +8,17 @@ export const metadata = buildMetadata({
   path: '/platform/test-automation',
 });
 
+const breadcrumb = buildBreadcrumbJsonLd([
+  { name: 'Home',             path: '/' },
+  { name: 'Platform',          path: '/platform/test-automation' },
+  { name: 'Test Automation',   path: '/platform/test-automation' },
+]);
+
 export default function Page() {
-  return <TestAutomationPage />;
+  return (
+    <>
+      <script type="application/ld+json" dangerouslySetInnerHTML={{ __html: JSON.stringify(breadcrumb) }} />
+      <TestAutomationPage />
+    </>
+  );
 }
