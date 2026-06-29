@@ -2,12 +2,13 @@ import { NextResponse } from 'next/server';
 import type { NextRequest } from 'next/server';
 
 /**
- * Security + crawl hint headers applied to every response.
+ * Security headers applied to every response.
  *
- * X-Robots-Tag is set to "noindex" for any host that isn't the canonical
- * production origin so previews/staging deploys don't leak into search results.
+ * X-Robots-Tag noindex is opt-in via the NOINDEX env var. Set NOINDEX=1 on
+ * preview/staging environments to keep them out of search results. Production
+ * should leave it unset so the site can be indexed normally.
  */
-export function middleware(request: NextRequest) {
+export function middleware(_request: NextRequest) {
   const response = NextResponse.next();
   const headers = response.headers;
 
@@ -20,9 +21,7 @@ export function middleware(request: NextRequest) {
   );
   headers.set('X-DNS-Prefetch-Control', 'on');
 
-  const host = request.headers.get('host') || '';
-  const isCanonical = host === 'www.simplifyqa.app' || host === 'simplifyqa.app';
-  if (!isCanonical) {
+  if (process.env.NOINDEX === '1' || process.env.NEXT_PUBLIC_NOINDEX === '1') {
     headers.set('X-Robots-Tag', 'noindex, nofollow');
   }
 
