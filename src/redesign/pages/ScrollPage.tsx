@@ -52,7 +52,7 @@ function Grad({ children }: { children: React.ReactNode }) {
   );
 }
 
-const SCROLL_URL = 'https://scroll.simplifyqa.app';
+const SCROLL_URL = 'https://qa.scroll.simplifyqa.com/';
 
 // Scroll violet palette (Tailwind violet-500 through violet-800), used inline
 // so we don't have to introduce a whole theme layer for one page.

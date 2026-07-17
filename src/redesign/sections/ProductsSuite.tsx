@@ -103,7 +103,7 @@ function ScrollCard() {
           }}>
           Explore Scroll <ArrowUpRight className="w-4 h-4" />
         </Link>
-        <a href="https://scroll.simplifyqa.app" target="_blank" rel="noreferrer"
+        <a href="https://qa.scroll.simplifyqa.com/" target="_blank" rel="noreferrer"
           className="inline-flex items-center gap-1.5 h-11 px-5 rounded-full text-[14px] font-semibold border transition-colors"
           style={{ borderColor: V[200], background: 'white', color: V[700] }}>
           Try Scroll

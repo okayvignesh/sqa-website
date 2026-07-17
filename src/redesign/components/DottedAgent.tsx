@@ -9,6 +9,7 @@ import { SiClaude, SiOpenai, SiWindsurf } from 'react-icons/si';
 
 const C = {
   bg:        '#0A0A0F',
+  ink:       '#0A0A0F',
   gridDot:   'rgba(255,255,255,0.06)',
   faint:     'rgba(228,228,231,0.35)',
   muted:     '#8B8B96',
