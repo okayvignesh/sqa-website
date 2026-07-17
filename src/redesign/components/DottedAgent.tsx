@@ -42,7 +42,7 @@ const CLIENTS: Sat[] = [
 
 // Target technologies the MCP executes against — bottom strip
 const TARGETS = [
-  'WEB', 'MOBILE', 'API', 'DESKTOP', 'DB', 'MAIN', 'SAP', 'HYBRID',
+  'WEB', 'MOBILE', 'API', 'DESKTOP', 'DB', 'MAIN', 'SAP', 'HYBRID', 'GENERIC',
 ] as const;
 
 const GRID_COLS = 40;
@@ -193,7 +193,7 @@ export default function DottedAgent() {
               animate={{ opacity: [1, 0.4, 1] }}
               transition={{ duration: 1.6, repeat: Infinity }}
             />
-            50 tools · online
+            50+ tools · per tech · online
           </div>
         </div>
 
@@ -207,9 +207,9 @@ export default function DottedAgent() {
 
         {/* Corner status readouts */}
         <StatusReadout position="tl" text="MCP · ONLINE" ok />
-        <StatusReadout position="tr" text="TOOLS · 50" />
+        <StatusReadout position="tr" text="TOOLS · 50+ /TECH" />
         <StatusReadout position="bl" text="LATENCY 42MS" />
-        <StatusReadout position="br" text="TARGETS · 8" ok />
+        <StatusReadout position="br" text="TARGETS · 9" ok />
       </div>
     </div>
   );

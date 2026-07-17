@@ -44,9 +44,9 @@ function Grad({ children }: { children: React.ReactNode }) {
 }
 
 const stats = [
-  { v: '1', k: 'Thing to provide (URL)' },
-  { v: '8', k: 'Technologies covered' },
-  { v: '0', k: 'Scripts to write' },
+  { v: '2', k: 'Things to provide (URL + creds)' },
+  { v: '9', k: 'Technologies covered' },
+  { v: '50+', k: 'MCP tools per technology' },
   { v: '0', k: 'AI vendor lock-in' },
 ];
 
@@ -67,8 +67,8 @@ const pillars = [
   },
   {
     tag: '02 · UNIVERSAL',
-    title: 'All 8 technologies, day one.',
-    body: 'Web, Mobile Web, API, Native Mobile (Android & iOS), Desktop, Database, Mainframe, SAP, and Hybrid cross-system flows. The AI picks the right test type.',
+    title: 'All 9 technologies, day one.',
+    body: 'Web, Mobile Web, API, Native Mobile (Android & iOS), Desktop, Database, Mainframe, SAP, Hybrid cross-system flows, plus a Generic type for anything else you throw at it. The AI picks the right test type.',
   },
   {
     tag: '03 · ZERO-TOUCH',
@@ -117,11 +117,12 @@ const tech: [string, string, string, string][] = [
   ['A REST or SOAP API',          'API test cases',                 'API plugin',                   'api'],
   ['An Android app',              'ANDROID via Appium',             'simplifyqa-android',           'android'],
   ['An iOS app',                  'IOS via Appium',                 'simplifyqa-ios',               'ios'],
-  ['A Windows desktop app',       'DESKTOP via WinAppDriver',       'desktop-execution-plugin',     'desktop'],
+  ['A Windows desktop app',       'DESKTOP via SimplifyQADesktopDriver', 'desktop-execution-plugin', 'desktop'],
   ['A database',                  'DATABASE validation queries',    'simplifyqa-db-plugin',         'db'],
   ['A mainframe terminal',        'MAINFRAME screen-flow tests',    'mainframe-plugin',             'mainframe'],
   ['An SAP transaction',          'SAP GUI tests',                  'sap-plugin',                   'sap'],
   ['A cross-system flow',         'HYBRID (Web → API → DB)',        'Multi-plugin orchestration',   'hybrid'],
+  ['Anything else',               'GENERIC test cases (custom type)', 'Bring-your-own runner',     'generic'],
 ];
 
 const clients = [
@@ -129,6 +130,10 @@ const clients = [
   { name: 'Cursor',         body: 'MCP server registration. Tests without leaving the IDE.' },
   { name: 'Windsurf',       body: 'MCP server registration. Engineers stay in flow.' },
   { name: 'ChatGPT',        body: 'GPTs Actions or Assistants function calls.' },
+  { name: 'Cline',          body: 'VS Code extension. Register the MCP server and go.' },
+  { name: 'Gemini',         body: 'Google Gemini via function calling or the CLI.' },
+  { name: 'opencode',       body: 'Open-source AI coding CLI. Add the server to its MCP config.' },
+  { name: 'VS Code',        body: 'GitHub Copilot Chat / any MCP-aware VS Code extension.' },
   { name: 'Anthropic SDK',  body: 'Any Python/TS app that speaks Anthropic messages.' },
   { name: 'LangChain / CrewAI', body: 'Register the server as a tool, orchestrate agents.' },
 ];
@@ -178,10 +183,11 @@ export default function AgentPage() {
               </h1>
 
               <p className="mt-6 text-[16px] sm:text-[17px] leading-relaxed max-w-xl" style={{ color: K.muted }}>
-                An MCP server that plugs into Claude, ChatGPT, Cursor, Windsurf, any AI you
-                already use. You provide one thing: a URL and a login. Your AI explores the
-                application, writes the test cases, runs them in SimplifyQA, and tells you
-                what broke. Works across all 8 technologies.
+                An MCP server that plugs into Claude, ChatGPT, Cursor, Windsurf, and any AI
+                you already use. Your AI calls SimplifyQA; SimplifyQA calls your app. You
+                provide two things, a URL and login credentials, and 50+ MCP tools per
+                technology handle the rest: exploration, test-case generation, execution,
+                and defect reporting across all 9 technologies.
               </p>
 
               <div className="mt-8 flex flex-col sm:flex-row items-start sm:items-center gap-3">
@@ -382,18 +388,19 @@ export default function AgentPage() {
         </div>
       </section>
 
-      {/* ============ CAPABILITIES / ~50 MCP TOOLS ============ */}
+      {/* ============ CAPABILITIES / 50+ MCP TOOLS ============ */}
       <section className="relative py-20 sm:py-28" style={{ background: '#07070B' }}>
         <div className="mx-auto max-w-7xl px-5 sm:px-8">
           <div className="max-w-3xl">
             <SectionEyebrow icon={<Cpu />}>What your AI can do</SectionEyebrow>
             <h2 className="mt-5 font-display text-[38px] sm:text-[46px] leading-tight tracking-tight text-white text-balance">
-              ~50 MCP tools across{' '}
-              <Grad>the full testing lifecycle.</Grad>
+              50+ MCP tools <Grad>per technology,</Grad>{' '}
+              across the full testing lifecycle.
             </h2>
             <p className="mt-5 text-[16px] leading-relaxed max-w-2xl" style={{ color: K.muted }}>
-              Every SimplifyQA capability exposed as an MCP tool. Your AI composes them in
-              whatever order your prompt requires.
+              Every SimplifyQA capability exposed as an MCP tool, for every one of the 9
+              supported technologies. Your AI composes them in whatever order your prompt
+              requires.
             </p>
           </div>
 
@@ -430,11 +437,11 @@ export default function AgentPage() {
         </div>
       </section>
 
-      {/* ============ 8 TECHNOLOGIES TABLE ============ */}
+      {/* ============ 9 TECHNOLOGIES TABLE ============ */}
       <section className="relative py-20 sm:py-24">
         <div className="mx-auto max-w-7xl px-5 sm:px-8">
           <div className="max-w-3xl">
-            <SectionEyebrow icon={<Layers />}>All 8 technologies</SectionEyebrow>
+            <SectionEyebrow icon={<Layers />}>All 9 technologies</SectionEyebrow>
             <h2 className="mt-5 font-display text-[38px] sm:text-[46px] leading-tight tracking-tight text-white text-balance">
               Point your AI at <Grad>any kind of application.</Grad>
             </h2>
