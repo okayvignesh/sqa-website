@@ -4,7 +4,7 @@ import { buildMetadata, buildBreadcrumbJsonLd } from '../../../src/lib/seo';
 export const metadata = buildMetadata({
   title: 'Industries We Serve',
   description:
-    'Banking, healthcare, retail, manufacturing — SimplifyQA fits the compliance, scale, and complexity of your industry.',
+    'Banking, healthcare, retail, manufacturing, SimplifyQA fits the compliance, scale, and complexity of your industry.',
   path: '/solutions/industries',
 });
 

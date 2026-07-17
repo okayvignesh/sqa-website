@@ -2,9 +2,9 @@ import HomePage from '../src/redesign/HomePage';
 import { buildMetadata } from '../src/lib/seo';
 
 export const metadata = buildMetadata({
-  title: 'SimplifyQA — Intelligent ALM & Test Management Platform',
+  title: 'SimplifyQA | AI Test Automation & Test Management Software',
   description:
-    'Enterprise-grade ALM and test management. Plan, automate, execute, and report — across the entire software lifecycle with AI-powered intelligence.',
+    'SimplifyQA is an AI-powered test automation and test management platform for web, mobile, API, SAP, and mainframe teams. Plan, automate, execute, report.',
   path: '/',
 });
 

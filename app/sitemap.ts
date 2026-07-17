@@ -8,13 +8,14 @@ const STATIC_ROUTES: Array<{
   priority: number;
 }> = [
   { path: '/', changeFrequency: 'weekly', priority: 1.0 },
+  { path: '/scroll', changeFrequency: 'weekly', priority: 0.9 },
+  { path: '/agent',  changeFrequency: 'weekly', priority: 0.9 },
   { path: '/about', changeFrequency: 'monthly', priority: 0.7 },
   { path: '/careers', changeFrequency: 'weekly', priority: 0.6 },
   { path: '/contact', changeFrequency: 'monthly', priority: 0.6 },
   { path: '/customer-success', changeFrequency: 'monthly', priority: 0.7 },
   { path: '/integrations', changeFrequency: 'monthly', priority: 0.7 },
   { path: '/pricing', changeFrequency: 'monthly', priority: 0.9 },
-  { path: '/request-demo', changeFrequency: 'monthly', priority: 0.9 },
   { path: '/resources', changeFrequency: 'weekly', priority: 0.7 },
   { path: '/blog', changeFrequency: 'daily', priority: 0.9 },
   { path: '/platform/test-management', changeFrequency: 'monthly', priority: 0.8 },

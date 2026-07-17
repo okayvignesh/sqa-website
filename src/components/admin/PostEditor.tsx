@@ -318,7 +318,7 @@ export default function PostEditor({ mode, initial, defaultAuthorName }: Props) 
                 <div className="rounded-xl border border-ink-200 bg-ink-50/40 p-4">
                   <div className="text-[11px] uppercase tracking-wider text-ink-400 mb-1.5">Search preview</div>
                   <div className="text-[14px] text-blue-700 truncate">
-                    {(post.seo.metaTitle || post.title) + ' — SimplifyQA'}
+                    {(post.seo.metaTitle || post.title) + ', SimplifyQA'}
                   </div>
                   <div className="text-[12px] text-emerald-700">
                     simplifyqa.app/blog/{post.slug || 'your-post'}

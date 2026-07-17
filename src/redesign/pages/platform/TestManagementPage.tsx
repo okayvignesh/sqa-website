@@ -17,7 +17,7 @@ export default function TestManagementPage() {
           </>
         ),
         subtitle:
-          'A purpose-built workspace for QA teams to plan releases, author test cases, run cycles, and trace coverage back to requirements — without leaving a single tab.',
+          'A purpose-built workspace for QA teams to plan releases, author test cases, run cycles, and trace coverage back to requirements, without leaving a single tab.',
         bullets: [
           'Requirements traceability matrix',
           'Test plans, suites & cycles',
@@ -28,13 +28,13 @@ export default function TestManagementPage() {
         ],
         features: [
           { icon: <ListChecks className="w-4 h-4" />,  title: 'Test Case Management',     body: 'Author cases with rich text, attachments, and parameterization. Bulk import from Excel, Word, or any tool you\'re migrating from.' },
-          { icon: <Network className="w-4 h-4" />,    title: 'Requirements Traceability', body: 'Every requirement is linked to its tests, executions, and defects — automatically. See the full coverage trail in one view.' },
+          { icon: <Network className="w-4 h-4" />,    title: 'Requirements Traceability', body: 'Every requirement is linked to its tests, executions, and defects, automatically. See the full coverage trail in one view.' },
           { icon: <Workflow className="w-4 h-4" />,   title: 'Test Planning & Cycles',    body: 'Build release plans, organize cycles by sprint or milestone, and watch progress against the plan in real time.' },
           { icon: <Layers className="w-4 h-4" />,     title: 'Modules & Hierarchies',     body: 'Mirror your product structure with nested modules. Permissions, ownership, and reporting roll up cleanly.' },
           { icon: <History className="w-4 h-4" />,    title: 'Audit Trails',              body: 'Every edit, status change, and approval is captured. Built for regulated workflows.' },
           { icon: <FileCheck2 className="w-4 h-4" />, title: 'Custom Workflows',          body: 'Define statuses, approvals, and gates that mirror how your team actually ships. No rigid one-size-fits-all states.' },
         ],
-        capabilityHeading: 'Everything you\'d expect from enterprise ALM — and nothing you wouldn\'t.',
+        capabilityHeading: 'Everything you\'d expect from enterprise ALM, and nothing you wouldn\'t.',
         capabilityList: [
           'Hierarchical test repository', 'Test case versioning & history',
           'Reusable test steps', 'Parameterization & data-driven tests',

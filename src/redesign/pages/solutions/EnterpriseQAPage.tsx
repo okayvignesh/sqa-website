@@ -17,7 +17,7 @@ export default function EnterpriseQAPage() {
           </>
         ),
         subtitle:
-          'A single platform for portfolio-wide test management, automation, and release gating — with the controls regulated industries require.',
+          'A single platform for portfolio-wide test management, automation, and release gating, with the controls regulated industries require.',
         bullets: [
           'Single-tenant, on-prem, or VPC',
           'SOC 2 · ISO 27001 · GDPR · HIPAA',
@@ -31,7 +31,7 @@ export default function EnterpriseQAPage() {
           { icon: <KeyRound className="w-4 h-4" />,    title: 'Identity at scale',    body: 'SSO via SAML/OIDC, automated provisioning via SCIM, customer-managed encryption keys.' },
           { icon: <Workflow className="w-4 h-4" />,    title: 'Portfolio rollouts',   body: 'Templates, defaults, and policy inheritance across hundreds of projects. Roll a change out once.' },
           { icon: <Layers className="w-4 h-4" />,      title: 'Governed multi-tenant', body: 'Per-team isolation with org-wide visibility for QA leaders, security, and compliance officers.' },
-          { icon: <Globe2 className="w-4 h-4" />,      title: 'Regional residency',   body: 'Host data where you need it — US, EU, India, APAC. Single-tenant deployments available.' },
+          { icon: <Globe2 className="w-4 h-4" />,      title: 'Regional residency',   body: 'Host data where you need it, US, EU, India, APAC. Single-tenant deployments available.' },
           { icon: <FileLock className="w-4 h-4" />,    title: 'Audit + retention',    body: 'Immutable audit logs, configurable retention policies, and one-click compliance reports.' },
         ],
         capabilityList: [

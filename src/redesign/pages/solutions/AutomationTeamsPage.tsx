@@ -27,12 +27,12 @@ export default function AutomationTeamsPage() {
           'CI/CD-native triggers',
         ],
         features: [
-          { icon: <Wand2 className="w-4 h-4" />,     title: 'Low-code authoring',   body: 'A visual canvas your QA team can drive — no Selenium expertise required. Drop into code-mode whenever you need.' },
+          { icon: <Wand2 className="w-4 h-4" />,     title: 'Low-code authoring',   body: 'A visual canvas your QA team can drive, no Selenium expertise required. Drop into code-mode whenever you need.' },
           { icon: <Bot className="w-4 h-4" />,       title: 'Self-healing locators', body: 'AI keeps suites green across UI drift and frontend rewrites. Repair suggestions you can approve in one click.' },
           { icon: <Globe className="w-4 h-4" />,     title: 'Cross-platform',       body: 'Web, mobile (iOS + Android), API, desktop, and enterprise apps (SAP, Salesforce, Siebel). One platform, every surface.' },
-          { icon: <Database className="w-4 h-4" />,  title: 'Data-driven testing',  body: 'Excel, CSV, JSON, and direct DB queries — feed any source into any test, with parameterization the whole team understands.' },
+          { icon: <Database className="w-4 h-4" />,  title: 'Data-driven testing',  body: 'Excel, CSV, JSON, and direct DB queries, feed any source into any test, with parameterization the whole team understands.' },
           { icon: <Boxes className="w-4 h-4" />,     title: 'Scale execution',      body: 'Bring your own grid or use BrowserStack, Sauce Labs, LambdaTest. Distribute thousands of tests across nodes in parallel.' },
-          { icon: <Smartphone className="w-4 h-4" />, title: 'Real device clouds',   body: 'iOS and Android testing on real devices. Touch gestures, location, network shaping — all scriptable.' },
+          { icon: <Smartphone className="w-4 h-4" />, title: 'Real device clouds',   body: 'iOS and Android testing on real devices. Touch gestures, location, network shaping, all scriptable.' },
         ],
         capabilityList: [
           'Visual + code-mode authoring',

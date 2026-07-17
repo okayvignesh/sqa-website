@@ -7,7 +7,7 @@ export const SITE_URL = (
 export const SITE_NAME = 'SimplifyQA';
 
 export const SITE_DESCRIPTION =
-  'SimplifyQA is an enterprise-grade ALM and test management platform. Plan, automate, execute, and report — across the entire software lifecycle with AI-powered intelligence.';
+  'SimplifyQA is an AI-powered test automation and test management platform for web, mobile, API, SAP, and mainframe teams. Plan, automate, execute, report.';
 
 export const SITE_TWITTER = '@simplifyqa';
 

@@ -460,7 +460,7 @@ function DashboardPlate() {
           <div className="flex items-center gap-2 text-[12px] text-amber-800">
             <Activity className="w-3.5 h-3.5" />
             <span className="font-medium">18 re-executions · self-healed</span>
-            <span className="hidden sm:inline text-amber-700/80">— locators repaired in 4 functions, no human intervention</span>
+            <span className="hidden sm:inline text-amber-700/80">locators repaired in 4 functions, no human intervention</span>
           </div>
           <span className="text-[11px] font-semibold text-amber-800 inline-flex items-center gap-1">
             View timeline <ChevronRight className="w-3 h-3" />
@@ -510,7 +510,7 @@ function DashboardPlate() {
         </div>
       </div>
 
-      {/* Floating callout — Quality score */}
+      {/* Floating callout, Quality score */}
       <motion.div
         initial={{ opacity: 0, y: 12, scale: 0.96 }}
         whileInView={{ opacity: 1, y: 0, scale: 1 }}
@@ -527,7 +527,7 @@ function DashboardPlate() {
         </div>
       </motion.div>
 
-      {/* Floating callout — Time saved */}
+      {/* Floating callout, Time saved */}
       <motion.div
         initial={{ opacity: 0, y: 12, scale: 0.96 }}
         whileInView={{ opacity: 1, y: 0, scale: 1 }}
@@ -570,17 +570,17 @@ export default function ReportDashboard() {
       <Container size="wide">
         <div className="max-w-3xl">
           <Reveal>
-            <Eyebrow icon={<LineChart className="w-3.5 h-3.5" />}>Reports</Eyebrow>
+            <Eyebrow icon={<LineChart className="w-3.5 h-3.5" />}>Test Execution Reports & Analytics</Eyebrow>
           </Reveal>
           <Reveal delay={0.05}>
             <h2 className="mt-5 font-display text-display-lg text-ink-900 text-balance">
-              Every run, every step — <span className="gradient-text">explained</span>.
+              Test execution reports, <span className="gradient-text">explained step by step</span>.
             </h2>
           </Reveal>
           <Reveal delay={0.1}>
             <p className="mt-5 text-[17px] text-ink-500 max-w-2xl leading-relaxed">
-              A live read on quality. Drill from suite to step in two clicks. Self-healing,
-              re-executions, and root cause hints — already on the page when you open it.
+              Drill from suite to individual test step in two clicks: pass/fail status,
+              self-healing events, and root-cause hints for every run.
             </p>
           </Reveal>
         </div>
@@ -595,7 +595,7 @@ export default function ReportDashboard() {
           {[
             { k: 'Time to triage', v: '↓ 68%',  d: 'Median, vs. legacy reporting stacks.' },
             { k: 'Self-healed',    v: '4 / 18', d: 'Locators auto-repaired this run.' },
-            { k: 'Audit trail',    v: 'Always-on', d: 'Every assertion, retry, and screenshot — kept.' },
+            { k: 'Audit trail',    v: 'Always-on', d: 'Every assertion, retry, and screenshot, kept.' },
           ].map((p) => (
             <div key={p.k} className="rounded-2xl bg-white border border-ink-900/[0.06] p-4">
               <div className="text-[10.5px] font-semibold uppercase tracking-[0.12em] text-ink-500">{p.k}</div>

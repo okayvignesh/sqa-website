@@ -7,7 +7,7 @@ import { Container, Eyebrow, Reveal } from '../../design';
 const stages = [
   { icon: <FlaskConical className="w-4 h-4" />, label: 'Plan',     desc: 'Requirements → suites → cycles, with native traceability.' },
   { icon: <Sparkles className="w-4 h-4" />,    label: 'Design',   desc: 'AI generates test cases from user stories and code diffs.' },
-  { icon: <Zap className="w-4 h-4" />,         label: 'Automate', desc: 'Author once; run across web, mobile, API and enterprise apps.' },
+  { icon: <Zap className="w-4 h-4" />,         label: 'Automate', desc: 'Author once; run across web, mobile, API and enterprise apps, using codeless, low-code automation.' },
   { icon: <Workflow className="w-4 h-4" />,    label: 'Execute',  desc: 'Parallel grids, self-healing, and intelligent re-runs.' },
   { icon: <Bot className="w-4 h-4" />,         label: 'Triage',   desc: 'AI clusters defects, scores severity, and suggests fixes.' },
   { icon: <GitBranch className="w-4 h-4" />,   label: 'Release',  desc: 'Quality gates connected to your CI/CD and approval flows.' },
@@ -20,16 +20,16 @@ export default function WorkflowTimeline() {
       <Container size="wide">
         <div className="max-w-3xl">
           <Reveal>
-            <Eyebrow icon={<Workflow className="w-3.5 h-3.5" />}>The QA lifecycle</Eyebrow>
+            <Eyebrow icon={<Workflow className="w-3.5 h-3.5" />}>The End-to-End QA Lifecycle</Eyebrow>
           </Reveal>
           <Reveal delay={0.05}>
             <h2 className="mt-5 font-display text-display-lg text-ink-900 text-balance">
-              From idea to release, in <span className="gradient-text">one continuous flow</span>.
+              From requirements to release: the complete QA lifecycle in <span className="gradient-text">one platform</span>.
             </h2>
           </Reveal>
           <Reveal delay={0.1}>
             <p className="mt-5 text-[17px] text-ink-500 max-w-2xl">
-              No more stitching tools together. SimplifyQA covers every stage — and the AI hand-offs in between.
+              No more stitching tools together. SimplifyQA covers every stage, and the AI hand-offs in between.
             </p>
           </Reveal>
         </div>
@@ -40,7 +40,7 @@ export default function WorkflowTimeline() {
             <div className="h-full w-full bg-gradient-to-r from-transparent via-ink-900/15 to-transparent" />
           </div>
 
-          <ol className="grid grid-cols-2 md:grid-cols-7 gap-x-4 gap-y-10">
+          <ol className="grid grid-cols-2 sm:grid-cols-4 md:grid-cols-7 gap-x-4 gap-y-10">
             {stages.map((s, i) => (
               <motion.li
                 key={s.label}

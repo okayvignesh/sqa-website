@@ -37,12 +37,12 @@ export default function IntegrationsPage() {
           <GradientOrb className="-top-32 -right-20" color="rose" size={560} opacity={0.35} />
         </div>
         <Container size="wide">
-          <div className="max-w-3xl mx-auto text-center">
+          <div className="max-w-5xl mx-auto text-center">
             <Reveal>
               <Eyebrow icon={<Plug className="w-3.5 h-3.5" />}>Integrations</Eyebrow>
             </Reveal>
             <Reveal delay={0.05}>
-              <h1 className="mt-6 font-display text-display-xl text-ink-900 text-balance">
+              <h1 className="mt-6 font-display text-display-lg leading-[1.12] pb-[0.06em] text-ink-900 text-balance">
                 Connects to <span className="gradient-text">everything you ship with</span>.
               </h1>
             </Reveal>
@@ -50,7 +50,7 @@ export default function IntegrationsPage() {
               <p className="mt-5 text-[18px] text-ink-500 max-w-2xl mx-auto leading-relaxed">
                 Deep, two-way integrations across project management, source control,
                 CI/CD, chat, cloud, identity, and test grids. Drop SimplifyQA into your
-                stack — not the other way around.
+                stack, not the other way around.
               </p>
             </Reveal>
           </div>

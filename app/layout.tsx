@@ -8,7 +8,7 @@ import './globals.css';
 
 const geist = Geist({
   subsets: ['latin'],
-  weight: ['400', '500', '600', '700', '800'],
+  weight: ['200', '300', '400', '500', '600', '700', '800'],
   variable: '--font-geist',
   display: 'swap',
 });
@@ -27,13 +27,13 @@ const inter = Inter({
   display: 'swap',
 });
 
-const TITLE = 'SimplifyQA — Intelligent ALM & Test Management Platform';
+const TITLE = 'SimplifyQA | AI Test Automation & Test Management Software';
 
 export const metadata: Metadata = {
   metadataBase: new URL(SITE_URL),
   title: {
     default: TITLE,
-    template: '%s — SimplifyQA',
+    template: '%s, SimplifyQA',
   },
   description: SITE_DESCRIPTION,
   applicationName: SITE_NAME,

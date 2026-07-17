@@ -1,7 +1,7 @@
 import LoginForm from './LoginForm';
 
 export const metadata = {
-  title: 'Sign in — SimplifyQA Admin',
+  title: 'Sign in, SimplifyQA Admin',
   robots: { index: false, follow: false },
 };
 

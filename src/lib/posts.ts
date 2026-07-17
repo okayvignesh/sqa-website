@@ -26,7 +26,7 @@ const STATIC_FALLBACK: PublicPost[] = [
     slug: 'building-quality-tuned-llms',
     title: 'Building quality-tuned LLMs for the SimplifyQA AI Studio',
     excerpt:
-      'How we trained, evaluated, and grounded a model specifically for QA workflows — and why generic LLMs fall short.',
+      'How we trained, evaluated, and grounded a model specifically for QA workflows, and why generic LLMs fall short.',
     content:
       "<p>When we set out to build an AI assistant for quality engineering, we already knew the headline answer wouldn't be 'bigger model.' It was going to be 'right model for the job, grounded in the customer's data, evaluated on the tasks that actually matter.'</p>",
     category: 'Engineering',
@@ -77,7 +77,7 @@ export async function listPosts(): Promise<PublicPost[]> {
     if (!docs.length) return STATIC_FALLBACK;
     return docs.map(serialize);
   } catch (err) {
-    console.warn('listPosts: falling back to static data —', (err as Error).message);
+    console.warn('listPosts: falling back to static data,', (err as Error).message);
     return STATIC_FALLBACK;
   }
 }
@@ -92,7 +92,7 @@ export async function getPostBySlug(slug: string): Promise<PublicPost | null> {
     if (!doc) return STATIC_FALLBACK.find((p) => p.slug === slug) ?? null;
     return serialize(doc);
   } catch (err) {
-    console.warn('getPostBySlug: falling back to static data —', (err as Error).message);
+    console.warn('getPostBySlug: falling back to static data,', (err as Error).message);
     return STATIC_FALLBACK.find((p) => p.slug === slug) ?? null;
   }
 }

@@ -2,9 +2,9 @@ import AboutPage from '../../src/redesign/pages/AboutPage';
 import { buildMetadata } from '../../src/lib/seo';
 
 export const metadata = buildMetadata({
-  title: 'About SimplifyQA',
+  title: 'Why SimplifyQA',
   description:
-    'The team and mission behind SimplifyQA — an enterprise ALM platform built for the AI era of software quality.',
+    'Why enterprise QA teams pick SimplifyQA over legacy ALM stacks: agentic AI, zero-code automation, unified lifecycle, and coverage across every surface your team ships to.',
   path: '/about',
 });
 

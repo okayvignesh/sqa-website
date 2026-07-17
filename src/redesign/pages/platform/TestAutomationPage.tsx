@@ -17,7 +17,7 @@ export default function TestAutomationPage() {
           </>
         ),
         subtitle:
-          'Author tests once and run them across web, mobile, API, desktop, and enterprise apps. Designed so QA engineers — not just SDETs — can build reliable suites.',
+          'Author tests once and run them across web, mobile, API, desktop, and enterprise apps. Designed so QA engineers, not just SDETs, can build reliable suites.',
         bullets: [
           'Web · Mobile · API · Desktop',
           'Selenium & Playwright compatible',
@@ -27,11 +27,11 @@ export default function TestAutomationPage() {
           'CI/CD pipeline triggers',
         ],
         features: [
-          { icon: <Globe className="w-4 h-4" />,     title: 'Web Automation',     body: 'Cross-browser automation built on Selenium and Playwright. Visual regression, responsive testing, and performance traces — included.' },
-          { icon: <Smartphone className="w-4 h-4" />, title: 'Mobile Automation',  body: 'iOS and Android testing on real device clouds, emulators, or your private lab. Touch gestures, location, network shaping — all scriptable.' },
+          { icon: <Globe className="w-4 h-4" />,     title: 'Web Automation',     body: 'Cross-browser automation built on Selenium and Playwright. Visual regression, responsive testing, and performance traces, included.' },
+          { icon: <Smartphone className="w-4 h-4" />, title: 'Mobile Automation',  body: 'iOS and Android testing on real device clouds, emulators, or your private lab. Touch gestures, location, network shaping, all scriptable.' },
           { icon: <Database className="w-4 h-4" />,  title: 'API & Database',     body: 'REST, GraphQL, and SOAP endpoints with full assertion libraries. Direct DB queries (PostgreSQL, Oracle, SQL Server) for end-to-end validation.' },
-          { icon: <Monitor className="w-4 h-4" />,   title: 'Desktop Automation', body: 'Native Windows, Mac, and Linux apps — UI Automation, image recognition, and Java/.NET/Mainframe support.' },
-          { icon: <Cpu className="w-4 h-4" />,       title: 'Enterprise Apps',    body: 'SAP, Salesforce, Siebel, Oracle EBS, and Mainframe — first-class connectors. No third-party plugins.' },
+          { icon: <Monitor className="w-4 h-4" />,   title: 'Desktop Automation', body: 'Native Windows, Mac, and Linux apps, UI Automation, image recognition, and Java/.NET/Mainframe support.' },
+          { icon: <Cpu className="w-4 h-4" />,       title: 'Enterprise Apps',    body: 'SAP, Salesforce, Siebel, Oracle EBS, and Mainframe, first-class connectors. No third-party plugins.' },
           { icon: <Boxes className="w-4 h-4" />,     title: 'Parallel Grids',     body: 'Bring your own grid or use BrowserStack, Sauce Labs, LambdaTest. Distribute thousands of tests across nodes.' },
         ],
         capabilityHeading: 'The breadth that enterprise testing actually needs.',

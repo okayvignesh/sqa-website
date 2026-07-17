@@ -26,7 +26,7 @@ const industries = [
   {
     icon: <Plane className="w-5 h-5" />,
     name: 'Aviation & Travel',
-    desc: 'High-throughput automation across booking, loyalty, and ops systems — proven at airline scale.',
+    desc: 'High-throughput automation across booking, loyalty, and ops systems, proven at airline scale.',
     chips: ['SAP', 'Mainframe', 'Salesforce', 'Real device clouds'],
   },
   {
@@ -90,7 +90,7 @@ export default function IndustriesPage() {
             <Reveal delay={0.1}>
               <p className="mt-5 text-[18px] text-ink-500 max-w-2xl leading-relaxed">
                 SimplifyQA powers QA teams in financial services, healthcare, aviation, retail,
-                telecom, and beyond — with the controls each industry requires.
+                telecom, and beyond, with the controls each industry requires.
               </p>
             </Reveal>
           </div>
@@ -133,7 +133,7 @@ export default function IndustriesPage() {
             <div className="max-w-2xl">
               <h3 className="font-display text-2xl sm:text-3xl text-ink-900">Don't see your industry?</h3>
               <p className="mt-3 text-[15px] text-ink-500 leading-relaxed">
-                We work with teams across many more — including manufacturing, energy, public
+                We work with teams across many more, including manufacturing, energy, public
                 sector, and SaaS. Talk to us about your specific compliance and integration
                 requirements.
               </p>

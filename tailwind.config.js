@@ -45,7 +45,7 @@ module.exports = {
         mono:    ['var(--font-geist-mono)', '"Geist Mono"', 'ui-monospace', 'SFMono-Regular', 'monospace'],
       },
       fontSize: {
-        'display-xl': ['clamp(3rem, 6.4vw, 5.75rem)', { lineHeight: '1.02', letterSpacing: '-0.035em' }],
+        'display-xl': ['clamp(3rem, 6.4vw, 5.75rem)', { lineHeight: '1.14', letterSpacing: '-0.035em' }],
         'display-lg': ['clamp(2.5rem, 5vw, 4.25rem)', { lineHeight: '1.05', letterSpacing: '-0.03em' }],
         'display-md': ['clamp(2rem, 3.6vw, 3rem)',     { lineHeight: '1.08', letterSpacing: '-0.025em' }],
       },

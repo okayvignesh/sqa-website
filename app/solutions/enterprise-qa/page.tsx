@@ -4,7 +4,7 @@ import { buildMetadata, buildBreadcrumbJsonLd } from '../../../src/lib/seo';
 export const metadata = buildMetadata({
   title: 'Enterprise QA',
   description:
-    'Govern, scale, and modernise QA across thousands of testers — without losing speed or compliance.',
+    'Govern, scale, and modernise QA across thousands of testers, without losing speed or compliance.',
   path: '/solutions/enterprise-qa',
 });
 

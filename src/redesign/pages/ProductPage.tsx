@@ -8,6 +8,7 @@ import {
   Container, Eyebrow, GradientOrb, Reveal, RevealGroup, fadeUp,
 } from '../../design';
 import CTA from '../sections/CTA';
+import { BookDemoButton } from '../CalendlyModal';
 
 export type Feature = { icon: ReactNode; title: string; body: string };
 export type FaqItem = { q: string; a: string };
@@ -30,7 +31,7 @@ export type ProductPageConfig = {
 export default function ProductPage({ config }: { config: ProductPageConfig }) {
   const {
     eyebrow, eyebrowIcon, title, subtitle,
-    primaryCta = { label: 'Book a demo', to: '/request-demo' },
+    primaryCta = { label: 'Book a demo', to: '#book-demo' },
     secondaryCta = { label: 'Talk to sales', to: '/contact' },
     bullets, features, capabilityHeading, capabilityList, visual, related,
   } = config;
@@ -80,9 +81,15 @@ export default function ProductPage({ config }: { config: ProductPageConfig }) {
 
               <Reveal delay={0.2}>
                 <div className="mt-9 flex flex-col sm:flex-row gap-3">
-                  <Link href={primaryCta.to} className="btn-primary h-12 px-6 text-[15px]">
-                    {primaryCta.label} <ArrowRight className="w-4 h-4" />
-                  </Link>
+                  {primaryCta.to === '#book-demo' ? (
+                    <BookDemoButton className="btn-primary h-12 px-6 text-[15px]">
+                      {primaryCta.label} <ArrowRight className="w-4 h-4" />
+                    </BookDemoButton>
+                  ) : (
+                    <Link href={primaryCta.to} className="btn-primary h-12 px-6 text-[15px]">
+                      {primaryCta.label} <ArrowRight className="w-4 h-4" />
+                    </Link>
+                  )}
                   <Link href={secondaryCta.to} className="btn-ghost h-12 px-6 text-[15px]">
                     {secondaryCta.label}
                   </Link>

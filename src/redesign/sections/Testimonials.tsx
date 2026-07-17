@@ -6,17 +6,17 @@ import { Container, Eyebrow, Reveal } from '../../design';
 
 const quotes = [
   {
-    body: 'We replaced four tools with SimplifyQA. Our release cycle dropped from 6 weeks to 8 days — and the data finally tells the same story everywhere.',
+    body: 'We replaced four tools with SimplifyQA. Our release cycle dropped from 6 weeks to 8 days, and the data finally tells the same story everywhere.',
     name: 'Priya Krishnan',
     role: 'Director of QA · Global FinTech',
   },
   {
-    body: 'The AI Studio is the first one I’ve seen that actually understands our codebase. It generates tests we’d have written ourselves — faster.',
+    body: 'The AI Studio is the first one I’ve seen that actually understands our codebase. It generates tests we’d have written ourselves, faster.',
     name: 'Mark Sullivan',
     role: 'Head of Engineering · HealthTech',
   },
   {
-    body: 'Enterprise-ready out of the box. SSO, RBAC, on-prem — we were in production in three weeks across 40 teams.',
+    body: 'Enterprise-ready out of the box. SSO, RBAC, on-prem, we were in production in three weeks across 40 teams.',
     name: 'Andrei Volkov',
     role: 'VP Platform · Insurance',
   },

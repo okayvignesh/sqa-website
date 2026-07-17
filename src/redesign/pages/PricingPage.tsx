@@ -11,6 +11,7 @@ import {
   Container, Eyebrow, GradientOrb, Reveal, RevealGroup, fadeUp, cn,
 } from '../../design';
 import CTA from '../sections/CTA';
+import { BookDemoButton } from '../CalendlyModal';
 
 const almFeatures = [
   'Requirements Management',
@@ -29,7 +30,6 @@ const almFeatures = [
 
 type Addon = {
   name: string;
-  price: string;
   description: string;
   icon: React.ReactNode;
   features: string[];
@@ -38,7 +38,6 @@ type Addon = {
 const addons: Addon[] = [
   {
     name: 'Web Automation',
-    price: '$299',
     icon: <Globe className="w-4 h-4" />,
     description: 'Cross-browser automation and visual regression testing.',
     features: [
@@ -51,7 +50,6 @@ const addons: Addon[] = [
   },
   {
     name: 'API & Database Automation',
-    price: '$349',
     icon: <Database className="w-4 h-4" />,
     description: 'Complete API testing and database validation suite.',
     features: [
@@ -64,7 +62,6 @@ const addons: Addon[] = [
   },
   {
     name: 'Desktop Automation',
-    price: '$399',
     icon: <Monitor className="w-4 h-4" />,
     description: 'Native desktop application testing capabilities.',
     features: [
@@ -77,7 +74,6 @@ const addons: Addon[] = [
   },
   {
     name: 'Mobile Automation',
-    price: '$449',
     icon: <Smartphone className="w-4 h-4" />,
     description: 'iOS and Android testing on real devices and simulators.',
     features: [
@@ -93,7 +89,7 @@ const addons: Addon[] = [
 const faqs = [
   {
     q: 'What types of processes can you automate?',
-    a: 'We specialize in automating end-to-end QA workflows — test management, test execution across web/mobile/API/desktop, defect triage, release gating, and reporting — using a mix of low-code automation and AI.',
+    a: 'We specialize in automating end-to-end QA workflows, test management, test execution across web/mobile/API/desktop, defect triage, release gating, and reporting, using a mix of low-code automation and AI.',
   },
   {
     q: 'Do I need technical knowledge to use SimplifyQA?',
@@ -101,7 +97,7 @@ const faqs = [
   },
   {
     q: 'Can you integrate with our existing tools?',
-    a: 'Yes. SimplifyQA integrates natively with Jira, Azure DevOps, GitLab, GitHub, Slack, Microsoft Teams, Jenkins, BrowserStack, Sauce Labs, and 100+ more — tailored to your stack.',
+    a: 'Yes. SimplifyQA integrates natively with Jira, Azure DevOps, GitLab, GitHub, Slack, Microsoft Teams, Jenkins, BrowserStack, Sauce Labs, and 100+ more, tailored to your stack.',
   },
   {
     q: 'Is your platform secure and compliant?',
@@ -109,7 +105,7 @@ const faqs = [
   },
   {
     q: 'What\'s included in the base ALM package vs. add-ons?',
-    a: 'The ALM Package covers everything you need for end-to-end test management, defect tracking, and reporting. Automation add-ons (Web, API/DB, Desktop, Mobile) are activated only when your team needs that surface — pay only for what you use.',
+    a: 'The ALM Package covers everything you need for end-to-end test management, defect tracking, and reporting. Automation add-ons (Web, API/DB, Desktop, Mobile) are activated only when your team needs that surface.',
   },
 ];
 
@@ -142,24 +138,24 @@ export default function PricingPage() {
         <Container size="wide">
           <div className="max-w-3xl mx-auto text-center">
             <Reveal>
-              <Eyebrow icon={<Sparkles className="w-3.5 h-3.5" />}>Pricing</Eyebrow>
+              <Eyebrow icon={<Sparkles className="w-3.5 h-3.5" />}>Plans & capabilities</Eyebrow>
             </Reveal>
             <Reveal delay={0.05}>
-              <h1 className="mt-6 font-display text-display-xl text-ink-900 text-balance">
-                Simple, transparent <span className="gradient-text">pricing</span>.
+              <h1 className="mt-6 font-display text-display-lg leading-[1.12] pb-[0.06em] text-ink-900 text-balance">
+                Everything your QA team needs, <span className="gradient-text">in one platform</span>.
               </h1>
             </Reveal>
             <Reveal delay={0.1}>
               <p className="mt-5 text-[18px] leading-relaxed text-ink-500 max-w-2xl mx-auto">
-                Start with the complete ALM package, then expand with automation
-                add-ons as your team grows. Pay only for the surfaces you actually test.
+                Start with the complete ALM package, then activate automation add-ons
+                for the surfaces your team actually tests.
               </p>
             </Reveal>
           </div>
         </Container>
       </section>
 
-      {/* ALM Package — main offering */}
+      {/* ALM Package, main offering */}
       <section className="relative pb-12">
         <Container size="wide">
           <Reveal>
@@ -174,7 +170,7 @@ export default function PricingPage() {
                   </h2>
                   <p className="mt-4 text-[15px] text-ink-500 max-w-xl leading-relaxed">
                     Test management, execution, requirements, defect tracking, traceability,
-                    and analytics — everything you need to ship quality software, in one workspace.
+                    and analytics, everything you need to ship quality software, in one workspace.
                   </p>
 
                   <div className="mt-7 grid sm:grid-cols-2 gap-x-6 gap-y-2.5 max-w-2xl">
@@ -191,15 +187,15 @@ export default function PricingPage() {
 
                 <div className="flex flex-col justify-center">
                   <div className="rounded-3xl bg-white/80 backdrop-blur border border-ink-900/[0.06] p-6">
-                    <div className="text-[12px] font-semibold uppercase tracking-wider text-ink-400">Starting from</div>
-                    <div className="mt-1 font-display text-4xl text-ink-900 tracking-tight">Talk to sales</div>
+                    <div className="text-[12px] font-semibold uppercase tracking-wider text-ink-400">Enterprise plan</div>
+                    <div className="mt-1 font-display text-3xl text-ink-900 tracking-tight">Tailored to your team</div>
                     <p className="mt-2 text-[13px] text-ink-500">
-                      Volume-based pricing tailored to your team size, deployment model, and compliance needs.
+                      Plans built around your team size, deployment model, and compliance needs.
                     </p>
 
-                    <Link href="/request-demo" className="btn-primary mt-6 w-full h-11">
+                    <BookDemoButton className="btn-primary mt-6 w-full h-11">
                       Book a demo <ArrowRight className="w-4 h-4" />
-                    </Link>
+                    </BookDemoButton>
                     <Link href="/contact" className="btn-ghost mt-2 w-full h-11">
                       Talk to sales
                     </Link>
@@ -229,8 +225,8 @@ export default function PricingPage() {
             </Reveal>
             <Reveal delay={0.1}>
               <p className="mt-4 text-[16px] text-ink-500 max-w-2xl leading-relaxed">
-                Per-surface pricing means you pay only for the automation domains your team
-                actually tests. Add or remove modules at any time.
+                Turn on only the automation domains your team actually tests. Add or
+                remove modules at any time.
               </p>
             </Reveal>
           </div>
@@ -249,11 +245,6 @@ export default function PricingPage() {
                   </span>
                   <h3 className="mt-5 font-display text-[18px] text-ink-900">{a.name}</h3>
                   <p className="mt-1.5 text-[13px] text-ink-500 leading-relaxed">{a.description}</p>
-
-                  <div className="mt-5 flex items-baseline gap-1.5">
-                    <span className="font-display text-2xl text-ink-900 tracking-tight">{a.price}</span>
-                    <span className="text-[12px] text-ink-400">/ month</span>
-                  </div>
 
                   <ul className="mt-5 space-y-2.5">
                     {a.features.map((f) => (
@@ -300,13 +291,13 @@ export default function PricingPage() {
               </Reveal>
               <Reveal delay={0.05}>
                 <h2 className="mt-5 font-display text-display-md text-ink-900 text-balance">
-                  Pricing questions, answered.
+                  Common questions, answered.
                 </h2>
               </Reveal>
               <Reveal delay={0.1}>
                 <p className="mt-4 text-[15px] text-ink-500">
-                  Still on the fence? Talk to our solutions team —{' '}
-                  <Link href="/contact" className="text-brand-700 font-medium hover:underline underline-offset-4">info@simplify3x.com</Link>
+                  Still on the fence? Talk to our solutions team ,{' '}
+                  <Link href="/contact" className="text-brand-700 font-medium hover:underline underline-offset-4">support@simplify3x.com</Link>
                 </p>
               </Reveal>
             </div>

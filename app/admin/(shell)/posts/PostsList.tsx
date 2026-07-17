@@ -142,11 +142,11 @@ export default function PostsList({ initial }: { initial: Row[] }) {
                       <span className="text-[12px] text-ink-600">{r.category}</span>
                     </td>
                     <td className="px-5 py-3.5 hidden lg:table-cell">
-                      <span className="text-[12px] text-ink-600">{r.author?.name || '—'}</span>
+                      <span className="text-[12px] text-ink-600">{r.author?.name || '-'}</span>
                     </td>
                     <td className="px-5 py-3.5 hidden md:table-cell">
                       <span className="text-[12px] text-ink-500">
-                        {r.updatedAt ? new Date(r.updatedAt).toLocaleDateString() : '—'}
+                        {r.updatedAt ? new Date(r.updatedAt).toLocaleDateString() : '-'}
                       </span>
                     </td>
                     <td className="px-5 py-3.5">

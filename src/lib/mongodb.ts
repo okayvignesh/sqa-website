@@ -18,7 +18,7 @@ export async function connectMongo() {
   const uri = process.env.MONGODB_URI;
   if (!uri) {
     throw new Error(
-      'MONGODB_URI is not defined. Add it to .env.local — e.g. MONGODB_URI="mongodb://localhost:27017/simplifyqa"',
+      'MONGODB_URI is not defined. Add it to .env.local, e.g. MONGODB_URI="mongodb://localhost:27017/simplifyqa"',
     );
   }
   if (cached.conn) return cached.conn;

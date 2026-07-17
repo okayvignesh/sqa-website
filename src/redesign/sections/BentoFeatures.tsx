@@ -10,7 +10,7 @@ import {
 } from '../../design';
 import { certs } from '../data/assets';
 
-// Buttery hover for any bento card — spring lift, no CSS conflict with entrance transforms.
+// Buttery hover for any bento card, spring lift, no CSS conflict with entrance transforms.
 const cardHover = {
   whileHover: { y: -4 },
   transition: { type: 'spring' as const, stiffness: 240, damping: 22 },
@@ -35,14 +35,14 @@ export default function BentoFeatures() {
           </Reveal>
           <Reveal delay={0.1}>
             <p className="mt-5 text-[17px] text-ink-500 max-w-2xl">
-              SimplifyQA replaces a patchwork of tools with a single intelligent platform —
+              SimplifyQA replaces a patchwork of tools with a single intelligent platform,
               built for the way enterprise QA actually ships software.
             </p>
           </Reveal>
         </div>
 
         <RevealGroup className="mt-14 grid grid-cols-12 gap-4 sm:gap-5" delay={0.11}>
-          {/* AI Studio — big left card · gentle scale-in */}
+          {/* AI Studio, big left card · gentle scale-in */}
           <motion.div
             variants={subtleScale}
             {...cardHover}
@@ -58,7 +58,7 @@ export default function BentoFeatures() {
               </h3>
               <p className="mt-3 text-[14.5px] text-ink-500 max-w-md leading-relaxed">
                 Built on a quality-tuned model. Turn user stories into test cases, auto-heal
-                broken locators, and ask “why did this fail?” — get a real answer.
+                broken locators, and ask “why did this fail?”, get a real answer.
               </p>
 
               <div className="mt-6 rounded-2xl glass-card p-4 max-w-md">
@@ -77,7 +77,7 @@ export default function BentoFeatures() {
             </div>
           </motion.div>
 
-          {/* Automation — right top · slides from right */}
+          {/* Automation, right top · slides from right */}
           <motion.div
             variants={fadeFromRight}
             {...cardHover}
@@ -90,9 +90,9 @@ export default function BentoFeatures() {
               Low-code automation, enterprise scale.
             </h3>
             <p className="mt-3 text-[14.5px] text-ink-500 leading-relaxed">
-              Author once, run anywhere — web, mobile, API, mainframe, SAP, Salesforce, Siebel. Parallel grids with self-healing locators.
+              Author once, run anywhere, web, mobile, API, mainframe, SAP, Salesforce, Siebel. Parallel grids with self-healing locators.
             </p>
-            <div className="mt-6 grid grid-cols-4 gap-2">
+            <div className="mt-6 grid grid-cols-2 sm:grid-cols-4 gap-2">
               {['Web', 'Mobile', 'API', 'SAP', 'Salesforce', 'Mainframe', 'Desktop', 'DB'].map((t) => (
                 <span key={t} className="text-center text-[11.5px] font-medium text-ink-600 bg-ink-50 border border-ink-100 rounded-lg px-1.5 py-2">
                   {t}
@@ -114,7 +114,7 @@ export default function BentoFeatures() {
             </div>
           </motion.div>
 
-          {/* Test Management — middle row left · slides from left */}
+          {/* Test Management, middle row left · slides from left */}
           <motion.div
             variants={fadeFromLeft}
             {...cardHover}
@@ -125,12 +125,12 @@ export default function BentoFeatures() {
             </div>
             <h3 className="mt-3 font-display text-xl text-ink-900">Plan, design, trace.</h3>
             <p className="mt-2 text-[13.5px] text-ink-500 leading-relaxed">
-              Requirements, suites, cycles, and traceability — natively linked to your tickets and code.
+              Requirements, suites, cycles, and traceability, natively linked to your tickets and code.
             </p>
             <TraceabilityBars />
           </motion.div>
 
-          {/* Defects — middle row center · rises from below */}
+          {/* Defects, middle row center · rises from below */}
           <motion.div
             variants={fadeFromBottom}
             {...cardHover}
@@ -157,7 +157,7 @@ export default function BentoFeatures() {
             </div>
           </motion.div>
 
-          {/* Insights — middle row right · slides from right */}
+          {/* Insights, middle row right · slides from right */}
           <motion.div
             variants={fadeFromRight}
             {...cardHover}
@@ -168,12 +168,12 @@ export default function BentoFeatures() {
             </div>
             <h3 className="mt-3 font-display text-xl text-ink-900">Quality, in real time.</h3>
             <p className="mt-2 text-[13.5px] text-ink-500 leading-relaxed">
-              Executive dashboards, release readiness scoring, and predictive risk — straight from your test data.
+              Executive dashboards, release readiness scoring, and predictive risk, straight from your test data.
             </p>
             <MiniBars />
           </motion.div>
 
-          {/* Release — bottom left · slides from left */}
+          {/* Release, bottom left · slides from left */}
           <motion.div
             variants={fadeFromLeft}
             {...cardHover}
@@ -184,7 +184,7 @@ export default function BentoFeatures() {
             </div>
             <h3 className="mt-3 font-display text-xl text-ink-900">Gate every release with quality.</h3>
             <p className="mt-2 text-[13.5px] text-ink-500 leading-relaxed">
-              Pipelines, environments, approvals, and quality gates — connected to Jenkins, GitLab CI, GitHub Actions, and Azure DevOps.
+              Pipelines, environments, approvals, and quality gates, connected to Jenkins, GitLab CI, GitHub Actions, and Azure DevOps.
             </p>
 
             <div className="mt-6 rounded-2xl bg-ink-50/70 border border-ink-100 p-4">
@@ -221,7 +221,7 @@ export default function BentoFeatures() {
             </div>
           </motion.div>
 
-          {/* Security — bottom right · slides from right */}
+          {/* Security, bottom right · slides from right */}
           <motion.div
             variants={fadeFromRight}
             {...cardHover}
@@ -232,9 +232,9 @@ export default function BentoFeatures() {
             </div>
             <h3 className="mt-3 font-display text-xl text-ink-900">Certified, compliant, and audit-ready.</h3>
             <p className="mt-2 text-[13.5px] text-ink-500 leading-relaxed">
-              Built for regulated environments. Single tenant, on-prem, or VPC — your choice.
+              Built for regulated environments. Single tenant, on-prem, or VPC, your choice.
             </p>
-            <div className="mt-6 grid grid-cols-4 gap-3">
+            <div className="mt-6 grid grid-cols-2 sm:grid-cols-4 gap-3">
               {certs.map((c) => (
                 <div
                   key={c.name}
@@ -249,14 +249,6 @@ export default function BentoFeatures() {
                     draggable={false}
                   />
                 </div>
-              ))}
-            </div>
-            <div className="mt-4 flex items-center gap-2 flex-wrap text-[11.5px] text-ink-500">
-              <span className="font-medium text-ink-700">Also:</span>
-              {['SSO/SAML', 'SCIM', 'RBAC', 'Audit logs', 'BYOK'].map((b) => (
-                <span key={b} className="bg-ink-50 border border-ink-100 rounded-full px-2.5 py-0.5">
-                  {b}
-                </span>
               ))}
             </div>
           </motion.div>

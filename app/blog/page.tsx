@@ -6,7 +6,7 @@ import { SITE_NAME, SITE_URL, absoluteUrl } from '../../src/lib/site';
 export const metadata = buildMetadata({
   title: 'Blog',
   description:
-    'Engineering deep dives, product updates, and opinions from the SimplifyQA team — covering AI, automation, and modern QA.',
+    'Engineering deep dives, product updates, and opinions from the SimplifyQA team, covering AI, automation, and modern QA.',
   path: '/blog',
 });
 export const dynamic = 'force-dynamic';

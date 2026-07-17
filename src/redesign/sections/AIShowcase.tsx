@@ -24,7 +24,7 @@ const features = [
   {
     icon: <MessageSquare className="w-4 h-4" />,
     title: 'Ask anything, in plain English',
-    body: '“Why did checkout fail in EU?” — get a real answer, with traces and the suspected cause.',
+    body: '“Why did checkout fail in EU?”, get a real answer, with traces and the suspected cause.',
   },
 ];
 
@@ -40,16 +40,21 @@ export default function AIShowcase() {
       <Container size="wide" className="grid lg:grid-cols-2 gap-12 lg:gap-16 items-center">
         <div>
           <Reveal>
-            <Eyebrow icon={<Sparkles className="w-3.5 h-3.5" />}>SimplifyQA Story Studio</Eyebrow>
+            <Eyebrow icon={<Sparkles className="w-3.5 h-3.5" />}>AI Test Case Generator · Story Studio</Eyebrow>
           </Reveal>
           <Reveal delay={0.05}>
             <h2 className="mt-5 font-display text-display-lg text-ink-900 text-balance">
-              The AI co-pilot for <span className="gradient-text">quality engineering</span>.
+              Turn user stories into test cases <span className="gradient-text">automatically</span>.
             </h2>
           </Reveal>
+          <Reveal delay={0.08}>
+            <p className="mt-4 text-[18px] font-medium text-ink-700 max-w-xl">
+              The AI co-pilot for quality engineering.
+            </p>
+          </Reveal>
           <Reveal delay={0.1}>
-            <p className="mt-5 text-[17px] leading-relaxed text-ink-500 max-w-xl">
-              Tuned on quality data. Grounded in your real workflows. Built to ship — not to demo.
+            <p className="mt-4 text-[17px] leading-relaxed text-ink-500 max-w-xl">
+              Tuned on quality data. Grounded in your real workflows. Built to ship, not to demo.
             </p>
           </Reveal>
 
@@ -226,7 +231,7 @@ function ChatPanel() {
         </div>
       </div>
 
-      {/* Floating callout — generation toast */}
+      {/* Floating callout, generation toast */}
       <motion.div
         initial={{ opacity: 0, y: 12, scale: 0.96 }}
         whileInView={{ opacity: 1, y: 0, scale: 1 }}

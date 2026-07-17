@@ -61,7 +61,7 @@ export default function ResourcesPage() {
             </Reveal>
             <Reveal delay={0.1}>
               <p className="mt-5 text-[18px] text-ink-500 max-w-2xl mx-auto">
-                Docs, webinars, whitepapers, customer stories, and engineering deep dives —
+                Docs, webinars, whitepapers, customer stories, and engineering deep dives,
                 everything we've learned, built into one place.
               </p>
             </Reveal>

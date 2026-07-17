@@ -4,7 +4,7 @@ import { buildMetadata, buildBreadcrumbJsonLd } from '../../../src/lib/seo';
 export const metadata = buildMetadata({
   title: 'For Automation Teams',
   description:
-    'A modern automation platform built for SDETs — code-or-no-code, self-healing, and CI-native.',
+    'A modern automation platform built for SDETs, code-or-no-code, self-healing, and CI-native.',
   path: '/solutions/automation-teams',
 });
 

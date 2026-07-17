@@ -6,7 +6,7 @@ import Link from 'next/link';
 import { Container, Eyebrow, Reveal } from '../../design';
 import { integrations } from '../data/integrations';
 
-// Pick a curated set for the home section — visually balanced across categories
+// Pick a curated set for the home section, visually balanced across categories
 const featured = [
   'Jira', 'Slack', 'Microsoft Teams', 'GitHub', 'GitLab', 'Jenkins',
   'Azure DevOps', 'AWS', 'Postman', 'Selenium', 'Playwright', 'BrowserStack',
@@ -29,7 +29,7 @@ export default function Integrations() {
             <Reveal delay={0.1}>
               <p className="mt-5 text-[17px] text-ink-500 max-w-xl">
                 Deep, two-way integrations across project management, source control, CI/CD,
-                chat, cloud, identity, and test grids. Drop SimplifyQA into your stack —
+                chat, cloud, identity, and test grids. Drop SimplifyQA into your stack,
                 not the other way around.
               </p>
             </Reveal>
@@ -48,7 +48,7 @@ export default function Integrations() {
 
           <div className="relative">
             <div aria-hidden className="absolute -inset-8 rounded-[40px] bg-mesh opacity-70 -z-10" />
-            <div className="grid grid-cols-4 gap-3 sm:gap-4">
+            <div className="grid grid-cols-2 sm:grid-cols-4 gap-3 sm:gap-4">
               {featured.map((tool, i) => (
                 <motion.div
                   key={tool.name}

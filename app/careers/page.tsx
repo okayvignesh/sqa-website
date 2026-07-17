@@ -4,7 +4,7 @@ import { buildMetadata } from '../../src/lib/seo';
 export const metadata = buildMetadata({
   title: 'Careers at SimplifyQA',
   description:
-    'Join SimplifyQA — help build the most intelligent ALM and test management platform on the market.',
+    'Join SimplifyQA, help build the most intelligent ALM and test management platform on the market.',
   path: '/careers',
 });
 

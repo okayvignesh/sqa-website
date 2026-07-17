@@ -3,7 +3,7 @@ import { SITE_DESCRIPTION, SITE_NAME } from '../src/lib/site';
 
 export default function manifest(): MetadataRoute.Manifest {
   return {
-    name: `${SITE_NAME} — Intelligent ALM & Test Management`,
+    name: `${SITE_NAME}, Intelligent ALM & Test Management`,
     short_name: SITE_NAME,
     description: SITE_DESCRIPTION,
     start_url: '/',

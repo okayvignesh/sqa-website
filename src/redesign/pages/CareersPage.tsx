@@ -47,7 +47,7 @@ export default function CareersPage() {
             <Reveal delay={0.1}>
               <p className="mt-5 text-[18px] text-ink-500 max-w-2xl leading-relaxed">
                 We're growing across engineering, AI, customer success, and go-to-market.
-                If you care about quality engineering at the deepest level — we'd love to talk.
+                If you care about quality engineering at the deepest level, we'd love to talk.
               </p>
             </Reveal>
             <Reveal delay={0.18}>
@@ -55,8 +55,8 @@ export default function CareersPage() {
                 <Link href="/contact" className="btn-primary h-12 px-6 text-[15px]">
                   Send us your CV <ArrowRight className="w-4 h-4" />
                 </Link>
-                <a href="mailto:info@simplify3x.com" className="btn-ghost h-12 px-6 text-[15px]">
-                  info@simplify3x.com
+                <a href="mailto:support@simplify3x.com" className="btn-ghost h-12 px-6 text-[15px]">
+                  support@simplify3x.com
                 </a>
               </div>
             </Reveal>
@@ -119,7 +119,7 @@ export default function CareersPage() {
                 what kind of work you'd want to do here.
               </p>
             </div>
-            <a href="mailto:info@simplify3x.com" className="btn-primary">
+            <a href="mailto:support@simplify3x.com" className="btn-primary">
               Reach out <ArrowRight className="w-4 h-4" />
             </a>
           </div>

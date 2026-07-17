@@ -17,7 +17,7 @@ export default function EngineeringLeadersPage() {
           </>
         ),
         subtitle:
-          'See what\'s shipping, what\'s blocked, and what\'s about to regress — without chasing spreadsheets or scheduling another sync.',
+          'See what\'s shipping, what\'s blocked, and what\'s about to regress, without chasing spreadsheets or scheduling another sync.',
         bullets: [
           'Executive dashboards',
           'Release readiness scoring',
@@ -28,9 +28,9 @@ export default function EngineeringLeadersPage() {
         ],
         features: [
           { icon: <Gauge className="w-4 h-4" />,         title: 'One score that matters',  body: 'Release readiness rolls up coverage, flake, defect density, and historical regressions into one number you can trust.' },
-          { icon: <TrendingUp className="w-4 h-4" />,    title: 'Predictive risk',          body: 'AI flags releases that look like ones that regressed in production — before code freeze, not after.' },
+          { icon: <TrendingUp className="w-4 h-4" />,    title: 'Predictive risk',          body: 'AI flags releases that look like ones that regressed in production, before code freeze, not after.' },
           { icon: <Users className="w-4 h-4" />,         title: 'Per-team accountability',  body: 'Scorecards by team, by service, by sprint. Trends over 90-day and 1-year windows.' },
-          { icon: <GitBranch className="w-4 h-4" />,     title: 'Wired to your CI/CD',      body: 'Jenkins, GitLab, GitHub Actions, Azure Pipelines — quality data flows the same direction as your code.' },
+          { icon: <GitBranch className="w-4 h-4" />,     title: 'Wired to your CI/CD',      body: 'Jenkins, GitLab, GitHub Actions, Azure Pipelines, quality data flows the same direction as your code.' },
           { icon: <ShieldCheck className="w-4 h-4" />,   title: 'Compliance-grade',         body: 'Reports auditors actually accept: signed, time-stamped, and traceable back to the test evidence.' },
           { icon: <AlertTriangle className="w-4 h-4" />, title: 'Escape rate visibility',   body: 'Track defects that escaped to prod, root-cause them, and feed the lesson back into the suite automatically.' },
         ],

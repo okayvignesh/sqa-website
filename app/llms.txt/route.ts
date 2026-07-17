@@ -13,7 +13,7 @@ ${SITE_NAME} is an enterprise ALM and test management platform that unifies test
 
 - [Test Management](${SITE_URL}/platform/test-management): Plan, design, and trace tests. Requirements, suites, cycles, and traceability linked to tickets and code.
 - [Test Automation](${SITE_URL}/platform/test-automation): Low-code automation across web, mobile, API, desktop, SAP, Salesforce, Siebel, and mainframe. Parallel grids with self-healing locators.
-- [AI Test Assistant — Story Studio](${SITE_URL}/platform/ai-test-assistant): Generate, repair, and explain tests in plain English. Quality-tuned model that turns user stories into executable suites.
+- [AI Test Assistant, Story Studio](${SITE_URL}/platform/ai-test-assistant): Generate, repair, and explain tests in plain English. Quality-tuned model that turns user stories into executable suites.
 - [Defect Management](${SITE_URL}/platform/defect-management): Smart triage, clustering, severity scoring, and root-cause hints. Detect flakes before they cost a release.
 - [Release Orchestration](${SITE_URL}/platform/release-orchestration): Pipelines, environments, approvals, and quality gates connected to Jenkins, GitLab CI, GitHub Actions, and Azure DevOps.
 - [Insights & Reports](${SITE_URL}/platform/insights-reports): Executive dashboards, release readiness scoring, and predictive risk from your test data.
@@ -33,7 +33,6 @@ ${SITE_NAME} is an enterprise ALM and test management platform that unifies test
 - [Customer Success](${SITE_URL}/customer-success): Onboarding, white-glove migration, and ongoing partnership.
 - [Resources Hub](${SITE_URL}/resources): Guides, webinars, and reading material on quality engineering.
 - [Blog](${SITE_URL}/blog): Articles on test automation, AI in QA, release management, and engineering leadership.
-- [Request Demo](${SITE_URL}/request-demo): Book a 30-minute walkthrough with the team.
 
 ## Company
 

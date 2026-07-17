@@ -10,6 +10,7 @@ import {
   Container, Eyebrow, GradientOrb, Reveal, RevealGroup, fadeUp,
 } from '../../design';
 import CTA from '../sections/CTA';
+import { BookDemoButton } from '../CalendlyModal';
 
 type Audience = {
   id: string;
@@ -17,7 +18,6 @@ type Audience = {
   title: string;
   blurb: string;
   bullets: { icon: React.ReactNode; t: string; d: string }[];
-  ctaTo: string;
 };
 
 const audiences: Audience[] = [
@@ -25,49 +25,45 @@ const audiences: Audience[] = [
     id: 'enterprise',
     eyebrow: 'Enterprise QA',
     title: 'Govern quality across 1000+ teams.',
-    blurb: 'A single platform for portfolio-wide test management, automation, and release gating — with the controls regulated industries require.',
+    blurb: 'A single platform for portfolio-wide test management, automation, and release gating, with the controls regulated industries require.',
     bullets: [
-      { icon: <ShieldCheck className="w-3.5 h-3.5" />, t: 'Compliance built in',  d: 'SOC 2, ISO 27001, GDPR, HIPAA — single-tenant, on-prem, or VPC.' },
+      { icon: <ShieldCheck className="w-3.5 h-3.5" />, t: 'Compliance built in',  d: 'SOC 2, ISO 27001, GDPR, HIPAA, single-tenant, on-prem, or VPC.' },
       { icon: <Users className="w-3.5 h-3.5" />,       t: 'Role-based governance', d: 'Granular RBAC, SCIM provisioning, audit logs, SIEM streaming.' },
       { icon: <Workflow className="w-3.5 h-3.5" />,    t: 'Portfolio rollouts',    d: 'Template suites, environments, and approval flows at scale.' },
     ],
-    ctaTo: '/request-demo',
   },
   {
     id: 'automation-teams',
     eyebrow: 'Automation Teams',
     title: 'Replace fragile scripts with intelligence.',
-    blurb: 'Author once; run anywhere. Self-healing automation across web, mobile, API, mainframe, SAP, Salesforce, and Siebel — backed by AI Studio.',
+    blurb: 'Author once; run anywhere. Self-healing automation across web, mobile, API, mainframe, SAP, Salesforce, and Siebel, backed by AI Studio.',
     bullets: [
-      { icon: <Zap className="w-3.5 h-3.5" />,         t: 'Low-code authoring',    d: 'A visual canvas your QA team can drive — no Selenium expertise required.' },
+      { icon: <Zap className="w-3.5 h-3.5" />,         t: 'Low-code authoring',    d: 'A visual canvas your QA team can drive, no Selenium expertise required.' },
       { icon: <Bot className="w-3.5 h-3.5" />,         t: 'Self-healing locators', d: 'AI keeps suites green across UI drift and frontend rewrites.' },
       { icon: <Cpu className="w-3.5 h-3.5" />,         t: 'Parallel grids',         d: 'Scale to 1000s of nodes across BrowserStack, Sauce, LambdaTest, or your own.' },
     ],
-    ctaTo: '/request-demo',
   },
   {
     id: 'leaders',
     eyebrow: 'Engineering Leaders',
     title: 'Real-time quality, end-to-end.',
-    blurb: 'Executive dashboards, release readiness scoring, and predictive risk — straight from your test data, not from a spreadsheet.',
+    blurb: 'Executive dashboards, release readiness scoring, and predictive risk, straight from your test data, not from a spreadsheet.',
     bullets: [
-      { icon: <LayoutDashboard className="w-3.5 h-3.5" />, t: 'Quality KPIs',         d: 'Pass rate, escape rate, flake rate, MTTR — by team, service, release.' },
+      { icon: <LayoutDashboard className="w-3.5 h-3.5" />, t: 'Quality KPIs',         d: 'Pass rate, escape rate, flake rate, MTTR, by team, service, release.' },
       { icon: <LineChart className="w-3.5 h-3.5" />,       t: 'Predictive risk',      d: 'AI flags releases likely to regress before code freeze.' },
       { icon: <GitBranch className="w-3.5 h-3.5" />,       t: 'Release readiness',    d: 'Quality gates wired into Jenkins, GitLab CI, GitHub Actions, Azure DevOps.' },
     ],
-    ctaTo: '/request-demo',
   },
   {
     id: 'agile',
     eyebrow: 'Agile / Scrum',
     title: 'Plan sprints around quality, not the other way.',
-    blurb: 'Native two-way sync with Jira, Linear, and Azure DevOps. Tests live next to the user story — and follow it through every status change.',
+    blurb: 'Native two-way sync with Jira, Linear, and Azure DevOps. Tests live next to the user story, and follow it through every status change.',
     bullets: [
       { icon: <FlaskConical className="w-3.5 h-3.5" />, t: 'Story-linked tests', d: 'Every requirement carries its tests through the sprint lifecycle.' },
       { icon: <Sparkles className="w-3.5 h-3.5" />,     t: 'AI test drafting',   d: 'Paste a user story; get coverage in seconds.' },
-      { icon: <Workflow className="w-3.5 h-3.5" />,     t: 'Sprint dashboards',  d: 'See test progress live in your standup — without leaving Jira.' },
+      { icon: <Workflow className="w-3.5 h-3.5" />,     t: 'Sprint dashboards',  d: 'See test progress live in your standup, without leaving Jira.' },
     ],
-    ctaTo: '/request-demo',
   },
 ];
 
@@ -104,15 +100,15 @@ export default function SolutionsPage() {
             </Reveal>
             <Reveal delay={0.1}>
               <p className="mt-5 text-[18px] leading-relaxed text-ink-500 max-w-2xl mx-auto">
-                Whether you're a 5-person QA team or a global engineering org of 10,000 —
+                Whether you're a 5-person QA team or a global engineering org of 10,000,
                 SimplifyQA bends to fit your structure, not the other way around.
               </p>
             </Reveal>
             <Reveal delay={0.18}>
               <div className="mt-9 flex flex-col sm:flex-row items-center justify-center gap-3">
-                <Link href="/request-demo" className="btn-primary h-12 px-6 text-[15px]">
+                <BookDemoButton className="btn-primary h-12 px-6 text-[15px]">
                   Book a demo <ArrowRight className="w-4 h-4" />
-                </Link>
+                </BookDemoButton>
                 <Link href="#audiences" className="btn-ghost h-12 px-6 text-[15px]">
                   Explore by role
                 </Link>
@@ -159,7 +155,7 @@ export default function SolutionsPage() {
         </Container>
       </section>
 
-      {/* Audiences — alternating layout */}
+      {/* Audiences, alternating layout */}
       <section id="audiences" className="relative py-16 sm:py-20 bg-white">
         <Container size="wide">
           <div className="max-w-3xl">
@@ -210,9 +206,9 @@ export default function SolutionsPage() {
                     </RevealGroup>
                     <Reveal delay={0.2}>
                       <div className="mt-7">
-                        <Link href={a.ctaTo} className="btn-primary">
+                        <BookDemoButton className="btn-primary">
                           Book a tailored demo <ArrowRight className="w-4 h-4" />
-                        </Link>
+                        </BookDemoButton>
                       </div>
                     </Reveal>
                   </div>

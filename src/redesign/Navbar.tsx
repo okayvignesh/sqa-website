@@ -1,70 +1,20 @@
 'use client';
 
-import { useEffect, useRef, useState } from 'react';
+import { useEffect, useState } from 'react';
 import Link from 'next/link';
-import { usePathname } from 'next/navigation';
 import { AnimatePresence, motion } from 'framer-motion';
-import {
-  ArrowRight, Bot, ChevronDown, Cpu, FlaskConical, GitBranch,
-  LayoutDashboard, LineChart, Menu, ShieldCheck, Sparkles, Users, X, Zap,
-} from 'lucide-react';
+import { ArrowRight, Menu, X } from 'lucide-react';
 import { cn } from '../design';
+import { useBookDemo } from './CalendlyModal';
 
-type MegaItem = {
-  label: string;
-  desc: string;
-  to: string;
-  icon: React.ReactNode;
-};
+type Theme = 'light' | 'dark' | 'scroll';
 
-const platform: MegaItem[] = [
-  { label: 'Test Management',       desc: 'Plan, design and trace every test case.',     to: '/platform/test-management',       icon: <FlaskConical className="w-4 h-4" /> },
-  { label: 'Test Automation',       desc: 'Low-code automation across web, mobile, API.', to: '/platform/test-automation',       icon: <Zap className="w-4 h-4" /> },
-  { label: 'AI Test Assistant',     desc: 'Generate, repair, and explain tests with AI.', to: '/platform/ai-test-assistant',     icon: <Sparkles className="w-4 h-4" /> },
-  { label: 'Defect Management',     desc: 'Smart triage with root-cause hints.',          to: '/platform/defect-management',     icon: <Bot className="w-4 h-4" /> },
-  { label: 'Release Orchestration', desc: 'Pipelines, gates, and quality signals.',       to: '/platform/release-orchestration', icon: <GitBranch className="w-4 h-4" /> },
-  { label: 'Insights & Reports',    desc: 'Executive dashboards and quality KPIs.',       to: '/platform/insights-reports',      icon: <LineChart className="w-4 h-4" /> },
-];
-
-const solutions: MegaItem[] = [
-  { label: 'Enterprise QA',       desc: 'Scale governance across 1000+ teams.',            to: '/solutions/enterprise-qa',       icon: <ShieldCheck className="w-4 h-4" /> },
-  { label: 'Automation Teams',    desc: 'Replace fragile scripts with intelligence.',      to: '/solutions/automation-teams',    icon: <Cpu className="w-4 h-4" /> },
-  { label: 'Engineering Leaders', desc: 'Real-time quality visibility, end-to-end.',       to: '/solutions/engineering-leaders', icon: <LayoutDashboard className="w-4 h-4" /> },
-  { label: 'Agile / Scrum',       desc: 'Plan sprints around quality, not the other way.', to: '/solutions/agile-scrum',         icon: <Users className="w-4 h-4" /> },
-];
-
-type MenuKey = 'platform' | 'solutions';
-
-export default function NavbarV2() {
+export default function NavbarV2({ theme = 'light' }: { theme?: Theme }) {
   const [scrolled, setScrolled] = useState(false);
-  const [open, setOpen] = useState<null | MenuKey>(null);
   const [mobile, setMobile] = useState(false);
-
-  const platformRef = useRef<HTMLLIElement>(null);
-  const solutionsRef = useRef<HTMLLIElement>(null);
-  const navRef = useRef<HTMLDivElement>(null);
-
-  // Anchor mega menu under whichever trigger is open
-  const [menuPos, setMenuPos] = useState<{ left: number; width: number } | null>(null);
-  useEffect(() => {
-    if (!open || !navRef.current) {
-      setMenuPos(null);
-      return;
-    }
-    const triggerEl = open === 'platform' ? platformRef.current : solutionsRef.current;
-    if (!triggerEl) return;
-    const trigRect = triggerEl.getBoundingClientRect();
-    const navRect = navRef.current.getBoundingClientRect();
-
-    const menuWidth = 680;
-    // Anchor: center under trigger, but clamp inside the nav width
-    let left = trigRect.left - navRect.left + trigRect.width / 2 - menuWidth / 2;
-    const min = 8;
-    const max = navRect.width - menuWidth - 8;
-    if (left < min) left = min;
-    if (left > max) left = max;
-    setMenuPos({ left, width: menuWidth });
-  }, [open, scrolled]);
+  const dark = theme === 'dark';
+  const scroll = theme === 'scroll';
+  const bookDemo = useBookDemo();
 
   useEffect(() => {
     const onScroll = () => setScrolled(window.scrollY > 12);
@@ -73,13 +23,50 @@ export default function NavbarV2() {
     return () => window.removeEventListener('scroll', onScroll);
   }, []);
 
-  // Re-anchor on resize while open
-  useEffect(() => {
-    if (!open) return;
-    const onResize = () => setOpen((v) => v); // trigger pos recalc
-    window.addEventListener('resize', onResize);
-    return () => window.removeEventListener('resize', onResize);
-  }, [open]);
+  // Palette per theme
+  const p = dark
+    ? {
+        navBg:      'bg-[#0F0F16]/85 border border-white/10 backdrop-blur-xl',
+        navBgIdle:  'bg-[#0F0F16]/70 border border-white/10 backdrop-blur-xl',
+        link:       'text-zinc-300 hover:text-white hover:bg-white/5',
+        mobileBtn:  'hover:bg-white/10 text-zinc-200',
+        mobilePanel:'bg-[#0F0F16]/95 border border-white/10',
+        mobileLink: 'text-zinc-200 hover:bg-white/5',
+        logoStyle:  { filter: 'brightness(0) invert(1) opacity(0.9)' } as React.CSSProperties,
+        ctaClass:   'bg-white text-[#0A0A0F] hover:bg-zinc-100',
+        ctaStyle:   undefined,
+      }
+    : scroll
+    ? {
+        navBg:      'glass-strong shadow-[0_10px_40px_-20px_rgba(124,58,237,0.20)]',
+        navBgIdle:  '',
+        link:       'text-ink-700 hover:text-ink-900 hover:bg-[#F5F3FF]',
+        mobileBtn:  'hover:bg-[#F5F3FF]',
+        mobilePanel:'glass-strong',
+        mobileLink: 'text-ink-800 hover:bg-[#F5F3FF]',
+        // Recolor the SimplifyQA wordmark PNG: shift the red "QA" glyphs
+        // toward violet (grey portions have no hue so hue-rotate leaves them
+        // untouched). Purely a scroll-page treatment.
+        logoStyle:  { filter: 'hue-rotate(-100deg) saturate(1.15) brightness(1.02)' } as React.CSSProperties,
+        ctaClass:   'text-white',
+        ctaStyle:   {
+          background: 'linear-gradient(180deg, #8B5CF6 0%, #7C3AED 60%, #5B21B6 100%)',
+          boxShadow: '0 12px 30px -8px rgba(124,58,237,0.55), 0 1px 0 rgba(255,255,255,0.2) inset',
+        } as React.CSSProperties,
+      }
+    : {
+        navBg:      'glass-strong shadow-[0_10px_40px_-20px_rgba(15,19,34,0.18)]',
+        navBgIdle:  '',
+        link:       'text-ink-700 hover:text-ink-900 hover:bg-ink-50',
+        mobileBtn:  'hover:bg-ink-50',
+        mobilePanel:'glass-strong',
+        mobileLink: 'text-ink-800 hover:bg-white',
+        logoStyle:  undefined,
+        ctaClass:   'btn-primary',
+        ctaStyle:   undefined,
+      };
+
+  const ctaClassName = 'inline-flex items-center gap-2 h-10 px-5 rounded-full text-[14px] font-semibold transition-colors';
 
   return (
     <header
@@ -90,137 +77,76 @@ export default function NavbarV2() {
     >
       <div className="mx-auto max-w-7xl px-4 sm:px-6">
         <nav
-          ref={navRef}
           className={cn(
             'relative flex items-center justify-between rounded-full transition-all duration-300 ease-spring',
-            scrolled
-              ? 'glass-strong shadow-[0_10px_40px_-20px_rgba(15,19,34,0.18)] h-14 px-3 sm:px-4'
-              : 'h-16 px-3 sm:px-5',
+            scrolled ? cn(p.navBg, 'h-14 px-3 sm:px-4') : cn(p.navBgIdle, 'h-16 px-3 sm:px-5'),
           )}
-          onMouseLeave={() => setOpen(null)}
         >
-          {/* Logo — real SimplifyQA */}
+          {/* Logo */}
           <Link href="/" className="flex items-center gap-2 px-2 group" aria-label="SimplifyQA home">
             <img
               src="/SimplifyQA%20logo%20Grey.png"
               alt="SimplifyQA"
               className={cn('w-auto select-none transition-all duration-300', scrolled ? 'h-4' : 'h-[18px]')}
+              style={p.logoStyle}
               draggable={false}
             />
           </Link>
 
           {/* Desktop nav */}
           <ul className="hidden lg:flex items-center gap-1">
-            <li ref={platformRef} onMouseEnter={() => setOpen('platform')}>
-              <button
-                className={cn(
-                  'inline-flex items-center gap-1 h-9 px-4 text-sm font-medium text-ink-700 rounded-full transition-colors',
-                  open === 'platform' && 'bg-ink-50 text-ink-900',
-                )}
-                aria-expanded={open === 'platform'}
-              >
-                Platform <ChevronDown className={cn('w-3.5 h-3.5 transition-transform', open === 'platform' && 'rotate-180')} />
-              </button>
-            </li>
-            <li ref={solutionsRef} onMouseEnter={() => setOpen('solutions')}>
-              <button
-                className={cn(
-                  'inline-flex items-center gap-1 h-9 px-4 text-sm font-medium text-ink-700 rounded-full transition-colors',
-                  open === 'solutions' && 'bg-ink-50 text-ink-900',
-                )}
-                aria-expanded={open === 'solutions'}
-              >
-                Solutions <ChevronDown className={cn('w-3.5 h-3.5 transition-transform', open === 'solutions' && 'rotate-180')} />
-              </button>
-            </li>
-            <li onMouseEnter={() => setOpen(null)}>
-              <Link href="/integrations" className="inline-flex items-center h-9 px-4 text-sm font-medium text-ink-700 rounded-full hover:text-ink-900 hover:bg-ink-50">Integrations</Link>
-            </li>
-            <li onMouseEnter={() => setOpen(null)}>
-              <Link href="/pricing" className="inline-flex items-center h-9 px-4 text-sm font-medium text-ink-700 rounded-full hover:text-ink-900 hover:bg-ink-50">Pricing</Link>
-            </li>
-            <li onMouseEnter={() => setOpen(null)}>
-              <Link href="/resources" className="inline-flex items-center h-9 px-4 text-sm font-medium text-ink-700 rounded-full hover:text-ink-900 hover:bg-ink-50">Resources</Link>
-            </li>
-            <li onMouseEnter={() => setOpen(null)}>
-              <Link href="/customer-success" className="inline-flex items-center h-9 px-4 text-sm font-medium text-ink-700 rounded-full hover:text-ink-900 hover:bg-ink-50">Customers</Link>
-            </li>
+            {[
+              ['Integrations', '/integrations'],
+              ['Pricing', '/pricing'],
+              ['Resources', '/resources'],
+              ['Customers', '/customer-success'],
+            ].map(([label, to]) => (
+              <li key={label}>
+                <Link
+                  href={to}
+                  className={cn(
+                    'inline-flex items-center h-9 px-4 text-sm font-medium rounded-full transition-colors',
+                    p.link,
+                  )}
+                >
+                  {label}
+                </Link>
+              </li>
+            ))}
           </ul>
 
           {/* CTA */}
           <div className="hidden lg:flex items-center gap-2">
-            <Link href="/request-demo" className="btn-primary h-10 px-5">
-              Book a demo
-              <ArrowRight className="w-3.5 h-3.5" />
-            </Link>
+            {scroll || dark ? (
+              <button
+                type="button"
+                onClick={bookDemo}
+                className={cn(ctaClassName, p.ctaClass)}
+                style={p.ctaStyle}
+              >
+                Book a demo
+                <ArrowRight className="w-3.5 h-3.5" />
+              </button>
+            ) : (
+              <button
+                type="button"
+                onClick={bookDemo}
+                className="btn-primary h-10 px-5"
+              >
+                Book a demo
+                <ArrowRight className="w-3.5 h-3.5" />
+              </button>
+            )}
           </div>
 
           {/* Mobile toggle */}
           <button
-            className="lg:hidden p-2 rounded-full hover:bg-ink-50"
+            className={cn('lg:hidden p-2 rounded-full', p.mobileBtn)}
             onClick={() => setMobile((v) => !v)}
             aria-label="Toggle menu"
           >
             {mobile ? <X className="w-5 h-5" /> : <Menu className="w-5 h-5" />}
           </button>
-
-          {/* Mega menu (anchored under trigger) */}
-          <AnimatePresence>
-            {open && menuPos && (
-              <motion.div
-                initial={{ opacity: 0, y: 8 }}
-                animate={{ opacity: 1, y: 0 }}
-                exit={{ opacity: 0, y: 6 }}
-                transition={{ duration: 0.22, ease: [0.16, 1, 0.3, 1] }}
-                className="hidden lg:block absolute top-[calc(100%+10px)]"
-                style={{ left: menuPos.left, width: menuPos.width }}
-                onMouseEnter={() => setOpen(open)}
-              >
-                {/* Pointer arrow */}
-                <div
-                  aria-hidden
-                  className="absolute -top-1.5 w-3 h-3 rotate-45 bg-white border-l border-t border-ink-900/[0.08]"
-                  style={{
-                    left:
-                      (open === 'platform' ? platformRef.current : solutionsRef.current)?.getBoundingClientRect().left! -
-                      (navRef.current?.getBoundingClientRect().left || 0) -
-                      menuPos.left +
-                      ((open === 'platform' ? platformRef.current : solutionsRef.current)?.getBoundingClientRect().width || 0) / 2 -
-                      6,
-                  }}
-                />
-                <div className="glass-strong rounded-3xl p-3 shadow-[0_24px_70px_-20px_rgba(15,19,34,0.25)]">
-                  <div className="grid grid-cols-2 gap-1.5">
-                    {(open === 'platform' ? platform : solutions).map((item) => (
-                      <Link
-                        key={item.label}
-                        href={item.to}
-                        onClick={() => setOpen(null)}
-                        className="group flex items-start gap-3 rounded-2xl p-3 hover:bg-white transition-colors"
-                      >
-                        <span className="grid place-items-center w-9 h-9 rounded-xl bg-brand-50 text-brand-700 border border-brand-100">
-                          {item.icon}
-                        </span>
-                        <span className="min-w-0">
-                          <span className="block text-[13.5px] font-semibold text-ink-900">{item.label}</span>
-                          <span className="block text-[12.5px] text-ink-500 leading-relaxed">{item.desc}</span>
-                        </span>
-                      </Link>
-                    ))}
-                  </div>
-                  <div className="mt-2 flex items-center justify-between rounded-2xl bg-gradient-to-r from-brand-50 to-white border border-brand-100/60 px-4 py-3">
-                    <div className="flex items-center gap-2 text-[12.5px] text-ink-700">
-                      <Sparkles className="w-3.5 h-3.5 text-brand-600" />
-                      New — SimplifyQA AI Studio is live
-                    </div>
-                    <Link href="/platform/ai-test-assistant" className="text-[12.5px] font-semibold text-brand-700 hover:text-brand-900 inline-flex items-center gap-1">
-                      Explore <ArrowRight className="w-3 h-3" />
-                    </Link>
-                  </div>
-                </div>
-              </motion.div>
-            )}
-          </AnimatePresence>
         </nav>
       </div>
 
@@ -234,10 +160,8 @@ export default function NavbarV2() {
             transition={{ duration: 0.22 }}
             className="lg:hidden mx-4 mt-3"
           >
-            <div className="glass-strong rounded-3xl p-3">
+            <div className={cn('rounded-3xl p-3', p.mobilePanel)}>
               {[
-                ['Platform', '/solutions'],
-                ['Solutions', '/solutions'],
                 ['Integrations', '/integrations'],
                 ['Pricing', '/pricing'],
                 ['Resources', '/resources'],
@@ -247,18 +171,29 @@ export default function NavbarV2() {
                   key={label}
                   href={to}
                   onClick={() => setMobile(false)}
-                  className="block px-4 py-3 rounded-2xl text-[15px] font-medium text-ink-800 hover:bg-white"
+                  className={cn('block px-4 py-3 rounded-2xl text-[15px] font-medium', p.mobileLink)}
                 >
                   {label}
                 </Link>
               ))}
-              <Link
-                href="/request-demo"
-                onClick={() => setMobile(false)}
-                className="mt-2 btn-primary w-full"
-              >
-                Book a demo
-              </Link>
+              {scroll || dark ? (
+                <button
+                  type="button"
+                  onClick={() => { setMobile(false); bookDemo(); }}
+                  className={cn('mt-2 inline-flex items-center justify-center w-full h-10 rounded-full text-[14px] font-semibold', p.ctaClass)}
+                  style={p.ctaStyle}
+                >
+                  Book a demo
+                </button>
+              ) : (
+                <button
+                  type="button"
+                  onClick={() => { setMobile(false); bookDemo(); }}
+                  className="mt-2 btn-primary w-full"
+                >
+                  Book a demo
+                </button>
+              )}
             </div>
           </motion.div>
         )}

@@ -71,7 +71,7 @@ export default function LoginForm() {
             </span>
           </h1>
           <p className="text-[15px] text-white/70 max-w-md">
-            Write, schedule, and optimise SimplifyQA's blog with a purpose-built editor — rich
+            Write, schedule, and optimise SimplifyQA's blog with a purpose-built editor, rich
             formatting, asset management, and SEO controls built in.
           </p>
         </div>

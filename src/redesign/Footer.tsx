@@ -2,26 +2,13 @@
 
 import Image from 'next/image';
 import Link from 'next/link';
-import { Github, Linkedin, Twitter, Youtube, ArrowUpRight, Sparkles } from 'lucide-react';
+import { Linkedin, Youtube, ArrowUpRight, Sparkles } from 'lucide-react';
+import { FaDiscord } from 'react-icons/fa';
+import { BookDemoButton } from './CalendlyModal';
 
 const col = (title: string, items: { label: string; to: string }[]) => ({ title, items });
 
 const columns = [
-  col('Platform', [
-    { label: 'Test Management',  to: '/platform/test-management' },
-    { label: 'Test Automation',  to: '/platform/test-automation' },
-    { label: 'AI Test Assistant', to: '/platform/ai-test-assistant' },
-    { label: 'Defect Management', to: '/platform/defect-management' },
-    { label: 'Release Orchestration', to: '/platform/release-orchestration' },
-    { label: 'Insights & Reports', to: '/platform/insights-reports' },
-  ]),
-  col('Solutions', [
-    { label: 'Enterprise QA',       to: '/solutions/enterprise-qa' },
-    { label: 'Automation Teams',    to: '/solutions/automation-teams' },
-    { label: 'Engineering Leaders', to: '/solutions/engineering-leaders' },
-    { label: 'Agile / Scrum',       to: '/solutions/agile-scrum' },
-    { label: 'Industries',          to: '/solutions/industries' },
-  ]),
   col('Resources', [
     { label: 'Docs',         to: '/resources' },
     { label: 'Blog',         to: '/blog' },
@@ -30,11 +17,10 @@ const columns = [
     { label: 'Integrations', to: '/integrations' },
   ]),
   col('Company', [
-    { label: 'About',     to: '/about' },
-    { label: 'Customers', to: '/customer-success' },
-    { label: 'Pricing',   to: '/pricing' },
-    { label: 'Contact',   to: '/contact' },
-    { label: 'Careers',   to: '/careers' },
+    { label: 'Why SimplifyQA', to: '/about' },
+    { label: 'Customers',      to: '/customer-success' },
+    { label: 'Pricing',        to: '/pricing' },
+    { label: 'Contact',        to: '/contact' },
   ]),
 ];
 
@@ -59,14 +45,14 @@ export default function FooterV2() {
               </p>
             </div>
             <div className="flex flex-col sm:flex-row gap-3">
-              <Link href="/request-demo" className="btn-primary">Book a demo <ArrowUpRight className="w-4 h-4" /></Link>
+              <BookDemoButton className="btn-primary">Book a demo <ArrowUpRight className="w-4 h-4" /></BookDemoButton>
               <Link href="/pricing" className="btn-ghost">View pricing</Link>
             </div>
           </div>
         </div>
 
         {/* Link grid */}
-        <div className="mt-16 grid grid-cols-2 md:grid-cols-5 gap-10">
+        <div className="mt-16 grid grid-cols-2 md:grid-cols-3 gap-10">
           <div className="col-span-2 md:col-span-1">
             <Link href="/" className="inline-flex items-center" aria-label="SimplifyQA home">
               <Image
@@ -83,7 +69,7 @@ export default function FooterV2() {
               The intelligent ALM and test management platform for modern QA teams.
             </p>
             <div className="mt-5 flex items-center gap-2">
-              {[Linkedin, Twitter, Youtube, Github].map((Icon, i) => (
+              {[Linkedin, Youtube, FaDiscord].map((Icon, i) => (
                 <a key={i} href="#" className="grid place-items-center w-9 h-9 rounded-full border border-ink-900/10 text-ink-500 hover:text-brand-700 hover:border-brand-200 transition-colors">
                   <Icon className="w-4 h-4" />
                 </a>
@@ -110,16 +96,10 @@ export default function FooterV2() {
         </div>
 
         {/* Base bar */}
-        <div className="mt-14 pt-6 border-t border-ink-900/[0.06] flex flex-col sm:flex-row items-start sm:items-center justify-between gap-3">
+        <div className="mt-14 pt-6 border-t border-ink-900/[0.06]">
           <p className="text-[12.5px] text-ink-400">
             © {new Date().getFullYear()} SimplifyQA. All rights reserved.
           </p>
-          <div className="flex items-center gap-5 text-[12.5px] text-ink-400">
-            <Link href="/privacy" className="hover:text-ink-700">Privacy</Link>
-            <Link href="/terms" className="hover:text-ink-700">Terms</Link>
-            <Link href="/security" className="hover:text-ink-700">Security</Link>
-            <Link href="/status" className="hover:text-ink-700">Status</Link>
-          </div>
         </div>
       </div>
     </footer>

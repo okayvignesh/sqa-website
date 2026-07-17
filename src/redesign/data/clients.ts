@@ -1,36 +1,37 @@
-// Customer trust-bar catalog — logos sourced via logo.dev (Clearbit successor).
-// Free public demo token used; users with a logo.dev account should swap in their
-// own token via NEXT_PUBLIC_LOGO_DEV_TOKEN.
+// Active SimplifyQA customers, per the Preprod customer sheet.
+// Local, high-quality SVGs live under /public/logos/customers/.
+// For the 6 customers below without a shipped SVG yet, we fall back to
+// logo.dev by domain so the UI is not blank — swap to a local SVG when
+// available.
 
 const TOKEN = process.env.NEXT_PUBLIC_LOGO_DEV_TOKEN || 'pk_X-1ZO13GSgeOoUrIuJ6GMQ';
-const logo = (domain: string) =>
+const logoDev = (domain: string) =>
   `https://img.logo.dev/${domain}?token=${TOKEN}&format=png&retina=true&size=256`;
 
-export type Client = { name: string; src: string; alt: string };
+export type Client = { name: string; src: string; alt: string; scale?: number };
 
 export const clients: Client[] = [
-  { name: 'Malaysia Airlines', src: logo('malaysiaairlines.com'), alt: 'Malaysia Airlines' },
-  { name: 'OpenText',          src: logo('opentext.com'),         alt: 'OpenText' },
-  { name: 'UST',               src: logo('ust.com'),              alt: 'UST' },
-  { name: 'Dexcom',            src: logo('dexcom.com'),           alt: 'Dexcom' },
-  { name: 'Carelon',           src: logo('carelon.com'),          alt: 'Carelon' },
-  { name: 'Vodacom',           src: logo('vodacom.co.za'),        alt: 'Vodacom' },
-  { name: 'Elevance Health',   src: logo('elevancehealth.com'),   alt: 'Elevance Health' },
-  { name: 'Aditya Birla',      src: logo('adityabirla.com'),      alt: 'Aditya Birla Group' },
-  { name: "Dr Reddy's",        src: logo('drreddys.com'),         alt: "Dr Reddy's Laboratories" },
-  { name: 'NCBA Group',        src: logo('ncbagroup.com'),        alt: 'NCBA Group' },
-  { name: 'Availity',          src: logo('availity.com'),         alt: 'Availity' },
-  { name: 'Rawbank',           src: logo('rawbank.com'),          alt: 'Rawbank' },
-  { name: 'Mesiniaga',         src: logo('mesiniaga.com.my'),     alt: 'Mesiniaga' },
-  { name: 'Net Health',        src: logo('nethealth.com'),        alt: 'Net Health' },
-  { name: 'Envista',           src: logo('envistaco.com'),        alt: 'Envista Holdings' },
-  { name: 'Perfios',           src: logo('perfios.com'),          alt: 'Perfios' },
-  { name: 'LeapScholar',       src: logo('leapscholar.com'),      alt: 'LeapScholar' },
-  { name: 'SMFG',              src: logo('smfg.co.jp'),           alt: 'Sumitomo Mitsui Financial Group' },
-  { name: 'myEG',              src: logo('myeg.com.my'),          alt: 'MyEG Services' },
-  { name: 'Körber',            src: logo('koerber.com'),          alt: 'Körber' },
-  { name: 'euNetworks',        src: logo('eunetworks.com'),       alt: 'euNetworks' },
-  { name: 'Equity Bank',       src: logo('equitybank.co.ke'),     alt: 'Equity Bank' },
-  { name: 'Globitel',          src: logo('globitel.com'),         alt: 'Globitel' },
-  { name: 'CGC Malaysia',      src: logo('cgc.com.my'),           alt: 'Credit Guarantee Corporation Malaysia' },
+  // Preprod Active Clients + On-Premise + India Instance
+  { name: 'Malaysia Airlines', src: '/logos/customers/malaysia-airlines.svg', alt: 'Malaysia Airlines' },
+  { name: 'SMFG',              src: '/logos/customers/smfg.svg',              alt: 'Sumitomo Mitsui Financial Group' },
+  { name: 'CGC Malaysia',      src: '/logos/customers/cgc-malaysia.svg',      alt: 'CGC Malaysia' },
+  { name: 'Quest Alliance',    src: '/logos/customers/quest-alliance.svg',    alt: 'Quest Alliance' },
+  { name: 'NetHealth',         src: '/logos/customers/net-health.svg',        alt: 'Net Health' },
+  { name: 'Eu Networks',       src: '/logos/customers/eu-networks.svg',       alt: 'euNetworks' },
+  { name: 'Analec',            src: '/logos/customers/analec.svg',            alt: 'Analec' },
+
+  // ponytail: no local SVG yet, using logo.dev fallback. Drop a real SVG into
+  // /public/logos/customers/ and swap the src to remove the fallback.
+  { name: 'MyEG Malaysia',     src: logoDev('myeg.com.my'),         alt: 'MyEG Services' },
+  { name: 'Leadway',           src: logoDev('leadway.com'),         alt: 'Leadway Assurance' },
+  { name: 'Technology Mindz',  src: logoDev('technologymindz.com'), alt: 'Technology Mindz' },
+  { name: 'Zipcar',            src: logoDev('zipcar.com'),          alt: 'Zipcar' },
+  { name: 'Mirae Assets',      src: logoDev('miraeasset.com'),      alt: 'Mirae Assets', scale: 1.6 },
+  { name: 'Korcomptenz',       src: logoDev('korcomptenz.com'),     alt: 'Korcomptenz' },
+  { name: 'Leapfinance',       src: logoDev('leapfinance.com'),     alt: 'Leapfinance' },
+  { name: 'AB-InBev',          src: logoDev('ab-inbev.com'),        alt: 'AB InBev' },
+  { name: 'ECCT',              src: logoDev('ecct.info'),           alt: 'ECCT' },
+  { name: 'Venus Geo',         src: logoDev('venusgeo.com'),        alt: 'Venus Geo' },
+  { name: 'Nuvizz',            src: logoDev('nuvizz.com'),          alt: 'Nuvizz' },
+  { name: 'EPSSWIN',           src: logoDev('epsswin.com'),         alt: 'EPSSWIN' },
 ];

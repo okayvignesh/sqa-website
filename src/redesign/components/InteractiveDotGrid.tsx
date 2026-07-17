@@ -8,7 +8,7 @@ type Props = {
   className?: string;
   /** spacing between dots (px) */
   spacing?: number;
-  /** dot radius (px) — both layers */
+  /** dot radius (px), both layers */
   dotSize?: number;
   /** radius around the cursor where dots glow maroon (px) */
   radius?: number;
@@ -79,7 +79,7 @@ export default function InteractiveDotGrid({
 
   // Two background-image dot layers + a glow halo.
   // Note: keep the radial-gradient syntax matching Tailwind's working `.bg-dots`
-  // rule — no `circle` keyword, no `at center` — that combination renders
+  // rule, no `circle` keyword, no `at center`, that combination renders
   // reliably across Chromium/WebKit/Firefox.
   const baseDots = `radial-gradient(${baseColor} ${dotSize}px, transparent ${dotSize + 0.5}px)`;
   const activeDots = `radial-gradient(${activeColor} ${dotSize + 0.3}px, transparent ${dotSize + 0.9}px)`;
@@ -93,7 +93,7 @@ export default function InteractiveDotGrid({
       aria-hidden
       className={cn('pointer-events-none absolute inset-0 overflow-hidden', className)}
     >
-      {/* Base grey dot grid — fades in below the navbar and out before the next section.
+      {/* Base grey dot grid, fades in below the navbar and out before the next section.
           Vertical linear mask handles the top/bottom seam; subtle side fade keeps the
           horizontal edges from feeling like a hard rectangle. */}
       <div
@@ -110,7 +110,7 @@ export default function InteractiveDotGrid({
         }}
       />
 
-      {/* Soft halo behind the maroon dots — the orb glow */}
+      {/* Soft halo behind the maroon dots, the orb glow */}
       <div
         className="absolute inset-0"
         style={{
@@ -122,7 +122,7 @@ export default function InteractiveDotGrid({
         }}
       />
 
-      {/* Maroon dot layer — visible only inside the cursor mask */}
+      {/* Maroon dot layer, visible only inside the cursor mask */}
       <div
         className="absolute inset-0"
         style={{

@@ -1,5 +1,5 @@
 export const metadata = {
-  title: 'Admin — SimplifyQA',
+  title: 'Admin, SimplifyQA',
   robots: { index: false, follow: false },
 };
 

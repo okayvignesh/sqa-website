@@ -1,7 +1,7 @@
 import { ImageResponse } from 'next/og';
 
 export const runtime = 'edge';
-export const alt = 'SimplifyQA — Intelligent ALM & Test Management Platform';
+export const alt = 'SimplifyQA, Intelligent ALM & Test Management Platform';
 export const size = { width: 1200, height: 630 };
 export const contentType = 'image/png';
 
@@ -65,7 +65,7 @@ export default async function OpengraphImage() {
               lineHeight: 1.3,
             }}
           >
-            Plan, automate, execute, and report — across the entire software
+            Plan, automate, execute, and report, across the entire software
             lifecycle with AI-powered intelligence.
           </div>
         </div>
