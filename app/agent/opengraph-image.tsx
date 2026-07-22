@@ -13,8 +13,7 @@ export default function OgImage() {
     subtitle:
       'An MCP server that plugs into any AI. It explores your app, writes the tests, runs them, files the defects.',
     path: 'simplifyqa.app/agent',
-    accent: '#38BDF8',
-    ink: '#08111F',
+    accent: '#4338CA',
     signature: <SigAgent />,
   });
 }

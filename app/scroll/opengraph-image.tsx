@@ -13,8 +13,7 @@ export default function OgImage() {
     subtitle:
       'AI-native documentation with a live knowledge graph, semantic search, and grounded Q&A.',
     path: 'simplifyqa.app/scroll',
-    accent: '#A78BFA',
-    ink: '#100826',
+    accent: '#7C3AED',
     signature: <SigScroll />,
   });
 }
