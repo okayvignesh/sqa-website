@@ -1,5 +1,5 @@
 import ResourcesPage from '../../src/redesign/pages/ResourcesPage';
-import { buildMetadata } from '../../src/lib/seo';
+import { BreadcrumbJsonLd, buildMetadata } from '../../src/lib/seo';
 
 export const metadata = buildMetadata({
   title: 'Resources',
@@ -9,5 +9,10 @@ export const metadata = buildMetadata({
 });
 
 export default function Page() {
-  return <ResourcesPage />;
+  return (
+    <>
+      <BreadcrumbJsonLd trail={[{ name: 'Home', path: '/' }, { name: 'Resources', path: '/resources' }]} />
+      <ResourcesPage />
+    </>
+  );
 }

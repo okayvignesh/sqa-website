@@ -1,5 +1,5 @@
 import ContactPage from '../../src/redesign/pages/ContactPage';
-import { buildMetadata } from '../../src/lib/seo';
+import { BreadcrumbJsonLd, buildMetadata } from '../../src/lib/seo';
 
 export const metadata = buildMetadata({
   title: 'Contact SimplifyQA',
@@ -9,5 +9,10 @@ export const metadata = buildMetadata({
 });
 
 export default function Page() {
-  return <ContactPage />;
+  return (
+    <>
+      <BreadcrumbJsonLd trail={[{ name: 'Home', path: '/' }, { name: 'Contact', path: '/contact' }]} />
+      <ContactPage />
+    </>
+  );
 }

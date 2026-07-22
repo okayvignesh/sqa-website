@@ -1,5 +1,5 @@
 import LegalPage from '../../src/redesign/pages/LegalPage';
-import { buildMetadata } from '../../src/lib/seo';
+import { BreadcrumbJsonLd, buildMetadata } from '../../src/lib/seo';
 
 export const metadata = buildMetadata({
   title: 'System Status',
@@ -8,5 +8,10 @@ export const metadata = buildMetadata({
 });
 
 export default function Page() {
-  return <LegalPage kind="status" />;
+  return (
+    <>
+      <BreadcrumbJsonLd trail={[{ name: 'Home', path: '/' }, { name: 'Status', path: '/status' }]} />
+      <LegalPage kind="status" />
+    </>
+  );
 }

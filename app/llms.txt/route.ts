@@ -18,6 +18,11 @@ ${SITE_NAME} is an enterprise ALM and test management platform that unifies test
 - [Release Orchestration](${SITE_URL}/platform/release-orchestration): Pipelines, environments, approvals, and quality gates connected to Jenkins, GitLab CI, GitHub Actions, and Azure DevOps.
 - [Insights & Reports](${SITE_URL}/platform/insights-reports): Executive dashboards, release readiness scoring, and predictive risk from your test data.
 
+## Products
+
+- [Scroll](${SITE_URL}/scroll): AI-native documentation platform. Real-time collaborative wiki with wiki-linked knowledge graph, backlinks, semantic search, grounded Q&A, AI diagram + presentation generation, and live test case/execution/traceability blocks for SimplifyQA teams.
+- [Zero-Touch Agent](${SITE_URL}/agent): MCP server that plugs into Claude, ChatGPT, Cursor, Windsurf, and any AI client. Give it a URL, it explores the app, writes tests, runs them, and files defects. Covers web, mobile, API, desktop, SAP, and Salesforce.
+
 ## Solutions
 
 - [Enterprise QA](${SITE_URL}/solutions/enterprise-qa): Scale QA across regulated, multi-team enterprises.
@@ -30,7 +35,7 @@ ${SITE_NAME} is an enterprise ALM and test management platform that unifies test
 
 - [Pricing](${SITE_URL}/pricing): Per-seat plans, add-ons, and enterprise contracts. Includes a 14-day pilot.
 - [Integrations](${SITE_URL}/integrations): Jira, Azure DevOps, GitHub, GitLab, Jenkins, Slack, Microsoft Teams, ServiceNow, BrowserStack, Sauce Labs, LambdaTest, and more.
-- [Customer Success](${SITE_URL}/customer-success): Onboarding, white-glove migration, and ongoing partnership.
+- [Customer Success](${SITE_URL}/customer-success): How Fortune 100 quality teams use SimplifyQA. Onboarding, white-glove migration, and ongoing partnership.
 - [Resources Hub](${SITE_URL}/resources): Guides, webinars, and reading material on quality engineering.
 - [Blog](${SITE_URL}/blog): Articles on test automation, AI in QA, release management, and engineering leadership.
 

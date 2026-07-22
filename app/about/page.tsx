@@ -1,5 +1,5 @@
 import AboutPage from '../../src/redesign/pages/AboutPage';
-import { buildMetadata } from '../../src/lib/seo';
+import { BreadcrumbJsonLd, buildMetadata } from '../../src/lib/seo';
 
 export const metadata = buildMetadata({
   title: 'Why SimplifyQA',
@@ -9,5 +9,10 @@ export const metadata = buildMetadata({
 });
 
 export default function Page() {
-  return <AboutPage />;
+  return (
+    <>
+      <BreadcrumbJsonLd trail={[{ name: 'Home', path: '/' }, { name: 'About', path: '/about' }]} />
+      <AboutPage />
+    </>
+  );
 }

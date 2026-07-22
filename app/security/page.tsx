@@ -1,5 +1,5 @@
 import LegalPage from '../../src/redesign/pages/LegalPage';
-import { buildMetadata } from '../../src/lib/seo';
+import { BreadcrumbJsonLd, buildMetadata } from '../../src/lib/seo';
 
 export const metadata = buildMetadata({
   title: 'Security',
@@ -9,5 +9,10 @@ export const metadata = buildMetadata({
 });
 
 export default function Page() {
-  return <LegalPage kind="security" />;
+  return (
+    <>
+      <BreadcrumbJsonLd trail={[{ name: 'Home', path: '/' }, { name: 'Security', path: '/security' }]} />
+      <LegalPage kind="security" />
+    </>
+  );
 }

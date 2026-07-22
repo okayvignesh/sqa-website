@@ -1,5 +1,5 @@
 import CareersPage from '../../src/redesign/pages/CareersPage';
-import { buildMetadata } from '../../src/lib/seo';
+import { BreadcrumbJsonLd, buildMetadata } from '../../src/lib/seo';
 
 export const metadata = buildMetadata({
   title: 'Careers at SimplifyQA',
@@ -9,5 +9,10 @@ export const metadata = buildMetadata({
 });
 
 export default function Page() {
-  return <CareersPage />;
+  return (
+    <>
+      <BreadcrumbJsonLd trail={[{ name: 'Home', path: '/' }, { name: 'Careers', path: '/careers' }]} />
+      <CareersPage />
+    </>
+  );
 }

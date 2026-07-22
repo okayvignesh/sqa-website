@@ -392,7 +392,7 @@ export default function ScrollPage() {
       </section>
 
       {/* ============ KNOWLEDGE BASE / BRAIN GRAPH ============ */}
-      <section className="relative py-20 sm:py-28 bg-white">
+      <section id="knowledge-base" className="relative py-20 sm:py-28 bg-white scroll-mt-24">
         <Container size="wide">
           <div className="max-w-3xl">
             <Reveal>

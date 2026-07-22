@@ -1,6 +1,6 @@
 import BlogPage from '../../src/redesign/pages/BlogPage';
 import { listPosts } from '../../src/lib/posts';
-import { buildMetadata } from '../../src/lib/seo';
+import { BreadcrumbJsonLd, buildMetadata } from '../../src/lib/seo';
 import { SITE_NAME, SITE_URL, absoluteUrl } from '../../src/lib/site';
 
 export const metadata = buildMetadata({
@@ -31,6 +31,7 @@ export default async function Page() {
 
   return (
     <>
+      <BreadcrumbJsonLd trail={[{ name: 'Home', path: '/' }, { name: 'Blog', path: '/blog' }]} />
       <script
         type="application/ld+json"
         dangerouslySetInnerHTML={{ __html: JSON.stringify(blogJsonLd) }}

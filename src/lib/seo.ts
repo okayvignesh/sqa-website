@@ -1,4 +1,6 @@
 import type { Metadata } from 'next';
+import type { ReactElement } from 'react';
+import { createElement } from 'react';
 import { SITE_NAME, SITE_TWITTER, SITE_URL } from './site';
 
 type Args = {
@@ -54,5 +56,15 @@ export function buildBreadcrumbJsonLd(trail: Breadcrumb[]) {
       item: `${SITE_URL}${b.path.startsWith('/') ? b.path : `/${b.path}`}`,
     })),
   };
+}
+
+// Convenience wrapper: renders a BreadcrumbList JSON-LD <script> tag straight
+// from a trail. Keeps top-level pages down to one line of markup instead of
+// hoisting a `const breadcrumb = ...` per file.
+export function BreadcrumbJsonLd({ trail }: { trail: Breadcrumb[] }): ReactElement {
+  return createElement('script', {
+    type: 'application/ld+json',
+    dangerouslySetInnerHTML: { __html: JSON.stringify(buildBreadcrumbJsonLd(trail)) },
+  });
 }
 

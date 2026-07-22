@@ -10,7 +10,7 @@ export const metadata = buildMetadata({
 
 const breadcrumb = buildBreadcrumbJsonLd([
   { name: 'Home',              path: '/' },
-  { name: 'Platform',           path: '/platform/ai-test-assistant' },
+  { name: 'Platform',           path: '/#platform' },
   { name: 'AI Test Assistant',  path: '/platform/ai-test-assistant' },
 ]);
 

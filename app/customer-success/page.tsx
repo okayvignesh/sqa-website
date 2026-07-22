@@ -1,5 +1,5 @@
 import CustomerSuccessPage from '../../src/redesign/pages/CustomerSuccessPage';
-import { buildMetadata } from '../../src/lib/seo';
+import { BreadcrumbJsonLd, buildMetadata } from '../../src/lib/seo';
 
 export const metadata = buildMetadata({
   title: 'Customer Success',
@@ -9,5 +9,10 @@ export const metadata = buildMetadata({
 });
 
 export default function Page() {
-  return <CustomerSuccessPage />;
+  return (
+    <>
+      <BreadcrumbJsonLd trail={[{ name: 'Home', path: '/' }, { name: 'Customer Success', path: '/customer-success' }]} />
+      <CustomerSuccessPage />
+    </>
+  );
 }
