@@ -6,10 +6,11 @@ import { motion } from 'framer-motion';
 import {
   ArrowUpRight, Bot, Braces, Brain, Check, ChevronDown, ChevronRight, Cpu, Database, FileText,
   GitBranch, HelpCircle, LayoutDashboard, Layers, LineChart, Link2, Lock, MessageSquare,
-  Presentation, Search, ShieldCheck, Sparkles, Users, Workflow, X, Zap,
+  Network, Presentation, Search, ShieldCheck, Sparkles, Users, Workflow, X, Zap,
 } from 'lucide-react';
 import { Container, Reveal, RevealGroup, cn, fadeUp } from '../../design';
 import ScrollHeroDemo from '../components/ScrollHeroDemo';
+import KnowledgeBrainGraph from '../components/KnowledgeBrainGraph';
 import { BookDemoButton } from '../CalendlyModal';
 
 // Section eyebrow in the Scroll violet palette (the shared design/Eyebrow
@@ -390,6 +391,81 @@ export default function ScrollPage() {
         </Container>
       </section>
 
+      {/* ============ KNOWLEDGE BASE / BRAIN GRAPH ============ */}
+      <section className="relative py-20 sm:py-28 bg-white">
+        <Container size="wide">
+          <div className="max-w-3xl">
+            <Reveal>
+              <VEyebrow icon={<Network className="w-3.5 h-3.5" />}>Knowledge Base</VEyebrow>
+            </Reveal>
+            <Reveal delay={0.05}>
+              <h2 className="mt-5 font-display text-display-md text-ink-900 text-balance">
+                Your docs, <Grad>wired like a brain.</Grad>
+              </h2>
+            </Reveal>
+            <Reveal delay={0.1}>
+              <p className="mt-5 text-[17px] text-ink-500 max-w-2xl leading-relaxed">
+                Every page{' '}
+                <code className="px-1.5 py-0.5 rounded text-[13.5px] font-mono"
+                  style={{ background: V[50], color: V[700], border: `1px solid ${V[100]}` }}>
+                  [[wiki-links]]
+                </code>{' '}
+                to every other. Scroll draws the map, a live graph of what clusters, what
+                bridges, and what&apos;s floating alone. Semantic search and grounded Q&amp;A
+                ride the same graph your team writes.
+              </p>
+            </Reveal>
+          </div>
+
+          <Reveal delay={0.18}>
+            <div className="mt-12">
+              <KnowledgeBrainGraph />
+            </div>
+          </Reveal>
+
+          <RevealGroup className="mt-10 grid sm:grid-cols-2 lg:grid-cols-4 gap-3" delay={0.05}>
+            {[
+              {
+                icon: <Link2 className="w-4 h-4" />,
+                title: 'Wiki-links, not URLs',
+                body: 'Type [[ and pull in any page. Every link becomes a live edge, renamed on both sides when the target moves.',
+              },
+              {
+                icon: <GitBranch className="w-4 h-4" />,
+                title: 'Automatic backlinks',
+                body: 'Every page shows who cites it. No manual index. Hubs surface themselves; orphans stop hiding.',
+              },
+              {
+                icon: <Network className="w-4 h-4" />,
+                title: 'Force-directed graph',
+                body: 'Drag, pin, zoom, filter by tag. Clusters show what your team actually writes about together.',
+              },
+              {
+                icon: <Bot className="w-4 h-4" />,
+                title: 'Grounded Q&A',
+                body: 'Ask a KB and get an answer with citations, sourced from the same graph you can see.',
+              },
+            ].map((c) => (
+              <motion.div
+                key={c.title}
+                variants={fadeUp}
+                className="rounded-2xl bg-white border p-5 hover:-translate-y-0.5 transition-transform"
+                style={{ borderColor: V[100] }}
+              >
+                <div
+                  className="grid place-items-center w-9 h-9 rounded-xl"
+                  style={{ background: V[50], color: V[700], border: `1px solid ${V[100]}` }}
+                >
+                  {c.icon}
+                </div>
+                <div className="mt-4 text-[13.5px] font-semibold text-ink-900">{c.title}</div>
+                <p className="mt-1.5 text-[12.5px] text-ink-500 leading-relaxed">{c.body}</p>
+              </motion.div>
+            ))}
+          </RevealGroup>
+        </Container>
+      </section>
+
       {/* ============ VS ALTERNATIVES ============ */}
       <section className="relative py-20 sm:py-24 bg-white">
         <Container size="wide">
@@ -503,11 +579,11 @@ export default function ScrollPage() {
                     <Users className="w-3.5 h-3.5" /> For every team
                   </div>
                   <h2 className="mt-5 font-display text-4xl sm:text-5xl text-white tracking-tight text-balance">
-                    Stop pasting screenshots into Confluence.
+                    Wire your docs to the work they describe.
                   </h2>
                   <p className="mt-4 text-[16px] text-white/80 max-w-xl">
-                    See what documentation looks like when it knows about your tests, your
-                    defects, and your releases.
+                    Every page linked, every hub surfaced, every test, defect, and release
+                    live inside the same knowledge graph your team writes.
                   </p>
                 </div>
                 <div className="flex flex-col sm:flex-row gap-3 shrink-0">
