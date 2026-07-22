@@ -1,5 +1,5 @@
 import { renderOg } from '../../src/lib/og';
-import { SigAgent } from '../../src/lib/og-signatures';
+import { SigAgentDark } from '../../src/lib/og-signatures';
 
 export const runtime = 'edge';
 export const size = { width: 1200, height: 630 };
@@ -13,7 +13,9 @@ export default function OgImage() {
     subtitle:
       'An MCP server that plugs into any AI. It explores your app, writes the tests, runs them, files the defects.',
     path: 'simplifyqa.app/agent',
-    accent: '#4338CA',
-    signature: <SigAgent />,
+    theme: 'dark',
+    darkInk: '#08111F',
+    accent: '#38BDF8',
+    signature: <SigAgentDark />,
   });
 }

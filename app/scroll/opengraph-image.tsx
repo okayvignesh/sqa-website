@@ -1,5 +1,5 @@
 import { renderOg } from '../../src/lib/og';
-import { SigScroll } from '../../src/lib/og-signatures';
+import { SigScrollDark } from '../../src/lib/og-signatures';
 
 export const runtime = 'edge';
 export const size = { width: 1200, height: 630 };
@@ -13,7 +13,9 @@ export default function OgImage() {
     subtitle:
       'AI-native documentation with a live knowledge graph, semantic search, and grounded Q&A.',
     path: 'simplifyqa.app/scroll',
-    accent: '#7C3AED',
-    signature: <SigScroll />,
+    theme: 'dark',
+    darkInk: '#100826',
+    accent: '#A78BFA',
+    signature: <SigScrollDark />,
   });
 }

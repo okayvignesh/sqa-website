@@ -134,7 +134,7 @@ export function SigPricing(): ReactElement {
   const tiers = [
     { y: 60,  h: 90,  price: 'Free',   tag: 'PILOT',      accent: T.ink400,  note: '14-day pilot · every feature' },
     { y: 165, h: 110, price: '$29',    tag: 'TEAM',       accent: T.brand600, note: 'per seat / month · billed yearly' },
-    { y: 290, h: 100, price: 'Custom', tag: 'ENTERPRISE', accent: '#B45309', note: 'unlimited seats · white-glove' },
+    { y: 290, h: 100, price: 'Custom', tag: 'ENTERPRISE', accent: '#9A1525', note: 'unlimited seats · white-glove' },
   ];
   return frame(
     <>
@@ -174,7 +174,7 @@ export function SigSolutions(): ReactElement {
     { primary: 'Enterprise',  secondary: 'QA',         color: T.brand600 },
     { primary: 'Engineering', secondary: 'Leaders',    color: '#7C3AED' },
     { primary: 'Automation',  secondary: 'Teams',      color: '#0369A1' },
-    { primary: 'Regulated',   secondary: 'Industries', color: '#B45309' },
+    { primary: 'Regulated',   secondary: 'Industries', color: '#9A1525' },
   ];
   return frame(
     <>
@@ -232,7 +232,7 @@ export function SigCustomerSuccess(): ReactElement {
                   cx={cx + Math.cos(a) * ring.r}
                   cy={cy + Math.sin(a) * ring.r}
                   r={ring.size / 2}
-                  fill={r === 0 ? '#B45309' : T.brand600}
+                  fill={r === 0 ? '#9A1525' : T.brand600}
                   opacity={r === 0 ? 1 : r === 1 ? 0.85 : 0.55}
                 />
               );
@@ -289,7 +289,7 @@ export function SigTestManagement(): ReactElement {
   const cols = [
     { x: 55,  label: 'REQS',    color: '#0369A1', dots: [70, 140, 210, 280] },
     { x: 210, label: 'TESTS',   color: T.brand600, dots: [90, 160, 230, 300] },
-    { x: 365, label: 'DEFECTS', color: '#B45309', dots: [180, 250] },
+    { x: 365, label: 'DEFECTS', color: '#9A1525', dots: [180, 250] },
   ];
   const dotR = 10;
   const traces: [number, number, number, number, string][] = [
@@ -450,10 +450,12 @@ export function SigAITestAssistant(): ReactElement {
 // ============ DEFECT MANAGEMENT — severity stack =================
 export function SigDefectManagement(): ReactElement {
   const cards = [
-    { p: 'P0', title: 'Payment webhook 500s',      color: '#DC2626', team: 'sre',     cluster: '×12' },
-    { p: 'P1', title: 'Login SSO retry on stale',   color: '#D97706', team: 'auth',    cluster: '×3'  },
-    { p: 'P2', title: 'Report export truncated',    color: '#B45309', team: 'billing', cluster: '×1'  },
-    { p: 'P3', title: 'i18n typo · pt-BR homepage', color: T.ink400,  team: 'i18n',    cluster: '×1'  },
+    // Severity in maroon shades — darker = more severe. Keeps the palette
+    // on-brand and preserves ordinal contrast.
+    { p: 'P0', title: 'Payment webhook 500s',      color: T.brand700, team: 'sre',     cluster: '×12' },
+    { p: 'P1', title: 'Login SSO retry on stale',   color: T.brand600, team: 'auth',    cluster: '×3'  },
+    { p: 'P2', title: 'Report export truncated',    color: '#E4646E',  team: 'billing', cluster: '×1'  },
+    { p: 'P3', title: 'i18n typo · pt-BR homepage', color: T.ink400,   team: 'i18n',    cluster: '×1'  },
   ];
   return frame(
     <>
@@ -509,7 +511,7 @@ export function SigReleaseOrchestration(): ReactElement {
   ];
   const y = 210;
   const PASS = '#059669';
-  const GATE = '#D97706';
+  const GATE = T.brand600;
   return frame(
     <>
       <svg width="460" height="420" viewBox="0 0 460 420" xmlns="http://www.w3.org/2000/svg" style={{ position: 'absolute' }}>
@@ -623,6 +625,100 @@ export function SigInsightsReports(): ReactElement {
       <div style={{ ...BOX, top: 316, left: 186, fontSize: 22, fontWeight: 800, color: T.ink900, fontFamily: 'Geist, Inter, sans-serif' }}>0.8%</div>
       <div style={{ ...BOX, top: 294, left: 326, fontSize: 12, fontWeight: 700, letterSpacing: 2, color: T.ink500 }}>RUNS</div>
       <div style={{ ...BOX, top: 316, left: 326, fontSize: 22, fontWeight: 800, color: T.ink900, fontFamily: 'Geist, Inter, sans-serif' }}>12k</div>
+    </>,
+  );
+}
+
+// ============ SCROLL (dark) — brain graph on deep violet ==========
+// Scroll's marketing page has a dark brain-graph section on a light page;
+// this OG mirrors that dark card as a full canvas. Violet nodes + amber
+// synapse spark.
+export function SigScrollDark(): ReactElement {
+  const rng = mkRng(42);
+  const nodes: { x: number; y: number; r: number; hemi: 'L' | 'R' }[] = [];
+  const push = (cx: number, cy: number, rx: number, ry: number, count: number, hemi: 'L' | 'R') => {
+    let placed = 0, guard = 0;
+    while (placed < count && guard < 800) {
+      guard++;
+      const u = rng() * 2 - 1, v = rng() * 2 - 1;
+      if (u * u + v * v > 1) continue;
+      const nx = cx + u * rx;
+      const ny = cy + v * ry * (v > 0 ? 0.9 : 1);
+      if (nodes.some((n) => n.hemi === hemi && Math.hypot(n.x - nx, n.y - ny) < 34)) continue;
+      nodes.push({ x: nx, y: ny, r: 3 + rng() * 2.5, hemi });
+      placed++;
+    }
+  };
+  push(150, 210, 120, 160, 16, 'L');
+  push(320, 210, 120, 160, 16, 'R');
+  const edges: [number, number][] = [];
+  const seen = new Set<string>();
+  nodes.forEach((n, i) => {
+    const near = nodes
+      .map((o, j) => ({ j, d: Math.hypot(o.x - n.x, o.y - n.y), same: o.hemi === n.hemi }))
+      .filter((o) => o.j !== i && o.same)
+      .sort((a, b) => a.d - b.d)
+      .slice(0, 2);
+    near.forEach(({ j }) => {
+      const k = i < j ? `${i}-${j}` : `${j}-${i}`;
+      if (seen.has(k)) return;
+      seen.add(k);
+      edges.push([i, j]);
+    });
+  });
+  edges.push([
+    nodes.findIndex((n) => n.hemi === 'L' && Math.abs(n.y - 210) < 40),
+    nodes.findIndex((n) => n.hemi === 'R' && Math.abs(n.y - 210) < 40),
+  ]);
+  return (
+    <svg width="460" height="420" viewBox="0 0 460 420" xmlns="http://www.w3.org/2000/svg">
+      <ellipse cx="150" cy="210" rx="128" ry="168" fill="#A78BFA" opacity="0.12" />
+      <ellipse cx="320" cy="210" rx="128" ry="168" fill="#A78BFA" opacity="0.12" />
+      <line x1="235" y1="70" x2="235" y2="350" stroke="#A78BFA" strokeWidth="0.8" strokeDasharray="2 5" opacity="0.35" />
+      {edges.map(([a, b], i) => {
+        const na = nodes[a], nb = nodes[b];
+        if (!na || !nb) return null;
+        return <line key={i} x1={na.x} y1={na.y} x2={nb.x} y2={nb.y} stroke="#A78BFA" strokeOpacity="0.55" strokeWidth="1" />;
+      })}
+      {nodes.map((n, i) => (
+        <circle key={i} cx={n.x} cy={n.y} r={n.r} fill="#EDE9FE" />
+      ))}
+      <circle cx="235" cy="210" r="18" fill="#F59E0B" opacity="0.30" />
+      <circle cx="235" cy="210" r="9"  fill="#F59E0B" opacity="0.80" />
+      <circle cx="235" cy="210" r="4"  fill="#FEF3C7" />
+    </svg>
+  );
+}
+
+// ============ AGENT (dark) — MCP terminal on deep navy ============
+export function SigAgentDark(): ReactElement {
+  return frame(
+    <>
+      <svg width="460" height="420" viewBox="0 0 460 420" xmlns="http://www.w3.org/2000/svg" style={{ position: 'absolute' }}>
+        <rect x="30" y="60" width="400" height="300" rx="18" fill="#0F172A" stroke="#1E293B" strokeWidth="1.5" />
+        <circle cx="52" cy="82" r="5" fill="#F87171" />
+        <circle cx="70" cy="82" r="5" fill="#FBBF24" />
+        <circle cx="88" cy="82" r="5" fill="#34D399" />
+        <rect x="332" y="70" width="80" height="24" rx="6" fill="#38BDF8" opacity="0.18" />
+        <circle cx="60" cy="182" r="4" fill="#34D399" />
+        <circle cx="60" cy="212" r="4" fill="#34D399" />
+        <circle cx="60" cy="242" r="4" fill="#34D399" />
+        <circle cx="60" cy="272" r="4" fill="#F472B6" />
+        <rect x="40" y="298" width="380" height="46" rx="10" fill="#082F49" stroke="#0369A1" strokeWidth="1" />
+      </svg>
+      <div style={{ ...BOX, top: 74, left: 342, ...MONO, fontSize: 12, color: '#7DD3FC', fontWeight: 700 }}>MCP</div>
+      <div style={{ ...BOX, top: 128, left: 52, ...MONO, fontSize: 16, display: 'flex', alignItems: 'center' }}>
+        <span style={{ color: '#38BDF8', fontWeight: 700 }}>→ agent.explore(</span>
+        <span style={{ color: '#FBBF24' }}>&quot;url&quot;</span>
+        <span style={{ color: '#38BDF8', fontWeight: 700 }}>)</span>
+      </div>
+      <div style={{ ...BOX, top: 172, left: 76, ...MONO, fontSize: 14, color: '#94A3B8' }}>explored 42 screens</div>
+      <div style={{ ...BOX, top: 202, left: 76, ...MONO, fontSize: 14, color: '#94A3B8' }}>generated 128 tests</div>
+      <div style={{ ...BOX, top: 232, left: 76, ...MONO, fontSize: 14, color: '#94A3B8' }}>ran 128 · passed 124</div>
+      <div style={{ ...BOX, top: 262, left: 76, ...MONO, fontSize: 14, color: '#94A3B8' }}>filed 4 defects to Jira</div>
+      <div style={{ ...BOX, top: 312, left: 56, ...MONO, fontSize: 14, color: '#7DD3FC', fontWeight: 700 }}>
+        ← done. 96.9% pass · 4 filed.
+      </div>
     </>,
   );
 }

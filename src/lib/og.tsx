@@ -45,6 +45,14 @@ export interface OgOptions {
   path: string;
   accent?: string;
   signature: ReactElement;
+  /**
+   * 'light' (default) — cream canvas + ink text. Matches the site.
+   * 'dark'            — near-black canvas + white text. Used by product
+   *                    pages whose own UI is dark (Scroll, Agent).
+   */
+  theme?: 'light' | 'dark';
+  /** Dark-theme canvas hex override (product-specific, e.g. deep violet). */
+  darkInk?: string;
 }
 
 // Load Google Font as TTF (Satori doesn't accept WOFF2). Crawler-style UA
@@ -105,7 +113,41 @@ export async function renderOg({
   path,
   accent = T.brand600,
   signature,
+  theme = 'light',
+  darkInk = '#0E1322',
 }: OgOptions) {
+  const isDark = theme === 'dark';
+  // Palette flips for dark theme. Everything else about the layout is
+  // identical between the two.
+  const P = isDark
+    ? {
+        bgColor: darkInk,
+        bgImage:
+          `radial-gradient(60% 55% at 88% 4%, ${accent}55, transparent 62%),` +
+          `radial-gradient(40% 45% at 4% 96%, rgba(0,0,0,0.6), transparent 60%)`,
+        title: '#FFFFFF',
+        subtitle: 'rgba(255,255,255,0.72)',
+        chipBg: `${accent}22`,
+        chipBorder: `${accent}88`,
+        chipText: '#FFFFFF',
+        hairline: 'rgba(255,255,255,0.10)',
+        footerLeft: 'rgba(255,255,255,0.72)',
+        footerRight: '#FFFFFF',
+      }
+    : {
+        bgColor: T.cream,
+        bgImage:
+          `radial-gradient(60% 55% at 88% 4%, ${accent}22, transparent 62%),` +
+          `radial-gradient(40% 45% at 4% 96%, ${T.brand100}80, transparent 60%)`,
+        title: T.ink900,
+        subtitle: T.ink500,
+        chipBg: T.brand50,
+        chipBorder: T.brand100,
+        chipText: T.brand700,
+        hairline: T.hairline,
+        footerLeft: T.ink500,
+        footerRight: T.ink700,
+      };
   const [geist800, inter400, inter600, inter700, geistMono500] = await Promise.all([
     loadGoogleFont('Geist',      800).catch(() => null),
     loadGoogleFont('Inter',      400).catch(() => null),
@@ -130,28 +172,25 @@ export async function renderOg({
           display: 'flex',
           flexDirection: 'column',
           padding: '60px 72px',
-          backgroundColor: T.cream,
-          backgroundImage:
-            // Site's `mesh` background pattern — soft brand-red radials on cream.
-            `radial-gradient(60% 55% at 88% 4%, ${accent}22, transparent 62%),` +
-            `radial-gradient(40% 45% at 4% 96%, ${T.brand100}80, transparent 60%)`,
-          color: T.ink900,
+          backgroundColor: P.bgColor,
+          backgroundImage: P.bgImage,
+          color: P.title,
           fontFamily: 'Inter, sans-serif',
           position: 'relative',
         }}
       >
         {/* Header row */}
         <div style={{ display: 'flex', justifyContent: 'space-between', alignItems: 'center' }}>
-          <SimplifyQAWordmark height={28} />
+          <SimplifyQAWordmark height={28} dark={isDark} />
           <div
             style={{
               display: 'flex',
               alignItems: 'center',
               padding: '9px 18px',
               borderRadius: 999,
-              background: T.brand50,
-              border: `1px solid ${T.brand100}`,
-              color: T.brand700,
+              background: P.chipBg,
+              border: `1px solid ${P.chipBorder}`,
+              color: P.chipText,
               fontSize: 14,
               fontWeight: 700,
               letterSpacing: 3,
@@ -172,7 +211,7 @@ export async function renderOg({
                 fontWeight: 800,
                 letterSpacing: -3,
                 lineHeight: 1.02,
-                color: T.ink900,
+                color: P.title,
                 display: 'flex',
               }}
             >
@@ -182,7 +221,7 @@ export async function renderOg({
               style={{
                 fontSize: 25,
                 lineHeight: 1.35,
-                color: T.ink500,
+                color: P.subtitle,
                 display: 'flex',
               }}
             >
@@ -211,16 +250,16 @@ export async function renderOg({
             alignItems: 'center',
             marginTop: 8,
             paddingTop: 20,
-            borderTop: `1px solid ${T.hairline}`,
+            borderTop: `1px solid ${P.hairline}`,
             fontSize: 20,
-            color: T.ink500,
+            color: P.footerLeft,
           }}
         >
           <div style={{ display: 'flex', alignItems: 'center', gap: 10, fontFamily: 'Geist Mono, ui-monospace, monospace' }}>
-            <span style={{ width: 6, height: 6, borderRadius: 6, background: T.brand600, display: 'flex' }} />
+            <span style={{ width: 6, height: 6, borderRadius: 6, background: accent, display: 'flex' }} />
             {path}
           </div>
-          <div style={{ display: 'flex', fontWeight: 600, color: T.ink700 }}>Enterprise ALM &amp; Test Management</div>
+          <div style={{ display: 'flex', fontWeight: 600, color: P.footerRight }}>Enterprise ALM &amp; Test Management</div>
         </div>
       </div>
     ),
