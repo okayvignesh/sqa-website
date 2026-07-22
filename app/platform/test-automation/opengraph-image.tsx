@@ -12,7 +12,7 @@ export default function OgImage() {
     title: 'Self-healing at scale.',
     subtitle:
       'Low-code automation across web, mobile, API, desktop, SAP, and Salesforce. Parallel grids, self-healing locators.',
-    path: 'simplifyqa.app/platform/test-automation',
+    path: 'simplifyqa.ai/platform/test-automation',
     signature: <SigTestAutomation />,
   });
 }

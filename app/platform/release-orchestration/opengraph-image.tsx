@@ -12,7 +12,7 @@ export default function OgImage() {
     title: 'The gate that stops bad ships.',
     subtitle:
       'Quality gates, smart promotion, and pipeline visibility across Jenkins, GitLab CI, GitHub Actions, and Azure DevOps.',
-    path: 'simplifyqa.app/platform/release-orchestration',
+    path: 'simplifyqa.ai/platform/release-orchestration',
     signature: <SigReleaseOrchestration />,
   });
 }

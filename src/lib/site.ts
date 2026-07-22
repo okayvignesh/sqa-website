@@ -1,7 +1,7 @@
 // Central place for the canonical site URL used by metadata, sitemap, robots,
 // and JSON-LD. Override in production by setting NEXT_PUBLIC_SITE_URL.
 export const SITE_URL = (
-  process.env.NEXT_PUBLIC_SITE_URL || 'https://www.simplifyqa.app'
+  process.env.NEXT_PUBLIC_SITE_URL || 'https://simplifyqa.ai'
 ).replace(/\/$/, '');
 
 export const SITE_NAME = 'SimplifyQA';

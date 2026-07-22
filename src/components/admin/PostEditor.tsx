@@ -321,7 +321,7 @@ export default function PostEditor({ mode, initial, defaultAuthorName }: Props) 
                     {(post.seo.metaTitle || post.title) + ', SimplifyQA'}
                   </div>
                   <div className="text-[12px] text-emerald-700">
-                    simplifyqa.app/blog/{post.slug || 'your-post'}
+                    simplifyqa.ai/blog/{post.slug || 'your-post'}
                   </div>
                   <div className="text-[12.5px] text-ink-600 line-clamp-2 mt-0.5">
                     {post.seo.metaDescription || post.excerpt || 'Your post description appears here.'}

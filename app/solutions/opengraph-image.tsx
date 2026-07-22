@@ -12,7 +12,7 @@ export default function OgImage() {
     title: 'Built for the shape of your team.',
     subtitle:
       'Purpose-built solutions for enterprise QA, engineering leaders, automation teams, and regulated industries.',
-    path: 'simplifyqa.app/solutions',
+    path: 'simplifyqa.ai/solutions',
     signature: <SigSolutions />,
   });
 }

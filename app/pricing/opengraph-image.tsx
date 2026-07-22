@@ -12,7 +12,7 @@ export default function OgImage() {
     title: 'Transparent. Start free.',
     subtitle:
       'From growing QA teams to global enterprise rollouts. 14-day pilot on every feature — no card required.',
-    path: 'simplifyqa.app/pricing',
+    path: 'simplifyqa.ai/pricing',
     signature: <SigPricing />,
   });
 }

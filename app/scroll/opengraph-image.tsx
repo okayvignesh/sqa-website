@@ -12,7 +12,7 @@ export default function OgImage() {
     title: 'Docs wired like a brain.',
     subtitle:
       'AI-native documentation with a live knowledge graph, semantic search, and grounded Q&A.',
-    path: 'simplifyqa.app/scroll',
+    path: 'simplifyqa.ai/scroll',
     theme: 'dark',
     darkInk: '#100826',
     accent: '#A78BFA',

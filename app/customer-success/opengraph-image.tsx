@@ -12,7 +12,7 @@ export default function OgImage() {
     title: 'How Fortune 100 teams ship faster.',
     subtitle:
       'Cut regression cycles, scale automation, release with confidence. White-glove onboarding, migration, and partnership.',
-    path: 'simplifyqa.app/customer-success',
+    path: 'simplifyqa.ai/customer-success',
     signature: <SigCustomerSuccess />,
   });
 }

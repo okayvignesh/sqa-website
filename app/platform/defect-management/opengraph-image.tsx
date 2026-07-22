@@ -12,7 +12,7 @@ export default function OgImage() {
     title: 'Catch the flake, not the fallout.',
     subtitle:
       'Smart triage, clustering, severity scoring, root-cause hints. Bi-directional Jira and Azure DevOps sync built in.',
-    path: 'simplifyqa.app/platform/defect-management',
+    path: 'simplifyqa.ai/platform/defect-management',
     signature: <SigDefectManagement />,
   });
 }

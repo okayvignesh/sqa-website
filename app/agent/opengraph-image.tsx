@@ -12,7 +12,7 @@ export default function OgImage() {
     title: 'Give your AI a URL.',
     subtitle:
       'An MCP server that plugs into any AI. It explores your app, writes the tests, runs them, files the defects.',
-    path: 'simplifyqa.app/agent',
+    path: 'simplifyqa.ai/agent',
     theme: 'dark',
     darkInk: '#08111F',
     accent: '#38BDF8',

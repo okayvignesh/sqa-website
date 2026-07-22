@@ -15,7 +15,7 @@ export default function OgImage() {
     title: 'Intelligent ALM. Every test.',
     subtitle:
       'Plan, automate, execute, and report across the entire software lifecycle. AI-native, enterprise-grade, and unmistakably yours.',
-    path: 'simplifyqa.app',
+    path: 'simplifyqa.ai',
     signature: <SigAbout />,
   });
 }

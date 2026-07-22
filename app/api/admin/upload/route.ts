@@ -9,7 +9,7 @@ export const dynamic = 'force-dynamic';
 // Bearer token, an X-Project-Name header and a multipart "file" field).
 //
 // Required env:
-//   UPLOADTHING_BASE_URL   e.g. https://uploads.simplifyqa.app
+//   UPLOADTHING_BASE_URL   e.g. https://uploads.simplifyqa.ai
 //   UPLOADTHING_API_TOKEN  the API_TOKEN configured on that service
 //   UPLOADTHING_PROJECT    e.g. simplifyqa-blog
 export async function POST(req: Request) {

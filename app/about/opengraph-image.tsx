@@ -12,7 +12,7 @@ export default function OgImage() {
     title: 'ALM, rebuilt around the tests.',
     subtitle:
       'Agentic AI, zero-code automation, unified lifecycle. One platform for every surface your team ships to.',
-    path: 'simplifyqa.app/about',
+    path: 'simplifyqa.ai/about',
     signature: <SigAbout />,
   });
 }

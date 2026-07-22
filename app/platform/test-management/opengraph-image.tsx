@@ -12,7 +12,7 @@ export default function OgImage() {
     title: 'Trace every test.',
     subtitle:
       'Requirements, suites, cycles, and traceability, linked to tickets and code, in one collaborative workspace.',
-    path: 'simplifyqa.app/platform/test-management',
+    path: 'simplifyqa.ai/platform/test-management',
     signature: <SigTestManagement />,
   });
 }

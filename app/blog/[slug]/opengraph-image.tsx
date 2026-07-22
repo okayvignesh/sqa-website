@@ -101,7 +101,7 @@ export default async function BlogOgImage({ params }: Props) {
             }}
           >
             <div>By {author}</div>
-            <div>simplifyqa.app/blog</div>
+            <div>simplifyqa.ai/blog</div>
           </div>
         </div>
       </div>

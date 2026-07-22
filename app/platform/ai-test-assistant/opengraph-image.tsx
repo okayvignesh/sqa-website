@@ -12,7 +12,7 @@ export default function OgImage() {
     title: 'Tests, drafted in plain English.',
     subtitle:
       'Quality-tuned LLMs that draft tests, suggest fixes, and review releases — grounded in your own product context.',
-    path: 'simplifyqa.app/platform/ai-test-assistant',
+    path: 'simplifyqa.ai/platform/ai-test-assistant',
     signature: <SigAITestAssistant />,
   });
 }

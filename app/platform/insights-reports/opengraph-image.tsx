@@ -12,7 +12,7 @@ export default function OgImage() {
     title: 'Are we ready to ship? Answered.',
     subtitle:
       'Real-time dashboards, flake analytics, and executive reporting. Predictive release risk from your test data.',
-    path: 'simplifyqa.app/platform/insights-reports',
+    path: 'simplifyqa.ai/platform/insights-reports',
     signature: <SigInsightsReports />,
   });
 }
