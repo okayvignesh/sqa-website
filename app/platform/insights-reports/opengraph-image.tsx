@@ -1,17 +1,18 @@
-import { OG_CONTENT_TYPE, OG_RUNTIME, OG_SIZE, renderOg } from '../../../src/lib/og';
+import { renderOg } from '../../../src/lib/og';
+import { SigInsightsReports } from '../../../src/lib/og-signatures';
 
-export const runtime = OG_RUNTIME;
-export const size = OG_SIZE;
-export const contentType = OG_CONTENT_TYPE;
+export const runtime = 'edge';
+export const size = { width: 1200, height: 630 };
+export const contentType = 'image/png';
 export const alt = 'SimplifyQA Insights & Reports — release readiness, flake analytics, and executive dashboards';
 
 export default function OgImage() {
   return renderOg({
-    eyebrow: 'Platform · Insights & Reports',
+    eyebrow: 'Platform · Insights',
     title: 'Are we ready to ship? Answered.',
     subtitle:
-      'Real-time dashboards, flake analytics, and executive reporting. Predictive risk from your test data.',
-    accent: '#38BDF8',
-    accentTo: '#34D399',
+      'Real-time dashboards, flake analytics, and executive reporting. Predictive release risk from your test data.',
+    path: 'simplifyqa.app/platform/insights-reports',
+    signature: <SigInsightsReports />,
   });
 }

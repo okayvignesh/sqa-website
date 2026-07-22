@@ -1,17 +1,18 @@
-import { OG_CONTENT_TYPE, OG_RUNTIME, OG_SIZE, renderOg } from '../../src/lib/og';
+import { renderOg } from '../../src/lib/og';
+import { SigSolutions } from '../../src/lib/og-signatures';
 
-export const runtime = OG_RUNTIME;
-export const size = OG_SIZE;
-export const contentType = OG_CONTENT_TYPE;
-export const alt = 'SimplifyQA solutions — enterprise QA, agile teams, engineering leaders, and regulated industries';
+export const runtime = 'edge';
+export const size = { width: 1200, height: 630 };
+export const contentType = 'image/png';
+export const alt = 'SimplifyQA solutions — enterprise QA, engineering leaders, automation teams, regulated industries';
 
 export default function OgImage() {
   return renderOg({
     eyebrow: 'Solutions',
     title: 'Built for the shape of your team.',
     subtitle:
-      'Purpose-built solutions for enterprise QA, agile squads, engineering leaders, SDETs, and regulated industries.',
-    accent: '#A78BFA',
-    accentTo: '#F472B6',
+      'Purpose-built solutions for enterprise QA, engineering leaders, automation teams, and regulated industries.',
+    path: 'simplifyqa.app/solutions',
+    signature: <SigSolutions />,
   });
 }

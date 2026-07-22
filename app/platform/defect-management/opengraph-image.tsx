@@ -1,17 +1,18 @@
-import { OG_CONTENT_TYPE, OG_RUNTIME, OG_SIZE, renderOg } from '../../../src/lib/og';
+import { renderOg } from '../../../src/lib/og';
+import { SigDefectManagement } from '../../../src/lib/og-signatures';
 
-export const runtime = OG_RUNTIME;
-export const size = OG_SIZE;
-export const contentType = OG_CONTENT_TYPE;
+export const runtime = 'edge';
+export const size = { width: 1200, height: 630 };
+export const contentType = 'image/png';
 export const alt = 'SimplifyQA Defect Management — smart triage, clustering, and root-cause hints';
 
 export default function OgImage() {
   return renderOg({
-    eyebrow: 'Platform · Defect Management',
-    title: 'Catch flakes before they cost a release.',
+    eyebrow: 'Platform · Defects',
+    title: 'Catch the flake, not the fallout.',
     subtitle:
-      'Smart triage, clustering, severity scoring, root-cause hints. Bi-directional Jira and ADO sync built in.',
-    accent: '#FBBF24',
-    accentTo: '#FB7185',
+      'Smart triage, clustering, severity scoring, root-cause hints. Bi-directional Jira and Azure DevOps sync built in.',
+    path: 'simplifyqa.app/platform/defect-management',
+    signature: <SigDefectManagement />,
   });
 }

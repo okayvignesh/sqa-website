@@ -1,17 +1,18 @@
-import { OG_CONTENT_TYPE, OG_RUNTIME, OG_SIZE, renderOg } from '../../../src/lib/og';
+import { renderOg } from '../../../src/lib/og';
+import { SigTestAutomation } from '../../../src/lib/og-signatures';
 
-export const runtime = OG_RUNTIME;
-export const size = OG_SIZE;
-export const contentType = OG_CONTENT_TYPE;
-export const alt = 'SimplifyQA Test Automation — low-code, self-healing tests across web, mobile, API, and desktop';
+export const runtime = 'edge';
+export const size = { width: 1200, height: 630 };
+export const contentType = 'image/png';
+export const alt = 'SimplifyQA Test Automation — self-healing tests across web, mobile, API, and desktop';
 
 export default function OgImage() {
   return renderOg({
-    eyebrow: 'Platform · Test Automation',
-    title: 'Self-healing tests. Every surface.',
+    eyebrow: 'Platform · Automation',
+    title: 'Self-healing at scale.',
     subtitle:
-      'Low-code automation across web, mobile, API, desktop, SAP, Salesforce, Siebel, and mainframe. Parallel grids, self-healing locators.',
-    accent: '#2DD4BF',
-    accentTo: '#38BDF8',
+      'Low-code automation across web, mobile, API, desktop, SAP, and Salesforce. Parallel grids, self-healing locators.',
+    path: 'simplifyqa.app/platform/test-automation',
+    signature: <SigTestAutomation />,
   });
 }

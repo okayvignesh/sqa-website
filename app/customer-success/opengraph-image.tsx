@@ -1,8 +1,9 @@
-import { OG_CONTENT_TYPE, OG_RUNTIME, OG_SIZE, renderOg } from '../../src/lib/og';
+import { renderOg } from '../../src/lib/og';
+import { SigCustomerSuccess } from '../../src/lib/og-signatures';
 
-export const runtime = OG_RUNTIME;
-export const size = OG_SIZE;
-export const contentType = OG_CONTENT_TYPE;
+export const runtime = 'edge';
+export const size = { width: 1200, height: 630 };
+export const contentType = 'image/png';
 export const alt = 'SimplifyQA customer success — how Fortune 100 quality teams ship faster';
 
 export default function OgImage() {
@@ -10,8 +11,8 @@ export default function OgImage() {
     eyebrow: 'Customer Success',
     title: 'How Fortune 100 teams ship faster.',
     subtitle:
-      'Cut regression cycles, scale automation, and release with confidence. Onboarding, white-glove migration, and ongoing partnership.',
-    accent: '#FB7185',
-    accentTo: '#FBBF24',
+      'Cut regression cycles, scale automation, release with confidence. White-glove onboarding, migration, and partnership.',
+    path: 'simplifyqa.app/customer-success',
+    signature: <SigCustomerSuccess />,
   });
 }

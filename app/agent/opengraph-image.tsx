@@ -1,17 +1,20 @@
-import { OG_CONTENT_TYPE, OG_RUNTIME, OG_SIZE, renderOg } from '../../src/lib/og';
+import { renderOg } from '../../src/lib/og';
+import { SigAgent } from '../../src/lib/og-signatures';
 
-export const runtime = OG_RUNTIME;
-export const size = OG_SIZE;
-export const contentType = OG_CONTENT_TYPE;
-export const alt = 'SimplifyQA Zero-Touch Agent — an MCP server for any AI';
+export const runtime = 'edge';
+export const size = { width: 1200, height: 630 };
+export const contentType = 'image/png';
+export const alt = 'SimplifyQA Zero-Touch Agent — an MCP server for any AI client';
 
 export default function OgImage() {
   return renderOg({
-    eyebrow: 'Product · Zero-Touch Agent',
-    title: 'Give your AI a URL. Get a tested app back.',
+    eyebrow: 'Product · Agent',
+    title: 'Give your AI a URL.',
     subtitle:
-      'An MCP server that plugs into Claude, ChatGPT, Cursor, and any AI client. It explores your app, writes the tests, runs them, and files the defects.',
+      'An MCP server that plugs into any AI. It explores your app, writes the tests, runs them, files the defects.',
+    path: 'simplifyqa.app/agent',
     accent: '#38BDF8',
-    accentTo: '#818CF8',
+    ink: '#08111F',
+    signature: <SigAgent />,
   });
 }

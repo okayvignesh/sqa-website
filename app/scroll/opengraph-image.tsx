@@ -1,17 +1,20 @@
-import { OG_CONTENT_TYPE, OG_RUNTIME, OG_SIZE, renderOg } from '../../src/lib/og';
+import { renderOg } from '../../src/lib/og';
+import { SigScroll } from '../../src/lib/og-signatures';
 
-export const runtime = OG_RUNTIME;
-export const size = OG_SIZE;
-export const contentType = OG_CONTENT_TYPE;
-export const alt = 'SimplifyQA Scroll — AI-native documentation for every team';
+export const runtime = 'edge';
+export const size = { width: 1200, height: 630 };
+export const contentType = 'image/png';
+export const alt = 'SimplifyQA Scroll — AI-native documentation with a live knowledge graph';
 
 export default function OgImage() {
   return renderOg({
     eyebrow: 'Product · Scroll',
-    title: 'Your docs, wired like a brain.',
+    title: 'Docs wired like a brain.',
     subtitle:
-      'AI-native documentation with wiki-linked knowledge graph, semantic search, and grounded Q&A. Live test cases and traceability included for SimplifyQA teams.',
+      'AI-native documentation with a live knowledge graph, semantic search, and grounded Q&A.',
+    path: 'simplifyqa.app/scroll',
     accent: '#A78BFA',
-    accentTo: '#F59E0B',
+    ink: '#100826',
+    signature: <SigScroll />,
   });
 }
