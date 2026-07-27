@@ -6,11 +6,11 @@ import { Linkedin, Youtube, ArrowUpRight, Sparkles } from 'lucide-react';
 import { FaDiscord } from 'react-icons/fa';
 import { BookDemoButton } from './CalendlyModal';
 
-const col = (title: string, items: { label: string; to: string }[]) => ({ title, items });
+const col = (title: string, items: { label: string; to: string; external?: boolean }[]) => ({ title, items });
 
 const columns = [
   col('Resources', [
-    { label: 'Docs',         to: '/resources' },
+    { label: 'Docs',         to: 'https://docs.simplifyqa.app/docs', external: true },
     { label: 'Blog',         to: '/blog' },
     { label: 'Case Studies', to: '/customer-success' },
     { label: 'Webinars',     to: '/resources' },
@@ -85,9 +85,15 @@ export default function FooterV2() {
               <ul className="mt-4 space-y-2.5">
                 {c.items.map((i) => (
                   <li key={i.label}>
-                    <Link href={i.to} className="text-[14px] text-ink-700 hover:text-brand-700">
-                      {i.label}
-                    </Link>
+                    {i.external ? (
+                      <a href={i.to} target="_blank" rel="noopener noreferrer" className="text-[14px] text-ink-700 hover:text-brand-700">
+                        {i.label}
+                      </a>
+                    ) : (
+                      <Link href={i.to} className="text-[14px] text-ink-700 hover:text-brand-700">
+                        {i.label}
+                      </Link>
+                    )}
                   </li>
                 ))}
               </ul>

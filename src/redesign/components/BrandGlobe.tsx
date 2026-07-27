@@ -18,6 +18,14 @@ const OFFICES = [
   { lat: 28.5383, lng: -81.3792, name: 'Orlando, Florida, USA' },
 ];
 
+// Customer-presence markers (no office, but active deployments).
+const CUSTOMER_MARKERS = [
+  { lat: 6.5244,   lng: 3.3792,  name: 'Lagos, Nigeria' },
+  { lat: -26.2041, lng: 28.0473, name: 'Johannesburg, South Africa' },
+];
+
+const POINTS = [...OFFICES, ...CUSTOMER_MARKERS];
+
 const HQ = OFFICES[0];
 const ARCS = OFFICES.slice(1).map((o) => ({
   startLat: HQ.lat,
@@ -78,7 +86,7 @@ export default function BrandGlobe() {
 
     // Points and arcs — hot maroon so they pop against the sphere
     globe
-      .pointsData(OFFICES)
+      .pointsData(POINTS)
       .pointColor(() => MAROON_HOT)
       .pointAltitude(0.02)
       .pointRadius(0.45)

@@ -6,7 +6,7 @@ export type Office = {
   country: string;
   badge?: string;       // e.g. "Head Office"
   address: string;      // full street address
-  phone: string;
+  phone?: string;
   hours?: string;
 };
 
@@ -18,28 +18,24 @@ export const offices: Office[] = [
     country: 'India',
     badge: 'Head Office',
     address: 'BCIT, Block 1, Ground Floor, Bhartiya City, RK Hegde Nagar, Bangalore',
-    phone: '+91 90194 07023',
-    hours: 'Mon, Fri',
+    hours: 'Mon to Friday',
   },
   {
     city: 'Bengaluru',
     country: 'India',
     address: '406, 2nd & 3rd Floor, 1st Block, 7th Main Hennur Road, Banaswadi, Bengaluru, Karnataka, 560043',
-    phone: '+91 80 4111 6728',
-    hours: 'Mon, Fri',
+    hours: 'Mon to Friday',
   },
   {
     city: 'Orlando',
     country: 'Florida, USA',
     address: '1317 Edgewater Dr 897, Orlando, Florida 32804',
-    phone: '+1 (678) 954-3946',
-    hours: 'Mon, Fri',
+    hours: 'Mon to Friday',
   },
   {
     city: 'Kuala Lumpur',
     country: 'Malaysia',
     address: '466, Unit 6, Level 4, SetiaWalk Mall (Block K), SetiaWalk, Persiaran Wawasan, Pusat Bandar Puchong, 47160',
-    phone: '+60 3 8602 2095',
-    hours: 'Mon, Fri',
+    hours: 'Mon to Friday',
   },
 ];

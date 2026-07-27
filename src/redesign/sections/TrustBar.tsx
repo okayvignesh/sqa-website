@@ -12,19 +12,24 @@ export default function TrustBar() {
             {[...clients, ...clients].map((c, i) => (
               <div
                 key={`${c.name}-${i}`}
-                className="shrink-0 flex items-center justify-center h-14 sm:h-16 w-[140px] sm:w-[160px] opacity-80 hover:opacity-100 transition-opacity"
+                className="shrink-0 flex flex-col items-center justify-start w-[140px] sm:w-[160px] opacity-80 hover:opacity-100 transition-opacity"
                 title={c.name}
               >
-                <img
-                  src={c.src}
-                  alt={c.alt}
-                  className="h-12 sm:h-14 w-auto max-w-[92%] object-contain"
-                  style={{ transform: `scale(${c.src.startsWith('/logos/') ? 1 : 1.45})` }}
-                  draggable={false}
-                  onError={(e) => {
-                    (e.currentTarget as HTMLImageElement).style.display = 'none';
-                  }}
-                />
+                <div className="flex items-center justify-center h-14 sm:h-16 w-full">
+                  <img
+                    src={c.src}
+                    alt={c.alt}
+                    className="h-12 sm:h-14 w-auto max-w-[92%] object-contain"
+                    style={{ transform: `scale(${c.src.startsWith('/logos/') ? 1 : 1.45})` }}
+                    draggable={false}
+                    onError={(e) => {
+                      (e.currentTarget as HTMLImageElement).style.display = 'none';
+                    }}
+                  />
+                </div>
+                <div className="mt-2 text-[11px] sm:text-[11.5px] text-ink-600 text-center leading-tight whitespace-nowrap">
+                  {c.name}
+                </div>
               </div>
             ))}
           </div>

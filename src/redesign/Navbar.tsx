@@ -98,7 +98,6 @@ export default function NavbarV2({ theme = 'light' }: { theme?: Theme }) {
             {[
               ['Integrations', '/integrations'],
               ['Pricing', '/pricing'],
-              ['Resources', '/resources'],
               ['Customers', '/customer-success'],
             ].map(([label, to]) => (
               <li key={label}>
@@ -164,7 +163,6 @@ export default function NavbarV2({ theme = 'light' }: { theme?: Theme }) {
               {[
                 ['Integrations', '/integrations'],
                 ['Pricing', '/pricing'],
-                ['Resources', '/resources'],
                 ['Customers', '/customer-success'],
               ].map(([label, to]) => (
                 <Link

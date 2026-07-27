@@ -1,6 +1,6 @@
 'use client';
 
-import { ArrowRight, CalendarClock, Clock, Mail, MapPin, MessageSquare, Phone, Sparkles } from 'lucide-react';
+import { ArrowRight, CalendarClock, Clock, Mail, MapPin, MessageSquare, Sparkles } from 'lucide-react';
 import {
   Container, Eyebrow, GradientOrb, Reveal,
 } from '../../design';
@@ -65,13 +65,6 @@ export default function ContactPage() {
                   href={`mailto:${supportEmail}`}
                   hint="We reply within one business hour."
                 />
-                <ContactCard
-                  icon={<Phone className="w-4 h-4" />}
-                  label="Call India HQ"
-                  value={offices[0].phone}
-                  href={`tel:${offices[0].phone.replace(/[^+\d]/g, '')}`}
-                  hint={offices[0].hours ?? undefined}
-                />
                 <BookDemoCard />
                 <ContactCard
                   icon={<Clock className="w-4 h-4" />}
@@ -114,10 +107,11 @@ export default function ContactPage() {
                 </div>
                 <h3 className="mt-3 font-display text-2xl text-ink-900">{o.city}</h3>
                 <div className="mt-2 text-[13.5px] text-ink-500 leading-relaxed">{o.address}</div>
-                <div className="mt-3 inline-flex items-center gap-2 text-[13px] text-ink-700">
-                  <Phone className="w-3.5 h-3.5 text-brand-700" /> {o.phone}
-                  {o.hours && <span className="text-ink-400">· {o.hours}</span>}
-                </div>
+                {o.hours && (
+                  <div className="mt-3 inline-flex items-center gap-2 text-[13px] text-ink-500">
+                    <Clock className="w-3.5 h-3.5 text-brand-700" /> {o.hours}
+                  </div>
+                )}
               </div>
             ))}
           </div>

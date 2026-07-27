@@ -19,7 +19,7 @@ const featured = {
 };
 
 const tiles = [
-  { icon: <BookOpen className="w-4 h-4" />,    t: 'Documentation', d: 'Setup, integrations, automation patterns.', tag: 'Docs' },
+  { icon: <BookOpen className="w-4 h-4" />,    t: 'Documentation', d: 'Setup, integrations, automation patterns.', tag: 'Docs', to: 'https://docs.simplifyqa.app/docs', external: true },
   { icon: <GraduationCap className="w-4 h-4" />, t: 'Academy',       d: 'Free certification tracks for QA engineers.', tag: 'Training' },
   { icon: <FileText className="w-4 h-4" />,    t: 'Whitepapers',   d: 'Deep dives on test automation ROI and AI in QA.', tag: 'Reading' },
   { icon: <Mic className="w-4 h-4" />,         t: 'Webinars',      d: 'Live sessions with quality leaders. Replays available.', tag: 'Events' },
@@ -123,7 +123,11 @@ export default function ResourcesPage() {
               return (
                 <motion.div key={t.t} variants={fadeUp}>
                   {t.to ? (
-                    <Link href={t.to} className={className}>{inner}</Link>
+                    (t as { external?: boolean }).external ? (
+                      <a href={t.to} target="_blank" rel="noopener noreferrer" className={className}>{inner}</a>
+                    ) : (
+                      <Link href={t.to} className={className}>{inner}</Link>
+                    )
                   ) : (
                     <div className={className}>{inner}</div>
                   )}

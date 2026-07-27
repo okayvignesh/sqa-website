@@ -2,9 +2,8 @@
 
 import { motion, useReducedMotion } from 'framer-motion';
 import {
-  ArrowRight, Bot, CheckCircle2, Cpu, FlaskConical, GitBranch, LineChart, Play, Sparkles,
+  ArrowRight, Bot, CheckCircle2, Cpu, FlaskConical, GitBranch, LineChart, Sparkles,
 } from 'lucide-react';
-import Link from 'next/link';
 import { Container, Eyebrow } from '../../design';
 import InteractiveDotGrid from '../components/InteractiveDotGrid';
 import { BookDemoButton } from '../CalendlyModal';
@@ -72,10 +71,6 @@ export default function Hero() {
               Book a demo
               <ArrowRight className="w-4 h-4" />
             </BookDemoButton>
-            <Link href="/solutions" className="btn-ghost h-12 px-6 text-[15px]">
-              <Play className="w-3.5 h-3.5" />
-              Watch the product tour
-            </Link>
           </motion.div>
 
           {/* Lifecycle chips */}

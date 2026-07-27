@@ -337,9 +337,9 @@ export default function AboutPage() {
                 </div>
                 <h3 className="mt-3 font-display text-2xl text-ink-900">{o.city}</h3>
                 <div className="mt-2 text-[13.5px] text-ink-500 leading-relaxed">{o.address}</div>
-                <div className="mt-3 text-[13px] text-ink-700">
-                  {o.phone}{o.hours ? <span className="text-ink-400"> · {o.hours}</span> : null}
-                </div>
+                {o.hours && (
+                  <div className="mt-3 text-[13px] text-ink-500">{o.hours}</div>
+                )}
               </motion.div>
             ))}
           </RevealGroup>
