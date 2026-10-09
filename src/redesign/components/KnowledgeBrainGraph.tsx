@@ -205,7 +205,7 @@ export default function KnowledgeBrainGraph() {
         className="pointer-events-none absolute inset-0"
         style={{
           background:
-            'radial-gradient(40% 50% at 22% 30%, rgba(167,139,250,0.22), transparent 70%),' +
+            'radial-gradient(40% 50% at 22% 30%, rgba(96,165,250,0.22), transparent 70%),' +
             'radial-gradient(40% 50% at 78% 70%, rgba(245,158,11,0.14), transparent 70%)',
         }}
       />
@@ -213,15 +213,15 @@ export default function KnowledgeBrainGraph() {
       {/* Corner chips */}
       <div
         className="absolute top-4 left-4 z-10 inline-flex items-center gap-1.5 rounded-full border px-2.5 py-1 text-[10.5px] font-semibold uppercase tracking-[0.16em]"
-        style={{ background: 'rgba(139,92,246,0.14)', color: '#DDD6FE', borderColor: 'rgba(167,139,250,0.35)' }}
+        style={{ background: 'rgba(37,99,235,0.14)', color: '#BFDBFE', borderColor: 'rgba(96,165,250,0.35)' }}
       >
-        <span className="w-1.5 h-1.5 rounded-full" style={{ background: '#A78BFA', boxShadow: '0 0 8px #A78BFA' }} />
+        <span className="w-1.5 h-1.5 rounded-full" style={{ background: '#60A5FA', boxShadow: '0 0 8px #60A5FA' }} />
         Live KB graph
       </div>
       <button
         onClick={resetLayout}
         className="absolute top-4 right-4 z-10 rounded-full border px-2.5 py-1 text-[10.5px] font-semibold uppercase tracking-[0.16em] transition-colors"
-        style={{ background: 'rgba(139,92,246,0.10)', color: '#DDD6FE', borderColor: 'rgba(167,139,250,0.35)' }}
+        style={{ background: 'rgba(37,99,235,0.10)', color: '#BFDBFE', borderColor: 'rgba(96,165,250,0.35)' }}
       >
         Reset layout
       </button>
@@ -236,9 +236,9 @@ export default function KnowledgeBrainGraph() {
       >
         <defs>
           <radialGradient id="hub-glow" cx="50%" cy="50%" r="50%">
-            <stop offset="0%"  stopColor="#F5F3FF" stopOpacity="0.9" />
-            <stop offset="60%" stopColor="#A78BFA" stopOpacity="0.35" />
-            <stop offset="100%" stopColor="#7C3AED" stopOpacity="0" />
+            <stop offset="0%"  stopColor="#EFF6FF" stopOpacity="0.9" />
+            <stop offset="60%" stopColor="#60A5FA" stopOpacity="0.35" />
+            <stop offset="100%" stopColor="#2563EB" stopOpacity="0" />
           </radialGradient>
           <radialGradient id="hub-glow-active" cx="50%" cy="50%" r="50%">
             <stop offset="0%"  stopColor="#FEF3C7" stopOpacity="0.95" />
@@ -246,8 +246,8 @@ export default function KnowledgeBrainGraph() {
             <stop offset="100%" stopColor="#F59E0B" stopOpacity="0" />
           </radialGradient>
           <radialGradient id="dot" cx="50%" cy="50%" r="50%">
-            <stop offset="0%"  stopColor="#EDE9FE" />
-            <stop offset="100%" stopColor="#A78BFA" />
+            <stop offset="0%"  stopColor="#DBEAFE" />
+            <stop offset="100%" stopColor="#60A5FA" />
           </radialGradient>
           <radialGradient id="dot-active" cx="50%" cy="50%" r="50%">
             <stop offset="0%"  stopColor="#FEF3C7" />
@@ -259,12 +259,12 @@ export default function KnowledgeBrainGraph() {
         </defs>
 
         {/* Hemisphere silhouettes */}
-        <g opacity="0.18" stroke="#A78BFA" strokeDasharray="1 4" fill="none">
+        <g opacity="0.18" stroke="#60A5FA" strokeDasharray="1 4" fill="none">
           <ellipse cx="250" cy="260" rx="182" ry="212" />
           <ellipse cx="490" cy="260" rx="182" ry="212" />
         </g>
         <line x1="370" y1="80" x2="370" y2="440"
-              stroke="#A78BFA" strokeOpacity="0.18" strokeDasharray="2 6" />
+              stroke="#60A5FA" strokeOpacity="0.18" strokeDasharray="2 6" />
 
         {/* Edges */}
         <g fill="none">
@@ -276,7 +276,7 @@ export default function KnowledgeBrainGraph() {
               <line
                 key={i}
                 x1={a.x} y1={a.y} x2={b.x} y2={b.y}
-                stroke={active ? '#FBBF24' : '#7C3AED'}
+                stroke={active ? '#FBBF24' : '#2563EB'}
                 strokeOpacity={active ? 0.95 : dim ? 0.08 : 0.32}
                 strokeWidth={active ? 1.4 : 0.6}
                 style={{ transition: 'stroke 200ms, stroke-opacity 200ms, stroke-width 200ms' }}
@@ -285,7 +285,7 @@ export default function KnowledgeBrainGraph() {
           })}
         </g>
 
-        {/* Ambient nodes — draggable, hoverable */}
+        {/* Ambient nodes - draggable, hoverable */}
         <g>
           {initial.nodes.map((n) => {
             const pos = positions[n.id];
@@ -314,11 +314,11 @@ export default function KnowledgeBrainGraph() {
                 )}
                 <circle
                   r={isHubFeatured ? 4.2 : n.r}
-                  fill={active ? 'url(#dot-active)' : isHubFeatured ? '#FBFAFF' : 'url(#dot)'}
-                  stroke={isHubFeatured ? (active ? '#FBBF24' : '#A78BFA') : 'none'}
+                  fill={active ? 'url(#dot-active)' : isHubFeatured ? '#F8FAFF' : 'url(#dot)'}
+                  stroke={isHubFeatured ? (active ? '#FBBF24' : '#60A5FA') : 'none'}
                   strokeWidth={isHubFeatured ? 1 : 0}
                 >
-                  {/* Ambient brightness pulse — only when nothing is hovered */}
+                  {/* Ambient brightness pulse - only when nothing is hovered */}
                   {!activeSet && (
                     <animate
                       attributeName="opacity"
@@ -329,7 +329,7 @@ export default function KnowledgeBrainGraph() {
                     />
                   )}
                 </circle>
-                {/* Wider invisible hit area — makes the small ambient dots practical to grab */}
+                {/* Wider invisible hit area - makes the small ambient dots practical to grab */}
                 <circle r={12} fill="transparent" />
               </g>
             );
@@ -361,7 +361,7 @@ export default function KnowledgeBrainGraph() {
                     fontSize="10.5"
                     fontWeight="600"
                     letterSpacing="0.08em"
-                    fill={active ? '#FEF3C7' : '#EDE9FE'}
+                    fill={active ? '#FEF3C7' : '#DBEAFE'}
                     style={{ textTransform: 'uppercase' }}
                   >
                     <tspan opacity="0.55">[[</tspan>
@@ -377,14 +377,14 @@ export default function KnowledgeBrainGraph() {
 
       {/* Bottom meta strip */}
       <div className="relative z-10 flex flex-wrap items-center justify-between gap-3 border-t px-5 py-3"
-        style={{ borderColor: 'rgba(139,92,246,0.22)', background: 'rgba(15,10,45,0.55)' }}>
+        style={{ borderColor: 'rgba(37,99,235,0.22)', background: 'rgba(15,10,45,0.55)' }}>
         <div className="flex items-center gap-4 text-[11px]" style={{ color: '#C4B5FD' }}>
           <span className="inline-flex items-center gap-1.5">
-            <span className="w-2 h-2 rounded-full" style={{ background: '#A78BFA' }} />
+            <span className="w-2 h-2 rounded-full" style={{ background: '#60A5FA' }} />
             Page
           </span>
           <span className="inline-flex items-center gap-1.5">
-            <span className="w-2 h-2 rounded-full" style={{ background: '#FBFAFF', boxShadow: '0 0 8px #A78BFA' }} />
+            <span className="w-2 h-2 rounded-full" style={{ background: '#F8FAFF', boxShadow: '0 0 8px #60A5FA' }} />
             Hub (many backlinks)
           </span>
           <span className="inline-flex items-center gap-1.5">
@@ -392,12 +392,12 @@ export default function KnowledgeBrainGraph() {
             Selected · neighborhood
           </span>
         </div>
-        <div className="text-[11px] font-medium" style={{ color: '#A78BFA' }}>
+        <div className="text-[11px] font-medium" style={{ color: '#60A5FA' }}>
           Hover to trace links · drag to rearrange
         </div>
       </div>
 
-      {/* Respect reduced motion — hide SMIL animation elements */}
+      {/* Respect reduced motion - hide SMIL animation elements */}
       <style dangerouslySetInnerHTML={{ __html: `
         @media (prefers-reduced-motion: reduce) {
           .kb-brain-graph animate { display: none; }

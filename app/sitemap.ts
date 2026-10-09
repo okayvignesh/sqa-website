@@ -36,12 +36,14 @@ const STATIC_ROUTES: Array<{
   { path: '/status', changeFrequency: 'weekly', priority: 0.3 },
 ];
 
-export default async function sitemap(): Promise<MetadataRoute.Sitemap> {
-  const now = new Date();
+// Stable timestamp for content pages. Evaluated once per build rather than per
+// request — a lastmod that changes on every crawl is treated as unreliable.
+const LAST_MODIFIED = new Date();
 
+export default async function sitemap(): Promise<MetadataRoute.Sitemap> {
   const staticEntries: MetadataRoute.Sitemap = STATIC_ROUTES.map((r) => ({
     url: `${SITE_URL}${r.path}`,
-    lastModified: now,
+    lastModified: LAST_MODIFIED,
     changeFrequency: r.changeFrequency,
     priority: r.priority,
   }));

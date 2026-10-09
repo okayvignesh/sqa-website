@@ -6,6 +6,7 @@ export const metadata = buildMetadata({
   description:
     'Real-time dashboards, flake analytics, and executive reporting that answer "are we ready to ship?"',
   path: '/platform/insights-reports',
+  image: '/platform/insights-reports/opengraph-image',
 });
 
 const breadcrumb = buildBreadcrumbJsonLd([

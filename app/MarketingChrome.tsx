@@ -38,8 +38,14 @@ export default function MarketingChrome({ children }: { children: React.ReactNod
       data-theme={dataTheme}
       style={isAgent ? { background: '#0A0A0F' } : undefined}
     >
+      <a
+        href="#main-content"
+        className="sr-only focus:not-sr-only focus:absolute focus:z-[100] focus:top-3 focus:left-3 focus:inline-flex focus:items-center focus:px-4 focus:py-2 focus:rounded-full focus:bg-white focus:text-ink-900 focus:text-sm focus:font-semibold focus:shadow-lg"
+      >
+        Skip to content
+      </a>
       <Navbar theme={theme} />
-      <main className="flex-grow pt-20">{children}</main>
+      <main id="main-content" className="flex-grow pt-20">{children}</main>
       {isAgent ? (
         <MiniFooter variant="dark" />
       ) : isScroll ? (
@@ -80,6 +86,8 @@ function MiniFooter({ variant = 'light' }: { variant?: 'light' | 'dark' | 'scrol
           <img
             src="/SimplifyQA%20logo%20Grey.png"
             alt="SimplifyQA"
+            width={140}
+            height={20}
             className={`h-4 w-auto select-none ${dark ? 'brightness-0 invert opacity-80' : 'opacity-80'}`}
             style={imgStyle}
             draggable={false}

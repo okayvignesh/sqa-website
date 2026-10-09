@@ -6,6 +6,7 @@ export const metadata = buildMetadata({
   description:
     'How Fortune 100 quality teams use SimplifyQA to cut regression cycles, scale automation, and ship with confidence.',
   path: '/customer-success',
+  image: '/customer-success/opengraph-image',
 });
 
 export default function Page() {

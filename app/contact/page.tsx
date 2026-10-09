@@ -6,6 +6,7 @@ export const metadata = buildMetadata({
   description:
     'Talk to our team about SimplifyQA, pricing, enterprise rollouts, integrations, or partnership opportunities.',
   path: '/contact',
+  absoluteTitle: true,
 });
 
 export default function Page() {

@@ -55,7 +55,7 @@
     color: var(--brand-900);
   }
 
-  /* Per-page selection theming — MarketingChrome adds data-theme on the
+  /* Per-page selection theming - MarketingChrome adds data-theme on the
      page wrapper for /scroll and /agent so text selection matches the page
      palette instead of the site brand maroon. */
   [data-theme="scroll"] ::selection {

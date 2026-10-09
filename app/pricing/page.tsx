@@ -6,6 +6,7 @@ export const metadata = buildMetadata({
   description:
     'Transparent pricing for SimplifyQA, from growing QA teams to global enterprise rollouts. Start free.',
   path: '/pricing',
+  image: '/pricing/opengraph-image',
 });
 
 export default function Page() {

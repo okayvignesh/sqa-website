@@ -6,6 +6,7 @@ export const metadata = buildMetadata({
   description:
     'Quality-tuned LLMs that draft tests, suggest fixes, and review releases, grounded in your own product context.',
   path: '/platform/ai-test-assistant',
+  image: '/platform/ai-test-assistant/opengraph-image',
 });
 
 const breadcrumb = buildBreadcrumbJsonLd([

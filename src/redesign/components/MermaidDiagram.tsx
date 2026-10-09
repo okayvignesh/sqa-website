@@ -2,7 +2,7 @@
 
 import { useEffect, useRef } from 'react';
 
-// Lazy singleton — initialize mermaid once, first time it's used.
+// Lazy singleton - initialize mermaid once, first time it's used.
 let mermaidPromise: Promise<typeof import('mermaid').default> | null = null;
 async function getMermaid() {
   if (!mermaidPromise) {
@@ -14,24 +14,24 @@ async function getMermaid() {
         themeVariables: {
           fontFamily: 'Inter, -apple-system, sans-serif',
           fontSize: '12px',
-          primaryColor:       '#F5F3FF',
-          primaryTextColor:   '#4C1D95',
-          primaryBorderColor: '#7C3AED',
-          lineColor:          '#7C3AED',
-          secondaryColor:     '#EDE9FE',
+          primaryColor:       '#EFF6FF',
+          primaryTextColor:   '#1E3A8A',
+          primaryBorderColor: '#2563EB',
+          lineColor:          '#2563EB',
+          secondaryColor:     '#DBEAFE',
           tertiaryColor:      '#FFFFFF',
           noteBkgColor:       '#FEF3C7',
           noteTextColor:      '#92400E',
           noteBorderColor:    '#F59E0B',
-          actorBkg:           '#F5F3FF',
-          actorBorder:        '#7C3AED',
-          actorTextColor:     '#4C1D95',
-          signalColor:        '#6D28D9',
-          signalTextColor:    '#4C1D95',
-          labelBoxBkgColor:   '#EDE9FE',
-          labelBoxBorderColor:'#7C3AED',
-          labelTextColor:     '#4C1D95',
-          loopTextColor:      '#4C1D95',
+          actorBkg:           '#EFF6FF',
+          actorBorder:        '#2563EB',
+          actorTextColor:     '#1E3A8A',
+          signalColor:        '#1D4ED8',
+          signalTextColor:    '#1E3A8A',
+          labelBoxBkgColor:   '#DBEAFE',
+          labelBoxBorderColor:'#2563EB',
+          labelTextColor:     '#1E3A8A',
+          loopTextColor:      '#1E3A8A',
         },
       });
       return m.default;

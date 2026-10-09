@@ -34,3 +34,6 @@ public/uploads/
 .env
 public/assets/video/AI_Studio.gif
 nul
+
+# TypeScript incremental build cache
+tsconfig.tsbuildinfo

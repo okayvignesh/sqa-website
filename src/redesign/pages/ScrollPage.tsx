@@ -6,25 +6,26 @@ import { motion } from 'framer-motion';
 import {
   ArrowUpRight, Bot, Braces, Brain, Check, ChevronDown, ChevronRight, Cpu, Database, FileText,
   GitBranch, HelpCircle, LayoutDashboard, Layers, LineChart, Link2, Lock, MessageSquare,
-  Network, Presentation, Search, ShieldCheck, Sparkles, Users, Workflow, X, Zap,
+  Network, Search, ShieldCheck, Sparkles, Users, Workflow, X, Zap,
 } from 'lucide-react';
 import { Container, Reveal, RevealGroup, cn, fadeUp } from '../../design';
 import ScrollHeroDemo from '../components/ScrollHeroDemo';
-import KnowledgeBrainGraph from '../components/KnowledgeBrainGraph';
+// Knowledge base section is commented out for now.
+// import KnowledgeBrainGraph from '../components/KnowledgeBrainGraph';
 import { BookDemoButton } from '../CalendlyModal';
 
-// Section eyebrow in the Scroll violet palette (the shared design/Eyebrow
+// Section eyebrow in the Scroll blue palette (the shared design/Eyebrow
 // uses the site brand maroon).
 function VEyebrow({ icon, children }: { icon?: React.ReactNode; children: React.ReactNode }) {
   return (
     <span
       className="inline-flex items-center gap-1.5 rounded-full pl-1 pr-3 py-1 text-[11.5px] font-semibold uppercase tracking-[0.14em] border"
-      style={{ background: '#F5F3FF', color: '#6D28D9', borderColor: '#DDD6FE' }}
+      style={{ background: '#EFF6FF', color: '#1D4ED8', borderColor: '#BFDBFE' }}
     >
       {icon && (
         <span
           className="grid place-items-center w-5 h-5 rounded-full"
-          style={{ background: '#EDE9FE', color: '#7C3AED', border: '1px solid #DDD6FE' }}
+          style={{ background: '#DBEAFE', color: '#2563EB', border: '1px solid #BFDBFE' }}
         >
           {icon}
         </span>
@@ -41,7 +42,7 @@ function Grad({ children }: { children: React.ReactNode }) {
   return (
     <span
       style={{
-        backgroundImage: 'linear-gradient(120deg, #4C1D95 0%, #7C3AED 55%, #A78BFA 100%)',
+        backgroundImage: 'linear-gradient(120deg, #1E3A8A 0%, #2563EB 55%, #60A5FA 100%)',
         WebkitBackgroundClip: 'text',
         backgroundClip: 'text',
         WebkitTextFillColor: 'transparent',
@@ -55,19 +56,19 @@ function Grad({ children }: { children: React.ReactNode }) {
 
 const SCROLL_URL = 'https://qa.scroll.simplifyqa.com/';
 
-// Scroll violet palette (Tailwind violet-500 through violet-800), used inline
+// Scroll blue palette (Tailwind blue-500 through blue-800), used inline
 // so we don't have to introduce a whole theme layer for one page.
 const V = {
-  soft:   '#F5F3FF',
-  50:     '#F5F3FF',
-  100:    '#EDE9FE',
-  200:    '#DDD6FE',
-  400:    '#A78BFA',
-  500:    '#8B5CF6',
-  600:    '#7C3AED',
-  700:    '#6D28D9',
-  800:    '#5B21B6',
-  900:    '#4C1D95',
+  soft:   '#EFF6FF',
+  50:     '#EFF6FF',
+  100:    '#DBEAFE',
+  200:    '#BFDBFE',
+  400:    '#60A5FA',
+  500:    '#3B82F6',
+  600:    '#2563EB',
+  700:    '#1D4ED8',
+  800:    '#1E40AF',
+  900:    '#1E3A8A',
 };
 const AMBER = '#F59E0B';
 
@@ -83,7 +84,7 @@ const pillars = [
     tag: '01 · AI-Native',
     title: 'Not AI-bolted-on.',
     body:
-      'Every other doc tool added AI as a sidebar. Scroll was designed around an MCP-powered AI server from day one, the same backbone that powers writing also powers semantic search, diagram generation, presentation creation, and Q&A grounded in your real content.',
+      'Every other doc tool added AI as a sidebar. Scroll was designed around an MCP-powered AI server from day one, the same backbone that powers writing also powers semantic search, diagram generation, and Q&A grounded in your real content.',
     icon: <Brain className="w-5 h-5" />,
   },
   {
@@ -99,6 +100,32 @@ const pillars = [
     body:
       'Single sign-on, shared users, shared projects, shared roles. A SimplifyQA admin does not onboard Scroll separately, their team is already there. Switching between testing and documentation is one click.',
     icon: <Link2 className="w-5 h-5" />,
+  },
+];
+
+// Headline capabilities every docs team needs day one. Rendered before the
+// QA-native blocks so the page leads as a general documentation workspace,
+// with the test-case blocks kept as the SimplifyQA bonus.
+const coreFeatures = [
+  {
+    icon: <Users className="w-4 h-4" />,
+    title: 'Real-time collaboration',
+    body: 'Multiplayer editing with live cursors and presence. CRDT-backed, so concurrent edits merge without conflicts or lost work.',
+  },
+  {
+    icon: <GitBranch className="w-4 h-4" />,
+    title: 'Version history',
+    body: 'Every page and block is versioned. Browse the timeline, diff any two versions, and restore a document to any point in time.',
+  },
+  {
+    icon: <Sparkles className="w-4 h-4" />,
+    title: 'AI writing',
+    body: 'Draft, rewrite, summarize, and adjust tone inline. Grounded in your real content through the same MCP server that powers Scroll.',
+  },
+  {
+    icon: <Network className="w-4 h-4" />,
+    title: 'Diagrams',
+    body: 'Describe a system in plain English and get a Mermaid flowchart, sequence diagram, ER diagram, or mindmap, right inside the page.',
   },
 ];
 
@@ -141,7 +168,8 @@ const aiCapabilities = [
   { icon: <Search className="w-4 h-4" />,        title: 'Semantic Search',        body: 'pgvector-powered embeddings that find documents by meaning, not just keywords.' },
   { icon: <Bot className="w-4 h-4" />,           title: 'Conversational Q&A',     body: 'Ask questions of a single page, an entire space, or a connected repository, with citations to the source content.' },
   { icon: <Workflow className="w-4 h-4" />,      title: 'AI Diagram Generation',  body: 'Describe a system in plain English, get a Mermaid flowchart, sequence diagram, ER diagram, or mindmap.' },
-  { icon: <Presentation className="w-4 h-4" />,  title: 'AI Presentation',        body: 'Turn any page or space into a slide deck with 15+ web-native layouts. Export to PDF or PPTX.' },
+  // Deck / presentation generation is deferred for now.
+  // { icon: <Presentation className="w-4 h-4" />,  title: 'AI Presentation',        body: 'Turn any page or space into a slide deck with 15+ web-native layouts. Export to PDF or PPTX.' },
   { icon: <Braces className="w-4 h-4" />,        title: 'AI From Repository',     body: 'Connect a GitHub / GitLab / Bitbucket repo and generate architecture docs, API references, and onboarding guides from the code.' },
   { icon: <Cpu className="w-4 h-4" />,           title: 'Multi-LLM Support',      body: 'OpenAI, Anthropic, Google Gemini, Azure OpenAI. Per-org cost caps. Per-user rate limits. Full audit trail.' },
 ];
@@ -157,8 +185,11 @@ const compareRows: CompareRow[] = [
   { feature: 'Live execution reports',       cells: ['no', 'no', 'no', 'no'],           scroll: 'Five-stage drill-down, always current' },
   { feature: 'Auto-generated traceability',  cells: ['no', 'no', 'no', 'no'],           scroll: 'Requirements ↔ tests ↔ defects, from real data' },
   { feature: 'Real-time collaboration',      cells: ['partial', 'yes', 'partial', 'yes'], scroll: 'Yjs CRDT · live cursors · 260K ops/sec' },
+  { feature: 'Version history & restore',    cells: ['yes', 'partial', 'yes', 'partial'], scroll: 'Every page + block versioned, restore any point' },
   { feature: 'MCP-native AI (grounded)',     cells: ['no', 'partial', 'partial', 'no'], scroll: '12+ capabilities · multi-LLM · full audit log' },
-  { feature: 'AI diagram + presentation',    cells: ['no', 'partial', 'no', 'no'],      scroll: 'Mermaid diagrams + web-native decks' },
+  // Deck / presentation generation is deferred for now.
+  // { feature: 'AI diagram + presentation',    cells: ['no', 'partial', 'no', 'no'],      scroll: 'Mermaid diagrams + web-native decks' },
+  { feature: 'AI diagram generation',        cells: ['no', 'partial', 'no', 'no'],      scroll: 'Mermaid flowcharts, sequence, ER, and mindmaps' },
   { feature: 'Shared identity with SimplifyQA', cells: ['no', 'no', 'no', 'no'],        scroll: 'Same SSO, users, orgs, projects, roles' },
 ];
 
@@ -190,8 +221,7 @@ export default function ScrollPage() {
               <Reveal>
                 <div className="inline-flex items-center gap-2 rounded-full border pl-1 pr-4 py-1"
                      style={{ borderColor: V[200], background: V.soft }}>
-                  <span className="inline-flex items-center justify-center w-6 h-6 rounded-full text-white font-display text-[13px] font-bold"
-                        style={{ background: V[600] }}>S</span>
+                  <img src="/scroll-logo.svg" alt="Scroll" className="w-6 h-6 rounded-md" draggable={false} />
                   <span className="text-[12.5px] font-semibold" style={{ color: V[700] }}>
                     Part of the SimplifyQA Platform · Scroll
                   </span>
@@ -208,8 +238,8 @@ export default function ScrollPage() {
               <Reveal delay={0.1}>
                 <p className="mt-6 text-[17px] leading-relaxed text-ink-500 max-w-xl">
                   Scroll is a real-time collaborative wiki for product, engineering, QA,
-                  design, sales, and ops, anyone who works out of a shared knowledge base.
-                  Everyone gets AI writing, semantic search, diagrams, and decks. Teams
+                  design, sales, and ops. Write together live, see every change in full
+                  version history, draft with AI, and turn any page into a diagram. Teams
                   on SimplifyQA also get live test cases, execution reports, and
                   traceability embedded as first-class blocks.
                 </p>
@@ -230,7 +260,7 @@ export default function ScrollPage() {
                     Try Scroll <ArrowUpRight className="w-4 h-4" />
                   </a>
                   <Link
-                    href="#pillars"
+                    href="#features"
                     className="inline-flex items-center gap-1 h-12 px-6 rounded-full text-[15px] font-medium text-ink-800 border border-ink-900/10 bg-white hover:bg-ink-50 transition-colors"
                   >
                     See the features <ChevronRight className="w-4 h-4" />
@@ -285,7 +315,7 @@ export default function ScrollPage() {
           <RevealGroup className="mt-12 grid md:grid-cols-3 gap-4" delay={0.06}>
             {pillars.map((p) => (
               <motion.article key={p.tag} variants={fadeUp}
-                className="rounded-3xl bg-white p-7 border transition-all hover:-translate-y-1 hover:shadow-[0_28px_60px_-24px_rgba(124,58,237,0.30)]"
+                className="rounded-3xl bg-white p-7 border transition-all hover:-translate-y-1 hover:shadow-[0_28px_60px_-24px_rgba(37,99,235,0.30)]"
                 style={{ borderColor: V[100] }}
               >
                 <div className="inline-flex items-center gap-2 text-[11.5px] font-semibold uppercase tracking-[0.14em]"
@@ -304,6 +334,42 @@ export default function ScrollPage() {
         </Container>
       </section>
 
+      {/* ============ CORE FEATURES ============ */}
+      <section id="features" className="relative py-20 sm:py-28 bg-white">
+        <Container size="wide">
+          <div className="max-w-3xl">
+            <Reveal><VEyebrow icon={<Sparkles className="w-3.5 h-3.5" />}>Built for real-time teams</VEyebrow></Reveal>
+            <Reveal delay={0.05}>
+              <h2 className="mt-5 font-display text-display-md text-ink-900 text-balance">
+                Write together, version everything, <Grad>draft with AI.</Grad>
+              </h2>
+            </Reveal>
+            <Reveal delay={0.1}>
+              <p className="mt-5 text-[17px] text-ink-500 max-w-2xl leading-relaxed">
+                Scroll is a documentation workspace first: live multiplayer editing, full
+                document history, AI-assisted writing, and diagrams, all in one place.
+              </p>
+            </Reveal>
+          </div>
+
+          <RevealGroup className="mt-12 grid sm:grid-cols-2 lg:grid-cols-4 gap-4" delay={0.05}>
+            {coreFeatures.map((f) => (
+              <motion.div key={f.title} variants={fadeUp}
+                className="rounded-3xl bg-white p-6 border transition-all hover:-translate-y-1 hover:shadow-[0_24px_50px_-24px_rgba(37,99,235,0.25)]"
+                style={{ borderColor: V[100] }}
+              >
+                <div className="grid place-items-center w-11 h-11 rounded-2xl"
+                     style={{ background: V[50], color: V[700], border: `1px solid ${V[100]}` }}>
+                  {f.icon}
+                </div>
+                <h3 className="mt-5 font-display text-[17px] text-ink-900">{f.title}</h3>
+                <p className="mt-2 text-[13.5px] text-ink-500 leading-relaxed">{f.body}</p>
+              </motion.div>
+            ))}
+          </RevealGroup>
+        </Container>
+      </section>
+
       {/* ============ QA-NATIVE BLOCKS ============ */}
       <section className="relative py-20 sm:py-28 bg-white">
         <Container size="wide">
@@ -314,12 +380,12 @@ export default function ScrollPage() {
                 <span className="grid place-items-center w-5 h-5 rounded-full" style={{ background: AMBER, color: 'white' }}>
                   <Zap className="w-3 h-3" />
                 </span>
-                The differentiator
+                Also included
               </span>
             </Reveal>
             <Reveal delay={0.05}>
               <h2 className="mt-5 font-display text-display-md text-ink-900 text-balance">
-                Five block types <Grad>only Scroll ships.</Grad>{' '}
+                QA-native blocks <Grad>for SimplifyQA teams.</Grad>{' '}
                 All live, all bidirectional.
               </h2>
             </Reveal>
@@ -334,8 +400,8 @@ export default function ScrollPage() {
           <RevealGroup className="mt-14 grid sm:grid-cols-2 lg:grid-cols-3 gap-4" delay={0.05}>
             {blocks.map((b) => (
               <motion.div key={b.title} variants={fadeUp}
-                className="group rounded-3xl bg-white p-6 border transition-all hover:-translate-y-1 hover:shadow-[0_24px_50px_-24px_rgba(124,58,237,0.25)]"
-                style={{ borderColor: '#F4F1FE' }}
+                className="group rounded-3xl bg-white p-6 border transition-all hover:-translate-y-1 hover:shadow-[0_24px_50px_-24px_rgba(37,99,235,0.25)]"
+                style={{ borderColor: '#EDF3FF' }}
               >
                 <div className="grid place-items-center w-11 h-11 rounded-2xl transition-transform group-hover:scale-110"
                      style={{ background: V[50], color: V[700], border: `1px solid ${V[100]}` }}>
@@ -391,7 +457,8 @@ export default function ScrollPage() {
         </Container>
       </section>
 
-      {/* ============ KNOWLEDGE BASE / BRAIN GRAPH ============ */}
+      {/* ============ KNOWLEDGE BASE / BRAIN GRAPH (commented out for now) ============ */}
+      {/*
       <section id="knowledge-base" className="relative py-20 sm:py-28 bg-white scroll-mt-24">
         <Container size="wide">
           <div className="max-w-3xl">
@@ -465,6 +532,7 @@ export default function ScrollPage() {
           </RevealGroup>
         </Container>
       </section>
+      */}
 
       {/* ============ VS ALTERNATIVES ============ */}
       <section className="relative py-20 sm:py-24 bg-white">
@@ -605,12 +673,12 @@ export default function ScrollPage() {
   );
 }
 
-/* ============ FAQ section (violet themed) ============ */
+/* ============ FAQ section (blue themed) ============ */
 
 const scrollFaqs = [
   {
     q: 'What is SimplifyQA Scroll?',
-    a: 'Scroll is an AI-native documentation platform for any team, product, engineering, QA, design, sales, ops. It is a real-time collaborative wiki with AI writing, semantic search, diagrams, and decks. For teams already on SimplifyQA, it also renders live test cases, execution reports, and traceability as first-class blocks inside the page.',
+    a: 'Scroll is an AI-native documentation platform for any team, product, engineering, QA, design, sales, ops. It is a real-time collaborative wiki with live co-editing, full version history, AI writing, semantic search, and diagrams. For teams already on SimplifyQA, it also renders live test cases, execution reports, and traceability as first-class blocks inside the page.',
   },
   {
     q: 'How is Scroll different from Confluence or Notion?',
@@ -622,7 +690,7 @@ const scrollFaqs = [
   },
   {
     q: 'What AI capabilities are included?',
-    a: '12+ features via a hardened MCP server: writing assistant, tone and style control, semantic search, conversational Q&A grounded in your pages, AI diagram generation (Mermaid), AI presentation generation, and AI-from-repository. Multi-LLM (OpenAI, Anthropic, Google, Azure) with per-org cost caps, per-user rate limits, and full audit logging.',
+    a: '12+ features via a hardened MCP server: writing assistant, tone and style control, semantic search, conversational Q&A grounded in your pages, AI diagram generation (Mermaid), and AI-from-repository. Multi-LLM (OpenAI, Anthropic, Google, Azure) with per-org cost caps, per-user rate limits, and full audit logging.',
   },
   {
     q: 'What integrations ship out of the box?',
@@ -679,18 +747,18 @@ function ScrollFaqRow({ q, a }: { q: string; a: string }) {
   return (
     <div
       className="rounded-2xl bg-white overflow-hidden border transition-colors"
-      style={{ borderColor: open ? '#DDD6FE' : '#EDE9FE' }}
+      style={{ borderColor: open ? '#BFDBFE' : '#DBEAFE' }}
     >
       <button
         onClick={() => setOpen((v) => !v)}
         className="w-full flex items-center justify-between gap-4 text-left px-5 py-4 transition-colors"
-        style={{ background: open ? '#F5F3FF' : 'white' }}
+        style={{ background: open ? '#EFF6FF' : 'white' }}
         aria-expanded={open}
       >
         <span className="text-[14.5px] font-semibold text-ink-900">{q}</span>
         <ChevronDown
           className={cn('w-4 h-4 transition-transform shrink-0', open && 'rotate-180')}
-          style={{ color: open ? '#6D28D9' : '#6B7280' }}
+          style={{ color: open ? '#1D4ED8' : '#6B7280' }}
         />
       </button>
       <motion.div
@@ -779,9 +847,7 @@ function VsComparison() {
           className="px-3 py-4 flex flex-col items-center gap-1.5"
           style={{ background: V[600], color: 'white', borderLeft: `1px solid ${V[100]}` }}
         >
-          <span className="grid place-items-center w-6 h-6 rounded-full bg-white/20 font-display text-[13px] font-bold">
-            S
-          </span>
+          <img src="/scroll-logo.svg" alt="Scroll" className="w-6 h-6 rounded-md" draggable={false} />
           <div className="text-[12px] font-semibold">Scroll</div>
         </div>
       </div>
@@ -793,7 +859,7 @@ function VsComparison() {
           className="grid items-center"
           style={{
             gridTemplateColumns: '1.6fr repeat(4, 1fr) 1.4fr',
-            background: i % 2 ? '#FBFAFF' : 'white',
+            background: i % 2 ? '#F8FAFF' : 'white',
             borderTop: `1px solid ${V[100]}`,
           }}
         >

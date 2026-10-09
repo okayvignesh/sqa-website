@@ -50,7 +50,7 @@ const CONVOS: Convo[] = [
     key: 'windsurf',
     clientName: 'Windsurf',
     workspace: 'payments-svc · Cascade',
-    prompt: 'Make TC-1041 focus on negative scenarios — invalid tokens, expired tokens, malformed payloads.',
+    prompt: 'Make TC-1041 focus on negative scenarios: invalid tokens, expired tokens, malformed payloads.',
     response: [
       'Fetched TC-1041, regenerated the steps with negative-scenario focus, saved in place.',
       'Test ID unchanged. Test Management updated. Version history preserved.',
@@ -95,7 +95,7 @@ export default function ClientUIShowcase() {
       onMouseEnter={() => setPaused(true)}
       onMouseLeave={() => setPaused(false)}
     >
-      {/* Top tab strip — click to jump */}
+      {/* Top tab strip - click to jump */}
       <div className="mb-6 flex flex-wrap items-center gap-2">
         {CONVOS.map((c, i) => {
           const IconEl = ICONS[c.key];
@@ -332,7 +332,7 @@ function ClaudeDesktopSlide({ c }: { c: Convo }) {
                 className="mt-2 inline-flex items-center gap-1.5 text-[11px] font-medium px-2 py-1 rounded-md"
                 style={{ background: '#EDE1CB', color: '#8A5A2E', border: '1px solid #E2D3B0' }}
               >
-                <Sparkles className="w-3 h-3" /> via SQA Zero-Touch Agent
+                <Sparkles className="w-3 h-3" /> via SimplifyQA MCP
               </div>
             </div>
           </div>
@@ -434,7 +434,7 @@ function CursorSlide({ c }: { c: Convo }) {
             <span style={{ color: '#858585' }}>checkout.ts</span>
           </div>
           <pre className="p-3 text-[10.5px] leading-relaxed overflow-hidden" style={{ color: '#D4D4D4' }}>
-{`# Payments — BRD
+{`# Payments BRD
 
 ## Overview
 Checkout supports Apple Pay + 3DS.
@@ -485,7 +485,7 @@ Checkout supports Apple Pay + 3DS.
               }}
             >
               <div className="text-[10px] uppercase tracking-[0.14em] mb-1" style={{ color: '#C4B5FD' }}>
-                Cursor · sqa-agent
+                Cursor · simplifyqa-mcp
               </div>
               <ul className="space-y-1">
                 {c.response.map((line, i) => (
@@ -614,7 +614,7 @@ test('TC-1041 · negative auth', async ({ agent }) => {
               }}
             >
               <div className="text-[10px] uppercase tracking-[0.14em] mb-1" style={{ color: green }}>
-                Cascade · sqa-agent
+                Cascade · simplifyqa-mcp
               </div>
               <ul className="space-y-1">
                 {c.response.map((line, i) => (
@@ -628,7 +628,7 @@ test('TC-1041 · negative auth', async ({ agent }) => {
                 className="mt-2 inline-flex items-center gap-1.5 text-[10px] font-mono px-1.5 py-0.5 rounded"
                 style={{ background: 'rgba(0,166,126,0.15)', color: green }}
               >
-                <Terminal className="w-3 h-3" /> mcp: sqa-agent
+                <Terminal className="w-3 h-3" /> mcp: simplifyqa-mcp
               </div>
             </div>
           </div>

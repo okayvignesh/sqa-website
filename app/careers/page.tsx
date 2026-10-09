@@ -6,6 +6,7 @@ export const metadata = buildMetadata({
   description:
     'Join SimplifyQA, help build the most intelligent ALM and test management platform on the market.',
   path: '/careers',
+  absoluteTitle: true,
 });
 
 export default function Page() {

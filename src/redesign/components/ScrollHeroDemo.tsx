@@ -5,23 +5,23 @@ import { AnimatePresence, motion, useMotionValue, useTransform, animate } from '
 import {
   ArrowRight, Bold, Circle, Code2, FileText, Hand, Heading1, Heading2,
   Highlighter, Image as ImageIcon, Italic, LineChart, Link as LinkIcon,
-  List, ListOrdered, MessageSquare, MousePointer2, Play, Plus, Presentation,
+  List, ListOrdered, MessageSquare, MousePointer2, Play, Plus,
   Quote, Sparkles, Square, StickyNote, Strikethrough, Table as TableIcon,
   Type as TypeIcon, Underline as UnderlineIcon, Wand2,
 } from 'lucide-react';
 import MermaidDiagram from './MermaidDiagram';
 
 const V = {
-  soft: '#F5F3FF',
-  50:   '#F5F3FF',
-  100:  '#EDE9FE',
-  200:  '#DDD6FE',
-  400:  '#A78BFA',
-  500:  '#8B5CF6',
-  600:  '#7C3AED',
-  700:  '#6D28D9',
-  800:  '#5B21B6',
-  900:  '#4C1D95',
+  soft: '#EFF6FF',
+  50:   '#EFF6FF',
+  100:  '#DBEAFE',
+  200:  '#BFDBFE',
+  400:  '#60A5FA',
+  500:  '#3B82F6',
+  600:  '#2563EB',
+  700:  '#1D4ED8',
+  800:  '#1E40AF',
+  900:  '#1E3A8A',
 };
 const AMBER = '#F59E0B';
 
@@ -45,7 +45,8 @@ const CYCLE_MS = 7000;
 const DEMOS = [
   { key: 'doc',    label: 'Docs',      Icon: FileText     },
   { key: 'canvas', label: 'Canvas',    Icon: Wand2        },
-  { key: 'deck',   label: 'Deck',      Icon: Presentation },
+  // Deck demo is deferred for now.
+  // { key: 'deck',   label: 'Deck',      Icon: Presentation },
 ] as const;
 type DemoKey = typeof DEMOS[number]['key'];
 
@@ -207,7 +208,8 @@ function DemoBody({ demoKey, nonce }: { demoKey: DemoKey; nonce: number }) {
       >
         {demoKey === 'doc'    ? <DocDemo />    : null}
         {demoKey === 'canvas' ? <CanvasDemo /> : null}
-        {demoKey === 'deck'   ? <DeckDemo />   : null}
+        {/* Deck demo is deferred for now. */}
+        {/* {demoKey === 'deck'   ? <DeckDemo />   : null} */}
       </motion.div>
     </AnimatePresence>
   );

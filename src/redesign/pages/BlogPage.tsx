@@ -9,7 +9,7 @@ import {
 } from '../../design';
 import type { PublicPost } from '../../lib/posts';
 
-type Props = { posts: PublicPost[] };
+type Props = { posts: PublicPost[]; initialQuery?: string };
 
 function formatDate(iso: string) {
   try {
@@ -17,7 +17,7 @@ function formatDate(iso: string) {
   } catch { return iso; }
 }
 
-export default function BlogPage({ posts }: Props) {
+export default function BlogPage({ posts, initialQuery = '' }: Props) {
   const categories = useMemo(() => {
     const set = new Set<string>();
     posts.forEach((p) => set.add(p.category));
@@ -25,7 +25,9 @@ export default function BlogPage({ posts }: Props) {
   }, [posts]);
 
   const [cat, setCat] = useState<string>('All');
-  const [q, setQ] = useState('');
+  // Seeded from ?q= so the site-wide SearchAction (WebSite schema) lands on
+  // real, filtered results.
+  const [q, setQ] = useState(initialQuery);
 
   const filtered = useMemo(() => {
     const ql = q.trim().toLowerCase();

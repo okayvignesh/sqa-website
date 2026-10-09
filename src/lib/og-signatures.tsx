@@ -1,5 +1,5 @@
 // Per-page signature visuals for OG cards. Each renders in a ~460x420 slot
-// on a cream canvas — white cards, brand-red accents, ink typography, to
+// on a cream canvas - white cards, brand-red accents, ink typography, to
 // match the site (bg-white text-ink-900 with brand-600 highlights).
 //
 // Rendered by Satori: SVG shapes + positioned HTML divs (Satori does not
@@ -27,9 +27,9 @@ function mkRng(seed: number) {
   return () => { s = (s * 1664525 + 1013904223) >>> 0; return s / 0xffffffff; };
 }
 
-// ============ SCROLL — brain graph ==============================
-// Scroll's own product palette is violet-on-cream. Ambient nodes are
-// violet, hub is warm gold — the same combo used on the /scroll page's
+// ============ SCROLL - brain graph ==============================
+// Scroll's own product palette is blue-on-cream. Ambient nodes are
+// blue, hub is warm gold - the same combo used on the /scroll page's
 // KB brain-graph section.
 export function SigScroll(): ReactElement {
   const rng = mkRng(42);
@@ -71,18 +71,18 @@ export function SigScroll(): ReactElement {
 
   return (
     <svg width="460" height="420" viewBox="0 0 460 420" xmlns="http://www.w3.org/2000/svg">
-      <ellipse cx="150" cy="210" rx="128" ry="168" fill="#7C3AED" opacity="0.06" />
-      <ellipse cx="320" cy="210" rx="128" ry="168" fill="#7C3AED" opacity="0.06" />
-      <line x1="235" y1="70" x2="235" y2="350" stroke="#7C3AED" strokeWidth="0.8" strokeDasharray="2 5" opacity="0.35" />
+      <ellipse cx="150" cy="210" rx="128" ry="168" fill="#2563EB" opacity="0.06" />
+      <ellipse cx="320" cy="210" rx="128" ry="168" fill="#2563EB" opacity="0.06" />
+      <line x1="235" y1="70" x2="235" y2="350" stroke="#2563EB" strokeWidth="0.8" strokeDasharray="2 5" opacity="0.35" />
       {edges.map(([a, b], i) => {
         const na = nodes[a], nb = nodes[b];
         if (!na || !nb) return null;
-        return <line key={i} x1={na.x} y1={na.y} x2={nb.x} y2={nb.y} stroke="#7C3AED" strokeOpacity="0.55" strokeWidth="1" />;
+        return <line key={i} x1={na.x} y1={na.y} x2={nb.x} y2={nb.y} stroke="#2563EB" strokeOpacity="0.55" strokeWidth="1" />;
       })}
       {nodes.map((n, i) => (
-        <circle key={i} cx={n.x} cy={n.y} r={n.r} fill="#7C3AED" />
+        <circle key={i} cx={n.x} cy={n.y} r={n.r} fill="#2563EB" />
       ))}
-      {/* Featured hub — warm gold synapse, matches the scroll page */}
+      {/* Featured hub - warm gold synapse, matches the scroll page */}
       <circle cx="235" cy="210" r="18" fill="#F59E0B" opacity="0.20" />
       <circle cx="235" cy="210" r="9"  fill="#F59E0B" opacity="0.75" />
       <circle cx="235" cy="210" r="4"  fill="#78350F" />
@@ -90,7 +90,7 @@ export function SigScroll(): ReactElement {
   );
 }
 
-// ============ AGENT — MCP request card ==========================
+// ============ AGENT - MCP request card ==========================
 export function SigAgent(): ReactElement {
   return frame(
     <>
@@ -112,7 +112,7 @@ export function SigAgent(): ReactElement {
         <rect x="40" y="298" width="380" height="46" rx="10" fill="#EEF2FF" stroke="#C7D2FE" strokeWidth="1" />
       </svg>
       <div style={{ ...BOX, top: 74, left: 342, ...MONO, fontSize: 12, color: '#4338CA', fontWeight: 700 }}>MCP</div>
-      {/* Prompt line — single flex row so token spacing stays intact */}
+      {/* Prompt line - single flex row so token spacing stays intact */}
       <div style={{ ...BOX, top: 128, left: 52, ...MONO, fontSize: 16, display: 'flex', alignItems: 'center', gap: 0 }}>
         <span style={{ color: '#4338CA', fontWeight: 700 }}>→ agent.explore(</span>
         <span style={{ color: T.brand600 }}>&quot;url&quot;</span>
@@ -129,7 +129,7 @@ export function SigAgent(): ReactElement {
   );
 }
 
-// ============ PRICING — three tier chips ========================
+// ============ PRICING - three tier chips ========================
 export function SigPricing(): ReactElement {
   const tiers = [
     { y: 60,  h: 90,  price: 'Free',   tag: 'PILOT',      accent: T.ink400,  note: '14-day pilot · every feature' },
@@ -168,7 +168,7 @@ export function SigPricing(): ReactElement {
   );
 }
 
-// ============ SOLUTIONS — four persona quadrants ================
+// ============ SOLUTIONS - four persona quadrants ================
 export function SigSolutions(): ReactElement {
   const cells = [
     { primary: 'Enterprise',  secondary: 'QA',         color: T.brand600 },
@@ -210,7 +210,7 @@ export function SigSolutions(): ReactElement {
   );
 }
 
-// ============ CUSTOMER SUCCESS — constellation ==================
+// ============ CUSTOMER SUCCESS - constellation ==================
 export function SigCustomerSuccess(): ReactElement {
   const rings = [
     { r: 60,  n: 6,  size: 12 },
@@ -257,7 +257,7 @@ export function SigCustomerSuccess(): ReactElement {
   );
 }
 
-// ============ ABOUT — QA sigil ==================================
+// ============ ABOUT - QA sigil ==================================
 export function SigAbout(): ReactElement {
   return frame(
     <>
@@ -284,7 +284,7 @@ export function SigAbout(): ReactElement {
   );
 }
 
-// ============ TEST MANAGEMENT — traceability ====================
+// ============ TEST MANAGEMENT - traceability ====================
 export function SigTestManagement(): ReactElement {
   const cols = [
     { x: 55,  label: 'REQS',    color: '#0369A1', dots: [70, 140, 210, 280] },
@@ -337,7 +337,7 @@ export function SigTestManagement(): ReactElement {
   );
 }
 
-// ============ TEST AUTOMATION — self-healing loop ===============
+// ============ TEST AUTOMATION - self-healing loop ===============
 export function SigTestAutomation(): ReactElement {
   const stops = [
     { a: -Math.PI / 2, label: 'RUN' },
@@ -392,7 +392,7 @@ export function SigTestAutomation(): ReactElement {
   );
 }
 
-// ============ AI TEST ASSISTANT — prompt to tests ================
+// ============ AI TEST ASSISTANT - prompt to tests ================
 export function SigAITestAssistant(): ReactElement {
   const rows = [
     { title: 'add to cart · quantity 2',     state: 'PASS' as const },
@@ -447,10 +447,10 @@ export function SigAITestAssistant(): ReactElement {
   );
 }
 
-// ============ DEFECT MANAGEMENT — severity stack =================
+// ============ DEFECT MANAGEMENT - severity stack =================
 export function SigDefectManagement(): ReactElement {
   const cards = [
-    // Severity in maroon shades — darker = more severe. Keeps the palette
+    // Severity in maroon shades - darker = more severe. Keeps the palette
     // on-brand and preserves ordinal contrast.
     { p: 'P0', title: 'Payment webhook 500s',      color: T.brand700, team: 'sre',     cluster: '×12' },
     { p: 'P1', title: 'Login SSO retry on stale',   color: T.brand600, team: 'auth',    cluster: '×3'  },
@@ -500,7 +500,7 @@ export function SigDefectManagement(): ReactElement {
   );
 }
 
-// ============ RELEASE ORCHESTRATION — pipeline stages ============
+// ============ RELEASE ORCHESTRATION - pipeline stages ============
 export function SigReleaseOrchestration(): ReactElement {
   const stages = [
     { label: 'BUILD',    state: 'pass' },
@@ -576,7 +576,7 @@ export function SigReleaseOrchestration(): ReactElement {
   );
 }
 
-// ============ INSIGHTS & REPORTS — chart + gauge =================
+// ============ INSIGHTS & REPORTS - chart + gauge =================
 export function SigInsightsReports(): ReactElement {
   const bars = [40, 62, 55, 78, 90, 84, 96];
   return frame(
@@ -629,7 +629,7 @@ export function SigInsightsReports(): ReactElement {
   );
 }
 
-// ============ SCROLL (dark) — brain graph on deep violet ==========
+// ============ SCROLL (dark) - brain graph on deep blue ==========
 // Scroll's marketing page has a dark brain-graph section on a light page;
 // this OG mirrors that dark card as a full canvas. Violet nodes + amber
 // synapse spark.
@@ -672,16 +672,16 @@ export function SigScrollDark(): ReactElement {
   ]);
   return (
     <svg width="460" height="420" viewBox="0 0 460 420" xmlns="http://www.w3.org/2000/svg">
-      <ellipse cx="150" cy="210" rx="128" ry="168" fill="#A78BFA" opacity="0.12" />
-      <ellipse cx="320" cy="210" rx="128" ry="168" fill="#A78BFA" opacity="0.12" />
-      <line x1="235" y1="70" x2="235" y2="350" stroke="#A78BFA" strokeWidth="0.8" strokeDasharray="2 5" opacity="0.35" />
+      <ellipse cx="150" cy="210" rx="128" ry="168" fill="#60A5FA" opacity="0.12" />
+      <ellipse cx="320" cy="210" rx="128" ry="168" fill="#60A5FA" opacity="0.12" />
+      <line x1="235" y1="70" x2="235" y2="350" stroke="#60A5FA" strokeWidth="0.8" strokeDasharray="2 5" opacity="0.35" />
       {edges.map(([a, b], i) => {
         const na = nodes[a], nb = nodes[b];
         if (!na || !nb) return null;
-        return <line key={i} x1={na.x} y1={na.y} x2={nb.x} y2={nb.y} stroke="#A78BFA" strokeOpacity="0.55" strokeWidth="1" />;
+        return <line key={i} x1={na.x} y1={na.y} x2={nb.x} y2={nb.y} stroke="#60A5FA" strokeOpacity="0.55" strokeWidth="1" />;
       })}
       {nodes.map((n, i) => (
-        <circle key={i} cx={n.x} cy={n.y} r={n.r} fill="#EDE9FE" />
+        <circle key={i} cx={n.x} cy={n.y} r={n.r} fill="#DBEAFE" />
       ))}
       <circle cx="235" cy="210" r="18" fill="#F59E0B" opacity="0.30" />
       <circle cx="235" cy="210" r="9"  fill="#F59E0B" opacity="0.80" />
@@ -690,7 +690,7 @@ export function SigScrollDark(): ReactElement {
   );
 }
 
-// ============ AGENT (dark) — MCP terminal on deep navy ============
+// ============ AGENT (dark) - MCP terminal on deep navy ============
 export function SigAgentDark(): ReactElement {
   return frame(
     <>

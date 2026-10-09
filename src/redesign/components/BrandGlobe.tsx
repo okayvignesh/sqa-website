@@ -61,7 +61,7 @@ export default function BrandGlobe() {
     mount.appendChild(renderer.domElement);
     renderer.domElement.style.cssText = 'width:100%;height:100%;display:block';
 
-    // Lights — brighter overall so the sphere reads well
+    // Lights - brighter overall so the sphere reads well
     scene.add(new THREE.AmbientLight(new THREE.Color(MAROON_HALO), 1.1));
     const dir = new THREE.DirectionalLight(0xffffff, 1.6);
     dir.position.set(-100, 60, 200);
@@ -84,7 +84,7 @@ export default function BrandGlobe() {
     globeMaterial.emissiveIntensity = 0.35;
     globeMaterial.shininess = 1.2;
 
-    // Points and arcs — hot maroon so they pop against the sphere
+    // Points and arcs - hot maroon so they pop against the sphere
     globe
       .pointsData(POINTS)
       .pointColor(() => MAROON_HOT)
@@ -100,7 +100,7 @@ export default function BrandGlobe() {
 
     scene.add(globe);
 
-    // Load hexed country polygons — bright red so continents visibly
+    // Load hexed country polygons - bright red so continents visibly
     // stand off the dark maroon sphere
     let cancelled = false;
     fetch(COUNTRIES_URL)

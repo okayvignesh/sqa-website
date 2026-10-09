@@ -6,6 +6,7 @@ export const metadata = buildMetadata({
   description:
     'SimplifyQA is an AI-powered test automation and test management platform for web, mobile, API, SAP, and mainframe teams. Plan, automate, execute, report.',
   path: '/',
+  absoluteTitle: true,
 });
 
 export default function Page() {

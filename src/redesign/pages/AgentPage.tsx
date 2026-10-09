@@ -6,7 +6,6 @@ import {
   ArrowRight, Bot, Braces, Bug, CheckCircle2, CircleDot, Compass, Cpu,
   Database, Layers, Link2, LucideIcon, PenSquare, Play, Sparkles, Terminal, Zap,
 } from 'lucide-react';
-import DottedAgent from '../components/DottedAgent';
 import ClientUIShowcase from '../components/ClientUIShowcase';
 import { BookDemoButton } from '../CalendlyModal';
 
@@ -19,7 +18,7 @@ const K = {
   text:    '#E4E4E7',      // primary text
   muted:   '#8B8B96',      // muted
   faint:   '#5C5C68',      // very muted
-  green:   '#4ADE80',      // terminal green — primary accent
+  green:   '#4ADE80',      // terminal green - primary accent
   amber:   '#FBBF24',      // secondary accent, warnings
   red:     '#F87171',      // failures only
   accent:  '#FBBF24',      // through-line accent (was maroon)
@@ -45,7 +44,7 @@ function Grad({ children }: { children: React.ReactNode }) {
 
 const stats = [
   { v: '2', k: 'Things to provide (URL + creds)' },
-  { v: '9', k: 'Technologies covered' },
+  { v: '8', k: 'Technologies covered' },
   { v: '50+', k: 'MCP tools per technology' },
   { v: '0', k: 'AI vendor lock-in' },
 ];
@@ -53,7 +52,7 @@ const stats = [
 const steps = [
   { n: '1', icon: Link2,      title: 'Provide URL',      body: 'App URL + credentials. That is it.' },
   { n: '2', icon: Compass,    title: 'AI explores',      body: 'Walks pages, classifies each, builds sitemap.' },
-  { n: '3', icon: PenSquare,  title: 'AI generates',     body: 'Test cases for every meaningful flow.' },
+  { n: '3', icon: PenSquare,  title: 'AI records',       body: 'Turns your scenario into recorded test cases.' },
   { n: '4', icon: Database,   title: 'Saved to SimplifyQA', body: 'TM, Object Repo, Suites, auto-linked.' },
   { n: '5', icon: Play,       title: 'AI executes',      body: 'Via the existing SimplifyQA engine.' },
   { n: '6', icon: Bug,        title: 'AI reports',       body: 'Pass / fail / defects auto-filed in Jira.' },
@@ -67,13 +66,13 @@ const pillars = [
   },
   {
     tag: '02 · UNIVERSAL',
-    title: 'All 9 technologies, day one.',
-    body: 'Web, Mobile Web, API, Native Mobile (Android & iOS), Desktop, Database, Mainframe, SAP, Hybrid cross-system flows, plus a Generic type for anything else you throw at it. The AI picks the right test type.',
+    title: 'Every platform, day one.',
+    body: 'Web, Mobile Web, API, Native Mobile (Android & iOS), Desktop, Database, Mainframe, and Hybrid cross-system flows, plus a Generic type for anything else you throw at it. The AI picks the right test type.',
   },
   {
-    tag: '03 · ZERO-TOUCH',
-    title: 'URL + creds in. Tested app out.',
-    body: 'No scripts. No new UI to learn. No flows to configure. No object repository to hand-build. Discovery, generation, save, execute, and reporting, the agent does it all.',
+    tag: '03 · AI RECORDING',
+    title: 'Scenario in. Recorded tests out.',
+    body: 'No scripts. No new UI to learn. No object repository to hand-build. Describe the scenario and the MCP records the test cases, saves them to SimplifyQA, and executes them across every supported platform.',
   },
 ];
 
@@ -86,7 +85,7 @@ const capabilities: { icon: LucideIcon; title: string; body: string; items: stri
   {
     icon: PenSquare, title: 'Test Case Generation',
     body: 'Platform-aware, RAG-grounded.',
-    items: ['Functional, edge-case, negative, security, accessibility', 'Platform-correct tcType (WEB / API / ANDROID / IOS)', 'From BRDs, Jira, Azure, Figma, Excel, OpenAPI', 'Full feature → story → test hierarchy', 'Refine existing tests in place'],
+    items: ['AI-assisted recording from a plain-English scenario', 'Functional, edge-case, negative, security, accessibility', 'Platform-correct tcType (WEB / API / ANDROID / IOS)', 'From BRDs, Jira, Azure, Figma, Excel, OpenAPI', 'Full feature → story → test hierarchy', 'Refine existing tests in place'],
   },
   {
     icon: Database, title: 'Save to SimplifyQA',
@@ -120,7 +119,6 @@ const tech: [string, string, string, string][] = [
   ['A Windows desktop app',       'DESKTOP via SimplifyQADesktopDriver', 'desktop-execution-plugin', 'desktop'],
   ['A database',                  'DATABASE validation queries',    'simplifyqa-db-plugin',         'db'],
   ['A mainframe terminal',        'MAINFRAME screen-flow tests',    'mainframe-plugin',             'mainframe'],
-  ['An SAP transaction',          'SAP GUI tests',                  'sap-plugin',                   'sap'],
   ['A cross-system flow',         'HYBRID (Web → API → DB)',        'Multi-plugin orchestration',   'hybrid'],
   ['Anything else',               'GENERIC test cases (custom type)', 'Bring-your-own runner',     'generic'],
 ];
@@ -158,14 +156,14 @@ export default function AgentPage() {
       {/* ============ HERO ============ */}
       <section className="relative pt-20 sm:pt-24 pb-16 sm:pb-24">
         <div className="mx-auto max-w-7xl px-5 sm:px-8">
-          <div className="grid lg:grid-cols-[1.15fr_1fr] gap-10 lg:gap-14 items-center">
+          <div className="max-w-3xl">
             <div>
               <div className="inline-flex items-center gap-2 rounded-full pl-1 pr-4 py-1 text-[12px] font-mono border"
                    style={{ borderColor: K.borderH, background: K.panel }}>
                 <span className="inline-flex items-center justify-center w-6 h-6 rounded-full font-mono text-[11px] font-bold"
                       style={{ background: K.green, color: K.bg }}>$</span>
                 <span style={{ color: K.muted }}>sqa</span>
-                <span style={{ color: K.text }}>zero-touch-agent</span>
+                <span style={{ color: K.text }}>simplifyqa-mcp</span>
                 <span className="ml-2 px-1.5 py-0.5 rounded text-[10px] font-semibold"
                       style={{ background: K.amber + '18', color: K.amber, border: `1px solid ${K.amber}40` }}>
                   MCP SERVER
@@ -173,21 +171,21 @@ export default function AgentPage() {
               </div>
 
               <h1 className="mt-6 font-display text-[42px] sm:text-[56px] leading-[1.0] tracking-tight text-white text-balance">
-                Give your AI a URL.{' '}
+                Run all of SimplifyQA{' '}
                 <span
                   className="bg-clip-text text-transparent"
                   style={{ backgroundImage: `linear-gradient(120deg, #ffffff 0%, ${K.green} 55%, ${K.amber} 100%)` }}
                 >
-                  Get a tested app back.
+                  from your AI.
                 </span>
               </h1>
 
               <p className="mt-6 text-[16px] sm:text-[17px] leading-relaxed max-w-xl" style={{ color: K.muted }}>
-                An MCP server that plugs into Claude, ChatGPT, Cursor, Windsurf, and any AI
-                you already use. Your AI calls SimplifyQA; SimplifyQA calls your app. You
-                provide two things, a URL and login credentials, and 50+ MCP tools per
-                technology handle the rest: exploration, test-case generation, execution,
-                and defect reporting across all 9 technologies.
+                The SimplifyQA MCP server plugs into Claude, ChatGPT, Cursor, Windsurf, and
+                any AI you already use. Every SimplifyQA action is exposed as an MCP tool:
+                author and manage test cases, record them with AI, and execute them across
+                every supported platform. Describe the scenario; the MCP handles the
+                recording and the run.
               </p>
 
               <div className="mt-8 flex flex-col sm:flex-row items-start sm:items-center gap-3">
@@ -223,8 +221,6 @@ export default function AgentPage() {
               </div>
             </div>
 
-            {/* Right column: dotted agent graphic (Nothing-brand style) */}
-            <DottedAgent />
           </div>
 
           {/* Hero terminal signature, below the split */}
@@ -288,7 +284,7 @@ export default function AgentPage() {
           <div className="max-w-3xl">
             <SectionEyebrow icon={<Sparkles />}>The three pillars</SectionEyebrow>
             <h2 className="mt-5 font-display text-[38px] sm:text-[46px] leading-tight tracking-tight text-white text-balance">
-              Open. Universal. <Grad>Zero-Touch.</Grad>
+              Open. Universal. <Grad>Agentic.</Grad>
             </h2>
             <p className="mt-5 text-[16px] leading-relaxed max-w-2xl" style={{ color: K.muted }}>
               Three decisions that make this product better as the AI ecosystem gets better.
@@ -363,7 +359,7 @@ export default function AgentPage() {
                    boxShadow: `0 24px 60px -20px ${K.green}20, 0 0 0 1px ${K.green}20 inset`,
                  }}>
               <div className="flex items-center gap-2 text-[11.5px] font-semibold uppercase tracking-wider" style={{ color: K.green }}>
-                <Sparkles className="w-3.5 h-3.5" /> With Zero-Touch
+                <Sparkles className="w-3.5 h-3.5" /> With SimplifyQA MCP
               </div>
               <h3 className="mt-4 font-display text-[22px] text-white">One conversation in your AI</h3>
               <ul className="mt-6 space-y-3">
@@ -398,9 +394,8 @@ export default function AgentPage() {
               across the full testing lifecycle.
             </h2>
             <p className="mt-5 text-[16px] leading-relaxed max-w-2xl" style={{ color: K.muted }}>
-              Every SimplifyQA capability exposed as an MCP tool, for every one of the 9
-              supported technologies. Your AI composes them in whatever order your prompt
-              requires.
+              Every SimplifyQA capability exposed as an MCP tool, for every supported
+              platform. Your AI composes them in whatever order your prompt requires.
             </p>
           </div>
 
@@ -441,7 +436,7 @@ export default function AgentPage() {
       <section className="relative py-20 sm:py-24">
         <div className="mx-auto max-w-7xl px-5 sm:px-8">
           <div className="max-w-3xl">
-            <SectionEyebrow icon={<Layers />}>All 9 technologies</SectionEyebrow>
+            <SectionEyebrow icon={<Layers />}>All supported platforms</SectionEyebrow>
             <h2 className="mt-5 font-display text-[38px] sm:text-[46px] leading-tight tracking-tight text-white text-balance">
               Point your AI at <Grad>any kind of application.</Grad>
             </h2>
@@ -527,6 +522,9 @@ export default function AgentPage() {
             <h2 className="mt-5 font-display text-[38px] sm:text-[46px] leading-tight tracking-tight text-white text-balance">
               Drop the server into your AI, <Grad>done.</Grad>
             </h2>
+            <p className="mt-5 text-[15px] leading-relaxed" style={{ color: K.muted }}>
+              Prerequisites: Node.js and npm installed on your system.
+            </p>
           </div>
 
           <div className="mt-12 rounded-3xl border overflow-hidden"
@@ -538,17 +536,20 @@ export default function AgentPage() {
                 <span className="w-2.5 h-2.5 rounded-full" style={{ background: '#FEBC2E' }} />
                 <span className="w-2.5 h-2.5 rounded-full" style={{ background: '#28C840' }} />
               </div>
-              <span className="text-[12px] font-mono" style={{ color: K.muted }}>~/.config/claude/claude_desktop_config.json</span>
+              <span className="text-[12px] font-mono" style={{ color: K.muted }}>mcp.json</span>
             </div>
             <pre className="p-6 text-[13px] font-mono overflow-x-auto" style={{ color: K.text }}>
 {`{
-  "mcpServers": {
-    "sqa-agent": {
+  "servers": {
+    "common-qa-mcp": {
+      "type": "stdio",
       "command": "npx",
-      "args": ["-y", "@simplifyqa/zero-touch-agent"],
+      "args": ["-y", "common-qa-mcp"],
       "env": {
-        "SQA_API_KEY":  "sk_live_…",
-        "SQA_ORG_ID":   "acme"
+        "QA_MCP_TOKEN": "••••••••",
+        "QA_MCP_URL": "••••••••",
+        "QA_MCP_PROVIDER": "••••••••",
+        "QA_BASE_URL": "••••••••"
       }
     }
   }
@@ -632,7 +633,7 @@ function HeroTerminal() {
             <span className="w-2.5 h-2.5 rounded-full" style={{ background: '#28C840' }} />
           </div>
           <span className="text-[12px] font-mono" style={{ color: K.muted }}>
-            Claude Desktop · MCP: sqa-zero-touch-agent
+            Claude Desktop · MCP: simplifyqa-mcp
           </span>
           <span className="ml-auto flex items-center gap-1.5 text-[11px] font-mono" style={{ color: K.green }}>
             <span className="w-1.5 h-1.5 rounded-full animate-pulse" style={{ background: K.green }} /> connected
@@ -659,7 +660,7 @@ function HeroTerminal() {
             <div className="flex items-center gap-2 text-[11.5px] mb-2" style={{ color: K.muted }}>
               <span className="grid place-items-center w-5 h-5 rounded-full text-[10px] font-bold"
                     style={{ background: K.green + '25', color: K.green, border: `1px solid ${K.green}55` }}>C</span>
-              Claude · sqa-agent
+              Claude · simplifyqa-mcp
             </div>
             <div className="pl-7 space-y-1.5">
               <Line label="explore" ok>walked 24 pages, classified checkout, cart, browse, login, profile</Line>

@@ -9,7 +9,7 @@ import { ImageResponse } from 'next/og';
 //   left column: wordmark → eyebrow → headline → subhead → mono URL
 //   right column: page-specific signature visual (see og-signatures below)
 //
-// The wordmark is the real /public/simplify_logo.svg (paths inlined) — the
+// The wordmark is the real /public/simplify_logo.svg (paths inlined) - the
 // warm #FF583D "QA" glyphs are what registers the brand at thumbnail size.
 
 export const OG_SIZE = { width: 1200, height: 630 } as const;
@@ -46,8 +46,8 @@ export interface OgOptions {
   accent?: string;
   signature: ReactElement;
   /**
-   * 'light' (default) — cream canvas + ink text. Matches the site.
-   * 'dark'            — near-black canvas + white text. Used by product
+   * 'light' (default) - cream canvas + ink text. Matches the site.
+   * 'dark'            - near-black canvas + white text. Used by product
    *                    pages whose own UI is dark (Scroll, Agent).
    */
   theme?: 'light' | 'dark';
@@ -70,7 +70,7 @@ async function loadGoogleFont(family: string, weight: number, text?: string): Pr
   return await (await fetch(m[1])).arrayBuffer();
 }
 
-// SimplifyQA wordmark — paths from public/simplify_logo.svg. `dark=false`
+// SimplifyQA wordmark - paths from public/simplify_logo.svg. `dark=false`
 // (default) uses ink-900 for the letters against a light canvas.
 export function SimplifyQAWordmark({
   height = 26,
@@ -94,7 +94,7 @@ export function SimplifyQAWordmark({
       <path d="M79.6466 9.80653H74.1902C73.3426 9.80653 72.6555 9.11952 72.6555 8.27194C72.6555 7.42441 73.3426 6.7373 74.1902 6.7373H79.6466C80.4942 6.7373 81.1813 7.42441 81.1813 8.27194C81.1813 9.11947 80.4942 9.80653 79.6466 9.80653Z" fill={letter} />
       <path d="M74.1902 15.8768C73.3426 15.8768 72.6555 15.1898 72.6555 14.3422C72.6555 13.4947 73.3426 12.8076 74.1902 12.8076C75.0377 12.8076 75.7247 13.4947 75.7247 14.3422C75.7247 15.1898 75.0377 15.8768 74.1902 15.8768Z" fill={letter} />
       <path d="M91.0291 10.0624L86.3279 3.62385C86.099 3.30921 85.9326 2.93175 85.9326 2.47042C85.9326 1.61053 86.6399 0.918428 87.5344 0.918428C88.2625 0.918428 88.7201 1.31694 89.1154 1.90412L92.6517 7.04239L96.2506 1.86219C96.6458 1.27496 97.1242 0.897461 97.7899 0.897461C98.7676 0.897461 99.3501 1.58956 99.3501 2.47046C99.3501 2.91082 99.1421 3.30929 98.9341 3.60293L94.2328 9.99959V14.236C94.2328 15.1378 93.5255 15.8509 92.631 15.8509C91.7365 15.8509 91.0292 15.1378 91.0292 14.236L91.0291 10.0624Z" fill={letter} />
-      {/* QA glyphs always in the warm brand red — same across dark/light. */}
+      {/* QA glyphs always in the warm brand red - same across dark/light. */}
       <path d="M123.464 11.7425C123.464 12.5775 122.787 13.2545 121.952 13.2545C121.117 13.2545 120.44 12.5775 120.44 11.7425C120.44 10.9074 121.117 10.2305 121.952 10.2305C122.787 10.2305 123.464 10.9074 123.464 11.7425Z" fill={T.brandQA} />
       <path d="M114.223 13.975C114.223 14.81 113.547 15.487 112.711 15.487C111.876 15.487 111.199 14.81 111.199 13.975C111.199 13.1399 111.876 12.4629 112.711 12.4629C113.547 12.4629 114.223 13.1399 114.223 13.975Z" fill={T.brandQA} />
       <path d="M127.489 16.1289C126.924 16.1289 126.387 15.7969 126.153 15.2442L122.128 5.74164L117.72 15.2617C117.383 15.9883 116.522 16.3046 115.795 15.9682C115.068 15.6317 114.752 14.7699 115.088 14.0433L120.727 1.86534C120.993 1.29735 121.573 0.936577 122.207 0.947507C122.84 0.957946 123.408 1.33705 123.655 1.91317L123.658 1.91932L128.823 14.1131C129.136 14.8504 128.791 15.7013 128.054 16.0137C127.869 16.0918 127.677 16.1289 127.489 16.1289Z" fill={T.brandQA} />

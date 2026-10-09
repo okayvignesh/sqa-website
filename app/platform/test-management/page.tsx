@@ -6,6 +6,7 @@ export const metadata = buildMetadata({
   description:
     'Plan releases, organise test suites, and trace requirements to results in one collaborative workspace.',
   path: '/platform/test-management',
+  image: '/platform/test-management/opengraph-image',
 });
 
 const breadcrumb = buildBreadcrumbJsonLd([

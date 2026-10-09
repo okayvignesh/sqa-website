@@ -4,6 +4,7 @@ import { Geist, Geist_Mono, Inter } from 'next/font/google';
 import MarketingChrome from './MarketingChrome';
 import ScrollToTop from './ScrollToTop';
 import { SITE_URL, SITE_NAME, SITE_DESCRIPTION, SITE_TWITTER } from '../src/lib/site';
+import { supportEmail } from '../src/redesign/data/offices';
 import './globals.css';
 
 const geist = Geist({
@@ -33,7 +34,7 @@ export const metadata: Metadata = {
   metadataBase: new URL(SITE_URL),
   title: {
     default: TITLE,
-    template: '%s, SimplifyQA',
+    template: '%s | SimplifyQA',
   },
   description: SITE_DESCRIPTION,
   applicationName: SITE_NAME,
@@ -109,7 +110,18 @@ const organizationJsonLd = {
   name: SITE_NAME,
   url: SITE_URL,
   logo: `${SITE_URL}/simplify_logo.svg`,
+  // Raster image for rich results (Google prefers a raster logo).
+  image: `${SITE_URL}/opengraph-image`,
   description: SITE_DESCRIPTION,
+  email: supportEmail,
+  address: {
+    '@type': 'PostalAddress',
+    streetAddress: 'BCIT, Block 1, Ground Floor, Bhartiya City, RK Hegde Nagar',
+    addressLocality: 'Bengaluru',
+    addressRegion: 'Karnataka',
+    addressCountry: 'IN',
+  },
+  areaServed: 'Worldwide',
   sameAs: [
     'https://www.linkedin.com/company/simplifyqa',
     'https://twitter.com/simplifyqa',
@@ -120,6 +132,7 @@ const organizationJsonLd = {
       '@type': 'ContactPoint',
       contactType: 'sales',
       url: `${SITE_URL}/contact`,
+      email: supportEmail,
       availableLanguage: ['English'],
     },
   ],
@@ -145,10 +158,12 @@ const softwareJsonLd = {
   applicationCategory: 'BusinessApplication',
   operatingSystem: 'Web',
   url: SITE_URL,
+  publisher: { '@type': 'Organization', name: SITE_NAME, url: SITE_URL },
   offers: {
     '@type': 'Offer',
     url: `${SITE_URL}/pricing`,
     priceCurrency: 'USD',
+    price: '29',
   },
 };
 
@@ -156,6 +171,9 @@ export default function RootLayout({ children }: { children: React.ReactNode }) 
   return (
     <html lang="en" className={`${geist.variable} ${geistMono.variable} ${inter.variable}`}>
       <head>
+        {/* Warm up third-party origins used by the global scripts below. */}
+        <link rel="preconnect" href="https://assets.calendly.com" crossOrigin="anonymous" />
+        <link rel="preconnect" href="https://www.googletagmanager.com" />
         <link href="https://assets.calendly.com/assets/external/widget.css" rel="stylesheet" />
         <script
           type="application/ld+json"

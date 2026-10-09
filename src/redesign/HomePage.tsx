@@ -4,6 +4,7 @@ import Hero from './sections/Hero';
 import TrustBar from './sections/TrustBar';
 import BentoFeatures from './sections/BentoFeatures';
 import ReportDashboard from './sections/ReportDashboard';
+import ExecutionCopilot from './sections/ExecutionCopilot';
 import AIShowcase from './sections/AIShowcase';
 import WorkflowTimeline from './sections/WorkflowTimeline';
 import Integrations from './sections/Integrations';
@@ -19,6 +20,7 @@ export default function HomePageV2() {
       <TrustBar />
       <BentoFeatures />
       <ReportDashboard />
+      <ExecutionCopilot />
       <AIShowcase />
       <WorkflowTimeline />
       <Stats />

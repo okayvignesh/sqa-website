@@ -11,7 +11,10 @@ export const metadata = buildMetadata({
 });
 export const dynamic = 'force-dynamic';
 
-export default async function Page() {
+type Props = { searchParams: Promise<{ q?: string }> };
+
+export default async function Page({ searchParams }: Props) {
+  const { q } = await searchParams;
   const posts = await listPosts();
 
   const blogJsonLd = {
@@ -36,7 +39,7 @@ export default async function Page() {
         type="application/ld+json"
         dangerouslySetInnerHTML={{ __html: JSON.stringify(blogJsonLd) }}
       />
-      <BlogPage posts={posts} />
+      <BlogPage posts={posts} initialQuery={q ?? ''} />
     </>
   );
 }

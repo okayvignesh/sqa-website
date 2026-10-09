@@ -66,13 +66,13 @@ const PALETTES: Record<'default' | 'scroll' | 'agent', Palette> = {
   },
   scroll: {
     label: 'scroll',
-    accent:     '#7C3AED',
-    accentSoft: '#F5F3FF',
+    accent:     '#2563EB',
+    accentSoft: '#EFF6FF',
     bg:         '#FFFFFF',
     panel:      '#FFFFFF',
     ink:        '#0F1322',
     inkMuted:   '#6B7280',
-    border:     'rgba(124,58,237,0.14)',
+    border:     'rgba(37,99,235,0.14)',
     ctaText:    '#FFFFFF',
     chrome:     'light',
   },
@@ -214,7 +214,7 @@ export default function CalendlyModal() {
       .then(() => {
         if (cancelled || !widgetRef.current) return;
         widgetRef.current.innerHTML = '';
-        // Compose URL with theme colors — accent hex without '#'
+        // Compose URL with theme colors - accent hex without '#'
         const accentHex = palette.accent.replace('#', '');
         const url =
           `${CAL_URL}?hide_gdpr_banner=1&primary_color=${accentHex}` +
@@ -313,12 +313,12 @@ export default function CalendlyModal() {
               </button>
             </div>
 
-            {/* Split body — scrolls inside the modal on tight viewports */}
+            {/* Split body - scrolls inside the modal on tight viewports */}
             <div
               className="flex-1 min-h-0 overflow-y-auto grid md:grid-cols-[minmax(260px,340px)_1fr]"
-              style={{ background: palette.chrome === 'dark' ? '#08080D' : '#FBFAFF' }}
+              style={{ background: palette.chrome === 'dark' ? '#08080D' : '#F8FAFF' }}
             >
-              {/* Left: context panel — compact so it fits without inner scroll */}
+              {/* Left: context panel - compact so it fits without inner scroll */}
               <aside
                 className="hidden md:flex flex-col p-5 gap-4 relative overflow-hidden"
                 style={{

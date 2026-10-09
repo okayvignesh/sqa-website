@@ -247,7 +247,7 @@ function Landing({ highScore, onPlay }: { highScore: number; onPlay: () => void 
               transition={{ duration: 0.25, ease: [0.16, 1, 0.3, 1] }}
               aria-label="Play the 404 arcade"
             >
-              {/* Corner brackets — arcade feel */}
+              {/* Corner brackets - arcade feel */}
               <Bracket pos="tl" />
               <Bracket pos="tr" />
               <Bracket pos="bl" />
@@ -279,7 +279,7 @@ function Landing({ highScore, onPlay }: { highScore: number; onPlay: () => void 
                 }}
               >
                 <Gamepad2 className="w-3.5 h-3.5" style={{ color: '#F04A5B' }} />
-                Click to play — <Key>space</Key>
+                Click to play, or press <Key>space</Key>
               </span>
             </motion.button>
 
@@ -324,7 +324,7 @@ function Bracket({ pos }: { pos: 'tl' | 'tr' | 'bl' | 'br' }) {
 /*  Arcade (game)                                                             */
 /* ========================================================================== */
 
-// Design canvas — actual DOM canvas is scaled with CSS.
+// Design canvas - actual DOM canvas is scaled with CSS.
 const W = 1000;
 const H = 620;
 
@@ -618,7 +618,7 @@ function ArcadeGame({
         </button>
       </div>
 
-      {/* Live 404 counter — parked in the bottom-right, ticks up per kill */}
+      {/* Live 404 counter - parked in the bottom-right, ticks up per kill */}
       <div className="pointer-events-none absolute right-6 sm:right-10 bottom-24 sm:bottom-28 z-20 flex flex-col items-end">
         <span
           className="font-mono text-[10.5px] uppercase tracking-[0.16em] mb-1"

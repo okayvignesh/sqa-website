@@ -4,7 +4,7 @@ import { SigTestAutomation } from '../../../src/lib/og-signatures';
 export const runtime = 'edge';
 export const size = { width: 1200, height: 630 };
 export const contentType = 'image/png';
-export const alt = 'SimplifyQA Test Automation — self-healing tests across web, mobile, API, and desktop';
+export const alt = 'SimplifyQA Test Automation: self-healing tests across web, mobile, API, and desktop';
 
 export default function OgImage() {
   return renderOg({

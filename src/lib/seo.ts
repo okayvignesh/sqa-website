@@ -7,30 +7,53 @@ type Args = {
   title: string;
   description: string;
   path: string;
+  /**
+   * Absolute path to this route's OG image. Defaults to the site-wide
+   * `/opengraph-image` card so every page always ships an og:image (the
+   * file-convention image only applies to routes that have one in their own
+   * segment). Pass this on routes that have a bespoke opengraph-image.tsx.
+   */
   image?: string;
   keywords?: string[];
+  /**
+   * Skip the layout's `%s | SimplifyQA` title template. Use when the title
+   * already reads naturally with the brand and appending it would duplicate
+   * "SimplifyQA".
+   */
+  absoluteTitle?: boolean;
+  ogType?: 'website' | 'article';
 };
+
+// Site-wide fallback OG card (app/opengraph-image.tsx).
+const DEFAULT_OG_IMAGE = '/opengraph-image';
 
 // Builds per-page metadata. metadataBase is set in app/layout.tsx so relative
 // paths in alternates/openGraph.url/images resolve against the canonical host.
-export function buildMetadata({ title, description, path, image, keywords }: Args): Metadata {
+export function buildMetadata({
+  title,
+  description,
+  path,
+  image,
+  keywords,
+  absoluteTitle,
+  ogType = 'website',
+}: Args): Metadata {
   const url = path.startsWith('/') ? path : `/${path}`;
-  const ogImage = image
-    ? [{ url: image, width: 1200, height: 630, alt: title }]
-    : undefined; // falls back to app/opengraph-image.tsx
+  const ogImageUrl = image ?? DEFAULT_OG_IMAGE;
+  const ogImage = [{ url: ogImageUrl, width: 1200, height: 630, alt: title }];
 
   return {
-    title,
+    title: absoluteTitle ? { absolute: title } : title,
     description,
     keywords,
     alternates: { canonical: url },
     openGraph: {
-      type: 'website',
+      type: ogType,
       siteName: SITE_NAME,
       title,
       description,
       url,
-      ...(ogImage ? { images: ogImage } : {}),
+      images: ogImage,
     },
     twitter: {
       card: 'summary_large_image',
@@ -38,7 +61,7 @@ export function buildMetadata({ title, description, path, image, keywords }: Arg
       description,
       site: SITE_TWITTER,
       creator: SITE_TWITTER,
-      ...(image ? { images: [image] } : {}),
+      images: [ogImageUrl],
     },
   };
 }

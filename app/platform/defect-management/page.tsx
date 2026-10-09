@@ -6,6 +6,7 @@ export const metadata = buildMetadata({
   description:
     'Capture, triage, and resolve defects without leaving the test workflow. Bi-directional Jira and ADO sync built-in.',
   path: '/platform/defect-management',
+  image: '/platform/defect-management/opengraph-image',
 });
 
 const breadcrumb = buildBreadcrumbJsonLd([

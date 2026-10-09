@@ -7,10 +7,11 @@ export default function robots(): MetadataRoute.Robots {
       {
         userAgent: '*',
         allow: '/',
-        disallow: ['/api/', '/_next/', '/admin', '/uploads/'],
+        // Never disallow /_next/ — Googlebot needs the JS/CSS chunks to render
+        // the page. Admin, API, and uploads are private surfaces.
+        disallow: ['/api/', '/admin', '/uploads/'],
       },
     ],
     sitemap: `${SITE_URL}/sitemap.xml`,
-    host: SITE_URL,
   };
 }

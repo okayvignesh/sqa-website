@@ -4,7 +4,7 @@ import { SigScrollDark } from '../../src/lib/og-signatures';
 export const runtime = 'edge';
 export const size = { width: 1200, height: 630 };
 export const contentType = 'image/png';
-export const alt = 'SimplifyQA Scroll — AI-native documentation with a live knowledge graph';
+export const alt = 'SimplifyQA Scroll: AI-native documentation with a live knowledge graph';
 
 export default function OgImage() {
   return renderOg({
@@ -14,8 +14,8 @@ export default function OgImage() {
       'AI-native documentation with a live knowledge graph, semantic search, and grounded Q&A.',
     path: 'simplifyqa.ai/scroll',
     theme: 'dark',
-    darkInk: '#100826',
-    accent: '#A78BFA',
+    darkInk: '#08122E',
+    accent: '#60A5FA',
     signature: <SigScrollDark />,
   });
 }

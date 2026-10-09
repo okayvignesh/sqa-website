@@ -4,7 +4,7 @@ import { SigTestManagement } from '../../../src/lib/og-signatures';
 export const runtime = 'edge';
 export const size = { width: 1200, height: 630 };
 export const contentType = 'image/png';
-export const alt = 'SimplifyQA Test Management — requirements to tests to defects, traced automatically';
+export const alt = 'SimplifyQA Test Management: requirements to tests to defects, traced automatically';
 
 export default function OgImage() {
   return renderOg({

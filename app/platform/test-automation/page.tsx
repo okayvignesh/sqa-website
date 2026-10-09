@@ -6,6 +6,7 @@ export const metadata = buildMetadata({
   description:
     'Low-code, self-healing automation across web, mobile, API, and desktop. Scale coverage without scaling fragility.',
   path: '/platform/test-automation',
+  image: '/platform/test-automation/opengraph-image',
 });
 
 const breadcrumb = buildBreadcrumbJsonLd([

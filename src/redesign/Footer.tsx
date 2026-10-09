@@ -2,26 +2,58 @@
 
 import Image from 'next/image';
 import Link from 'next/link';
-import { Linkedin, Youtube, ArrowUpRight, Sparkles } from 'lucide-react';
-import { FaDiscord } from 'react-icons/fa';
+import { Linkedin, Youtube, Twitter, ArrowUpRight, Sparkles } from 'lucide-react';
 import { BookDemoButton } from './CalendlyModal';
 
 const col = (title: string, items: { label: string; to: string; external?: boolean }[]) => ({ title, items });
 
+// Site-wide link graph. Every public route is reachable from the footer, which
+// gives crawlers a complete, contextual path to the deep platform/solution
+// pages that are not in the top navigation.
 const columns = [
+  col('Platform', [
+    { label: 'Test Management',       to: '/platform/test-management' },
+    { label: 'Test Automation',       to: '/platform/test-automation' },
+    { label: 'AI Test Assistant',     to: '/platform/ai-test-assistant' },
+    { label: 'Defect Management',     to: '/platform/defect-management' },
+    { label: 'Release Orchestration', to: '/platform/release-orchestration' },
+    { label: 'Insights & Reports',    to: '/platform/insights-reports' },
+  ]),
+  col('Products', [
+    { label: 'Scroll',         to: '/scroll' },
+    { label: 'SimplifyQA MCP', to: '/agent' },
+    { label: 'Integrations',   to: '/integrations' },
+    { label: 'Pricing',        to: '/pricing' },
+  ]),
+  col('Solutions', [
+    { label: 'Enterprise QA',       to: '/solutions/enterprise-qa' },
+    { label: 'Automation Teams',    to: '/solutions/automation-teams' },
+    { label: 'Engineering Leaders', to: '/solutions/engineering-leaders' },
+    { label: 'Agile & Scrum',       to: '/solutions/agile-scrum' },
+    { label: 'Industries',          to: '/solutions/industries' },
+  ]),
   col('Resources', [
-    { label: 'Docs',         to: 'https://docs.simplifyqa.app/docs', external: true },
     { label: 'Blog',         to: '/blog' },
+    { label: 'Resource Hub', to: '/resources' },
     { label: 'Case Studies', to: '/customer-success' },
-    { label: 'Webinars',     to: '/resources' },
-    { label: 'Integrations', to: '/integrations' },
+    { label: 'Docs',         to: 'https://docs.simplifyqa.app/docs', external: true },
   ]),
   col('Company', [
-    { label: 'Why SimplifyQA', to: '/about' },
-    { label: 'Customers',      to: '/customer-success' },
-    { label: 'Pricing',        to: '/pricing' },
-    { label: 'Contact',        to: '/contact' },
+    { label: 'About',     to: '/about' },
+    { label: 'Customers', to: '/customer-success' },
+    { label: 'Careers',   to: '/careers' },
+    { label: 'Contact',   to: '/contact' },
+    { label: 'Security',  to: '/security' },
+    { label: 'Status',    to: '/status' },
+    { label: 'Privacy',   to: '/privacy' },
+    { label: 'Terms',     to: '/terms' },
   ]),
+];
+
+const socials = [
+  { label: 'SimplifyQA on LinkedIn', href: 'https://www.linkedin.com/company/simplifyqa', Icon: Linkedin },
+  { label: 'SimplifyQA on YouTube',  href: 'https://www.youtube.com/@simplifyqa',        Icon: Youtube },
+  { label: 'SimplifyQA on X',        href: 'https://twitter.com/simplifyqa',             Icon: Twitter },
 ];
 
 export default function FooterV2() {
@@ -52,8 +84,8 @@ export default function FooterV2() {
         </div>
 
         {/* Link grid */}
-        <div className="mt-16 grid grid-cols-2 md:grid-cols-3 gap-10">
-          <div className="col-span-2 md:col-span-1">
+        <div className="mt-16 grid grid-cols-2 sm:grid-cols-3 lg:grid-cols-6 gap-10">
+          <div className="col-span-2 sm:col-span-3 lg:col-span-1">
             <Link href="/" className="inline-flex items-center" aria-label="SimplifyQA home">
               <Image
                 src="/SimplifyQA logo Grey.png"
@@ -69,8 +101,15 @@ export default function FooterV2() {
               The intelligent ALM and test management platform for modern QA teams.
             </p>
             <div className="mt-5 flex items-center gap-2">
-              {[Linkedin, Youtube, FaDiscord].map((Icon, i) => (
-                <a key={i} href="#" className="grid place-items-center w-9 h-9 rounded-full border border-ink-900/10 text-ink-500 hover:text-brand-700 hover:border-brand-200 transition-colors">
+              {socials.map(({ label, href, Icon }) => (
+                <a
+                  key={label}
+                  href={href}
+                  target="_blank"
+                  rel="noopener noreferrer"
+                  aria-label={label}
+                  className="grid place-items-center w-9 h-9 rounded-full border border-ink-900/10 text-ink-500 hover:text-brand-700 hover:border-brand-200 transition-colors"
+                >
                   <Icon className="w-4 h-4" />
                 </a>
               ))}

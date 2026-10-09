@@ -4,7 +4,7 @@ import { SigCustomerSuccess } from '../../src/lib/og-signatures';
 export const runtime = 'edge';
 export const size = { width: 1200, height: 630 };
 export const contentType = 'image/png';
-export const alt = 'SimplifyQA customer success — how Fortune 100 quality teams ship faster';
+export const alt = 'SimplifyQA customer success: how Fortune 100 quality teams ship faster';
 
 export default function OgImage() {
   return renderOg({

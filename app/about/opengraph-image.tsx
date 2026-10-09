@@ -4,7 +4,7 @@ import { SigAbout } from '../../src/lib/og-signatures';
 export const runtime = 'edge';
 export const size = { width: 1200, height: 630 };
 export const contentType = 'image/png';
-export const alt = 'Why SimplifyQA — the intelligent ALM built for how teams ship in 2026';
+export const alt = 'Why SimplifyQA: the intelligent ALM built for how teams ship in 2026';
 
 export default function OgImage() {
   return renderOg({

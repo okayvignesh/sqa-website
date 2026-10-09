@@ -6,6 +6,8 @@ export const metadata = buildMetadata({
   description:
     'Why enterprise QA teams pick SimplifyQA over legacy ALM stacks: agentic AI, zero-code automation, unified lifecycle, and coverage across every surface your team ships to.',
   path: '/about',
+  image: '/about/opengraph-image',
+  absoluteTitle: true,
 });
 
 export default function Page() {

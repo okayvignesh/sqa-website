@@ -6,6 +6,7 @@ export const metadata = buildMetadata({
   description:
     'Quality gates, smart promotion, and end-to-end pipeline visibility across every release train.',
   path: '/platform/release-orchestration',
+  image: '/platform/release-orchestration/opengraph-image',
 });
 
 const breadcrumb = buildBreadcrumbJsonLd([

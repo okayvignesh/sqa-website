@@ -43,7 +43,7 @@ function transform(src) {
     `import Link from 'next/link';`,
   );
 
-  // 4) Generic catch-all for any other react-router-dom import — leave a TODO marker
+  // 4) Generic catch-all for any other react-router-dom import - leave a TODO marker
   s = s.replace(
     /from\s*['"]react-router-dom['"]/g,
     `from 'next/navigation' /* TODO verify after codemod */`,

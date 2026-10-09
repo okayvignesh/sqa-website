@@ -4,7 +4,7 @@ import { SigDefectManagement } from '../../../src/lib/og-signatures';
 export const runtime = 'edge';
 export const size = { width: 1200, height: 630 };
 export const contentType = 'image/png';
-export const alt = 'SimplifyQA Defect Management — smart triage, clustering, and root-cause hints';
+export const alt = 'SimplifyQA Defect Management: smart triage, clustering, and root-cause hints';
 
 export default function OgImage() {
   return renderOg({

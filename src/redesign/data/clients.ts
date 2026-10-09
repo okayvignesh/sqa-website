@@ -1,7 +1,7 @@
 // Active SimplifyQA customers, per the Preprod customer sheet.
 // Local, high-quality SVGs live under /public/logos/customers/.
 // For the 6 customers below without a shipped SVG yet, we fall back to
-// logo.dev by domain so the UI is not blank — swap to a local SVG when
+// logo.dev by domain so the UI is not blank - swap to a local SVG when
 // available.
 
 const TOKEN = process.env.NEXT_PUBLIC_LOGO_DEV_TOKEN || 'pk_X-1ZO13GSgeOoUrIuJ6GMQ';

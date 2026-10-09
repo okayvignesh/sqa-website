@@ -16,7 +16,10 @@ export async function generateMetadata({ params }: Props): Promise<Metadata> {
   const url = absoluteUrl(`/blog/${post.slug}`);
   const title = post.seo?.metaTitle?.trim() || post.title;
   const description = post.seo?.metaDescription?.trim() || post.excerpt;
-  const ogImage = post.seo?.ogImage?.trim() || post.featuredImage || undefined;
+  // Always resolve to an absolute metadataBase URL: a bespoke social image if
+  // the post has one, else the route's generated OG card.
+  const ogImage =
+    post.seo?.ogImage?.trim() || post.featuredImage || `/blog/${post.slug}/opengraph-image`;
 
   return {
     title,
@@ -33,7 +36,7 @@ export async function generateMetadata({ params }: Props): Promise<Metadata> {
       publishedTime: post.publishedAt,
       authors: [post.author.name],
       tags: post.tags,
-      ...(ogImage ? { images: [{ url: ogImage, alt: title }] } : {}),
+      images: [{ url: ogImage, alt: title }],
     },
     twitter: {
       card: 'summary_large_image',
@@ -41,7 +44,7 @@ export async function generateMetadata({ params }: Props): Promise<Metadata> {
       description,
       site: SITE_TWITTER,
       creator: SITE_TWITTER,
-      ...(ogImage ? { images: [ogImage] } : {}),
+      images: [ogImage],
     },
   };
 }

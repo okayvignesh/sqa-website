@@ -6,6 +6,7 @@ export const metadata = buildMetadata({
   description:
     'Purpose-built solutions for enterprise QA, agile teams, engineering leaders, and regulated industries.',
   path: '/solutions',
+  image: '/solutions/opengraph-image',
 });
 
 export default function Page() {

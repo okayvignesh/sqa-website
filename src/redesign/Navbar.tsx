@@ -38,20 +38,20 @@ export default function NavbarV2({ theme = 'light' }: { theme?: Theme }) {
       }
     : scroll
     ? {
-        navBg:      'glass-strong shadow-[0_10px_40px_-20px_rgba(124,58,237,0.20)]',
+        navBg:      'glass-strong shadow-[0_10px_40px_-20px_rgba(37,99,235,0.20)]',
         navBgIdle:  '',
-        link:       'text-ink-700 hover:text-ink-900 hover:bg-[#F5F3FF]',
-        mobileBtn:  'hover:bg-[#F5F3FF]',
+        link:       'text-ink-700 hover:text-ink-900 hover:bg-[#EFF6FF]',
+        mobileBtn:  'hover:bg-[#EFF6FF]',
         mobilePanel:'glass-strong',
-        mobileLink: 'text-ink-800 hover:bg-[#F5F3FF]',
+        mobileLink: 'text-ink-800 hover:bg-[#EFF6FF]',
         // Recolor the SimplifyQA wordmark PNG: shift the red "QA" glyphs
-        // toward violet (grey portions have no hue so hue-rotate leaves them
+        // toward blue (grey portions have no hue so hue-rotate leaves them
         // untouched). Purely a scroll-page treatment.
-        logoStyle:  { filter: 'hue-rotate(-100deg) saturate(1.15) brightness(1.02)' } as React.CSSProperties,
+        logoStyle:  { filter: 'hue-rotate(-132deg) saturate(1.15) brightness(1.02)' } as React.CSSProperties,
         ctaClass:   'text-white',
         ctaStyle:   {
-          background: 'linear-gradient(180deg, #8B5CF6 0%, #7C3AED 60%, #5B21B6 100%)',
-          boxShadow: '0 12px 30px -8px rgba(124,58,237,0.55), 0 1px 0 rgba(255,255,255,0.2) inset',
+          background: 'linear-gradient(180deg, #3B82F6 0%, #2563EB 60%, #1E40AF 100%)',
+          boxShadow: '0 12px 30px -8px rgba(37,99,235,0.55), 0 1px 0 rgba(255,255,255,0.2) inset',
         } as React.CSSProperties,
       }
     : {
@@ -87,6 +87,8 @@ export default function NavbarV2({ theme = 'light' }: { theme?: Theme }) {
             <img
               src="/SimplifyQA%20logo%20Grey.png"
               alt="SimplifyQA"
+              width={140}
+              height={20}
               className={cn('w-auto select-none transition-all duration-300', scrolled ? 'h-4' : 'h-[18px]')}
               style={p.logoStyle}
               draggable={false}
