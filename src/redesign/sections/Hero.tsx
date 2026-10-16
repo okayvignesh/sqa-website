@@ -34,8 +34,8 @@ export default function Hero() {
             animate={{ opacity: 1, y: 0 }}
             transition={{ duration: 0.6, ease: [0.16, 1, 0.3, 1] }}
           >
-            <Eyebrow icon={<Sparkles className="w-3.5 h-3.5" />}>
-              For Web, Mobile, API, SAP & Mainframe Teams
+            <Eyebrow icon={<Sparkles className="w-3.5 h-3.5" />} className="uppercase">
+              Plan · Automate · Test · Release
             </Eyebrow>
           </motion.div>
 
@@ -45,8 +45,9 @@ export default function Hero() {
             transition={{ duration: 0.8, ease: [0.16, 1, 0.3, 1], delay: 0.05 }}
             className="mt-6 font-display text-display-lg leading-[1.12] pb-[0.06em] text-ink-900 text-balance"
           >
-            AI-powered test management & automation for{' '}
-            <span className="gradient-text">enterprise QA</span>.
+            From <span className="marker-highlight">requirement to release.</span>
+            <br className="hidden sm:block" />{' '}
+            <span className="marker-highlight">One AI platform for enterprise quality.</span>
           </motion.h1>
 
           <motion.p
@@ -55,10 +56,9 @@ export default function Hero() {
             transition={{ duration: 0.8, ease: [0.16, 1, 0.3, 1], delay: 0.15 }}
             className="mt-6 text-[17px] sm:text-[19px] leading-relaxed text-ink-500 max-w-2xl mx-auto text-pretty"
           >
-            SimplifyQA is an enterprise test management and automation platform. It unifies test
-            planning, AI-generated test cases, self-healing automation, and release reporting in
-            one workspace, across web, mobile, API, desktop, SAP, and mainframe. Plan, automate,
-            execute, and report, without stitching tools together.
+            SimplifyQA unifies the entire quality lifecycle in one AI-augmented workspace. Plan and
+            trace tests, generate cases with AI, automate across web, mobile, API, desktop, SAP, and
+            mainframe, triage defects, orchestrate releases, and report in real time.
           </motion.p>
 
           <motion.div
