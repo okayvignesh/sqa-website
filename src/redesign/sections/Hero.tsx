@@ -45,9 +45,8 @@ export default function Hero() {
             transition={{ duration: 0.8, ease: [0.16, 1, 0.3, 1], delay: 0.05 }}
             className="mt-6 font-display text-display-lg leading-[1.12] pb-[0.06em] text-ink-900 text-balance"
           >
-            From <span className="marker-highlight">requirement to release.</span>
-            <br className="hidden sm:block" />{' '}
-            <span className="marker-highlight">One AI platform for enterprise quality.</span>
+            From requirement to release.
+            <br className="hidden sm:block" /> One AI platform for enterprise quality.
           </motion.h1>
 
           <motion.p
