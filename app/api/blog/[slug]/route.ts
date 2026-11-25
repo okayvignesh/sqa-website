@@ -1,152 +1,41 @@
-import { NextRequest, NextResponse } from 'next/server'
-import connectDB from '@/lib/mongodb'
-import { Post } from '@/models'
+import { NextResponse } from 'next/server';
+import { connectMongo } from '../../../../src/lib/mongodb';
+import { Post } from '../../../../src/lib/models/Post';
+import { getPostBySlug } from '../../../../src/lib/posts';
 
-// Calculate reading time based on content
-function calculateReadingTime(content: string): string {
-  const wordsPerMinute = 200
-  const textContent = content.replace(/<[^>]*>/g, '')
-  const wordCount = textContent.split(/\s+/).filter(Boolean).length
-  const minutes = Math.ceil(wordCount / wordsPerMinute)
-  return `${minutes} min read`
+export const dynamic = 'force-dynamic';
+
+type Ctx = { params: Promise<{ slug: string }> };
+
+export async function GET(_req: Request, ctx: Ctx) {
+  const { slug } = await ctx.params;
+  const post = await getPostBySlug(slug);
+  if (!post) return NextResponse.json({ error: 'Not found' }, { status: 404 });
+  return NextResponse.json({ post });
 }
 
-// GET /api/blog/[slug] - Get a single post
-export async function GET(
-  request: NextRequest,
-  { params }: { params: { slug: string } }
-) {
-  try {
-    await connectDB()
-
-    const post = await Post.findOne({ slug: params.slug })
-      .populate('author', 'id name bio avatar')
-      .populate('category', 'id name slug')
-
-    if (!post) {
-      return NextResponse.json(
-        { error: 'Post not found' },
-        { status: 404 }
-      )
-    }
-
-    return NextResponse.json(post)
-  } catch (error) {
-    console.error('Error fetching post:', error)
-    return NextResponse.json(
-      { error: 'Failed to fetch post' },
-      { status: 500 }
-    )
+export async function PUT(req: Request, ctx: Ctx) {
+  if (!process.env.MONGODB_URI) {
+    return NextResponse.json({ error: 'MONGODB_URI not configured' }, { status: 503 });
   }
+  const { slug } = await ctx.params;
+  let body: any;
+  try { body = await req.json(); } catch {
+    return NextResponse.json({ error: 'Invalid JSON body' }, { status: 400 });
+  }
+  await connectMongo();
+  const updated = await Post.findOneAndUpdate({ slug }, body, { new: true });
+  if (!updated) return NextResponse.json({ error: 'Not found' }, { status: 404 });
+  return NextResponse.json({ post: updated });
 }
 
-// PUT /api/blog/[slug] - Update a post
-export async function PUT(
-  request: NextRequest,
-  { params }: { params: { slug: string } }
-) {
-  try {
-    await connectDB()
-
-    const body = await request.json()
-
-    const {
-      title,
-      description,
-      content,
-      featuredImage,
-      featuredImageAlt,
-      metaTitle,
-      metaDescription,
-      ogImage,
-      categoryId,
-      tags,
-      authorId,
-      status,
-      featured,
-    } = body
-
-    // Check if post exists
-    const existingPost = await Post.findOne({ slug: params.slug })
-
-    if (!existingPost) {
-      return NextResponse.json(
-        { error: 'Post not found' },
-        { status: 404 }
-      )
-    }
-
-    // Prepare update data
-    const updateData: any = {}
-
-    if (title !== undefined) updateData.title = title
-    if (description !== undefined) updateData.description = description
-    if (content !== undefined) {
-      updateData.content = content
-      updateData.readingTime = calculateReadingTime(content)
-    }
-    if (featuredImage !== undefined) updateData.featuredImage = featuredImage
-    if (featuredImageAlt !== undefined) updateData.featuredImageAlt = featuredImageAlt
-    if (metaTitle !== undefined) updateData.metaTitle = metaTitle
-    if (metaDescription !== undefined) updateData.metaDescription = metaDescription
-    if (ogImage !== undefined) updateData.ogImage = ogImage
-    if (categoryId !== undefined) updateData.category = categoryId
-    if (tags !== undefined) updateData.tags = Array.isArray(tags) ? tags.join(',') : tags
-    if (authorId !== undefined) updateData.author = authorId
-    if (featured !== undefined) updateData.featured = featured
-
-    // Handle status change
-    if (status !== undefined) {
-      updateData.status = status
-      // Set publishedAt when publishing for the first time
-      if (status === 'PUBLISHED' && !existingPost.publishedAt) {
-        updateData.publishedAt = new Date()
-      }
-    }
-
-    const post = await Post.findOneAndUpdate(
-      { slug: params.slug },
-      updateData,
-      { new: true }
-    )
-      .populate('author')
-      .populate('category')
-
-    return NextResponse.json(post)
-  } catch (error) {
-    console.error('Error updating post:', error)
-    return NextResponse.json(
-      { error: 'Failed to update post' },
-      { status: 500 }
-    )
+export async function DELETE(_req: Request, ctx: Ctx) {
+  if (!process.env.MONGODB_URI) {
+    return NextResponse.json({ error: 'MONGODB_URI not configured' }, { status: 503 });
   }
-}
-
-// DELETE /api/blog/[slug] - Delete a post
-export async function DELETE(
-  request: NextRequest,
-  { params }: { params: { slug: string } }
-) {
-  try {
-    await connectDB()
-
-    const post = await Post.findOne({ slug: params.slug })
-
-    if (!post) {
-      return NextResponse.json(
-        { error: 'Post not found' },
-        { status: 404 }
-      )
-    }
-
-    await Post.deleteOne({ slug: params.slug })
-
-    return NextResponse.json({ message: 'Post deleted successfully' })
-  } catch (error) {
-    console.error('Error deleting post:', error)
-    return NextResponse.json(
-      { error: 'Failed to delete post' },
-      { status: 500 }
-    )
-  }
+  const { slug } = await ctx.params;
+  await connectMongo();
+  const deleted = await Post.findOneAndDelete({ slug });
+  if (!deleted) return NextResponse.json({ error: 'Not found' }, { status: 404 });
+  return NextResponse.json({ ok: true });
 }

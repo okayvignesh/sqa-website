@@ -1,8 +1,0 @@
-<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 120 120" fill="none">
-  <circle cx="60" cy="60" r="56" stroke="#1D4ED8" stroke-width="3" fill="#EEF2FF"/>
-  <circle cx="60" cy="60" r="48" stroke="#4F46E5" stroke-width="2" fill="white"/>
-  <circle cx="60" cy="45" r="12" stroke="#1D4ED8" stroke-width="2" fill="none"/>
-  <path d="M48 45h24M60 33v24" stroke="#1D4ED8" stroke-width="2"/>
-  <text x="60" y="78" text-anchor="middle" font-family="Arial, sans-serif" font-size="14" font-weight="bold" fill="#1D4ED8">GDPR</text>
-  <text x="60" y="98" text-anchor="middle" font-family="Arial, sans-serif" font-size="8" fill="#64748B">COMPLIANT</text>
-</svg>

@@ -1,166 +1,58 @@
-import { NextRequest, NextResponse } from 'next/server'
-import connectDB from '@/lib/mongodb'
-import { Post } from '@/models'
+import { NextResponse } from 'next/server';
+import { connectMongo } from '../../../src/lib/mongodb';
+import { Post } from '../../../src/lib/models/Post';
+import { listPosts } from '../../../src/lib/posts';
 
-// Calculate reading time based on content
-function calculateReadingTime(content: string): string {
-  const wordsPerMinute = 200
-  const textContent = content.replace(/<[^>]*>/g, '') // Strip HTML tags
-  const wordCount = textContent.split(/\s+/).filter(Boolean).length
-  const minutes = Math.ceil(wordCount / wordsPerMinute)
-  return `${minutes} min read`
+export const dynamic = 'force-dynamic';
+
+export async function GET() {
+  const posts = await listPosts();
+  return NextResponse.json({ posts });
 }
 
-// Generate slug from title
-function generateSlug(title: string): string {
-  return title
-    .toLowerCase()
-    .replace(/[^a-z0-9]+/g, '-')
-    .replace(/(^-|-$)/g, '')
-}
-
-// GET /api/blog - List all posts (with optional filters)
-export async function GET(request: NextRequest) {
-  try {
-    await connectDB()
-
-    const { searchParams } = new URL(request.url)
-    const status = searchParams.get('status')
-    const category = searchParams.get('category')
-    const featured = searchParams.get('featured')
-    const limit = searchParams.get('limit')
-    const page = searchParams.get('page')
-
-    const query: any = {}
-
-    // Filter by status
-    if (status) {
-      query.status = status
-    }
-
-    // Filter by category (by slug)
-    if (category) {
-      const { Category } = await import('@/models')
-      const cat = await Category.findOne({ slug: category })
-      if (cat) {
-        query.category = cat._id
-      }
-    }
-
-    // Filter by featured
-    if (featured === 'true') {
-      query.featured = true
-    }
-
-    // Pagination
-    const take = limit ? parseInt(limit) : undefined
-    const skip = page && limit ? (parseInt(page) - 1) * parseInt(limit) : 0
-
-    const [posts, total] = await Promise.all([
-      Post.find(query)
-        .populate('author', 'id name avatar')
-        .populate('category', 'id name slug')
-        .sort({ publishedAt: -1 })
-        .skip(skip)
-        .limit(take || 100),
-      Post.countDocuments(query),
-    ])
-
-    return NextResponse.json({
-      posts,
-      total,
-      page: page ? parseInt(page) : 1,
-      totalPages: limit ? Math.ceil(total / parseInt(limit)) : 1,
-    })
-  } catch (error) {
-    console.error('Error fetching posts:', error)
+export async function POST(req: Request) {
+  if (!process.env.MONGODB_URI) {
     return NextResponse.json(
-      { error: 'Failed to fetch posts' },
-      { status: 500 }
-    )
+      { error: 'MONGODB_URI not configured on this server' },
+      { status: 503 },
+    );
   }
-}
 
-// POST /api/blog - Create a new post
-export async function POST(request: NextRequest) {
+  let body: any;
   try {
-    await connectDB()
+    body = await req.json();
+  } catch {
+    return NextResponse.json({ error: 'Invalid JSON body' }, { status: 400 });
+  }
 
-    const body = await request.json()
-
-    const {
-      title,
-      description,
-      content,
-      featuredImage,
-      featuredImageAlt,
-      metaTitle,
-      metaDescription,
-      ogImage,
-      categoryId,
-      tags,
-      authorId,
-      status = 'DRAFT',
-      featured = false,
-    } = body
-
-    // Validate required fields
-    if (!title || !description || !content || !categoryId || !authorId) {
-      return NextResponse.json(
-        { error: 'Missing required fields' },
-        { status: 400 }
-      )
-    }
-
-    // Generate slug
-    let slug = generateSlug(title)
-
-    // Check if slug exists and append number if needed
-    const existingPost = await Post.findOne({ slug })
-    if (existingPost) {
-      const count = await Post.countDocuments({ slug: { $regex: `^${slug}` } })
-      slug = `${slug}-${count + 1}`
-    }
-
-    // Calculate reading time
-    const readingTime = calculateReadingTime(content)
-
-    // Build post data object
-    const postData: Record<string, unknown> = {
-      title,
-      slug,
-      description,
-      content,
-      featuredImage,
-      featuredImageAlt,
-      metaTitle: metaTitle || title,
-      metaDescription: metaDescription || description,
-      ogImage,
-      category: categoryId,
-      tags: Array.isArray(tags) ? tags.join(',') : tags || '',
-      author: authorId,
-      status,
-      featured,
-      readingTime,
-    }
-
-    // Set publishedAt only if status is PUBLISHED
-    if (status === 'PUBLISHED') {
-      postData.publishedAt = new Date()
-    }
-
-    const post = await Post.create(postData)
-
-    const populatedPost = await Post.findById(post._id)
-      .populate('author')
-      .populate('category')
-
-    return NextResponse.json(populatedPost, { status: 201 })
-  } catch (error) {
-    console.error('Error creating post:', error)
+  const { slug, title, content } = body ?? {};
+  if (!slug || !title || !content) {
     return NextResponse.json(
-      { error: 'Failed to create post' },
-      { status: 500 }
-    )
+      { error: 'slug, title, and content are required' },
+      { status: 400 },
+    );
+  }
+
+  try {
+    await connectMongo();
+    const created = await Post.create({
+      slug,
+      title,
+      excerpt: body.excerpt ?? '',
+      content,
+      category: body.category ?? 'General',
+      author: body.author ?? { name: 'SimplifyQA', role: '' },
+      publishedAt: body.publishedAt ? new Date(body.publishedAt) : new Date(),
+      readTime: body.readTime ?? '5 min read',
+      featuredImage: body.featuredImage ?? '',
+      tags: Array.isArray(body.tags) ? body.tags : [],
+      published: body.published ?? true,
+    });
+    return NextResponse.json({ post: created }, { status: 201 });
+  } catch (err: any) {
+    if (err?.code === 11000) {
+      return NextResponse.json({ error: 'A post with this slug already exists' }, { status: 409 });
+    }
+    return NextResponse.json({ error: err.message ?? 'Server error' }, { status: 500 });
   }
 }
