@@ -3,7 +3,7 @@ import { Clapperboard } from 'lucide-react';
 import { videos, type Video, type VideoId } from '../data/videos';
 
 // A silent, looping website clip. Until the clip has a `src` in data/videos.ts:
-//  - in development the slot shows a labelled placeholder, so we can see where it goes;
+//  - in development and on Vercel review builds the slot shows a labelled placeholder;
 //  - in production it shows `fallback` (the current visual), or nothing.
 // ponytail: `always` forces the placeholder (the demos page lists clips even before they exist).
 export default function VideoSlot({
@@ -21,7 +21,7 @@ export default function VideoSlot({
     );
   }
 
-  if (!always && process.env.NODE_ENV === 'production') return <>{fallback ?? null}</>;
+  if (!always && process.env.NODE_ENV === 'production' && !process.env.NEXT_PUBLIC_SHOW_VIDEO_SLOTS) return <>{fallback ?? null}</>;
 
   return (
     <div

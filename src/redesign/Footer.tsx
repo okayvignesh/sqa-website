@@ -88,7 +88,7 @@ export default function FooterV2() {
           <div className="col-span-2 sm:col-span-3 lg:col-span-1">
             <Link href="/" className="inline-flex items-center" aria-label="SimplifyQA home">
               <Image
-                src="/SimplifyQA logo Grey.png"
+                src="/simplifyqa-logo-grey.png"
                 alt="SimplifyQA"
                 width={140}
                 height={20}

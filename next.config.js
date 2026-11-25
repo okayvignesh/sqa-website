@@ -6,6 +6,8 @@ const nextConfig = {
   output: 'standalone',
   // Don't advertise the framework in responses.
   poweredByHeader: false,
+  // Vercel builds are review builds: show the video placeholders there.
+  env: { NEXT_PUBLIC_SHOW_VIDEO_SLOTS: process.env.VERCEL ? '1' : '' },
   // The MCP page moved from /agent to /mcp; keep old links working.
   async redirects() {
     return [
