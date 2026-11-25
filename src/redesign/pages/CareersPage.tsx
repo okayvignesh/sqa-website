@@ -1,5 +1,8 @@
 'use client';
 
+// TODO(careers): CVs go to support@ for now. Switch both mailto links below to the HR
+// address once HR confirms it.
+
 import Link from 'next/link';
 import { motion } from 'framer-motion';
 import {

@@ -101,9 +101,7 @@ export default function ProductPage({ config }: { config: ProductPageConfig }) {
             </div>
 
             <Reveal delay={0.15}>
-              {video
-                ? <VideoSlot id={video} fallback={visual || <DefaultVisual eyebrow={eyebrow} />} />
-                : visual || <DefaultVisual eyebrow={eyebrow} />}
+              {video ? <VideoSlot id={video} /> : visual || <DefaultVisual eyebrow={eyebrow} />}
             </Reveal>
           </div>
         </Container>

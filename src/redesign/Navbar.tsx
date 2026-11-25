@@ -3,11 +3,37 @@
 import { useEffect, useState } from 'react';
 import Link from 'next/link';
 import { AnimatePresence, motion } from 'framer-motion';
-import { ArrowRight, Menu, X } from 'lucide-react';
+import { ArrowRight, ChevronDown, Menu, X } from 'lucide-react';
 import { cn } from '../design';
 import { useBookDemo } from './CalendlyModal';
 
 type Theme = 'light' | 'dark' | 'scroll';
+
+const platformLinks = [
+  ['Project Management', '/platform/project-management'],
+  ['Test Management', '/platform/test-management'],
+  ['Test Automation', '/platform/test-automation'],
+  ['AI Test Assistant', '/platform/ai-test-assistant'],
+  ['Defect Management', '/platform/defect-management'],
+  ['Release Orchestration', '/platform/release-orchestration'],
+  ['Insights & Reports', '/platform/insights-reports'],
+];
+
+const navLinks = [
+  ['SimplifyQA MCP', '/mcp'],
+  ['Demos', '/demos'],
+  ['Integrations', '/integrations'],
+  ['Pricing', '/pricing'],
+  ['Customers', '/customer-success'],
+  ['Docs', 'https://docs.simplifyqa.ai'],
+];
+
+// Docs lives on its own site, so it opens in a new tab.
+function NavLink({ to, className, onClick, children }: { to: string; className: string; onClick?: () => void; children: React.ReactNode }) {
+  return to.startsWith('http')
+    ? <a href={to} target="_blank" rel="noopener noreferrer" className={className} onClick={onClick}>{children}</a>
+    : <Link href={to} className={className} onClick={onClick}>{children}</Link>;
+}
 
 export default function NavbarV2({ theme = 'light' }: { theme?: Theme }) {
   const [scrolled, setScrolled] = useState(false);
@@ -66,7 +92,7 @@ export default function NavbarV2({ theme = 'light' }: { theme?: Theme }) {
         ctaStyle:   undefined,
       };
 
-  const ctaClassName = 'inline-flex items-center gap-2 h-10 px-5 rounded-full text-[14px] font-semibold transition-colors';
+  const ctaClassName = 'inline-flex items-center gap-2 whitespace-nowrap h-10 px-5 rounded-full text-[14px] font-semibold transition-colors';
 
   return (
     <header
@@ -96,28 +122,38 @@ export default function NavbarV2({ theme = 'light' }: { theme?: Theme }) {
           </Link>
 
           {/* Desktop nav */}
-          <ul className="hidden lg:flex items-center gap-1">
-            {[
-              ['Integrations', '/integrations'],
-              ['Pricing', '/pricing'],
-              ['Customers', '/customer-success'],
-            ].map(([label, to]) => (
+          <ul className="hidden xl:flex items-center gap-0.5">
+            <li className="relative group">
+              <button
+                type="button"
+                className={cn('inline-flex items-center gap-1 h-9 px-3 text-sm font-medium rounded-full transition-colors', p.link)}
+              >
+                Platform <ChevronDown className="w-3.5 h-3.5 transition-transform group-hover:rotate-180 group-focus-within:rotate-180" />
+              </button>
+              <div className="invisible opacity-0 group-hover:visible group-hover:opacity-100 group-focus-within:visible group-focus-within:opacity-100 transition-opacity absolute left-0 top-full pt-2 z-10">
+                <div className="w-60 rounded-2xl p-2 bg-white border border-ink-900/[0.08] shadow-[0_20px_50px_-20px_rgba(15,19,34,0.35)]">
+                  {platformLinks.map(([label, to]) => (
+                    <Link key={to} href={to} className="block px-3 py-2 rounded-xl text-[14px] font-medium text-ink-700 hover:text-ink-900 hover:bg-ink-50">
+                      {label}
+                    </Link>
+                  ))}
+                </div>
+              </div>
+            </li>
+            {navLinks.map(([label, to]) => (
               <li key={label}>
-                <Link
-                  href={to}
-                  className={cn(
-                    'inline-flex items-center h-9 px-4 text-sm font-medium rounded-full transition-colors',
-                    p.link,
-                  )}
+                <NavLink
+                  to={to}
+                  className={cn('inline-flex items-center h-9 px-3 text-sm font-medium rounded-full whitespace-nowrap transition-colors', p.link)}
                 >
                   {label}
-                </Link>
+                </NavLink>
               </li>
             ))}
           </ul>
 
           {/* CTA */}
-          <div className="hidden lg:flex items-center gap-2">
+          <div className="hidden xl:flex items-center gap-2">
             {scroll || dark ? (
               <button
                 type="button"
@@ -132,7 +168,7 @@ export default function NavbarV2({ theme = 'light' }: { theme?: Theme }) {
               <button
                 type="button"
                 onClick={bookDemo}
-                className="btn-primary h-10 px-5"
+                className="btn-primary h-10 px-5 whitespace-nowrap"
               >
                 Book a demo
                 <ArrowRight className="w-3.5 h-3.5" />
@@ -142,7 +178,7 @@ export default function NavbarV2({ theme = 'light' }: { theme?: Theme }) {
 
           {/* Mobile toggle */}
           <button
-            className={cn('lg:hidden p-2 rounded-full', p.mobileBtn)}
+            className={cn('xl:hidden p-2 rounded-full', p.mobileBtn)}
             onClick={() => setMobile((v) => !v)}
             aria-label="Toggle menu"
           >
@@ -159,22 +195,30 @@ export default function NavbarV2({ theme = 'light' }: { theme?: Theme }) {
             animate={{ opacity: 1, y: 0 }}
             exit={{ opacity: 0, y: -8 }}
             transition={{ duration: 0.22 }}
-            className="lg:hidden mx-4 mt-3"
+            className="xl:hidden mx-4 mt-3"
           >
-            <div className={cn('rounded-3xl p-3', p.mobilePanel)}>
-              {[
-                ['Integrations', '/integrations'],
-                ['Pricing', '/pricing'],
-                ['Customers', '/customer-success'],
-              ].map(([label, to]) => (
+            <div data-lenis-prevent className={cn('rounded-3xl p-3 max-h-[calc(100dvh-7rem)] overflow-y-auto', p.mobilePanel)}>
+              <div className="px-4 pt-2 pb-1 text-[11px] font-semibold uppercase tracking-wider opacity-60">Platform</div>
+              {platformLinks.map(([label, to]) => (
                 <Link
-                  key={label}
+                  key={to}
                   href={to}
+                  onClick={() => setMobile(false)}
+                  className={cn('block px-4 py-2 rounded-2xl text-[14px] font-medium', p.mobileLink)}
+                >
+                  {label}
+                </Link>
+              ))}
+              <div className="my-2 border-t border-current opacity-10" />
+              {navLinks.map(([label, to]) => (
+                <NavLink
+                  key={label}
+                  to={to}
                   onClick={() => setMobile(false)}
                   className={cn('block px-4 py-3 rounded-2xl text-[15px] font-medium', p.mobileLink)}
                 >
                   {label}
-                </Link>
+                </NavLink>
               ))}
               {scroll || dark ? (
                 <button

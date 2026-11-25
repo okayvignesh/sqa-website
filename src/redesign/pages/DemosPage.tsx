@@ -12,7 +12,7 @@ function Grid({ ids, quote }: { ids: VideoId[]; quote?: boolean }) {
     <RevealGroup className="mt-10 grid md:grid-cols-2 lg:grid-cols-3 gap-5">
       {ids.map((id) => (
         <motion.div key={id} variants={fadeUp} className="rounded-3xl bg-white border border-ink-900/[0.06] p-3">
-          <VideoSlot id={id} always className="rounded-2xl" />
+          <VideoSlot id={id} compact className="rounded-2xl" />
           <div className="px-2 pt-4 pb-2">
             <h3 className="font-display text-[17px] text-ink-900">{videos[id].title}</h3>
             <p className={`mt-1.5 text-[13.5px] leading-relaxed text-ink-500 ${quote ? 'italic' : ''}`}>{videos[id].about}</p>

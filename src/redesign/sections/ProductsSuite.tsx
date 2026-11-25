@@ -7,7 +7,7 @@ import { Container, Eyebrow, Reveal } from '../../design';
 
 export default function ProductsSuite() {
   return (
-    <section className="relative pt-10 sm:pt-12 pb-14 sm:pb-20 bg-white">
+    <section className="relative py-14 sm:py-20 bg-white">
       <Container size="wide">
         <div className="max-w-3xl">
           <Reveal>

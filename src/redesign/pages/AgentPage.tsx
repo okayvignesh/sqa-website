@@ -208,7 +208,7 @@ export default function AgentPage() {
 
           {/* Hero terminal signature, below the split */}
           <div className="mt-16">
-            <VideoSlot id="mcp" dark fallback={<HeroTerminal />} />
+            <VideoSlot id="mcp" dark />
           </div>
         </div>
       </section>
@@ -603,76 +603,6 @@ function SectionEyebrow({ icon, children }: { icon: React.ReactNode; children: R
   );
 }
 
-function HeroTerminal() {
-  return (
-    <div className="relative">
-      <div aria-hidden className="absolute -inset-4 rounded-[36px] opacity-70 blur-2xl -z-10"
-           style={{ background: `radial-gradient(60% 60% at 50% 50%, ${K.green}15, transparent 70%)` }} />
-      <div className="rounded-[20px] border overflow-hidden"
-           style={{ background: '#08080D', borderColor: K.borderH, boxShadow: `0 40px 80px -30px #000000` }}>
-        {/* window bar */}
-        <div className="flex items-center gap-3 px-4 py-2.5 border-b" style={{ borderColor: K.border, background: '#050508' }}>
-          <div className="flex items-center gap-1.5">
-            <span className="w-2.5 h-2.5 rounded-full" style={{ background: '#FF5F57' }} />
-            <span className="w-2.5 h-2.5 rounded-full" style={{ background: '#FEBC2E' }} />
-            <span className="w-2.5 h-2.5 rounded-full" style={{ background: '#28C840' }} />
-          </div>
-          <span className="text-[12px] font-mono" style={{ color: K.muted }}>
-            Claude · MCP: simplify3x-connect
-          </span>
-          <span className="ml-auto flex items-center gap-1.5 text-[11px] font-mono" style={{ color: K.green }}>
-            <span className="w-1.5 h-1.5 rounded-full animate-pulse" style={{ background: K.green }} /> connected
-          </span>
-        </div>
-
-        <div className="p-6 sm:p-8 font-mono text-[13.5px] space-y-4" style={{ color: K.text }}>
-          {/* user prompt */}
-          <div>
-            <div className="flex items-center gap-2 text-[11.5px] mb-2" style={{ color: K.muted }}>
-              <span className="grid place-items-center w-5 h-5 rounded-full text-[10px] font-bold"
-                    style={{ background: K.amber + '20', color: K.amber, border: `1px solid ${K.amber}55` }}>Y</span>
-              You
-            </div>
-            <div className="pl-7">
-              Create test cases for story <span style={{ color: K.amber }}>ACME-214</span> and record
-              the first one on <span style={{ color: K.green }}>https://shop.acme.com</span>.
-            </div>
-          </div>
-
-          {/* agent output */}
-          <div className="pt-2">
-            <div className="flex items-center gap-2 text-[11.5px] mb-2" style={{ color: K.muted }}>
-              <span className="grid place-items-center w-5 h-5 rounded-full text-[10px] font-bold"
-                    style={{ background: K.green + '25', color: K.green, border: `1px solid ${K.green}55` }}>C</span>
-              Claude · simplify3x-connect
-            </div>
-            <div className="pl-7 space-y-1.5">
-              <Line label="story" ok>read <span style={{ color: K.amber }}>ACME-214</span>: guest checkout with a saved card</Line>
-              <Line label="generate" ok>6 test cases drafted from the acceptance criteria</Line>
-              <Line label="record" ok>WEB: recorded &quot;Guest checkout, valid card&quot;, 14 steps</Line>
-              <Line label="review">draft ready. Review it, then say &quot;save it&quot;.</Line>
-              <div className="mt-3 pt-3 border-t text-[12.5px]" style={{ borderColor: K.border, color: K.muted }}>
-                Nothing is saved to SimplifyQA until you approve the recording.
-              </div>
-            </div>
-          </div>
-        </div>
-      </div>
-    </div>
-  );
-}
-
-function Line({ label, ok, children }: { label: string; ok?: boolean; children: React.ReactNode }) {
-  return (
-    <div className="flex items-start gap-2">
-      <span className="mt-[3px] shrink-0" style={{ color: ok ? K.green : K.amber }}>
-        {ok ? '✓' : '⋯'}
-      </span>
-      <span style={{ color: K.faint }}>[{label}]</span>
-      <span>{children}</span>
-    </div>
-  );
-}
 
 // Alias for the icon imports we used in `steps` etc.
 const Workflow = Layers;

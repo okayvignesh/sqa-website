@@ -1,6 +1,6 @@
 'use client';
 
-import { ArrowRight, Sparkles } from 'lucide-react';
+import { ArrowRight } from 'lucide-react';
 import Link from 'next/link';
 import { Container, GradientOrb, Reveal } from '../../design';
 import { BookDemoButton } from '../CalendlyModal';
@@ -19,11 +19,7 @@ export default function CTA() {
             </div>
 
             <div className="relative max-w-3xl">
-              <span className="inline-flex items-center gap-2 px-3 py-1.5 rounded-full bg-white/10 border border-white/15 text-[12px] font-medium backdrop-blur">
-                <Sparkles className="w-3.5 h-3.5 text-brand-300" />
-                Now generally available
-              </span>
-              <h2 className="mt-6 font-display text-display-lg text-white text-balance leading-[1.04]">
+              <h2 className="font-display text-display-lg text-white text-balance leading-[1.04]">
                 See SimplifyQA on your <span className="bg-clip-text text-transparent bg-gradient-to-r from-white via-brand-200 to-brand-400">own workflows</span>.
               </h2>
               <p className="mt-5 text-[16.5px] text-white/70 max-w-xl leading-relaxed">

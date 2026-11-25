@@ -12,20 +12,24 @@ import Stats from './sections/Stats';
 import ProductsSuite from './sections/ProductsSuite';
 import HomeFAQ from './sections/HomeFAQ';
 import CTA from './sections/CTA';
+import CapabilityStrip from './sections/CapabilityStrip';
+import WhatsNew from './sections/WhatsNew';
 
 export default function HomePageV2() {
   return (
     <>
       <Hero />
+      <CapabilityStrip />
       <TrustBar />
       <BentoFeatures />
+      <ProductsSuite />
       <ReportDashboard />
       <ExecutionCopilot />
       <AIShowcase />
       <WorkflowTimeline />
       <Stats />
       <Integrations />
-      <ProductsSuite />
+      <WhatsNew />
       <HomeFAQ />
       <CTA />
     </>

@@ -36,7 +36,7 @@ const faqJsonLd = {
 
 export default function HomeFAQ() {
   return (
-    <section className="relative pt-10 sm:pt-12 pb-12 sm:pb-16 bg-white">
+    <section className="relative pt-14 sm:pt-20 pb-12 sm:pb-16 bg-white">
       <script
         type="application/ld+json"
         dangerouslySetInnerHTML={{ __html: JSON.stringify(faqJsonLd) }}

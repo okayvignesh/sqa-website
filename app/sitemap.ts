@@ -19,6 +19,8 @@ const STATIC_ROUTES: Array<{
   { path: '/resources', changeFrequency: 'weekly', priority: 0.7 },
   { path: '/blog', changeFrequency: 'daily', priority: 0.9 },
   { path: '/whats-new', changeFrequency: 'monthly', priority: 0.7 },
+  { path: '/demos', changeFrequency: 'monthly', priority: 0.7 },
+  { path: '/platform/project-management', changeFrequency: 'monthly', priority: 0.8 },
   { path: '/platform/test-management', changeFrequency: 'monthly', priority: 0.8 },
   { path: '/platform/test-automation', changeFrequency: 'monthly', priority: 0.8 },
   { path: '/platform/ai-test-assistant', changeFrequency: 'monthly', priority: 0.8 },
