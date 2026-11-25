@@ -87,7 +87,7 @@ function MiniFooter({ variant = 'light' }: { variant?: 'light' | 'dark' | 'scrol
           aria-label="SimplifyQA home"
         >
           <img
-            src="/SimplifyQA%20logo%20Grey.png"
+            src="/simplifyqa-logo-grey.png"
             alt="SimplifyQA"
             width={140}
             height={20}

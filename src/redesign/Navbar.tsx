@@ -85,7 +85,7 @@ export default function NavbarV2({ theme = 'light' }: { theme?: Theme }) {
           {/* Logo */}
           <Link href="/" className="flex items-center gap-2 px-2 group" aria-label="SimplifyQA home">
             <img
-              src="/SimplifyQA%20logo%20Grey.png"
+              src="/simplifyqa-logo-grey.png"
               alt="SimplifyQA"
               width={140}
               height={20}

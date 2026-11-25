@@ -87,7 +87,7 @@ export default function LoginForm() {
           <div className="lg:hidden mb-8">
             {/* eslint-disable-next-line @next/next/no-img-element */}
             <img
-              src="/SimplifyQA%20logo%20Grey.png"
+              src="/simplifyqa-logo-grey.png"
               alt="SimplifyQA"
               className="h-6 w-auto"
             />

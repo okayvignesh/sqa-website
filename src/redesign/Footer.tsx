@@ -1,6 +1,5 @@
 'use client';
 
-import Image from 'next/image';
 import Link from 'next/link';
 import { Linkedin, Youtube, Twitter, ArrowUpRight, Sparkles } from 'lucide-react';
 import { BookDemoButton } from './CalendlyModal';
@@ -87,14 +86,13 @@ export default function FooterV2() {
         <div className="mt-16 grid grid-cols-2 sm:grid-cols-3 lg:grid-cols-6 gap-10">
           <div className="col-span-2 sm:col-span-3 lg:col-span-1">
             <Link href="/" className="inline-flex items-center" aria-label="SimplifyQA home">
-              <Image
+              <img
                 src="/simplifyqa-logo-grey.png"
                 alt="SimplifyQA"
                 width={140}
                 height={20}
                 className="h-5 w-auto"
                 draggable={false}
-                priority={false}
               />
             </Link>
             <p className="mt-3 text-[13.5px] text-ink-500 leading-relaxed max-w-[260px]">
