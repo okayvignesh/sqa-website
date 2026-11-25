@@ -401,7 +401,7 @@ export default function CalendlyModal() {
                     Trusted by
                   </div>
                   <div className="text-[12.5px] font-medium" style={{ color: palette.ink }}>
-                    1,200+ QA and engineering teams
+                    QA teams at 40 production customers
                   </div>
                   <div className="mt-0.5 text-[11px] leading-snug" style={{ color: palette.inkMuted }}>
                     Malaysia Airlines · SMFG · CGC · Quest Alliance

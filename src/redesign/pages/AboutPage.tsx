@@ -156,10 +156,10 @@ export default function AboutPage() {
           <Reveal delay={0.22}>
             <div className="mt-14 grid grid-cols-2 sm:grid-cols-4 gap-3">
               {[
-                ['1,200+', 'Customer teams'],
-                ['90+',    'Countries deployed'],
-                ['12B+',   'Tests executed'],
-                ['99.99%', 'Platform uptime'],
+                ['40',     'Production customers'],
+                ['308K+',  'Test runs'],
+                ['8',      'Technologies automated'],
+                ['10',     'Releases in 2026'],
               ].map(([v, k]) => (
                 <div key={k} className="rounded-3xl bg-white border border-ink-900/[0.06] p-6 lift">
                   <div className="font-display text-3xl sm:text-4xl text-ink-900 tracking-tight">{v}</div>
