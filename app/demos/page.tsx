@@ -9,7 +9,6 @@ export const metadata = buildMetadata({
   absoluteTitle: true,
 });
 
-// ponytail: not in the footer or sitemap yet; add it there once the first clips are uploaded.
 export default function Page() {
   return (
     <>

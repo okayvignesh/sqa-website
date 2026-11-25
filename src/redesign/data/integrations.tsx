@@ -30,7 +30,7 @@ const simpleicons = (slug: string) => `https://cdn.simpleicons.org/${slug}`;
 const svgl = (file: string) => `https://svgl.app/library/${file}`;
 
 // Real integrations only. Any CI tool can also start runs through the REST API.
-// ponytail: LambdaTest is a real integration but has no logo on these CDNs; add it when we host one.
+// ponytail: LambdaTest uses a plain "LT" monogram in public/logos; swap in their official logo when we have it.
 export const integrations: Integration[] = [
   // Project management (two-way sync)
   { name: 'Jira',           category: 'Project',       src: devicon('jira') },
@@ -49,6 +49,7 @@ export const integrations: Integration[] = [
 
   // Mobile device clouds (mobile apps only)
   { name: 'BrowserStack',   category: 'Mobile device clouds', src: devicon('browserstack') },
+  { name: 'LambdaTest',     category: 'Mobile device clouds', src: '/logos/lambdatest.svg' },
   { name: 'Sauce Labs',     category: 'Mobile device clouds', src: simpleicons('saucelabs') },
 ];
 

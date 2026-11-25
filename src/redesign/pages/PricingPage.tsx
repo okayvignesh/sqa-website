@@ -4,8 +4,8 @@ import { useState } from 'react';
 import Link from 'next/link';
 import { motion } from 'framer-motion';
 import {
-  ArrowRight, Check, ChevronDown, Database, Globe, HelpCircle, Monitor,
-  ShieldCheck, Smartphone, Sparkles, Zap,
+  ArrowRight, Boxes, Check, ChevronDown, Database, Globe, HelpCircle, Monitor,
+  Server, ShieldCheck, Smartphone, Sparkles, Zap,
 } from 'lucide-react';
 import {
   Container, Eyebrow, GradientOrb, Reveal, RevealGroup, fadeUp, cn,
@@ -80,6 +80,26 @@ const addons: Addon[] = [
       'Touch gesture testing',
     ],
   },
+  {
+    name: 'Mainframe Automation',
+    icon: <Server className="w-4 h-4" />,
+    description: 'Mainframe terminal testing with no-code actions.',
+    features: [
+      'Record and run mainframe tests',
+      'No-code actions',
+      'Mix with web, API and database steps in one test case',
+    ],
+  },
+  {
+    name: 'SAP Automation',
+    icon: <Boxes className="w-4 h-4" />,
+    description: 'SAP test automation with no-code actions.',
+    features: [
+      'Record and run SAP tests',
+      'No-code actions',
+      'Mix with other technologies in one test case',
+    ],
+  },
 ];
 
 const faqs = [
@@ -101,7 +121,7 @@ const faqs = [
   },
   {
     q: 'What\'s included in the base ALM package vs. add-ons?',
-    a: 'The ALM Package covers everything you need for end-to-end test management, defect tracking, and reporting. Automation add-ons (Web, API/DB, Desktop, Mobile) are activated only when your team needs that surface.',
+    a: 'The ALM Package covers everything you need for end-to-end test management, defect tracking, and reporting. Automation add-ons (Web, API/DB, Desktop, Mobile, Mainframe, SAP) are activated only when your team needs that surface.',
   },
 ];
 
@@ -227,7 +247,7 @@ export default function PricingPage() {
             </Reveal>
           </div>
 
-          <RevealGroup className="mt-12 grid md:grid-cols-2 lg:grid-cols-4 gap-4 sm:gap-5" delay={0.06}>
+          <RevealGroup className="mt-12 grid md:grid-cols-2 lg:grid-cols-3 gap-4 sm:gap-5" delay={0.06}>
             {addons.map((a) => (
               <motion.div
                 key={a.name}

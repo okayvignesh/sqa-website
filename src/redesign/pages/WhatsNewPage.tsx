@@ -6,7 +6,7 @@ import { motion } from 'framer-motion';
 import CTA from '../sections/CTA';
 
 // Source: the team's release summary for 2026. Add new releases at the top.
-const releases = [
+export const releases = [
   { v: '6.10', m: 'November',  items: ['SimplifyQA MCP', 'Schedules every few minutes', 'Bulk step actions', 'SimplifyQA Scroll'] },
   { v: '6.9',  m: 'October',   items: ['Suite canvas view', 'Copy and paste of steps', 'Richer IF and FOR conditions', 'One-click screenshots and signatures in manual runs'] },
   { v: '6.8',  m: 'September', items: ['Local parallel suite runs', 'Device-cloud, emulator and simulator runs from plans and pipelines', 'Richer completion emails'] },

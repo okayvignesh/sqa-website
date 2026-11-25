@@ -2,7 +2,7 @@
 
 import { motion } from 'framer-motion';
 import {
-  ArrowRight, BookOpen, FileText, Newspaper, Play, Sparkles,
+  ArrowRight, BookOpen, Newspaper, Play, Rocket, Sparkles,
 } from 'lucide-react';
 import Link from 'next/link';
 import {
@@ -12,14 +12,9 @@ import CTA from '../sections/CTA';
 
 const tiles = [
   { icon: <BookOpen className="w-4 h-4" />,    t: 'Documentation', d: 'Setup, integrations, automation patterns.', tag: 'Docs', to: 'https://docs.simplifyqa.ai', external: true },
-  { icon: <FileText className="w-4 h-4" />,    t: 'Whitepapers',   d: 'Deep dives on test automation ROI and AI in QA.', tag: 'Reading' },
   { icon: <Newspaper className="w-4 h-4" />,   t: 'Blog',          d: 'Engineering deep dives, product updates, opinions.', tag: 'Reading', to: '/blog' },
-  { icon: <Play className="w-4 h-4" />,        t: 'Video library', d: 'Product tours, customer stories, technical talks.', tag: 'Video' },
-];
-
-const reads = [
-  { tag: 'Whitepaper', title: 'Replacing fragile UI scripts with intent-based automation', read: '12 min read' },
-  { tag: 'Customer story', title: 'How Carelon cut regression cycles by 78% in 90 days', read: '6 min read' },
+  { icon: <Play className="w-4 h-4" />,        t: 'Demos',         d: 'Short clips of the SimplifyQA MCP and the platform.', tag: 'Video', to: '/demos' },
+  { icon: <Rocket className="w-4 h-4" />,      t: "What's new",    d: 'Every SimplifyQA release in 2026, and what is coming next.', tag: 'Updates', to: '/whats-new' },
 ];
 
 export default function ResourcesPage() {
@@ -44,7 +39,7 @@ export default function ResourcesPage() {
             </Reveal>
             <Reveal delay={0.1}>
               <p className="mt-5 text-[18px] text-ink-500 max-w-2xl mx-auto">
-                Docs, whitepapers, customer stories, and engineering deep dives,
+                Docs, demos, release notes and engineering deep dives,
                 everything we've learned, built into one place.
               </p>
             </Reveal>
@@ -56,7 +51,7 @@ export default function ResourcesPage() {
       {/* Category tiles */}
       <section className="relative py-14 sm:py-20 bg-surface-soft">
         <Container size="wide">
-          <RevealGroup className="grid md:grid-cols-2 lg:grid-cols-3 gap-4 sm:gap-5">
+          <RevealGroup className="grid md:grid-cols-2 lg:grid-cols-4 gap-4 sm:gap-5">
             {tiles.map((t) => {
               const inner = (
                 <>
@@ -89,31 +84,6 @@ export default function ResourcesPage() {
               );
             })}
           </RevealGroup>
-        </Container>
-      </section>
-
-      {/* Reading */}
-      <section className="relative py-16 sm:py-20 bg-white">
-        <Container size="wide">
-          <div className="max-w-3xl">
-            <div>
-              <Reveal>
-                <Eyebrow icon={<BookOpen className="w-3.5 h-3.5" />}>Worth reading</Eyebrow>
-              </Reveal>
-              <Reveal delay={0.05}>
-                <h2 className="mt-5 font-display text-display-md text-ink-900">From the library</h2>
-              </Reveal>
-              <div className="mt-8 space-y-3">
-                {reads.map((r) => (
-                  <Link key={r.title} href="/blog" className="block rounded-2xl border border-ink-900/[0.06] bg-white p-5 lift">
-                    <div className="text-[12px] font-semibold uppercase tracking-wider text-brand-700">{r.tag}</div>
-                    <div className="mt-1 text-[14.5px] font-semibold text-ink-900">{r.title}</div>
-                    <div className="text-[12.5px] text-ink-500">{r.read}</div>
-                  </Link>
-                ))}
-              </div>
-            </div>
-          </div>
         </Container>
       </section>
 

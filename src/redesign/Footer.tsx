@@ -11,6 +11,7 @@ const col = (title: string, items: { label: string; to: string; external?: boole
 // pages that are not in the top navigation.
 const columns = [
   col('Platform', [
+    { label: 'Project Management',    to: '/platform/project-management' },
     { label: 'Test Management',       to: '/platform/test-management' },
     { label: 'Test Automation',       to: '/platform/test-automation' },
     { label: 'AI Test Assistant',     to: '/platform/ai-test-assistant' },
@@ -34,6 +35,7 @@ const columns = [
   col('Resources', [
     { label: 'Blog',         to: '/blog' },
     { label: "What's new",   to: '/whats-new' },
+    { label: 'Demos',        to: '/demos' },
     { label: 'Resource Hub', to: '/resources' },
     { label: 'Case Studies', to: '/customer-success' },
     { label: 'Docs',         to: 'https://docs.simplifyqa.ai', external: true },

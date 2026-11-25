@@ -1,14 +1,12 @@
-import type { ReactNode } from 'react';
 import { Clapperboard } from 'lucide-react';
 import { videos, type Video, type VideoId } from '../data/videos';
 
-// A silent, looping website clip. Until the clip has a `src` in data/videos.ts:
-//  - in development and on Vercel review builds the slot shows a labelled placeholder;
-//  - in production it shows `fallback` (the current visual), or nothing.
-// ponytail: `always` forces the placeholder (the demos page lists clips even before they exist).
+// A silent, looping website clip. Until the clip has a `src` in data/videos.ts the
+// slot shows a "Video coming soon" placeholder. `compact` drops the title and text
+// (the demos page prints them under the card).
 export default function VideoSlot({
-  id, fallback, dark, always, className = '',
-}: { id: VideoId; fallback?: ReactNode; dark?: boolean; always?: boolean; className?: string }) {
+  id, dark, compact, className = '',
+}: { id: VideoId; dark?: boolean; compact?: boolean; className?: string }) {
   const v: Video = videos[id];
 
   if (v.src) {
@@ -21,8 +19,6 @@ export default function VideoSlot({
     );
   }
 
-  if (!always && process.env.NODE_ENV === 'production' && !process.env.NEXT_PUBLIC_SHOW_VIDEO_SLOTS) return <>{fallback ?? null}</>;
-
   return (
     <div
       className={`relative w-full aspect-video rounded-3xl border-2 border-dashed grid place-items-center text-center p-6 ${
@@ -33,11 +29,11 @@ export default function VideoSlot({
         <span className={`inline-grid place-items-center w-12 h-12 rounded-full ${dark ? 'bg-white/10' : 'bg-white border border-brand-100 text-brand-700'}`}>
           <Clapperboard className="w-5 h-5" />
         </span>
-        {!always && <div className="mt-3 font-display text-[18px]">{v.title}</div>}
+        {!compact && <div className="mt-3 font-display text-[18px]">{v.title}</div>}
         <div className={`mt-2 text-[12px] font-medium uppercase tracking-wider ${dark ? 'text-white/50' : 'text-ink-400'}`}>
           Video coming soon · {v.length}
         </div>
-        {!always && <p className={`mt-2 text-[13px] leading-relaxed ${dark ? 'text-white/60' : 'text-ink-500'}`}>{v.about}</p>}
+        {!compact && <p className={`mt-2 text-[13px] leading-relaxed ${dark ? 'text-white/60' : 'text-ink-500'}`}>{v.about}</p>}
       </div>
     </div>
   );

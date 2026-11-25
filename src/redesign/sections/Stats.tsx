@@ -6,8 +6,8 @@ import { Container, Eyebrow, Reveal } from '../../design';
 import { TrendingUp } from 'lucide-react';
 
 const stats = [
-  { value: 40,  suffix: '',   label: 'Production customers',   hint: 'running SimplifyQA in production' },
-  { value: 308, suffix: 'K+', label: 'Test runs',              hint: 'executed on the platform' },
+  { value: 40,     suffix: '+', label: 'Customers',              hint: 'running SimplifyQA' },
+  { value: 900000, suffix: '+', label: 'Test runs',              hint: 'executed on the platform' },
   { value: 8,   suffix: '',   label: 'Technologies automated', hint: 'web, mobile, desktop, SAP, mainframe, API, DB' },
   { value: 10,  suffix: '',   label: 'Releases in 2026',       hint: 'SimplifyQA 6.1 to 6.10' },
 ];

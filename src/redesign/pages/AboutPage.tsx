@@ -50,7 +50,7 @@ const reasons: Reason[] = [
     pain: {
       icon: <FileText className="w-5 h-5" />,
       title: 'The creation bottleneck',
-      body: '80% of testing time is lost on prep work: parsing BRDs, building dummy data, and manually translating requirements into scripts.',
+      body: 'Much of testing time is lost on prep work: parsing BRDs, building dummy data, and manually translating requirements into scripts.',
     },
     win: {
       icon: <Bot className="w-5 h-5" />,
@@ -74,7 +74,6 @@ const reasons: Reason[] = [
       title: 'Zero-code automation',
       body: 'A keyword-driven engine and smart recorder let anyone build complex scenarios in minutes, code-mode still available for SDETs.',
       proof: [
-        { icon: <Zap className="w-3.5 h-3.5" />, label: '80% faster test creation' },
         { icon: <Zap className="w-3.5 h-3.5" />, label: 'Human-readable keywords' },
         { icon: <Zap className="w-3.5 h-3.5" />, label: 'Rule-based self-healing locators for web and iOS' },
       ],
@@ -156,8 +155,8 @@ export default function AboutPage() {
           <Reveal delay={0.22}>
             <div className="mt-14 grid grid-cols-2 sm:grid-cols-4 gap-3">
               {[
-                ['40',     'Production customers'],
-                ['308K+',  'Test runs'],
+                ['40+',      'Customers'],
+                ['900,000+', 'Test runs'],
                 ['8',      'Technologies automated'],
                 ['10',     'Releases in 2026'],
               ].map(([v, k]) => (

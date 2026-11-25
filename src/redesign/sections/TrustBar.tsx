@@ -36,7 +36,7 @@ export default function TrustBar() {
         </div>
 
         <p className="mt-10 text-center text-[13.5px] text-ink-500 max-w-3xl mx-auto text-pretty">
-          Trusted by QA and engineering teams at 40 production customers, including{' '}
+          Trusted by QA and engineering teams at 40+ customers, including{' '}
           <span className="text-ink-800 font-medium">Malaysia Airlines</span>,{' '}
           <span className="text-ink-800 font-medium">OpenText</span>,{' '}
           <span className="text-ink-800 font-medium">Dexcom</span>, and{' '}

@@ -9,7 +9,7 @@ export default function AITestAssistantPage() {
   return (
     <ProductPage
       config={{
-        video: 'idea-to-sprint',
+        video: 'mcp-story-to-tests',
         eyebrow: 'SimplifyQA AI Studio',
         eyebrowIcon: <Sparkles className="w-3.5 h-3.5" />,
         title: (
