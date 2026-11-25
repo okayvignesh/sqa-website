@@ -51,7 +51,7 @@ export default function AdminShell({ user, children }: Props) {
           <Link href="/admin" className="flex items-center gap-2.5 group">
             {/* eslint-disable-next-line @next/next/no-img-element */}
             <img
-              src="/SimplifyQA%20logo%20Grey.png"
+              src="/simplifyqa-logo-grey.png"
               alt="SimplifyQA"
               className="h-5 w-auto"
             />

@@ -6,7 +6,7 @@
 
 const enc = (path: string) => path.split('/').map(encodeURIComponent).join('/');
 
-export const logo = `/${enc('SimplifyQA logo Grey.png')}`;
+export const logo = `/${enc('simplifyqa-logo-grey.png')}`;
 
 export const certs = [
   { name: 'SOC 2',       file: 'assets/crt/SOC.png',             alt: 'SOC 2 compliance badge' },
