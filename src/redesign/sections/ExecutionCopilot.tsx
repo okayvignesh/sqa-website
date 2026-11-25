@@ -25,9 +25,9 @@ const capabilities = [
     body: 'The failing test case and step, the precise reason, then the correlated evidence behind it.',
   },
   {
-    icon: <Shuffle className="w-4 h-4" />,
-    title: 'Flake or real failure',
-    body: 'Classifies flakes and correlates failures across suites and runs, so you fix signal, not noise.',
+    icon: <RotateCcw className="w-4 h-4" />,
+    title: 'Failed tests re-run',
+    body: 'Failed tests re-run automatically, and failed runs log defects for you.',
   },
   {
     icon: <Wrench className="w-4 h-4" />,
@@ -62,7 +62,7 @@ function ChatPanel() {
             </span>
             <div className="leading-tight min-w-0">
               <div className="font-display text-[13px] tracking-tight text-ink-900 truncate">SimplifyQA Chatbot</div>
-              <div className="text-[10.5px] text-ink-500 truncate">Execution intelligence · us-east</div>
+              <div className="text-[10.5px] text-ink-500 truncate">AI assistant · your AI provider</div>
             </div>
           </div>
           <div className="flex items-center gap-1.5">
@@ -81,13 +81,13 @@ function ChatPanel() {
           <UserBubble delay={0.05}>Why did the Checkout suite fail in last night&apos;s run?</UserBubble>
 
           <AssistantBubble delay={0.18}>
-            I checked run #4821. The Checkout suite finished at 96%, with one real failure and no flakes.
+            I checked run #4821. The Checkout suite finished at 96%, with one failure.
           </AssistantBubble>
 
           <RootCauseCard delay={0.3} />
 
           <AssistantBubble delay={0.72}>
-            Want me to re-run just that test case, or the full suite?
+            Want the test case or the step screenshot next?
           </AssistantBubble>
 
           <TypingBubble delay={0.86} />
@@ -137,12 +137,12 @@ function ChatPanel() {
           <Timer className="w-4 h-4" />
         </span>
         <div className="text-left leading-tight">
-          <div className="text-[10px] uppercase tracking-wider text-white/60">Root cause found</div>
-          <div className="font-display text-[17px]">8s <span className="text-white/50 font-sans text-[11px]">vs 40 min manual</span></div>
+          <div className="text-[10px] uppercase tracking-wider text-white/60">Run #4821</div>
+          <div className="font-display text-[17px]">1 failure <span className="text-white/50 font-sans text-[11px]">explained</span></div>
         </div>
       </motion.div>
 
-      {/* Floating callout, flake classification */}
+      {/* Floating callout, defect logged */}
       <motion.div
         initial={{ opacity: 0, y: 12, scale: 0.96 }}
         whileInView={{ opacity: 1, y: 0, scale: 1 }}
@@ -154,8 +154,8 @@ function ChatPanel() {
           <Shuffle className="w-3.5 h-3.5" />
         </span>
         <div className="text-left leading-tight">
-          <div className="text-[10px] uppercase tracking-wider text-ink-400">Classification</div>
-          <div className="text-[12.5px] font-semibold text-ink-900">Real failure, not a flake</div>
+          <div className="text-[10px] uppercase tracking-wider text-ink-400">Defect</div>
+          <div className="text-[12.5px] font-semibold text-ink-900">Logged from the failed run</div>
         </div>
       </motion.div>
     </div>
@@ -228,10 +228,10 @@ function RootCauseCard({ delay }: { delay: number }) {
           <span className="grid place-items-center w-6 h-6 rounded-lg bg-brand-600 text-white shrink-0">
             <AlertTriangle className="w-3.5 h-3.5" />
           </span>
-          <h3 className="text-[12.5px] font-semibold text-ink-900 truncate">Root cause pinpointed</h3>
+          <h3 className="text-[12.5px] font-semibold text-ink-900 truncate">Why it failed</h3>
         </div>
         <span className="inline-flex items-center gap-1 px-2 py-0.5 rounded-full border border-brand-200 bg-white text-brand-700 text-[10.5px] font-medium shrink-0">
-          <CircleDot className="w-2.5 h-2.5" /> Real failure
+          <CircleDot className="w-2.5 h-2.5" /> Failed
         </span>
       </div>
 
@@ -288,7 +288,7 @@ function RootCauseCard({ delay }: { delay: number }) {
             type="button"
             className="inline-flex items-center gap-1.5 px-3 py-1.5 rounded-lg bg-brand-600 hover:bg-brand-700 text-white text-[11.5px] font-semibold shadow-soft"
           >
-            <RotateCcw className="w-3.5 h-3.5" /> Re-run suite
+            <FileText className="w-3.5 h-3.5" /> View report
           </button>
           <button
             type="button"
@@ -342,7 +342,7 @@ export default function ExecutionCopilot() {
   return (
     <section
       aria-labelledby="execution-copilot-heading"
-      className="relative py-16 sm:py-24 bg-surface-soft overflow-hidden"
+      className="relative py-14 sm:py-20 bg-surface-soft overflow-hidden"
     >
       <div aria-hidden className="absolute inset-0 -z-10">
         <div className="absolute inset-0 bg-dots opacity-50" />
@@ -360,13 +360,13 @@ export default function ExecutionCopilot() {
               id="execution-copilot-heading"
               className="mt-5 font-display text-display-lg text-ink-900 text-balance"
             >
-              Ask our chatbot why a run failed, get the <span className="gradient-text">root cause</span> in seconds.
+              Ask the AI assistant <span className="gradient-text">why a run failed</span>.
             </h2>
           </Reveal>
           <Reveal delay={0.1}>
             <p className="mt-5 text-[17px] text-ink-500 max-w-2xl leading-relaxed">
-              The SimplifyQA chatbot reads every execution it already stores, then answers in plain language: the failing
-              test case and step, the exact reason, the correlated evidence, and the fix to apply.
+              The assistant reads the execution data SimplifyQA already stores, then answers in plain language: the
+              failing test case and step, the reason, and the evidence behind it. It runs on the AI provider you choose.
             </p>
           </Reveal>
         </div>
@@ -402,11 +402,11 @@ export default function ExecutionCopilot() {
         <Reveal delay={0.2}>
           <div className="mt-6 rounded-2xl border border-ink-900/[0.06] bg-white px-4 py-3 flex flex-wrap items-center gap-x-5 gap-y-2">
             <span className="inline-flex items-center gap-1.5 text-[12.5px] text-ink-600">
-              <Clock className="w-3.5 h-3.5 text-ink-400" /> Median time to root cause: 8 seconds
+              <Clock className="w-3.5 h-3.5 text-ink-400" /> Answers in plain language
             </span>
             <span aria-hidden className="hidden sm:block w-px h-4 bg-ink-200" />
             <span className="inline-flex items-center gap-1.5 text-[12.5px] text-ink-600">
-              <Shuffle className="w-3.5 h-3.5 text-ink-400" /> Flake classification on every failed step
+              <Shuffle className="w-3.5 h-3.5 text-ink-400" /> Failed tests re-run automatically
             </span>
             <span aria-hidden className="hidden sm:block w-px h-4 bg-ink-200" />
             <span className="inline-flex items-center gap-1.5 text-[12.5px] text-ink-600">

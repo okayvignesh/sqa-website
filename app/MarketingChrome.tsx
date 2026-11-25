@@ -6,11 +6,12 @@ import Link from 'next/link';
 import Navbar from '../src/redesign/Navbar';
 import Footer from '../src/redesign/Footer';
 import CalendlyModal from '../src/redesign/CalendlyModal';
+import SmoothScroll from './SmoothScroll';
 
 export default function MarketingChrome({ children }: { children: React.ReactNode }) {
   const pathname = usePathname() ?? '/';
   const isAdmin  = pathname === '/admin' || pathname.startsWith('/admin/');
-  const isAgent  = pathname === '/agent' || pathname.startsWith('/agent/');
+  const isAgent  = pathname === '/mcp' || pathname.startsWith('/mcp/');
   const isScroll = pathname === '/scroll' || pathname.startsWith('/scroll/');
 
   // Pages that need a theme override without matching a stable pathname (the
@@ -53,6 +54,8 @@ export default function MarketingChrome({ children }: { children: React.ReactNod
       ) : (
         <Footer />
       )}
+
+      <SmoothScroll />
 
       {/* Global "Book a demo" modal (opened via `sq:book-demo` event) */}
       <CalendlyModal />

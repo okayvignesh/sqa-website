@@ -4,7 +4,7 @@ import { buildMetadata, buildBreadcrumbJsonLd } from '../../../src/lib/seo';
 export const metadata = buildMetadata({
   title: 'Test Automation',
   description:
-    'Low-code, self-healing automation across web, mobile, API, and desktop. Scale coverage without scaling fragility.',
+    'Low-code automation across Web, Android, iOS, Desktop, Mainframe, SAP, API and Database, with rule-based self-healing locators.',
   path: '/platform/test-automation',
   image: '/platform/test-automation/opengraph-image',
 });

@@ -43,14 +43,14 @@ export default function IntegrationsPage() {
             </Reveal>
             <Reveal delay={0.05}>
               <h1 className="mt-6 font-display text-display-lg leading-[1.12] pb-[0.06em] text-ink-900 text-balance">
-                Connects to <span className="gradient-text">everything you ship with</span>.
+                Connects to <span className="gradient-text">the tools you ship with</span>.
               </h1>
             </Reveal>
             <Reveal delay={0.1}>
               <p className="mt-5 text-[18px] text-ink-500 max-w-2xl mx-auto leading-relaxed">
-                Deep, two-way integrations across project management, source control,
-                CI/CD, chat, cloud, identity, and test grids. Drop SimplifyQA into your
-                stack, not the other way around.
+                Two-way sync with Jira and Azure DevOps, Slack and Microsoft Teams, mobile
+                device clouds, Kubernetes and Azure, plus a REST API any CI tool can call.
+                Drop SimplifyQA into your stack, not the other way around.
               </p>
             </Reveal>
           </div>
@@ -125,7 +125,7 @@ export default function IntegrationsPage() {
             <div className="max-w-xl">
               <h3 className="font-display text-2xl text-ink-900">Need something custom?</h3>
               <p className="mt-2 text-[15px] text-ink-500 leading-relaxed">
-                Open API, webhooks, and a CLI for whatever isn't on the list yet. Enterprise
+                A REST API for whatever isn't on the list yet. Enterprise
                 customers get white-glove integration work as part of onboarding.
               </p>
             </div>

@@ -436,7 +436,7 @@ const DECK_SLIDES: RisoSlide[] = [
     subtitle: 'How the platform performed, and what we shipped.', author: 'Quality Engineering · SimplifyQA' },
   { kind: 'bigstat',  kicker: 'Automation coverage', value: '98.4%', label: 'Pass rate',
     caption: '+1.6 points vs Q3' },
-  { kind: 'section',  number: '02', kicker: 'What we shipped', title: 'Zero-touch release gates.' },
+  { kind: 'section',  number: '02', kicker: 'What we shipped', title: 'Checkout regression, automated.' },
   { kind: 'bullets',  kicker: 'Highlights', title: '2,184 tests automated this quarter',
     bullets: ['Web · 812 flows', 'Mobile · 604 flows', 'API · 768 flows'] },
 ];

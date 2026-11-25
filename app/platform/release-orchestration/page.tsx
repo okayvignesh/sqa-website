@@ -4,7 +4,7 @@ import { buildMetadata, buildBreadcrumbJsonLd } from '../../../src/lib/seo';
 export const metadata = buildMetadata({
   title: 'Release Orchestration',
   description:
-    'Quality gates, smart promotion, and end-to-end pipeline visibility across every release train.',
+    'Quality gates, scheduled runs, and CI runs started through the REST API, across every release train.',
   path: '/platform/release-orchestration',
   image: '/platform/release-orchestration/opengraph-image',
 });

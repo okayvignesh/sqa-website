@@ -114,16 +114,16 @@ export function SigAgent(): ReactElement {
       <div style={{ ...BOX, top: 74, left: 342, ...MONO, fontSize: 12, color: '#4338CA', fontWeight: 700 }}>MCP</div>
       {/* Prompt line - single flex row so token spacing stays intact */}
       <div style={{ ...BOX, top: 128, left: 52, ...MONO, fontSize: 16, display: 'flex', alignItems: 'center', gap: 0 }}>
-        <span style={{ color: '#4338CA', fontWeight: 700 }}>→ agent.explore(</span>
-        <span style={{ color: T.brand600 }}>&quot;url&quot;</span>
+        <span style={{ color: '#4338CA', fontWeight: 700 }}>→ sqa.from_story(</span>
+        <span style={{ color: T.brand600 }}>&quot;SQA-142&quot;</span>
         <span style={{ color: '#4338CA', fontWeight: 700 }}>)</span>
       </div>
-      <div style={{ ...BOX, top: 172, left: 76, ...MONO, fontSize: 14, color: T.ink500 }}>explored 42 screens</div>
-      <div style={{ ...BOX, top: 202, left: 76, ...MONO, fontSize: 14, color: T.ink500 }}>generated 128 tests</div>
-      <div style={{ ...BOX, top: 232, left: 76, ...MONO, fontSize: 14, color: T.ink500 }}>ran 128 · passed 124</div>
-      <div style={{ ...BOX, top: 262, left: 76, ...MONO, fontSize: 14, color: T.ink500 }}>filed 4 defects to Jira</div>
+      <div style={{ ...BOX, top: 172, left: 76, ...MONO, fontSize: 14, color: T.ink500 }}>drafted 6 test cases</div>
+      <div style={{ ...BOX, top: 202, left: 76, ...MONO, fontSize: 14, color: T.ink500 }}>recorded 6 · you reviewed</div>
+      <div style={{ ...BOX, top: 232, left: 76, ...MONO, fontSize: 14, color: T.ink500 }}>ran 6 · passed 5</div>
+      <div style={{ ...BOX, top: 262, left: 76, ...MONO, fontSize: 14, color: T.ink500 }}>1 failed · asked why</div>
       <div style={{ ...BOX, top: 312, left: 56, ...MONO, fontSize: 14, color: '#4338CA', fontWeight: 700 }}>
-        ← done. 96.9% pass · 4 filed.
+        ← done. 5 of 6 pass · 1 explained.
       </div>
     </>,
   );
@@ -133,7 +133,7 @@ export function SigAgent(): ReactElement {
 export function SigPricing(): ReactElement {
   const tiers = [
     { y: 60,  h: 90,  price: 'Free',   tag: 'PILOT',      accent: T.ink400,  note: '14-day pilot · every feature' },
-    { y: 165, h: 110, price: '$29',    tag: 'TEAM',       accent: T.brand600, note: 'per seat / month · billed yearly' },
+    { y: 165, h: 110, price: 'Ask us', tag: 'TEAM',       accent: T.brand600, note: 'per seat / month · billed yearly' },
     { y: 290, h: 100, price: 'Custom', tag: 'ENTERPRISE', accent: '#9A1525', note: 'unlimited seats · white-glove' },
   ];
   return frame(
@@ -452,10 +452,10 @@ export function SigDefectManagement(): ReactElement {
   const cards = [
     // Severity in maroon shades - darker = more severe. Keeps the palette
     // on-brand and preserves ordinal contrast.
-    { p: 'P0', title: 'Payment webhook 500s',      color: T.brand700, team: 'sre',     cluster: '×12' },
-    { p: 'P1', title: 'Login SSO retry on stale',   color: T.brand600, team: 'auth',    cluster: '×3'  },
-    { p: 'P2', title: 'Report export truncated',    color: '#E4646E',  team: 'billing', cluster: '×1'  },
-    { p: 'P3', title: 'i18n typo · pt-BR homepage', color: T.ink400,   team: 'i18n',    cluster: '×1'  },
+    { p: 'P0', title: 'Payment webhook 500s',      color: T.brand700, team: 'sre',     source: 'from run' },
+    { p: 'P1', title: 'Login SSO retry on stale',   color: T.brand600, team: 'auth',    source: 'from run' },
+    { p: 'P2', title: 'Report export truncated',    color: '#E4646E',  team: 'billing', source: 'manual' },
+    { p: 'P3', title: 'i18n typo · pt-BR homepage', color: T.ink400,   team: 'i18n',    source: 'manual' },
   ];
   return frame(
     <>
@@ -491,7 +491,7 @@ export function SigDefectManagement(): ReactElement {
               ...BOX, top: y + 46, left: 320, width: 90,
               justifyContent: 'flex-end', fontSize: 14, fontWeight: 700, color: T.ink500,
             }}>
-              cluster {c.cluster}
+              {c.source}
             </div>
           </div>
         );
@@ -506,7 +506,7 @@ export function SigReleaseOrchestration(): ReactElement {
     { label: 'BUILD',    state: 'pass' },
     { label: 'UNIT',     state: 'pass' },
     { label: 'E2E',      state: 'pass' },
-    { label: 'PERF',     state: 'gate' },
+    { label: 'QA GATE',  state: 'gate' },
     { label: 'SIGN-OFF', state: 'wait' },
   ];
   const y = 210;
@@ -542,7 +542,7 @@ export function SigReleaseOrchestration(): ReactElement {
         ...BOX, top: 112, left: 0, width: 460,
         justifyContent: 'center', fontSize: 13, fontWeight: 700, letterSpacing: 3, color: GATE,
       }}>
-        HELD AT PERF GATE
+        HELD AT QA GATE
       </div>
       {stages.map((s, i) => {
         const x = 45 + (i / (stages.length - 1)) * 370;
@@ -570,7 +570,7 @@ export function SigReleaseOrchestration(): ReactElement {
         ...BOX, top: 320, left: 0, width: 460,
         justifyContent: 'center', fontSize: 12, fontWeight: 700, letterSpacing: 3, color: T.ink500,
       }}>
-        JENKINS · GITHUB ACTIONS · AZURE DEVOPS
+        ANY CI · VIA THE REST API
       </div>
     </>,
   );
@@ -708,16 +708,16 @@ export function SigAgentDark(): ReactElement {
       </svg>
       <div style={{ ...BOX, top: 74, left: 342, ...MONO, fontSize: 12, color: '#7DD3FC', fontWeight: 700 }}>MCP</div>
       <div style={{ ...BOX, top: 128, left: 52, ...MONO, fontSize: 16, display: 'flex', alignItems: 'center' }}>
-        <span style={{ color: '#38BDF8', fontWeight: 700 }}>→ agent.explore(</span>
-        <span style={{ color: '#FBBF24' }}>&quot;url&quot;</span>
+        <span style={{ color: '#38BDF8', fontWeight: 700 }}>→ sqa.from_story(</span>
+        <span style={{ color: '#FBBF24' }}>&quot;SQA-142&quot;</span>
         <span style={{ color: '#38BDF8', fontWeight: 700 }}>)</span>
       </div>
-      <div style={{ ...BOX, top: 172, left: 76, ...MONO, fontSize: 14, color: '#94A3B8' }}>explored 42 screens</div>
-      <div style={{ ...BOX, top: 202, left: 76, ...MONO, fontSize: 14, color: '#94A3B8' }}>generated 128 tests</div>
-      <div style={{ ...BOX, top: 232, left: 76, ...MONO, fontSize: 14, color: '#94A3B8' }}>ran 128 · passed 124</div>
-      <div style={{ ...BOX, top: 262, left: 76, ...MONO, fontSize: 14, color: '#94A3B8' }}>filed 4 defects to Jira</div>
+      <div style={{ ...BOX, top: 172, left: 76, ...MONO, fontSize: 14, color: '#94A3B8' }}>drafted 6 test cases</div>
+      <div style={{ ...BOX, top: 202, left: 76, ...MONO, fontSize: 14, color: '#94A3B8' }}>recorded 6 · you reviewed</div>
+      <div style={{ ...BOX, top: 232, left: 76, ...MONO, fontSize: 14, color: '#94A3B8' }}>ran 6 · passed 5</div>
+      <div style={{ ...BOX, top: 262, left: 76, ...MONO, fontSize: 14, color: '#94A3B8' }}>1 failed · asked why</div>
       <div style={{ ...BOX, top: 312, left: 56, ...MONO, fontSize: 14, color: '#7DD3FC', fontWeight: 700 }}>
-        ← done. 96.9% pass · 4 filed.
+        ← done. 5 of 6 pass · 1 explained.
       </div>
     </>,
   );

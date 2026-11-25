@@ -8,19 +8,19 @@ import { Container, Eyebrow, Reveal, RevealGroup, fadeUp, cn } from '../../desig
 const faqs = [
   {
     q: 'What is SimplifyQA?',
-    a: 'SimplifyQA is an AI-powered test management and automation platform that unifies test planning, AI-generated test cases, self-healing automation, defect triage, and release reporting in one workspace, across web, mobile, API, desktop, SAP, and mainframe.',
+    a: 'SimplifyQA is a test management and automation platform with AI built in. It brings project management, test cases, AI-generated test cases from user stories, no-code automation with rule-based self-healing, defects, and reports into one workspace, across eight technologies: Web, Android, iOS, Desktop, Mainframe, SAP, API and Database.',
   },
   {
     q: "What's the difference between test management and test automation?",
-    a: 'Test management covers planning, authoring, and tracing test cases and requirements. Test automation is the codeless execution of those tests across web, mobile, API, and enterprise systems. SimplifyQA includes both in one platform, so nothing has to be stitched together.',
+    a: 'Test management covers planning, authoring, and tracing test cases and requirements. Test automation is the no-code execution of those tests across Web, Android, iOS, Desktop, Mainframe, SAP, API and Database. SimplifyQA includes both in one platform, so nothing has to be stitched together.',
   },
   {
     q: 'Does SimplifyQA support SAP and mainframe testing?',
-    a: 'Yes. SimplifyQA has first-class connectors for SAP, mainframe, Salesforce, and Siebel, alongside standard web, mobile, API, and desktop automation, with no third-party plugins required.',
+    a: 'Yes. SAP and Mainframe are two of the eight technologies SimplifyQA automates, alongside Web, Android, iOS, Desktop (Windows), API and Database. You can mix technologies in one test case.',
   },
   {
     q: 'Can SimplifyQA integrate with Jira and Azure DevOps?',
-    a: 'Yes. SimplifyQA integrates natively with Jira, Azure DevOps, GitHub, GitLab, Jenkins, Slack, Microsoft Teams, and 50+ other tools across your engineering stack.',
+    a: 'Yes. SimplifyQA syncs two ways with Jira and Azure DevOps, and also works with Slack, Microsoft Teams, Kubernetes, Azure, and BrowserStack, LambdaTest and Sauce Labs for mobile apps. Any CI tool can start runs through the REST API.',
   },
 ];
 
@@ -36,7 +36,7 @@ const faqJsonLd = {
 
 export default function HomeFAQ() {
   return (
-    <section className="relative py-20 sm:py-28 bg-white">
+    <section className="relative pt-10 sm:pt-12 pb-12 sm:pb-16 bg-white">
       <script
         type="application/ld+json"
         dangerouslySetInnerHTML={{ __html: JSON.stringify(faqJsonLd) }}

@@ -3,11 +3,12 @@
 import Link from 'next/link';
 import { motion } from 'framer-motion';
 import {
-  ArrowRight, Bot, Braces, Bug, CheckCircle2, CircleDot, Compass, Cpu,
-  Database, Layers, Link2, LucideIcon, PenSquare, Play, Sparkles, Terminal, Zap,
+  ArrowRight, Bot, Braces, Bug, CheckCircle2, CircleDot, Cpu,
+  Layers, Link2, LucideIcon, PenSquare, Play, Sparkles, Terminal, Zap,
 } from 'lucide-react';
 import ClientUIShowcase from '../components/ClientUIShowcase';
 import { BookDemoButton } from '../CalendlyModal';
+import VideoSlot from '../components/VideoSlot';
 
 const K = {
   bg:      '#0A0A0F',      // page background
@@ -43,97 +44,80 @@ function Grad({ children }: { children: React.ReactNode }) {
 }
 
 const stats = [
-  { v: '2', k: 'Things to provide (URL + creds)' },
-  { v: '8', k: 'Technologies covered' },
-  { v: '50+', k: 'MCP tools per technology' },
-  { v: '0', k: 'AI vendor lock-in' },
+  { v: '7', k: 'Technologies you can record and run' },
+  { v: '6', k: 'Supported AI assistants' },
+  { v: '1', k: 'npx command to install' },
+  { v: '0', k: 'Recordings saved without your review' },
 ];
 
 const steps = [
-  { n: '1', icon: Link2,      title: 'Provide URL',      body: 'App URL + credentials. That is it.' },
-  { n: '2', icon: Compass,    title: 'AI explores',      body: 'Walks pages, classifies each, builds sitemap.' },
-  { n: '3', icon: PenSquare,  title: 'AI records',       body: 'Turns your scenario into recorded test cases.' },
-  { n: '4', icon: Database,   title: 'Saved to SimplifyQA', body: 'TM, Object Repo, Suites, auto-linked.' },
-  { n: '5', icon: Play,       title: 'AI executes',      body: 'Via the existing SimplifyQA engine.' },
-  { n: '6', icon: Bug,        title: 'AI reports',       body: 'Pass / fail / defects auto-filed in Jira.' },
+  { n: '1', icon: Link2,        title: 'Connect',          body: 'Add simplify3x-connect to your AI assistant.' },
+  { n: '2', icon: PenSquare,    title: 'Start from a story', body: 'Create test cases from a user story.' },
+  { n: '3', icon: CircleDot,    title: 'AI records',       body: 'The assistant records the steps on your app.' },
+  { n: '4', icon: CheckCircle2, title: 'You review',       body: 'Every recording is reviewed before it is saved.' },
+  { n: '5', icon: Play,         title: 'Run',              body: 'Run from chat. Mobile runs are scheduled in SimplifyQA.' },
+  { n: '6', icon: Bug,          title: 'Find out why',     body: 'Ask why a run failed.' },
 ];
 
 const pillars = [
   {
     tag: '01 · OPEN',
-    title: 'Bring your own AI.',
-    body: 'Claude Desktop, Cursor, Windsurf, ChatGPT, Anthropic SDK, OpenAI Assistants, LangChain, CrewAI. Anything that speaks MCP, or can be wrapped to. No proprietary client. No vendor lock-in.',
+    title: 'Use the assistant you already have.',
+    body: 'Claude, Cursor, VS Code with Copilot, Windsurf, Codex and Devin. Install with one npx command and connect with your SimplifyQA URL and token.',
   },
   {
-    tag: '02 · UNIVERSAL',
-    title: 'Every platform, day one.',
-    body: 'Web, Mobile Web, API, Native Mobile (Android & iOS), Desktop, Database, Mainframe, and Hybrid cross-system flows, plus a Generic type for anything else you throw at it. The AI picks the right test type.',
+    tag: '02 · BROAD',
+    title: 'Seven technologies.',
+    body: 'Web, Android, iOS, Desktop, Mainframe, API and Database. Everything SimplifyQA automates except SAP.',
   },
   {
-    tag: '03 · AI RECORDING',
-    title: 'Scenario in. Recorded tests out.',
-    body: 'No scripts. No new UI to learn. No object repository to hand-build. Describe the scenario and the MCP records the test cases, saves them to SimplifyQA, and executes them across every supported platform.',
+    tag: '03 · REVIEWED',
+    title: 'Recorded by AI. Approved by you.',
+    body: 'Describe the scenario and the assistant records the steps. Write custom methods while recording. You review every recording before it is saved to SimplifyQA.',
   },
 ];
 
 const capabilities: { icon: LucideIcon; title: string; body: string; items: string[] }[] = [
   {
-    icon: Compass, title: 'Exploration & Understanding',
-    body: 'Walk the app, learn what it does.',
-    items: ['Open a URL with credentials', 'Screenshot + DOM capture per page', 'Page-type classification', 'UI component detection', 'State recognition (loading, error, success, empty)', 'Application sitemap discovery'],
+    icon: PenSquare, title: 'Test cases from stories',
+    body: 'Start from what the team already wrote.',
+    items: ['Create test cases from a user story', 'You review before anything is saved'],
   },
   {
-    icon: PenSquare, title: 'Test Case Generation',
-    body: 'Platform-aware, RAG-grounded.',
-    items: ['AI-assisted recording from a plain-English scenario', 'Functional, edge-case, negative, security, accessibility', 'Platform-correct tcType (WEB / API / ANDROID / IOS)', 'From BRDs, Jira, Azure, Figma, Excel, OpenAPI', 'Full feature → story → test hierarchy', 'Refine existing tests in place'],
+    icon: CircleDot, title: 'Recording',
+    body: 'The assistant records. You approve.',
+    items: ['Record tests on Web, Android, iOS, Desktop, Mainframe, API and Database', 'Write custom methods while recording', 'Every recording is reviewed by you before it is saved'],
   },
   {
-    icon: Database, title: 'Save to SimplifyQA',
-    body: 'Native artifacts, not exports.',
-    items: ['Features + stories with acceptance criteria', 'Test cases with steps + expected results', 'Object Repository auto-built', 'Parameterized test data iterations', 'Reusable suites assembled', 'Requirement ↔ test ↔ defect linkage'],
+    icon: Play, title: 'Running tests',
+    body: 'Start runs from chat.',
+    items: ['Run tests from your assistant', 'Mobile runs are scheduled in SimplifyQA'],
   },
   {
-    icon: Play, title: 'Execution & Evidence',
-    body: 'Real runs, real evidence.',
-    items: ['Trigger execution against any environment', 'Live progress stream (executing / passed / failed / healed)', 'Per-step screenshots + network + console + DOM + video', 'Self-healing for locator / timing / data / env drift', 'Auto-classify bug vs flake'],
-  },
-  {
-    icon: Bug, title: 'Defects & Reporting',
-    body: 'Triaged outcomes, not raw logs.',
-    items: ['Auto-file defects to Jira with full evidence', 'Reproduction steps + severity classification', 'RTM on demand', 'Export PDF / Excel / CSV / TestLink XML', 'Push to existing CI/CD reporting'],
-  },
-  {
-    icon: Link2, title: 'Integrations',
-    body: 'Talk to the rest of your stack.',
-    items: ['Jira / Azure DevOps, pull requirements, push defects', 'Figma, extract UI from wireframes', 'BRD / DOCX / XLSX / OpenAPI ingestion', 'Webhook triggers', 'Schedule recurring runs'],
+    icon: Bug, title: 'Why a run failed',
+    body: 'Answers, not raw logs.',
+    items: ['Ask why a run failed', 'Self-heal for Desktop tests (Desktop only today)'],
   },
 ];
 
 const tech: [string, string, string, string][] = [
-  // you point at → AI generates → what runs it → icon slug
-  ['A web app',                   'WEB test cases',                 'SimplifyQA web plugin',        'web'],
-  ['A mobile-responsive site',    'WEB with viewport overrides',    'Web plugin',                   'mobile'],
-  ['A REST or SOAP API',          'API test cases',                 'API plugin',                   'api'],
-  ['An Android app',              'ANDROID via Appium',             'simplifyqa-android',           'android'],
-  ['An iOS app',                  'IOS via Appium',                 'simplifyqa-ios',               'ios'],
-  ['A Windows desktop app',       'DESKTOP via SimplifyQADesktopDriver', 'desktop-execution-plugin', 'desktop'],
-  ['A database',                  'DATABASE validation queries',    'simplifyqa-db-plugin',         'db'],
-  ['A mainframe terminal',        'MAINFRAME screen-flow tests',    'mainframe-plugin',             'mainframe'],
-  ['A cross-system flow',         'HYBRID (Web → API → DB)',        'Multi-plugin orchestration',   'hybrid'],
-  ['Anything else',               'GENERIC test cases (custom type)', 'Bring-your-own runner',     'generic'],
+  // you point at → AI records → how it runs → slug
+  ['A web app',              'WEB test cases',       'From your assistant',     'web'],
+  ['An Android app',         'ANDROID test cases',   'Scheduled in SimplifyQA', 'android'],
+  ['An iOS app',             'IOS test cases',       'Scheduled in SimplifyQA', 'ios'],
+  ['A Windows desktop app',  'DESKTOP test cases',   'From your assistant',     'desktop'],
+  ['A mainframe terminal',   'MAINFRAME test cases', 'From your assistant',     'mainframe'],
+  ['An API',                 'API test cases',       'From your assistant',     'api'],
+  ['A database',             'DATABASE test cases',  'From your assistant',     'db'],
 ];
 
 const clients = [
-  { name: 'Claude Desktop', body: 'Paste server config into claude_desktop_config.json.' },
-  { name: 'Cursor',         body: 'MCP server registration. Tests without leaving the IDE.' },
-  { name: 'Windsurf',       body: 'MCP server registration. Engineers stay in flow.' },
-  { name: 'ChatGPT',        body: 'GPTs Actions or Assistants function calls.' },
-  { name: 'Cline',          body: 'VS Code extension. Register the MCP server and go.' },
-  { name: 'Gemini',         body: 'Google Gemini via function calling or the CLI.' },
-  { name: 'opencode',       body: 'Open-source AI coding CLI. Add the server to its MCP config.' },
-  { name: 'VS Code',        body: 'GitHub Copilot Chat / any MCP-aware VS Code extension.' },
-  { name: 'Anthropic SDK',  body: 'Any Python/TS app that speaks Anthropic messages.' },
-  { name: 'LangChain / CrewAI', body: 'Register the server as a tool, orchestrate agents.' },
+  { name: 'Claude',              body: 'Add the server to your Claude MCP settings.' },
+  { name: 'Cursor',              body: 'Register the MCP server. Test without leaving the IDE.' },
+  { name: 'VS Code with Copilot', body: 'Add the server to mcp.json and use it from Copilot Chat.' },
+  { name: 'Windsurf',            body: 'Register the MCP server. Stay in your editor.' },
+  { name: 'Codex',               body: 'Add the server to your Codex MCP config.' },
+  { name: 'Devin',               body: 'Connect the MCP server to Devin.' },
 ];
 
 export default function AgentPage() {
@@ -162,8 +146,8 @@ export default function AgentPage() {
                    style={{ borderColor: K.borderH, background: K.panel }}>
                 <span className="inline-flex items-center justify-center w-6 h-6 rounded-full font-mono text-[11px] font-bold"
                       style={{ background: K.green, color: K.bg }}>$</span>
-                <span style={{ color: K.muted }}>sqa</span>
-                <span style={{ color: K.text }}>simplifyqa-mcp</span>
+                <span style={{ color: K.muted }}>npx -y</span>
+                <span style={{ color: K.text }}>simplify3x-connect</span>
                 <span className="ml-2 px-1.5 py-0.5 rounded text-[10px] font-semibold"
                       style={{ background: K.amber + '18', color: K.amber, border: `1px solid ${K.amber}40` }}>
                   MCP SERVER
@@ -171,7 +155,7 @@ export default function AgentPage() {
               </div>
 
               <h1 className="mt-6 font-display text-[42px] sm:text-[56px] leading-[1.0] tracking-tight text-white text-balance">
-                Run all of SimplifyQA{' '}
+                Use SimplifyQA{' '}
                 <span
                   className="bg-clip-text text-transparent"
                   style={{ backgroundImage: `linear-gradient(120deg, #ffffff 0%, ${K.green} 55%, ${K.amber} 100%)` }}
@@ -181,11 +165,10 @@ export default function AgentPage() {
               </h1>
 
               <p className="mt-6 text-[16px] sm:text-[17px] leading-relaxed max-w-xl" style={{ color: K.muted }}>
-                The SimplifyQA MCP server plugs into Claude, ChatGPT, Cursor, Windsurf, and
-                any AI you already use. Every SimplifyQA action is exposed as an MCP tool:
-                author and manage test cases, record them with AI, and execute them across
-                every supported platform. Describe the scenario; the MCP handles the
-                recording and the run.
+                The SimplifyQA MCP connects Claude, Cursor, VS Code with Copilot, Windsurf,
+                Codex and Devin to SimplifyQA. Create test cases from user stories, record and
+                run tests on seven technologies, write custom methods while recording, and find
+                out why a run failed. You review every recording before it is saved.
               </p>
 
               <div className="mt-8 flex flex-col sm:flex-row items-start sm:items-center gap-3">
@@ -225,7 +208,7 @@ export default function AgentPage() {
 
           {/* Hero terminal signature, below the split */}
           <div className="mt-16">
-            <HeroTerminal />
+            <VideoSlot id="mcp" dark fallback={<HeroTerminal />} />
           </div>
         </div>
       </section>
@@ -236,11 +219,11 @@ export default function AgentPage() {
           <div className="max-w-3xl">
             <SectionEyebrow icon={<Workflow />}>How it works</SectionEyebrow>
             <h2 className="mt-5 font-display text-[38px] sm:text-[46px] leading-tight tracking-tight text-white text-balance">
-              Six steps. One conversation. <Grad>No human in the loop.</Grad>
+              Six steps. One conversation. <Grad>You approve what is saved.</Grad>
             </h2>
             <p className="mt-5 text-[16px] leading-relaxed max-w-2xl" style={{ color: K.muted }}>
-              You hand your AI a URL and credentials. The MCP server gives the AI everything
-              it needs to explore, write, save, run, and report.
+              Connect your AI assistant to SimplifyQA. From there it can create test cases,
+              record and run them, and help you work out why a run failed.
             </p>
           </div>
 
@@ -284,10 +267,10 @@ export default function AgentPage() {
           <div className="max-w-3xl">
             <SectionEyebrow icon={<Sparkles />}>The three pillars</SectionEyebrow>
             <h2 className="mt-5 font-display text-[38px] sm:text-[46px] leading-tight tracking-tight text-white text-balance">
-              Open. Universal. <Grad>Agentic.</Grad>
+              Open. Broad. <Grad>Reviewed.</Grad>
             </h2>
             <p className="mt-5 text-[16px] leading-relaxed max-w-2xl" style={{ color: K.muted }}>
-              Three decisions that make this product better as the AI ecosystem gets better.
+              How the SimplifyQA MCP fits the way your team already works.
             </p>
           </div>
 
@@ -322,8 +305,8 @@ export default function AgentPage() {
           <div className="max-w-3xl">
             <SectionEyebrow icon={<Zap />}>What this replaces</SectionEyebrow>
             <h2 className="mt-5 font-display text-[38px] sm:text-[46px] leading-tight tracking-tight text-white text-balance">
-              Days of manual setup, condensed to{' '}
-              <Grad>15 minutes in a chat.</Grad>
+              From user story to recorded test,{' '}
+              <Grad>in one chat.</Grad>
             </h2>
           </div>
 
@@ -332,17 +315,15 @@ export default function AgentPage() {
               <div className="flex items-center gap-2 text-[11.5px] font-semibold uppercase tracking-wider" style={{ color: K.muted }}>
                 <CircleDot className="w-3.5 h-3.5" /> Before
               </div>
-              <h3 className="mt-4 font-display text-[22px] text-white">Regression suites, the old way</h3>
+              <h3 className="mt-4 font-display text-[22px] text-white">Building tests, the old way</h3>
               <ul className="mt-6 space-y-3">
                 {[
-                  'Hire QA engineers who know SimplifyQA',
-                  'Click through the app manually',
-                  'Author every test case by hand',
-                  'Hand-build the object repository',
-                  'Parameterize the test data',
-                  'Assemble suites and execution plans',
-                  'Schedule the runs',
-                  'Days, sometimes weeks, per app',
+                  'Read the user story',
+                  'Write each test case by hand',
+                  'Record the steps in the recorder',
+                  'Write custom methods separately',
+                  'Run the tests',
+                  'Dig through the report to see why a run failed',
                 ].map((l) => (
                   <li key={l} className="flex items-start gap-3 text-[14px]" style={{ color: K.muted }}>
                     <span className="mt-1.5 w-1.5 h-1.5 rounded-full" style={{ background: K.faint }} />
@@ -364,14 +345,13 @@ export default function AgentPage() {
               <h3 className="mt-4 font-display text-[22px] text-white">One conversation in your AI</h3>
               <ul className="mt-6 space-y-3">
                 {[
-                  'Open Claude / Cursor / Windsurf',
-                  'Type: "Test https://… with user/pass"',
-                  'AI explores 24 pages',
-                  'AI generates 41 test cases',
-                  'AI saves them in SimplifyQA',
-                  'AI runs them across the right platform',
-                  'AI files defects in Jira on failure',
-                  '15 minutes, end to end',
+                  'Open Claude, Cursor, VS Code, Windsurf, Codex or Devin',
+                  'Ask: "Create test cases for story ACME-214"',
+                  'AI records the steps on your app',
+                  'Write custom methods while recording',
+                  'You review the recording, then save it',
+                  'Run it from chat (mobile runs are scheduled in SimplifyQA)',
+                  'Ask why a run failed',
                 ].map((l) => (
                   <li key={l} className="flex items-start gap-3 text-[14px] text-white">
                     <CheckCircle2 className="w-4 h-4 mt-0.5 shrink-0" style={{ color: K.green }} />
@@ -384,22 +364,21 @@ export default function AgentPage() {
         </div>
       </section>
 
-      {/* ============ CAPABILITIES / 50+ MCP TOOLS ============ */}
+      {/* ============ CAPABILITIES ============ */}
       <section className="relative py-20 sm:py-28" style={{ background: '#07070B' }}>
         <div className="mx-auto max-w-7xl px-5 sm:px-8">
           <div className="max-w-3xl">
             <SectionEyebrow icon={<Cpu />}>What your AI can do</SectionEyebrow>
             <h2 className="mt-5 font-display text-[38px] sm:text-[46px] leading-tight tracking-tight text-white text-balance">
-              50+ MCP tools <Grad>per technology,</Grad>{' '}
-              across the full testing lifecycle.
+              What your AI <Grad>can do</Grad> with SimplifyQA.
             </h2>
             <p className="mt-5 text-[16px] leading-relaxed max-w-2xl" style={{ color: K.muted }}>
-              Every SimplifyQA capability exposed as an MCP tool, for every supported
-              platform. Your AI composes them in whatever order your prompt requires.
+              The MCP gives your assistant a set of SimplifyQA actions. It uses them in
+              whatever order your prompt needs.
             </p>
           </div>
 
-          <div className="mt-14 grid md:grid-cols-2 lg:grid-cols-3 gap-4">
+          <div className="mt-14 grid md:grid-cols-2 lg:grid-cols-4 gap-4">
             {capabilities.map((c, i) => {
               const Ico = c.icon;
               return (
@@ -432,22 +411,25 @@ export default function AgentPage() {
         </div>
       </section>
 
-      {/* ============ 9 TECHNOLOGIES TABLE ============ */}
+      {/* ============ 7 TECHNOLOGIES TABLE ============ */}
       <section className="relative py-20 sm:py-24">
         <div className="mx-auto max-w-7xl px-5 sm:px-8">
           <div className="max-w-3xl">
             <SectionEyebrow icon={<Layers />}>All supported platforms</SectionEyebrow>
             <h2 className="mt-5 font-display text-[38px] sm:text-[46px] leading-tight tracking-tight text-white text-balance">
-              Point your AI at <Grad>any kind of application.</Grad>
+              Point your AI at <Grad>seven technologies.</Grad>
             </h2>
+            <p className="mt-5 text-[16px] leading-relaxed max-w-2xl" style={{ color: K.muted }}>
+              Seven of SimplifyQA&apos;s eight technologies. SAP is not available over MCP.
+            </p>
           </div>
 
           <div className="mt-12 overflow-hidden rounded-3xl border" style={{ background: K.panel, borderColor: K.border }}>
             <div className="grid grid-cols-[1.2fr_1.2fr_1.2fr] text-[11.5px] font-semibold uppercase tracking-[0.14em] px-6 py-4"
                  style={{ color: K.muted, background: '#0F0F16', borderBottom: `1px solid ${K.border}` }}>
               <div>You point at…</div>
-              <div>The AI generates</div>
-              <div>What runs it</div>
+              <div>The AI records</div>
+              <div>How it runs</div>
             </div>
             {tech.map(([point, gen, runs, slug], i) => (
               <div key={slug + i}
@@ -477,7 +459,7 @@ export default function AgentPage() {
               What it actually looks like <Grad>in your AI.</Grad>
             </h2>
             <p className="mt-5 text-[16px] leading-relaxed max-w-2xl" style={{ color: K.muted }}>
-              Each of these is a single prompt. Everything else happens automatically.
+              Each of these starts from a single prompt. You review every recording before it is saved.
             </p>
           </div>
 
@@ -491,7 +473,7 @@ export default function AgentPage() {
           <div className="max-w-3xl">
             <SectionEyebrow icon={<Braces />}>Compatible clients</SectionEyebrow>
             <h2 className="mt-5 font-display text-[38px] sm:text-[46px] leading-tight tracking-tight text-white text-balance">
-              If it speaks MCP, <Grad>it works.</Grad>
+              Works with <Grad>the assistants you use.</Grad>
             </h2>
           </div>
 
@@ -523,7 +505,9 @@ export default function AgentPage() {
               Drop the server into your AI, <Grad>done.</Grad>
             </h2>
             <p className="mt-5 text-[15px] leading-relaxed" style={{ color: K.muted }}>
-              Prerequisites: Node.js and npm installed on your system.
+              Prerequisites: Node.js and npm installed on your system. Add this to your
+              client&apos;s MCP config (shown: VS Code <code>mcp.json</code>).{' '}
+              <code>QA_MCP_PROJECT_ID</code> is optional.
             </p>
           </div>
 
@@ -541,15 +525,16 @@ export default function AgentPage() {
             <pre className="p-6 text-[13px] font-mono overflow-x-auto" style={{ color: K.text }}>
 {`{
   "servers": {
-    "common-qa-mcp": {
+    "simplify3x-connect": {
       "type": "stdio",
       "command": "npx",
-      "args": ["-y", "common-qa-mcp"],
+      "args": ["-y", "simplify3x-connect"],
       "env": {
-        "QA_MCP_TOKEN": "••••••••",
-        "QA_MCP_URL": "••••••••",
-        "QA_MCP_PROVIDER": "••••••••",
-        "QA_BASE_URL": "••••••••"
+        "QA_MCP_PROVIDER": "simplifyqa",
+        "QA_BASE_URL": "https://<your-simplifyqa-host>",
+        "QA_MCP_TOKEN": "<your-token>",
+        "QA_MCP_PROJECT_ID": "<optional-project-id>",
+        "QA_MCP_URL": "http://127.0.0.1:4040/mcp"
       }
     }
   }
@@ -575,7 +560,7 @@ export default function AgentPage() {
                   Your AI already knows <Grad>what to do.</Grad>
                 </h2>
                 <p className="mt-4 text-[16px]" style={{ color: K.muted }}>
-                  Give it a URL. It will handle the rest.
+                  Connect it to SimplifyQA and start from a user story.
                 </p>
               </div>
               <div className="flex flex-col sm:flex-row gap-3 shrink-0">
@@ -633,7 +618,7 @@ function HeroTerminal() {
             <span className="w-2.5 h-2.5 rounded-full" style={{ background: '#28C840' }} />
           </div>
           <span className="text-[12px] font-mono" style={{ color: K.muted }}>
-            Claude Desktop · MCP: simplifyqa-mcp
+            Claude · MCP: simplify3x-connect
           </span>
           <span className="ml-auto flex items-center gap-1.5 text-[11px] font-mono" style={{ color: K.green }}>
             <span className="w-1.5 h-1.5 rounded-full animate-pulse" style={{ background: K.green }} /> connected
@@ -649,9 +634,8 @@ function HeroTerminal() {
               You
             </div>
             <div className="pl-7">
-              Test <span style={{ color: K.green }}>https://shop.acme.com</span> with{' '}
-              <span style={{ color: K.amber }}>admin@acme.com / hunter2</span>. Save to project{' '}
-              <span style={{ color: K.amber }}>ACME Shop</span>. Run the suite.
+              Create test cases for story <span style={{ color: K.amber }}>ACME-214</span> and record
+              the first one on <span style={{ color: K.green }}>https://shop.acme.com</span>.
             </div>
           </div>
 
@@ -660,17 +644,15 @@ function HeroTerminal() {
             <div className="flex items-center gap-2 text-[11.5px] mb-2" style={{ color: K.muted }}>
               <span className="grid place-items-center w-5 h-5 rounded-full text-[10px] font-bold"
                     style={{ background: K.green + '25', color: K.green, border: `1px solid ${K.green}55` }}>C</span>
-              Claude · simplifyqa-mcp
+              Claude · simplify3x-connect
             </div>
             <div className="pl-7 space-y-1.5">
-              <Line label="explore" ok>walked 24 pages, classified checkout, cart, browse, login, profile</Line>
-              <Line label="generate" ok>41 test cases across 5 flows</Line>
-              <Line label="save" ok>suite <span style={{ color: K.amber }}>ACME_Checkout_v1</span> in SimplifyQA / Payments</Line>
-              <Line label="execute" ok>staging: <span style={{ color: K.green }}>37 passed</span>, <span style={{ color: K.red }}>3 failed</span>, <span style={{ color: K.amber }}>1 self-healed</span></Line>
-              <Line label="defects" ok>filed in Jira: <span style={{ color: K.amber }}>ACMESH-1041, 1042, 1043</span></Line>
-              <Line label="rtm" ok>exported to Excel</Line>
+              <Line label="story" ok>read <span style={{ color: K.amber }}>ACME-214</span>: guest checkout with a saved card</Line>
+              <Line label="generate" ok>6 test cases drafted from the acceptance criteria</Line>
+              <Line label="record" ok>WEB: recorded &quot;Guest checkout, valid card&quot;, 14 steps</Line>
+              <Line label="review">draft ready. Review it, then say &quot;save it&quot;.</Line>
               <div className="mt-3 pt-3 border-t text-[12.5px]" style={{ borderColor: K.border, color: K.muted }}>
-                Done in <span style={{ color: K.green }}>14m 22s</span>. Reproduction steps + evidence attached to every defect.
+                Nothing is saved to SimplifyQA until you approve the recording.
               </div>
             </div>
           </div>

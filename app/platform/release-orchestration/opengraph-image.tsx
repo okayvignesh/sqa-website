@@ -11,7 +11,7 @@ export default function OgImage() {
     eyebrow: 'Platform · Release',
     title: 'The gate that stops bad ships.',
     subtitle:
-      'Quality gates, smart promotion, and pipeline visibility across Jenkins, GitLab CI, GitHub Actions, and Azure DevOps.',
+      'Quality gates and scheduled runs. Any CI tool, GitHub Actions included, starts runs through the REST API.',
     path: 'simplifyqa.ai/platform/release-orchestration',
     signature: <SigReleaseOrchestration />,
   });

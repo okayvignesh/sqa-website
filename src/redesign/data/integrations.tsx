@@ -13,12 +13,10 @@
 
 export type IntegrationCategory =
   | 'Project'
-  | 'SCM'
   | 'CI/CD'
   | 'Chat'
   | 'Cloud'
-  | 'Identity'
-  | 'Testing';
+  | 'Mobile device clouds';
 
 export type Integration = {
   name: string;
@@ -31,21 +29,15 @@ const devicon = (slug: string) =>
 const simpleicons = (slug: string) => `https://cdn.simpleicons.org/${slug}`;
 const svgl = (file: string) => `https://svgl.app/library/${file}`;
 
+// Real integrations only. Any CI tool can also start runs through the REST API.
+// ponytail: LambdaTest is a real integration but has no logo on these CDNs; add it when we host one.
 export const integrations: Integration[] = [
-  // Project management
+  // Project management (two-way sync)
   { name: 'Jira',           category: 'Project',       src: devicon('jira') },
-  { name: 'Notion',         category: 'Project',       src: devicon('notion') },
-  { name: 'Confluence',     category: 'Project',       src: devicon('confluence') },
-  { name: 'Atlassian',      category: 'Project',       src: simpleicons('atlassian') },
-
-  // Source control
-  { name: 'GitHub',         category: 'SCM',           src: devicon('github') },
-  { name: 'GitLab',         category: 'SCM',           src: devicon('gitlab') },
-  { name: 'Bitbucket',      category: 'SCM',           src: devicon('bitbucket') },
+  { name: 'Azure DevOps',   category: 'Project',       src: devicon('azuredevops') },
 
   // CI/CD
-  { name: 'Jenkins',        category: 'CI/CD',         src: devicon('jenkins') },
-  { name: 'Azure DevOps',   category: 'CI/CD',         src: devicon('azuredevops') },
+  { name: 'GitHub Actions', category: 'CI/CD',         src: devicon('githubactions') },
 
   // Chat
   { name: 'Slack',          category: 'Chat',          src: devicon('slack') },
@@ -53,17 +45,13 @@ export const integrations: Integration[] = [
 
   // Cloud / infra
   { name: 'Microsoft Azure', category: 'Cloud',        src: devicon('azure') },
+  { name: 'Kubernetes',     category: 'Cloud',         src: simpleicons('kubernetes') },
 
-  // Identity
-  { name: 'Okta',           category: 'Identity',      src: devicon('okta') },
-
-  // Testing
-  { name: 'Postman',        category: 'Testing',       src: devicon('postman') },
-  { name: 'Selenium',       category: 'Testing',       src: devicon('selenium') },
-  { name: 'BrowserStack',   category: 'Testing',       src: devicon('browserstack') },
-  { name: 'Sauce Labs',     category: 'Testing',       src: simpleicons('saucelabs') },
+  // Mobile device clouds (mobile apps only)
+  { name: 'BrowserStack',   category: 'Mobile device clouds', src: devicon('browserstack') },
+  { name: 'Sauce Labs',     category: 'Mobile device clouds', src: simpleicons('saucelabs') },
 ];
 
 export const integrationCategories: IntegrationCategory[] = [
-  'Project', 'SCM', 'CI/CD', 'Chat', 'Cloud', 'Identity', 'Testing',
+  'Project', 'CI/CD', 'Chat', 'Cloud', 'Mobile device clouds',
 ];

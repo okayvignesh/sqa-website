@@ -4,15 +4,15 @@ import { SigAgentDark } from '../../src/lib/og-signatures';
 export const runtime = 'edge';
 export const size = { width: 1200, height: 630 };
 export const contentType = 'image/png';
-export const alt = 'SimplifyQA MCP: an MCP server for any AI client';
+export const alt = 'SimplifyQA MCP: use SimplifyQA from your AI assistant';
 
 export default function OgImage() {
   return renderOg({
     eyebrow: 'Product · MCP',
-    title: 'Run all of SimplifyQA from your AI.',
+    title: 'Use SimplifyQA from your AI assistant.',
     subtitle:
-      'A SimplifyQA MCP server that plugs into any AI. It performs every SimplifyQA action, records the tests, runs them, and files the defects.',
-    path: 'simplifyqa.ai/agent',
+      'Create test cases from user stories, record and run tests on seven technologies, and find out why a run failed. You review every recording before it is saved.',
+    path: 'simplifyqa.ai/mcp',
     theme: 'dark',
     darkInk: '#08111F',
     accent: '#38BDF8',

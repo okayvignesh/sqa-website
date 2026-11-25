@@ -11,7 +11,7 @@ export default function OgImage() {
     eyebrow: 'Why SimplifyQA',
     title: 'ALM, rebuilt around the tests.',
     subtitle:
-      'Agentic AI, zero-code automation, unified lifecycle. One platform for every surface your team ships to.',
+      'Built-in AI, zero-code automation, unified lifecycle. One platform for every surface your team ships to.',
     path: 'simplifyqa.ai/about',
     signature: <SigAbout />,
   });

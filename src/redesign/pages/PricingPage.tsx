@@ -18,7 +18,7 @@ const almFeatures = [
   'Test Planning & Execution',
   'Requirements Traceability Matrix',
   'Custom Workflows & Automation',
-  'Integrations (Jira, Azure DevOps, Git)',
+  'Integrations (Jira, Azure DevOps, Slack, Teams)',
   'Audit Trails & Compliance',
   'Test Case Management',
   'Defect Tracking & Management',
@@ -39,13 +39,11 @@ const addons: Addon[] = [
   {
     name: 'Web Automation',
     icon: <Globe className="w-4 h-4" />,
-    description: 'Cross-browser automation and visual regression testing.',
+    description: 'Cross-browser web automation with no-code actions.',
     features: [
-      'Selenium & Playwright support',
-      'Visual regression testing',
       'Cross-browser testing',
       'Responsive design testing',
-      'Performance monitoring',
+      'Rule-based self-healing locators',
     ],
   },
   {
@@ -63,12 +61,11 @@ const addons: Addon[] = [
   {
     name: 'Desktop Automation',
     icon: <Monitor className="w-4 h-4" />,
-    description: 'Native desktop application testing capabilities.',
+    description: 'Native Windows desktop application testing.',
     features: [
-      'Windows / Mac / Linux support',
+      'Windows desktop support',
       'Native app automation',
       'UI element recognition',
-      'Desktop performance testing',
       'Screenshot capture',
     ],
   },
@@ -78,10 +75,9 @@ const addons: Addon[] = [
     description: 'iOS and Android testing on real devices and simulators.',
     features: [
       'iOS & Android support',
-      'Real device cloud',
+      'Device clouds: BrowserStack, LambdaTest, Sauce Labs',
       'Emulator / simulator testing',
       'Touch gesture testing',
-      'Mobile performance testing',
     ],
   },
 ];
@@ -97,11 +93,11 @@ const faqs = [
   },
   {
     q: 'Can you integrate with our existing tools?',
-    a: 'Yes. SimplifyQA integrates natively with Jira, Azure DevOps, GitLab, GitHub, Slack, Microsoft Teams, Jenkins, BrowserStack, Sauce Labs, and 100+ more, tailored to your stack.',
+    a: 'Yes. SimplifyQA integrates with Jira and Azure DevOps (two-way sync), Slack, Microsoft Teams, BrowserStack, LambdaTest and Sauce Labs for mobile device clouds, Kubernetes and Azure. Any CI tool can start runs through the REST API, and GitHub Actions is supported.',
   },
   {
     q: 'Is your platform secure and compliant?',
-    a: 'Absolutely. SimplifyQA is SOC 2 Type II audited and ISO 27001 certified, with HIPAA- and GDPR-aligned workflows. Enterprise customers can choose single-tenant, VPC, or fully on-prem deployments.',
+    a: 'Absolutely. SimplifyQA is SOC 2 Type II audited and ISO 27001 certified, with HIPAA- and GDPR-aligned workflows. Choose SaaS (global and India regions) or on-premise deployment.',
   },
   {
     q: 'What\'s included in the base ALM package vs. add-ons?',

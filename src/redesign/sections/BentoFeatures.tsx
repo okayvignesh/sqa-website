@@ -1,8 +1,9 @@
 'use client';
 
+import Link from 'next/link';
 import { motion } from 'framer-motion';
 import {
-  Bot, FlaskConical, GitBranch, LineChart, ShieldCheck, Sparkles, Workflow, Zap,
+  ArrowUpRight, FileText, FlaskConical, GitBranch, LineChart, ListChecks, ShieldCheck, Sparkles, Terminal, Wand2, Workflow, Zap,
 } from 'lucide-react';
 import {
   Container, Eyebrow, Reveal, RevealGroup,
@@ -16,30 +17,53 @@ const cardHover = {
   transition: { type: 'spring' as const, stiffness: 240, damping: 22 },
 };
 
+// Tile copy from the team's approved website copy doc.
+const smallTiles = [
+  {
+    label: 'SimplifyQA MCP',
+    icon: <Terminal className="w-3.5 h-3.5" />,
+    body: 'From your AI assistant (Claude, Cursor, VS Code, Windsurf, Codex, Devin), create, record and run tests on seven technologies, write custom methods and find out why a run failed. You review every recording before it is saved.',
+    href: '/mcp',
+  },
+  {
+    label: 'Self-healing',
+    icon: <Wand2 className="w-3.5 h-3.5" />,
+    body: 'Self-healing locators for web and iOS keep tests running when the UI changes; the fix is saved to the object repository.',
+    extra: <HealMock />,
+  },
+  {
+    label: 'Scroll',
+    icon: <FileText className="w-3.5 h-3.5" />,
+    body: 'A documentation workspace with live co-editing, version history and AI writing, plus live SimplifyQA test case and report blocks.',
+    href: '/scroll',
+  },
+];
+
 const cardBase =
   'relative rounded-3xl overflow-hidden border border-ink-900/[0.06] bg-white';
 
 export default function BentoFeatures() {
   return (
-    <section id="platform" className="relative py-16 sm:py-24 bg-surface-soft">
+    <section id="platform" className="relative py-14 sm:py-20 bg-surface-soft">
       <div aria-hidden className="absolute inset-x-0 top-0 h-px bg-gradient-to-r from-transparent via-ink-900/10 to-transparent" />
       <Container size="wide">
-        <div className="max-w-3xl">
+        <div>
           <Reveal>
             <Eyebrow icon={<Workflow className="w-3.5 h-3.5" />}>One platform · End-to-end ALM</Eyebrow>
           </Reveal>
           <Reveal delay={0.05}>
-            <h2 className="mt-5 font-display text-display-lg text-ink-900 text-balance">
+            <h2 className="mt-5 font-display text-display-lg text-ink-900 text-balance xl:whitespace-nowrap">
               Every stage of quality, <span className="gradient-text">unified</span>.
             </h2>
           </Reveal>
           <Reveal delay={0.1}>
-            <p className="mt-5 text-[17px] text-ink-500 max-w-2xl">
+            <p className="mt-5 text-[17px] text-ink-500 xl:whitespace-nowrap">
               SimplifyQA replaces a patchwork of tools with a single intelligent platform,
               built for the way enterprise QA actually ships software.
             </p>
           </Reveal>
         </div>
+
 
         <RevealGroup className="mt-14 grid grid-cols-12 gap-4 sm:gap-5" delay={0.11}>
           {/* AI Studio, big left card · gentle scale-in */}
@@ -51,14 +75,15 @@ export default function BentoFeatures() {
             <div aria-hidden className="absolute inset-0 bg-mesh opacity-60" />
             <div className="relative p-8 sm:p-10">
               <div className="flex items-center gap-2 text-[12.5px] font-semibold text-brand-700">
-                <Sparkles className="w-3.5 h-3.5" /> AI Test Assistant
+                <Sparkles className="w-3.5 h-3.5" /> AI built in
               </div>
               <h3 className="mt-4 font-display text-2xl sm:text-3xl text-ink-900 max-w-md">
-                Generate, repair, and explain tests in plain English.
+                Generate and explain tests in plain English.
               </h3>
               <p className="mt-3 text-[14.5px] text-ink-500 max-w-md leading-relaxed">
-                Built on a quality-tuned model. Turn user stories into test cases, auto-heal
-                broken locators, and ask “why did this fail?”, get a real answer.
+                Write with AI on stories, test cases and defects; test cases from a user story; Story
+                Studio; AI DataGen for test data; ask the AI assistant why a run failed. Works with
+                your own AI model keys.
               </p>
 
               <div className="mt-6 rounded-2xl glass-card p-4 max-w-md">
@@ -84,16 +109,16 @@ export default function BentoFeatures() {
             className={`${cardBase} col-span-12 lg:col-span-5 p-8 sm:p-10 flex flex-col`}
           >
             <div className="flex items-center gap-2 text-[12.5px] font-semibold text-brand-700">
-              <Zap className="w-3.5 h-3.5" /> Test Automation
+              <Zap className="w-3.5 h-3.5" /> No-code automation
             </div>
             <h3 className="mt-4 font-display text-2xl text-ink-900">
-              Low-code automation, enterprise scale.
+              No code. Eight technologies.
             </h3>
             <p className="mt-3 text-[14.5px] text-ink-500 leading-relaxed">
-              Author once, run anywhere, web, mobile, API, mainframe, SAP, Salesforce, Siebel. Parallel grids with self-healing locators.
+              About 370 no-code actions across eight technologies: Web, Android, iOS, Desktop, Mainframe, SAP, API and Database. Mix technologies in one test case.
             </p>
             <div className="mt-6 grid grid-cols-2 sm:grid-cols-4 gap-2">
-              {['Web', 'Mobile', 'API', 'SAP', 'Salesforce', 'Mainframe', 'Desktop', 'DB'].map((t) => (
+              {['Web', 'Android', 'iOS', 'Desktop', 'Mainframe', 'SAP', 'API', 'Database'].map((t) => (
                 <span key={t} className="text-center text-[11.5px] font-medium text-ink-600 bg-ink-50 border border-ink-100 rounded-lg px-1.5 py-2">
                   {t}
                 </span>
@@ -102,9 +127,9 @@ export default function BentoFeatures() {
 
             <div className="mt-6 grid grid-cols-3 gap-3">
               {[
-                ['200×', 'parallel shards'],
-                ['65%', 'faster CI runs'],
-                ['90%', 'less maintenance'],
+                ['8', 'technologies'],
+                ['~370', 'no-code actions'],
+                ['1', 'test case, many technologies'],
               ].map(([v, l]) => (
                 <div key={l} className="rounded-xl bg-ink-50/70 border border-ink-100 px-3 py-2.5">
                   <div className="font-display text-lg text-ink-900 leading-none">{v}</div>
@@ -121,11 +146,11 @@ export default function BentoFeatures() {
             className={`${cardBase} col-span-12 md:col-span-6 lg:col-span-4 p-7`}
           >
             <div className="flex items-center gap-2 text-[12.5px] font-semibold text-brand-700">
-              <FlaskConical className="w-3.5 h-3.5" /> Test Management
+              <FlaskConical className="w-3.5 h-3.5" /> Test management
             </div>
             <h3 className="mt-3 font-display text-xl text-ink-900">Plan, design, trace.</h3>
             <p className="mt-2 text-[13.5px] text-ink-500 leading-relaxed">
-              Requirements, suites, cycles, and traceability, natively linked to your tickets and code.
+              Manual and automated test cases in one place, with review and approval, links to user stories, and e-signature on manual runs.
             </p>
             <TraceabilityBars />
           </motion.div>
@@ -137,17 +162,17 @@ export default function BentoFeatures() {
             className={`${cardBase} col-span-12 md:col-span-6 lg:col-span-4 p-7`}
           >
             <div className="flex items-center gap-2 text-[12.5px] font-semibold text-brand-700">
-              <Bot className="w-3.5 h-3.5" /> Defect Intelligence
+              <ListChecks className="w-3.5 h-3.5" /> Project management
             </div>
-            <h3 className="mt-3 font-display text-xl text-ink-900">Smart triage on autopilot.</h3>
+            <h3 className="mt-3 font-display text-xl text-ink-900">Plan, sprint, release.</h3>
             <p className="mt-2 text-[13.5px] text-ink-500 leading-relaxed">
-              Clustering, severity scoring, and root-cause hints. Detect flakes before they cost a release.
+              Plan epics, features, user stories and tasks. Run sprints on the Sprint Board and My Board, plan releases and track defects, with two-way Jira and Azure DevOps sync.
             </p>
             <div className="mt-5 space-y-2">
               {[
-                ['Auth · token refresh', 'Critical', 'bg-brand-50 text-brand-700 border-brand-100'],
-                ['Checkout · retry race', 'Major',    'bg-amber-50 text-amber-700 border-amber-100'],
-                ['Refunds · webhook',    'Flake',     'bg-ink-50 text-ink-600 border-ink-200'],
+                ['Wallets',              'Epic',   'bg-brand-50 text-brand-700 border-brand-100'],
+                ['Token refresh on login', 'Story',  'bg-amber-50 text-amber-700 border-amber-100'],
+                ['Checkout · retry race', 'Defect', 'bg-ink-50 text-ink-600 border-ink-200'],
               ].map(([label, sev, cls]) => (
                 <div key={label} className="flex items-center justify-between text-[12.5px] text-ink-700">
                   <span className="truncate">{label}</span>
@@ -164,11 +189,11 @@ export default function BentoFeatures() {
             className={`${cardBase} col-span-12 md:col-span-12 lg:col-span-4 p-7`}
           >
             <div className="flex items-center gap-2 text-[12.5px] font-semibold text-brand-700">
-              <LineChart className="w-3.5 h-3.5" /> Insights & Reports
+              <LineChart className="w-3.5 h-3.5" /> Reports and dashboards
             </div>
             <h3 className="mt-3 font-display text-xl text-ink-900">Quality, in real time.</h3>
             <p className="mt-2 text-[13.5px] text-ink-500 leading-relaxed">
-              Executive dashboards, release readiness scoring, and predictive risk, straight from your test data.
+              Step-by-step execution reports with screenshots, PDF exports, and built-in dashboards with about 80 ready-made charts.
             </p>
             <MiniBars />
           </motion.div>
@@ -180,11 +205,11 @@ export default function BentoFeatures() {
             className={`${cardBase} col-span-12 md:col-span-6 lg:col-span-6 p-8 flex flex-col`}
           >
             <div className="flex items-center gap-2 text-[12.5px] font-semibold text-brand-700">
-              <GitBranch className="w-3.5 h-3.5" /> Release Orchestration
+              <GitBranch className="w-3.5 h-3.5" /> Execution and scheduling
             </div>
-            <h3 className="mt-3 font-display text-xl text-ink-900">Gate every release with quality.</h3>
+            <h3 className="mt-3 font-display text-xl text-ink-900">Run anywhere, on any schedule.</h3>
             <p className="mt-2 text-[13.5px] text-ink-500 leading-relaxed">
-              Pipelines, environments, approvals, and quality gates, connected to Jenkins, GitLab CI, GitHub Actions, and Azure DevOps.
+              Run on local or remote agents, cloud machines or Kubernetes. Schedule runs once, every few minutes, hourly, daily, weekly or monthly, or start them from CI through the REST API. Test mobile apps on BrowserStack, LambdaTest or Sauce Labs.
             </p>
 
             <div className="mt-6 rounded-2xl bg-ink-50/70 border border-ink-100 p-4">
@@ -192,9 +217,9 @@ export default function BentoFeatures() {
                 {[
                   ['Build',   'bg-emerald-500'],
                   ['Test',    'bg-emerald-500'],
-                  ['Scan',    'bg-emerald-500'],
-                  ['Gate',    'bg-amber-500'],
-                  ['Deploy',  'bg-ink-300'],
+                  ['Run',     'bg-emerald-500'],
+                  ['Re-run',  'bg-amber-500'],
+                  ['Report',  'bg-ink-300'],
                 ].map(([label, dot], i, arr) => (
                   <div key={label} className="flex items-center gap-2 flex-1 min-w-0">
                     <span className={`w-1.5 h-1.5 rounded-full ${dot} shrink-0`} />
@@ -207,13 +232,13 @@ export default function BentoFeatures() {
               </div>
               <div className="mt-3 flex items-center justify-between text-[11px] text-ink-500">
                 <span>Release <span className="font-mono text-ink-700">v4.18.2</span></span>
-                <span className="text-emerald-700 font-medium">Quality 96%</span>
+                <span className="text-emerald-700 font-medium">Pass rate 96%</span>
               </div>
             </div>
 
             <div className="mt-4 flex items-center gap-2 flex-wrap text-[11.5px] text-ink-500">
-              <span className="font-medium text-ink-700">Pipelines:</span>
-              {['Jenkins', 'GitLab CI', 'GitHub Actions', 'Azure DevOps'].map((b) => (
+              <span className="font-medium text-ink-700">Start runs from:</span>
+              {['Any CI via REST API', 'GitHub Actions'].map((b) => (
                 <span key={b} className="bg-ink-50 border border-ink-100 rounded-full px-2.5 py-0.5">
                   {b}
                 </span>
@@ -228,11 +253,11 @@ export default function BentoFeatures() {
             className={`${cardBase} col-span-12 md:col-span-6 lg:col-span-6 p-8`}
           >
             <div className="flex items-center gap-2 text-[12.5px] font-semibold text-brand-700">
-              <ShieldCheck className="w-3.5 h-3.5" /> Enterprise Security
+              <ShieldCheck className="w-3.5 h-3.5" /> Enterprise
             </div>
             <h3 className="mt-3 font-display text-xl text-ink-900">Certified, compliant, and audit-ready.</h3>
             <p className="mt-2 text-[13.5px] text-ink-500 leading-relaxed">
-              Built for regulated environments. Single tenant, on-prem, or VPC, your choice.
+              SaaS (global and India regions) or on-premise; SSO, roles and privileges, audit trail.
             </p>
             <div className="mt-6 grid grid-cols-2 sm:grid-cols-4 gap-3">
               {certs.map((c) => (
@@ -252,9 +277,47 @@ export default function BentoFeatures() {
               ))}
             </div>
           </motion.div>
+          {smallTiles.map((t) => (
+            <motion.div
+              key={t.label}
+              variants={fadeFromBottom}
+              {...cardHover}
+              className={`${cardBase} col-span-12 md:col-span-4 p-7 flex flex-col`}
+            >
+              <div className="flex items-center gap-2 text-[12.5px] font-semibold text-brand-700">
+                {t.icon} {t.label}
+              </div>
+              <p className="mt-3 text-[13.5px] text-ink-500 leading-relaxed flex-1">{t.body}</p>
+              {t.extra}
+              {t.href && (
+                <Link href={t.href} className="mt-4 inline-flex items-center gap-1 text-[13px] font-medium text-brand-700 hover:text-brand-800">
+                  Learn more <ArrowUpRight className="w-3.5 h-3.5" />
+                </Link>
+              )}
+            </motion.div>
+          ))}
         </RevealGroup>
       </Container>
     </section>
+  );
+}
+
+// Illustrative only: a broken locator and its healed replacement.
+function HealMock() {
+  return (
+    <div className="mt-4 rounded-xl bg-ink-50/70 border border-ink-100 p-3 font-mono text-[11.5px] space-y-1.5">
+      <div className="flex items-center justify-between gap-2">
+        <span className="truncate text-ink-400 line-through">#checkout</span>
+        <span className="shrink-0 text-brand-700">not found</span>
+      </div>
+      <div className="flex items-center justify-between gap-2">
+        <span className="truncate text-ink-800">text=Place order</span>
+        <span className="shrink-0 text-emerald-700">healed</span>
+      </div>
+      <div className="pt-1.5 border-t border-ink-100 font-sans text-[11px] text-ink-500">
+        Saved to object repository
+      </div>
+    </div>
   );
 }
 

@@ -9,6 +9,7 @@ export default function TestManagementPage() {
   return (
     <ProductPage
       config={{
+        video: 'manual-esign',
         eyebrow: 'Test Management',
         eyebrowIcon: <FlaskConical className="w-3.5 h-3.5" />,
         title: (

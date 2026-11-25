@@ -24,7 +24,7 @@ const productJsonLd = {
   url: `${SITE_URL}/scroll`,
   publisher: { '@type': 'Organization', name: 'SimplifyQA', url: SITE_URL },
   description:
-    'AI-native documentation platform with real-time collaboration, document version history, semantic search, MCP-powered AI writing, diagram generation, and QA-native blocks for teams on SimplifyQA.',
+    'AI-native documentation platform with real-time collaboration, document version history, semantic search, AI writing built in, diagram generation, and QA-native blocks for teams on SimplifyQA.',
   offers: { '@type': 'Offer', price: '0', priceCurrency: 'USD', category: 'Free trial' },
   featureList: [
     'Real-time collaborative editing with live cursors',

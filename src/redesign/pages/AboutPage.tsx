@@ -30,7 +30,7 @@ const BrandGlobe = dynamic(() => import('../components/BrandGlobe'), {
 
 const values = [
   { icon: <Target className="w-4 h-4" />, t: 'Quality is a product', d: 'We treat QA as a first-class engineering surface, not an afterthought bolt-on.' },
-  { icon: <Sparkles className="w-4 h-4" />, t: 'AI that earns trust', d: 'Tuned, grounded, explainable. We ship AI features only when they hold up in production.' },
+  { icon: <Sparkles className="w-4 h-4" />, t: 'AI that earns trust', d: 'Explainable, and running on the AI provider you choose. We ship AI features only when they hold up in production.' },
   { icon: <Heart className="w-4 h-4" />, t: 'Customers, not seats', d: 'Long-term partnerships beat short-term ARR. We measure success by your shipping velocity.' },
   { icon: <Compass className="w-4 h-4" />, t: 'Bias for clarity',     d: 'Plain language, opinionated defaults, and dashboards an executive can read at a glance.' },
 ];
@@ -54,12 +54,12 @@ const reasons: Reason[] = [
     },
     win: {
       icon: <Bot className="w-5 h-5" />,
-      title: 'Agentic AI workforce',
-      body: 'Stop writing. Start delegating. Agents ingest your raw assets and build QA artifacts autonomously.',
+      title: 'AI built into the workflow',
+      body: 'Write with AI on stories, test cases and defects. Generate test cases from a user story, and test data with AI DataGen. Runs on your own AI provider and keys.',
       proof: [
-        { icon: <Wand2 className="w-3.5 h-3.5" />, label: 'Architect Agent', sub: 'Reads BRDs, Figma & videos to draft strategies.' },
-        { icon: <Cpu className="w-3.5 h-3.5" />,   label: 'Builder Agent',   sub: 'Generates synthetic data and scripts instantly.' },
-        { icon: <Wrench className="w-3.5 h-3.5" />,label: 'Healer Agent',    sub: 'Detects failures and self-corrects scripts.' },
+        { icon: <Wand2 className="w-3.5 h-3.5" />, label: 'Story Studio', sub: 'Test cases drafted from your user stories.' },
+        { icon: <Cpu className="w-3.5 h-3.5" />,   label: 'AI DataGen',   sub: 'Generates test data for your test cases.' },
+        { icon: <Wrench className="w-3.5 h-3.5" />,label: 'Failure analysis',    sub: 'Ask the AI assistant why a run failed.' },
       ],
     },
   },
@@ -76,7 +76,7 @@ const reasons: Reason[] = [
       proof: [
         { icon: <Zap className="w-3.5 h-3.5" />, label: '80% faster test creation' },
         { icon: <Zap className="w-3.5 h-3.5" />, label: 'Human-readable keywords' },
-        { icon: <Zap className="w-3.5 h-3.5" />, label: 'Self-healing locators, out of the box' },
+        { icon: <Zap className="w-3.5 h-3.5" />, label: 'Rule-based self-healing locators for web and iOS' },
       ],
     },
   },
@@ -106,10 +106,10 @@ const reasons: Reason[] = [
     win: {
       icon: <Globe2 className="w-5 h-5" />,
       title: 'Any device, any app',
-      body: 'From legacy mainframes to modern web, mobile, API, SAP, Salesforce and Siebel, automate journeys that span your entire tech stack.',
+      body: 'Web, Android, iOS, Desktop, Mainframe, SAP, API and Database. Mix technologies in one test case to automate journeys that span your stack.',
       proof: [
-        { icon: <Globe2 className="w-3.5 h-3.5" />, label: 'Web · Mobile · API · Desktop' },
-        { icon: <Globe2 className="w-3.5 h-3.5" />, label: 'SAP · Salesforce · Siebel' },
+        { icon: <Globe2 className="w-3.5 h-3.5" />, label: 'Web · Android · iOS · Desktop (Windows)' },
+        { icon: <Globe2 className="w-3.5 h-3.5" />, label: 'SAP · API · Database' },
         { icon: <Globe2 className="w-3.5 h-3.5" />, label: 'Mainframe & terminal apps' },
       ],
     },
@@ -140,8 +140,8 @@ export default function AboutPage() {
               </Reveal>
               <Reveal delay={0.1}>
                 <p className="mt-5 text-[18px] leading-relaxed text-ink-500">
-                  Four reasons teams switch from patchwork ALM stacks to SimplifyQA: agentic AI
-                  that writes tests for you, zero-code automation, a truly unified lifecycle, and
+                  Four reasons teams switch from patchwork ALM stacks to SimplifyQA: AI that
+                  drafts test cases from your stories, zero-code automation, a truly unified lifecycle, and
                   coverage across every surface your team ships to.
                 </p>
               </Reveal>

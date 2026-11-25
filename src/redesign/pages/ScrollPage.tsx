@@ -84,7 +84,7 @@ const pillars = [
     tag: '01 · AI-Native',
     title: 'Not AI-bolted-on.',
     body:
-      'Every other doc tool added AI as a sidebar. Scroll was designed around an MCP-powered AI server from day one, the same backbone that powers writing also powers semantic search, diagram generation, and Q&A grounded in your real content.',
+      'Every other doc tool added AI as a sidebar. Scroll was designed with AI built in from day one: the same AI that powers writing also powers semantic search, diagram generation, and Q&A grounded in your real content.',
     icon: <Brain className="w-5 h-5" />,
   },
   {
@@ -120,7 +120,7 @@ const coreFeatures = [
   {
     icon: <Sparkles className="w-4 h-4" />,
     title: 'AI writing',
-    body: 'Draft, rewrite, summarize, and adjust tone inline. Grounded in your real content through the same MCP server that powers Scroll.',
+    body: 'Draft, rewrite, summarize, and adjust tone inline. Grounded in your real content, with AI built in.',
   },
   {
     icon: <Network className="w-4 h-4" />,
@@ -165,7 +165,7 @@ const blocks = [
 const aiCapabilities = [
   { icon: <MessageSquare className="w-4 h-4" />, title: 'AI Writing Assistant',   body: 'Generate, improve, rewrite, summarize (short / bullets / TLDR / executive), translate with formatting preserved.' },
   { icon: <Sparkles className="w-4 h-4" />,      title: 'Tone & Style Control',   body: 'Rewrite in formal, casual, friendly, professional, technical, or neutral tone, and adjust length independently.' },
-  { icon: <Search className="w-4 h-4" />,        title: 'Semantic Search',        body: 'pgvector-powered embeddings that find documents by meaning, not just keywords.' },
+  { icon: <Search className="w-4 h-4" />,        title: 'Semantic Search',        body: 'Find documents by meaning, not just keywords.' },
   { icon: <Bot className="w-4 h-4" />,           title: 'Conversational Q&A',     body: 'Ask questions of a single page, an entire space, or a connected repository, with citations to the source content.' },
   { icon: <Workflow className="w-4 h-4" />,      title: 'AI Diagram Generation',  body: 'Describe a system in plain English, get a Mermaid flowchart, sequence diagram, ER diagram, or mindmap.' },
   // Deck / presentation generation is deferred for now.
@@ -184,9 +184,9 @@ const compareRows: CompareRow[] = [
   { feature: 'Live test-case blocks',        cells: ['no', 'no', 'no', 'no'],           scroll: 'First-class, versioned, live pass/fail' },
   { feature: 'Live execution reports',       cells: ['no', 'no', 'no', 'no'],           scroll: 'Five-stage drill-down, always current' },
   { feature: 'Auto-generated traceability',  cells: ['no', 'no', 'no', 'no'],           scroll: 'Requirements ↔ tests ↔ defects, from real data' },
-  { feature: 'Real-time collaboration',      cells: ['partial', 'yes', 'partial', 'yes'], scroll: 'Yjs CRDT · live cursors · 260K ops/sec' },
+  { feature: 'Real-time collaboration',      cells: ['partial', 'yes', 'partial', 'yes'], scroll: 'Live co-editing · live cursors' },
   { feature: 'Version history & restore',    cells: ['yes', 'partial', 'yes', 'partial'], scroll: 'Every page + block versioned, restore any point' },
-  { feature: 'MCP-native AI (grounded)',     cells: ['no', 'partial', 'partial', 'no'], scroll: '12+ capabilities · multi-LLM · full audit log' },
+  { feature: 'AI built in (grounded)',       cells: ['no', 'partial', 'partial', 'no'], scroll: '12+ capabilities · multi-LLM · full audit log' },
   // Deck / presentation generation is deferred for now.
   // { feature: 'AI diagram + presentation',    cells: ['no', 'partial', 'no', 'no'],      scroll: 'Mermaid diagrams + web-native decks' },
   { feature: 'AI diagram generation',        cells: ['no', 'partial', 'no', 'no'],      scroll: 'Mermaid flowcharts, sequence, ER, and mindmaps' },
@@ -426,8 +426,8 @@ export default function ScrollPage() {
             <Reveal><VEyebrow icon={<Brain className="w-3.5 h-3.5" />}>AI capabilities</VEyebrow></Reveal>
             <Reveal delay={0.05}>
               <h2 className="mt-5 font-display text-display-md text-ink-900 text-balance">
-                12+ AI features. Every one through{' '}
-                <Grad>a hardened MCP server.</Grad>
+                12+ AI features.{' '}
+                <Grad>AI built in.</Grad>
               </h2>
             </Reveal>
             <Reveal delay={0.1}>
@@ -552,7 +552,7 @@ export default function ScrollPage() {
             <Reveal delay={0.1}>
               <p className="mt-5 text-[16.5px] text-ink-500 max-w-2xl leading-relaxed">
                 Every doc tool got the wiki part right. Scroll gets the QA part right too,
-                and pairs it with an MCP-native AI backbone the others cannot retrofit.
+                and pairs it with AI built in from day one, not bolted on.
               </p>
             </Reveal>
           </div>
@@ -690,7 +690,7 @@ const scrollFaqs = [
   },
   {
     q: 'What AI capabilities are included?',
-    a: '12+ features via a hardened MCP server: writing assistant, tone and style control, semantic search, conversational Q&A grounded in your pages, AI diagram generation (Mermaid), and AI-from-repository. Multi-LLM (OpenAI, Anthropic, Google, Azure) with per-org cost caps, per-user rate limits, and full audit logging.',
+    a: 'AI is built in, with 12+ features: writing assistant, tone and style control, semantic search, conversational Q&A grounded in your pages, AI diagram generation (Mermaid), and AI-from-repository. Multi-LLM (OpenAI, Anthropic, Google, Azure) with per-org cost caps, per-user rate limits, and full audit logging.',
   },
   {
     q: 'What integrations ship out of the box?',

@@ -5,18 +5,18 @@ import { BarChart3, Bot, FlaskConical, GitBranch, Sparkles, Workflow, Zap } from
 import { Container, Eyebrow, Reveal } from '../../design';
 
 const stages = [
-  { icon: <FlaskConical className="w-4 h-4" />, label: 'Plan',     desc: 'Requirements → suites → cycles, with native traceability.' },
-  { icon: <Sparkles className="w-4 h-4" />,    label: 'Design',   desc: 'AI generates test cases from user stories and code diffs.' },
-  { icon: <Zap className="w-4 h-4" />,         label: 'Automate', desc: 'Author once; run across web, mobile, API and enterprise apps, using codeless, low-code automation.' },
-  { icon: <Workflow className="w-4 h-4" />,    label: 'Execute',  desc: 'Parallel grids, self-healing, and intelligent re-runs.' },
-  { icon: <Bot className="w-4 h-4" />,         label: 'Triage',   desc: 'AI clusters defects, scores severity, and suggests fixes.' },
-  { icon: <GitBranch className="w-4 h-4" />,   label: 'Release',  desc: 'Quality gates connected to your CI/CD and approval flows.' },
-  { icon: <BarChart3 className="w-4 h-4" />,   label: 'Report',   desc: 'Live dashboards, KPIs, and exec-ready release readiness.' },
+  { icon: <FlaskConical className="w-4 h-4" />, label: 'Plan',     desc: 'Epics, features, user stories and tasks, on a Sprint Board.' },
+  { icon: <Sparkles className="w-4 h-4" />,    label: 'Design',   desc: 'AI writes test cases from user stories, for you to review.' },
+  { icon: <Zap className="w-4 h-4" />,         label: 'Automate', desc: 'About 370 no-code actions across eight technologies, mixed in one test case.' },
+  { icon: <Workflow className="w-4 h-4" />,    label: 'Execute',  desc: 'Parallel runs, rule-based self-healing, and automatic re-runs of failed tests.' },
+  { icon: <Bot className="w-4 h-4" />,         label: 'Triage',   desc: 'Failed runs log defects automatically; ask the AI assistant why a run failed.' },
+  { icon: <GitBranch className="w-4 h-4" />,   label: 'Release',  desc: 'Track releases; any CI tool starts runs through the REST API.' },
+  { icon: <BarChart3 className="w-4 h-4" />,   label: 'Report',   desc: 'Built-in dashboards with about 80 ready-made charts, plus PDF exports.' },
 ];
 
 export default function WorkflowTimeline() {
   return (
-    <section className="relative py-16 sm:py-24 bg-surface-warm overflow-hidden">
+    <section className="relative py-14 sm:py-20 bg-surface-warm overflow-hidden">
       <Container size="wide">
         <div className="max-w-3xl">
           <Reveal>

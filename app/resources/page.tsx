@@ -4,7 +4,7 @@ import { BreadcrumbJsonLd, buildMetadata } from '../../src/lib/seo';
 export const metadata = buildMetadata({
   title: 'Resources',
   description:
-    'Docs, webinars, whitepapers, customer stories, and engineering deep dives from the SimplifyQA team.',
+    'Docs, whitepapers, customer stories, and engineering deep dives from the SimplifyQA team.',
   path: '/resources',
 });
 

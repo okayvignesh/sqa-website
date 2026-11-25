@@ -4,7 +4,7 @@ import { buildMetadata, buildBreadcrumbJsonLd } from '../../../src/lib/seo';
 export const metadata = buildMetadata({
   title: 'AI Test Assistant',
   description:
-    'Quality-tuned LLMs that draft tests, suggest fixes, and review releases, grounded in your own product context.',
+    'Write with AI, test cases from user stories, AI DataGen for test data, and plain-English answers on why a run failed, on the AI provider you choose.',
   path: '/platform/ai-test-assistant',
   image: '/platform/ai-test-assistant/opengraph-image',
 });

@@ -159,12 +159,6 @@ const softwareJsonLd = {
   operatingSystem: 'Web',
   url: SITE_URL,
   publisher: { '@type': 'Organization', name: SITE_NAME, url: SITE_URL },
-  offers: {
-    '@type': 'Offer',
-    url: `${SITE_URL}/pricing`,
-    priceCurrency: 'USD',
-    price: '29',
-  },
 };
 
 export default function RootLayout({ children }: { children: React.ReactNode }) {

@@ -19,7 +19,7 @@ const values = [
 
 const teams = [
   { icon: <Code className="w-4 h-4" />,      name: 'Engineering',  desc: 'Distributed systems, automation runtimes, and the AI Studio platform.' },
-  { icon: <Bot className="w-4 h-4" />,       name: 'AI / ML',      desc: 'Quality-tuned models, retrieval, evals, and on-device inference.' },
+  { icon: <Bot className="w-4 h-4" />,       name: 'AI / ML',      desc: 'AI features that run on each customer\'s chosen provider: retrieval, evals, and grounding.' },
   { icon: <Users className="w-4 h-4" />,     name: 'Customer Success', desc: 'Onboarding, enablement, and white-glove implementations at enterprise scale.' },
   { icon: <Megaphone className="w-4 h-4" />, name: 'Go-to-market', desc: 'Sales, partnerships, marketing, and developer relations.' },
 ];

@@ -4,7 +4,7 @@ import { BreadcrumbJsonLd, buildMetadata } from '../../src/lib/seo';
 export const metadata = buildMetadata({
   title: 'Integrations',
   description:
-    'Connect SimplifyQA to Jira, GitHub, Jenkins, Slack, Azure DevOps, and 50+ tools across your engineering stack.',
+    'Connect SimplifyQA to Jira, Azure DevOps, Slack, Microsoft Teams, BrowserStack, LambdaTest, Sauce Labs, Kubernetes, Azure, and any CI tool through the REST API.',
   path: '/integrations',
 });
 

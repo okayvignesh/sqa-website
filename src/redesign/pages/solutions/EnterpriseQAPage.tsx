@@ -13,13 +13,13 @@ export default function EnterpriseQAPage() {
         eyebrowIcon: <Building2 className="w-3.5 h-3.5" />,
         title: (
           <>
-            Govern quality across <span className="gradient-text">thousands of teams</span>.
+            Govern quality across <span className="gradient-text">every team</span>.
           </>
         ),
         subtitle:
           'A single platform for portfolio-wide test management, automation, and release gating, with the controls regulated industries require.',
         bullets: [
-          'Single-tenant, on-prem, or VPC',
+          'SaaS (global and India) or on-premise',
           'SOC 2 · ISO 27001 · GDPR · HIPAA',
           'SSO/SAML + SCIM provisioning',
           'Role-based access control',
@@ -31,7 +31,7 @@ export default function EnterpriseQAPage() {
           { icon: <KeyRound className="w-4 h-4" />,    title: 'Identity at scale',    body: 'SSO via SAML/OIDC, automated provisioning via SCIM, customer-managed encryption keys.' },
           { icon: <Workflow className="w-4 h-4" />,    title: 'Portfolio rollouts',   body: 'Templates, defaults, and policy inheritance across hundreds of projects. Roll a change out once.' },
           { icon: <Layers className="w-4 h-4" />,      title: 'Governed multi-tenant', body: 'Per-team isolation with org-wide visibility for QA leaders, security, and compliance officers.' },
-          { icon: <Globe2 className="w-4 h-4" />,      title: 'Regional residency',   body: 'Host data where you need it, US, EU, India, APAC. Single-tenant deployments available.' },
+          { icon: <Globe2 className="w-4 h-4" />,      title: 'Regional residency',   body: 'SaaS in the global or India region, or deploy on-premise.' },
           { icon: <FileLock className="w-4 h-4" />,    title: 'Audit + retention',    body: 'Immutable audit logs, configurable retention policies, and one-click compliance reports.' },
         ],
         capabilityList: [

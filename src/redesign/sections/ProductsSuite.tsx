@@ -7,7 +7,7 @@ import { Container, Eyebrow, Reveal } from '../../design';
 
 export default function ProductsSuite() {
   return (
-    <section className="relative py-24 sm:py-32 bg-white">
+    <section className="relative pt-10 sm:pt-12 pb-14 sm:pb-20 bg-white">
       <Container size="wide">
         <div className="max-w-3xl">
           <Reveal>
@@ -20,8 +20,8 @@ export default function ProductsSuite() {
           </Reveal>
           <Reveal delay={0.1}>
             <p className="mt-5 text-[17px] text-ink-500 max-w-2xl leading-relaxed">
-              A living-doc wiki that works for every team, and an MCP agent that turns
-              any AI into your test author. Both share the same identity, users, and
+              A living-doc wiki that works for every team, and an MCP server that lets
+              your AI assistant create and run SimplifyQA tests. Both share the same identity, users, and
               projects as SimplifyQA core.
             </p>
           </Reveal>
@@ -65,15 +65,15 @@ function ScrollCard() {
         </div>
 
         <h3 className="mt-6 font-display text-[30px] sm:text-[34px] leading-[1.1] tracking-tight text-ink-900 text-balance">
-          The AI-native{' '}
-          <span style={{ color: V[700] }}>documentation platform</span>{' '}
-          for every team.
+          The{' '}
+          <span style={{ color: V[700] }}>documentation workspace</span>{' '}
+          with AI built in.
         </h3>
 
         <p className="mt-4 text-[14.5px] text-ink-600 leading-relaxed max-w-md">
           A real-time collaborative wiki. Write together live, track every change in version
-          history, draft with AI, and turn any page into a diagram. For SimplifyQA teams, live
-          test cases and execution reports embed as first-class blocks.
+          history, and draft with AI. For SimplifyQA teams, live test cases and execution
+          reports embed as blocks.
         </p>
 
         {/* Mini blocks preview */}
@@ -82,7 +82,7 @@ function ScrollCard() {
             { icon: <Users className="w-3.5 h-3.5" />, label: 'Real-time collaboration' },
             { icon: <GitBranch className="w-3.5 h-3.5" />, label: 'Version history' },
             { icon: <Sparkles className="w-3.5 h-3.5" />, label: 'AI writing' },
-            { icon: <Network className="w-3.5 h-3.5" />, label: 'Diagrams' },
+            { icon: <Network className="w-3.5 h-3.5" />, label: 'Live test blocks' },
           ].map((f) => (
             <div key={f.label}
               className="flex items-center gap-2 rounded-lg px-3 py-2 border text-[12.5px] font-medium"
@@ -149,14 +149,14 @@ function AgentCard() {
         </div>
 
         <h3 className="mt-6 font-display text-[30px] sm:text-[34px] leading-[1.1] tracking-tight text-white text-balance">
-          Run all of SimplifyQA{' '}
+          Test with SimplifyQA{' '}
           <span style={{ color: K.green }}>from your AI.</span>
         </h3>
 
         <p className="mt-4 text-[14.5px] leading-relaxed max-w-md" style={{ color: K.muted }}>
-          An MCP server for Claude, ChatGPT, Cursor, Windsurf, or any AI you already use.
-          Perform every SimplifyQA action, record test cases with AI, and execute them
-          across every supported platform, from one conversation.
+          An MCP server for Claude, Cursor, VS Code with Copilot, Windsurf, Codex and Devin.
+          Create test cases from user stories, record and run tests on seven technologies,
+          and find out why a run failed. You review every recording before it is saved.
         </p>
 
         {/* Mini terminal preview */}
@@ -165,21 +165,21 @@ function AgentCard() {
           <div className="flex items-start gap-2">
             <span style={{ color: K.amber }}>you</span>
             <span style={{ color: K.faint }}>&gt;</span>
-            <span style={{ color: K.text }}>test shop.acme.com, save + run</span>
+            <span style={{ color: K.text }}>why did last night's checkout run fail?</span>
           </div>
           <div className="mt-1 flex items-start gap-2">
             <span style={{ color: K.green }}>mcp</span>
             <span style={{ color: K.faint }}>&gt;</span>
             <span style={{ color: K.muted }}>
-              41 tests generated, <span style={{ color: K.green }}>37 passed</span>,{' '}
-              <span style={{ color: K.amber }}>3 defects filed</span>
+              <span style={{ color: K.green }}>37 passed</span>,{' '}
+              <span style={{ color: K.amber }}>3 failed</span>: promo banner locator changed
             </span>
           </div>
         </div>
       </div>
 
       <div className="relative mt-8 flex items-center gap-3">
-        <Link href="/agent"
+        <Link href="/mcp"
           className="inline-flex items-center gap-2 h-11 px-5 rounded-full text-[14px] font-semibold text-white transition-transform group-hover:-translate-y-0.5"
           style={{
             background: 'linear-gradient(180deg, #F04A5B 0%, #C8253A 60%, #9A1525 100%)',
@@ -187,7 +187,7 @@ function AgentCard() {
           }}>
           Explore the MCP <ArrowUpRight className="w-4 h-4" />
         </Link>
-        <Link href="/agent#setup"
+        <Link href="/mcp#setup"
           className="inline-flex items-center gap-1.5 h-11 px-5 rounded-full text-[14px] font-mono font-semibold border transition-colors"
           style={{ borderColor: K.borderH, background: K.panel, color: K.text }}>
           <Terminal className="w-4 h-4" style={{ color: K.green }} /> setup

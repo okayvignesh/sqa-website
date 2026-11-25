@@ -21,7 +21,7 @@ const columns = [
   ]),
   col('Products', [
     { label: 'Scroll',         to: '/scroll' },
-    { label: 'SimplifyQA MCP', to: '/agent' },
+    { label: 'SimplifyQA MCP', to: '/mcp' },
     { label: 'Integrations',   to: '/integrations' },
     { label: 'Pricing',        to: '/pricing' },
   ]),
@@ -34,9 +34,10 @@ const columns = [
   ]),
   col('Resources', [
     { label: 'Blog',         to: '/blog' },
+    { label: "What's new",   to: '/whats-new' },
     { label: 'Resource Hub', to: '/resources' },
     { label: 'Case Studies', to: '/customer-success' },
-    { label: 'Docs',         to: 'https://docs.simplifyqa.app/docs', external: true },
+    { label: 'Docs',         to: 'https://docs.simplifyqa.ai', external: true },
   ]),
   col('Company', [
     { label: 'About',     to: '/about' },
@@ -44,7 +45,6 @@ const columns = [
     { label: 'Careers',   to: '/careers' },
     { label: 'Contact',   to: '/contact' },
     { label: 'Security',  to: '/security' },
-    { label: 'Status',    to: '/status' },
     { label: 'Privacy',   to: '/privacy' },
     { label: 'Terms',     to: '/terms' },
   ]),

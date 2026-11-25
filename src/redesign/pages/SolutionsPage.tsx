@@ -24,10 +24,10 @@ const audiences: Audience[] = [
   {
     id: 'enterprise',
     eyebrow: 'Enterprise QA',
-    title: 'Govern quality across 1000+ teams.',
+    title: 'Govern quality across every team.',
     blurb: 'A single platform for portfolio-wide test management, automation, and release gating, with the controls regulated industries require.',
     bullets: [
-      { icon: <ShieldCheck className="w-3.5 h-3.5" />, t: 'Compliance built in',  d: 'SOC 2, ISO 27001, GDPR, HIPAA, single-tenant, on-prem, or VPC.' },
+      { icon: <ShieldCheck className="w-3.5 h-3.5" />, t: 'Compliance built in',  d: 'SOC 2, ISO 27001, GDPR, HIPAA, SaaS (global and India regions) or on-premise.' },
       { icon: <Users className="w-3.5 h-3.5" />,       t: 'Role-based governance', d: 'Granular RBAC, SCIM provisioning, audit logs, SIEM streaming.' },
       { icon: <Workflow className="w-3.5 h-3.5" />,    t: 'Portfolio rollouts',    d: 'Template suites, environments, and approval flows at scale.' },
     ],
@@ -36,44 +36,44 @@ const audiences: Audience[] = [
     id: 'automation-teams',
     eyebrow: 'Automation Teams',
     title: 'Replace fragile scripts with intelligence.',
-    blurb: 'Author once; run anywhere. Self-healing automation across web, mobile, API, mainframe, SAP, Salesforce, and Siebel, backed by AI Studio.',
+    blurb: 'About 370 no-code actions across Web, Android, iOS, Desktop, Mainframe, SAP, API and Database. Mix technologies in one test case.',
     bullets: [
       { icon: <Zap className="w-3.5 h-3.5" />,         t: 'Low-code authoring',    d: 'A visual canvas your QA team can drive, no Selenium expertise required.' },
-      { icon: <Bot className="w-3.5 h-3.5" />,         t: 'Self-healing locators', d: 'AI keeps suites green across UI drift and frontend rewrites.' },
-      { icon: <Cpu className="w-3.5 h-3.5" />,         t: 'Parallel grids',         d: 'Scale to 1000s of nodes across BrowserStack, Sauce, LambdaTest, or your own.' },
+      { icon: <Bot className="w-3.5 h-3.5" />,         t: 'Self-healing locators', d: 'Rule-based self-healing for web and iOS, with each fix saved to the object repository.' },
+      { icon: <Cpu className="w-3.5 h-3.5" />,         t: 'Parallel runs',         d: 'Run on local or remote agents, cloud machines or Kubernetes. Failed tests re-run automatically.' },
     ],
   },
   {
     id: 'leaders',
     eyebrow: 'Engineering Leaders',
     title: 'Real-time quality, end-to-end.',
-    blurb: 'Executive dashboards, release readiness scoring, and predictive risk, straight from your test data, not from a spreadsheet.',
+    blurb: 'Built-in dashboards and step-by-step execution reports, straight from your test data, not from a spreadsheet.',
     bullets: [
-      { icon: <LayoutDashboard className="w-3.5 h-3.5" />, t: 'Quality KPIs',         d: 'Pass rate, escape rate, flake rate, MTTR, by team, service, release.' },
-      { icon: <LineChart className="w-3.5 h-3.5" />,       t: 'Predictive risk',      d: 'AI flags releases likely to regress before code freeze.' },
-      { icon: <GitBranch className="w-3.5 h-3.5" />,       t: 'Release readiness',    d: 'Quality gates wired into Jenkins, GitLab CI, GitHub Actions, Azure DevOps.' },
+      { icon: <LayoutDashboard className="w-3.5 h-3.5" />, t: 'Built-in dashboards',  d: 'About 80 ready-made charts, plus PDF exports of every report.' },
+      { icon: <LineChart className="w-3.5 h-3.5" />,       t: 'Automatic defects',    d: 'Defects are logged automatically from failed runs.' },
+      { icon: <GitBranch className="w-3.5 h-3.5" />,       t: 'Release readiness',    d: 'Any CI tool starts runs through the REST API. GitHub Actions supported.' },
     ],
   },
   {
     id: 'agile',
     eyebrow: 'Agile / Scrum',
     title: 'Plan sprints around quality, not the other way.',
-    blurb: 'Native two-way sync with Jira, Linear, and Azure DevOps. Tests live next to the user story, and follow it through every status change.',
+    blurb: 'Two-way sync with Jira and Azure DevOps. Tests live next to the user story, and follow it through every status change.',
     bullets: [
       { icon: <FlaskConical className="w-3.5 h-3.5" />, t: 'Story-linked tests', d: 'Every requirement carries its tests through the sprint lifecycle.' },
-      { icon: <Sparkles className="w-3.5 h-3.5" />,     t: 'AI test drafting',   d: 'Paste a user story; get coverage in seconds.' },
-      { icon: <Workflow className="w-3.5 h-3.5" />,     t: 'Sprint dashboards',  d: 'See test progress live in your standup, without leaving Jira.' },
+      { icon: <Sparkles className="w-3.5 h-3.5" />,     t: 'AI test drafting',   d: 'Generate test cases from a user story.' },
+      { icon: <Workflow className="w-3.5 h-3.5" />,     t: 'Sprint dashboards',  d: 'Sprint Board and My Board show where testing stands in the sprint.' },
     ],
   },
 ];
 
 const platform: { eyebrow: string; title: string; desc: string; icon: React.ReactNode; hash: string }[] = [
   { eyebrow: 'Test Management',       title: 'Plan, design and trace.',          desc: 'Requirements, suites, cycles, with native traceability.', icon: <FlaskConical className="w-4 h-4" />, hash: '#test-management' },
-  { eyebrow: 'Test Automation',       title: 'Low-code automation.',             desc: 'Web, mobile, API, mainframe, SAP, Salesforce, Siebel.',  icon: <Zap className="w-4 h-4" />, hash: '#automation' },
-  { eyebrow: 'AI Test Assistant',     title: 'Generate, repair, explain.',        desc: 'Tuned on quality data. Grounded in your workflows.',    icon: <Sparkles className="w-4 h-4" />, hash: '#ai' },
-  { eyebrow: 'Defect Intelligence',   title: 'Smart triage on autopilot.',        desc: 'Clustering, severity scoring, root-cause hints.',       icon: <Bot className="w-4 h-4" />, hash: '#defects' },
+  { eyebrow: 'Test Automation',       title: 'Low-code automation.',             desc: 'Web, Android, iOS, Desktop, Mainframe, SAP, API, Database.',  icon: <Zap className="w-4 h-4" />, hash: '#automation' },
+  { eyebrow: 'AI Test Assistant',     title: 'Generate, repair, explain.',        desc: 'Runs on your chosen AI provider. Grounded in your workflows.',    icon: <Sparkles className="w-4 h-4" />, hash: '#ai' },
+  { eyebrow: 'Defect Management',     title: 'Defects, logged for you.',          desc: 'Logged automatically from failed runs. Two-way Jira sync.',       icon: <Bot className="w-4 h-4" />, hash: '#defects' },
   { eyebrow: 'Release Orchestration', title: 'Gate every release with quality.', desc: 'Pipelines, environments, approvals, quality gates.',     icon: <GitBranch className="w-4 h-4" />, hash: '#release' },
-  { eyebrow: 'Insights & Reports',    title: 'Quality, in real time.',            desc: 'Executive dashboards, predictive risk, KPIs.',          icon: <LineChart className="w-4 h-4" />, hash: '#insights' },
+  { eyebrow: 'Insights & Reports',    title: 'Quality, in real time.',            desc: 'Built-in dashboards, about 80 charts, PDF exports.',          icon: <LineChart className="w-4 h-4" />, hash: '#insights' },
 ];
 
 export default function SolutionsPage() {
@@ -292,7 +292,7 @@ function AutomationMockup() {
         ))}
       </div>
       <div className="rounded-2xl border border-brand-100 bg-gradient-to-br from-brand-50 to-white p-3 text-[12.5px] text-ink-700">
-        <span className="font-semibold text-brand-700">Self-healed:</span> selector for #checkout-cta auto-repaired after frontend rewrite.
+        <span className="font-semibold text-brand-700">Self-healed:</span> selector for #checkout-cta fixed by a self-healing rule and saved to the object repository.
       </div>
     </div>
   );
@@ -305,7 +305,7 @@ function LeadersMockup() {
       <div className="grid grid-cols-3 gap-2">
         {[
           ['Pass rate', '98.4%'],
-          ['Flake rate', '0.6%'],
+          ['Defects logged', '12'],
           ['Escape rate', '1.8%'],
         ].map(([k, v]) => (
           <div key={k} className="rounded-xl bg-white border border-ink-900/[0.06] p-3">

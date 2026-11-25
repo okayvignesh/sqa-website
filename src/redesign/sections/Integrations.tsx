@@ -8,13 +8,13 @@ import { integrations } from '../data/integrations';
 
 // Pick a curated set for the home section, visually balanced across categories
 const featured = [
-  'Jira', 'Slack', 'Microsoft Teams', 'GitHub', 'GitLab', 'Jenkins',
-  'Azure DevOps', 'AWS', 'Postman', 'Selenium', 'Playwright', 'BrowserStack',
+  'Jira', 'Azure DevOps', 'Slack', 'Microsoft Teams',
+  'GitHub Actions', 'Kubernetes', 'BrowserStack', 'Sauce Labs',
 ].map((n) => integrations.find((t) => t.name === n)!).filter(Boolean);
 
 export default function Integrations() {
   return (
-    <section id="integrations" className="relative py-16 sm:py-24 bg-white">
+    <section id="integrations" className="relative py-14 sm:py-20 bg-white">
       <Container size="wide">
         <div className="grid lg:grid-cols-2 gap-12 lg:gap-16 items-center">
           <div>
@@ -28,9 +28,9 @@ export default function Integrations() {
             </Reveal>
             <Reveal delay={0.1}>
               <p className="mt-5 text-[17px] text-ink-500 max-w-xl">
-                Deep, two-way integrations across project management, source control, CI/CD,
-                chat, cloud, identity, and test grids. Drop SimplifyQA into your stack,
-                not the other way around.
+                Two-way sync with Jira and Azure DevOps, notifications in Slack and Microsoft
+                Teams, runs on Kubernetes and Azure, and BrowserStack, LambdaTest and Sauce Labs
+                for mobile apps. Any CI tool starts runs through the REST API.
               </p>
             </Reveal>
 

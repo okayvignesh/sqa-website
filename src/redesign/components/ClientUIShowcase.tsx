@@ -3,16 +3,16 @@
 import { useEffect, useState } from 'react';
 import { AnimatePresence, motion } from 'framer-motion';
 import {
-  ChevronLeft, ChevronRight, Paperclip, Plus, Search, Send,
+  ChevronLeft, ChevronRight, Paperclip, Plus, Send,
   Sparkles, Terminal, User,
 } from 'lucide-react';
-import { SiClaude, SiOpenai, SiWindsurf } from 'react-icons/si';
+import { SiClaude, SiWindsurf } from 'react-icons/si';
 
 /* -------------------------------------------------------------------------- */
 /*  Conversations                                                             */
 /* -------------------------------------------------------------------------- */
 
-type ClientKey = 'claude' | 'cursor' | 'windsurf' | 'chatgpt';
+type ClientKey = 'claude' | 'cursor' | 'windsurf';
 
 type Convo = {
   key: ClientKey;
@@ -27,44 +27,32 @@ const CONVOS: Convo[] = [
     key: 'claude',
     clientName: 'Claude',
     workspace: 'ACME Shop · QA',
-    prompt: 'Test https://shop.acme.com with admin@acme.com / hunter2. Save to project ACME Shop. Run the suite.',
+    prompt: 'Record a checkout test on https://shop.acme.com in project ACME Shop, then run it.',
     response: [
-      'I explored 24 pages and generated 41 test cases across login, browse, cart, checkout, and profile.',
-      'Saved as suite ACME_Checkout_v1 in your SimplifyQA Payments project.',
-      'Executed against staging: 37 passed, 3 failed (defects auto-filed in Jira: ACMESH-1041, 1042, 1043), 1 self-healed (locator drift on the promo banner).',
-      "Here's the RTM as Excel.",
+      'Recorded 14 web steps: login, search, add to cart, checkout.',
+      'The recording is ready for your review. Nothing is saved until you approve it.',
+      'You approved it. Saved as TC-1041 in ACME Shop and ran it: passed.',
     ],
   },
   {
     key: 'cursor',
     clientName: 'Cursor',
     workspace: '~/payments · main',
-    prompt: 'Here is the Payments BRD. Generate features → stories → API tests, then run them against staging.',
+    prompt: 'Create test cases from user stories PAY-210 to PAY-214, then record the refund API test.',
     response: [
-      'Uploaded the BRD, extracted 8 features, generated 25 user stories with acceptance criteria.',
-      'Then 120 API test cases with proper tcType=API. All saved to your Payments project.',
-      'Triggered execution against staging. 112 passed, 8 failed (defects in Jira). RTM exported.',
+      'Created 18 test cases from the 5 user stories, each linked to its story.',
+      'Recorded the refund API calls. Review the recording before I save it.',
+      'Saved after your review and ran it against staging: 16 passed, 2 failed.',
     ],
   },
   {
     key: 'windsurf',
     clientName: 'Windsurf',
     workspace: 'payments-svc · Cascade',
-    prompt: 'Make TC-1041 focus on negative scenarios: invalid tokens, expired tokens, malformed payloads.',
+    prompt: "Why did last night's run of TC-1041 fail?",
     response: [
-      'Fetched TC-1041, regenerated the steps with negative-scenario focus, saved in place.',
-      'Test ID unchanged. Test Management updated. Version history preserved.',
-    ],
-  },
-  {
-    key: 'chatgpt',
-    clientName: 'ChatGPT',
-    workspace: 'Order-flow verification',
-    prompt: 'Test the order placement flow: web checkout, then verify the API received it, then verify the DB row exists.',
-    response: [
-      'Generated a HYBRID test case with three phases: web steps for checkout, API assertion for the order endpoint, SQL query for the orders table.',
-      'Executed across all three plugins. Passed end-to-end.',
-      'Order ORD-78421 confirmed in DB with matching payload.',
+      'Step 6 failed: POST /auth/refresh returned 401 because the token in the test data had expired.',
+      'Steps 1 to 5 passed. Update the token in the test data and run it again.',
     ],
   },
 ];
@@ -194,7 +182,6 @@ export default function ClientUIShowcase() {
               {active.key === 'claude'   && <ClaudeDesktopSlide c={active} />}
               {active.key === 'cursor'   && <CursorSlide c={active} />}
               {active.key === 'windsurf' && <WindsurfSlide c={active} />}
-              {active.key === 'chatgpt'  && <ChatGPTSlide c={active} />}
             </motion.div>
           </AnimatePresence>
         </div>
@@ -219,7 +206,6 @@ const ICONS: Record<ClientKey, React.ComponentType<{ className?: string }>> = {
   claude:   SiClaude,
   cursor:   () => <span className="font-mono font-bold text-[11px]">C</span>,
   windsurf: SiWindsurf,
-  chatgpt:  SiOpenai,
 };
 
 /* -------------------------------------------------------------------------- */
@@ -567,15 +553,11 @@ function WindsurfSlide({ c }: { c: Convo }) {
         <div className="flex-1 min-w-0 hidden sm:flex flex-col p-3 text-[10.5px] leading-relaxed"
              style={{ color: '#A0A6AC' }}>
           <div className="text-[10px] uppercase tracking-[0.12em] mb-2" style={{ color: green }}>
-            tests/checkout/tc-1041.spec.ts
+            reports/run-4821 · TC-1041
           </div>
-{`import { test, expect } from '@simplifyqa/agent';
-
-test('TC-1041 · negative auth', async ({ agent }) => {
-  await agent.given('User has expired token');
-  await agent.when('POST /checkout with invalid token');
-  await agent.then('response.status = 401');
-});`}
+{`Step 5  POST /checkout       200  pass
+Step 6  POST /auth/refresh   401  fail
+Step 7  Assert order created      skipped`}
         </div>
 
         {/* Cascade panel */}
@@ -644,129 +626,6 @@ test('TC-1041 · negative auth', async ({ agent }) => {
           </div>
         </aside>
       </div>
-    </div>
-  );
-}
-
-/* -------------------------------------------------------------------------- */
-/*  Slide: ChatGPT                                                            */
-/* -------------------------------------------------------------------------- */
-
-function ChatGPTSlide({ c }: { c: Convo }) {
-  return (
-    <div
-      className="w-full h-full rounded-xl overflow-hidden flex"
-      style={{
-        background: '#FFFFFF',
-        color: '#0D0D0D',
-        fontFamily: '"Inter", -apple-system, sans-serif',
-      }}
-    >
-      {/* Sidebar */}
-      <aside
-        className="hidden sm:flex flex-col w-[24%] max-w-[220px] p-3 gap-2"
-        style={{ background: '#F7F7F8', borderRight: '1px solid rgba(0,0,0,0.06)' }}
-      >
-        <div className="flex items-center gap-2">
-          <div className="grid place-items-center w-6 h-6 rounded" style={{ background: '#0D0D0D', color: '#FFFFFF' }}>
-            <SiOpenai className="w-3.5 h-3.5" />
-          </div>
-          <div className="text-[12.5px] font-semibold">ChatGPT</div>
-        </div>
-        <button
-          className="mt-1 flex items-center gap-2 rounded-lg px-2.5 py-2 text-[12px] font-medium"
-          style={{ background: 'white', border: '1px solid rgba(0,0,0,0.08)' }}
-        >
-          <Plus className="w-3.5 h-3.5" /> New chat
-        </button>
-        <div className="flex items-center gap-2 rounded-lg px-2.5 py-2 text-[12px]"
-             style={{ background: 'white', border: '1px solid rgba(0,0,0,0.06)', color: '#6B7280' }}>
-          <Search className="w-3.5 h-3.5" /> Search chats
-        </div>
-        <div className="mt-1 text-[10.5px] font-semibold uppercase tracking-[0.14em]" style={{ color: '#6B7280' }}>
-          Today
-        </div>
-        <ul className="space-y-1">
-          {[c.workspace, 'API rate limits', 'SQL performance tips', 'Release notes v4.18'].map((t, i) => (
-            <li
-              key={t}
-              className="truncate rounded-lg px-2.5 py-1.5 text-[12px]"
-              style={{
-                background: i === 0 ? '#ECECEC' : 'transparent',
-                fontWeight: i === 0 ? 600 : 400,
-                color: i === 0 ? '#0D0D0D' : '#4B5563',
-              }}
-            >
-              {t}
-            </li>
-          ))}
-        </ul>
-      </aside>
-
-      {/* Main pane */}
-      <main className="flex-1 flex flex-col min-w-0">
-        <div className="flex items-center justify-between px-4 py-2.5"
-             style={{ borderBottom: '1px solid rgba(0,0,0,0.06)' }}>
-          <div className="flex items-center gap-1.5 text-[13px] font-semibold">
-            ChatGPT
-            <span className="text-[11px] font-normal" style={{ color: '#6B7280' }}>· 5</span>
-          </div>
-          <div className="flex items-center gap-2">
-            <div className="text-[11px] px-1.5 py-0.5 rounded"
-                 style={{ background: '#ECECEC', color: '#0D0D0D' }}>
-              Tools · SQA Agent
-            </div>
-          </div>
-        </div>
-
-        {/* Messages */}
-        <div className="flex-1 min-h-0 overflow-hidden px-5 py-5 flex flex-col gap-4">
-          {/* User (right-aligned pill on ChatGPT) */}
-          <div className="flex justify-end">
-            <div
-              className="max-w-[75%] rounded-3xl px-4 py-2.5 text-[13.5px] leading-relaxed"
-              style={{ background: '#F4F4F4', color: '#0D0D0D' }}
-            >
-              {c.prompt}
-            </div>
-          </div>
-
-          {/* GPT (left, no pill, avatar) */}
-          <div className="flex items-start gap-3">
-            <div
-              className="grid place-items-center w-7 h-7 rounded-full shrink-0"
-              style={{ background: '#0D0D0D', color: 'white' }}
-            >
-              <SiOpenai className="w-3.5 h-3.5" />
-            </div>
-            <div className="max-w-[85%] space-y-2 text-[13.5px] leading-relaxed">
-              {c.response.map((line, i) => (
-                <p key={i}>{line}</p>
-              ))}
-              <div
-                className="mt-1 inline-flex items-center gap-1.5 text-[11px] font-medium px-2 py-1 rounded"
-                style={{ background: '#F0FDF4', color: '#166534', border: '1px solid #BBF7D0' }}
-              >
-                <Sparkles className="w-3 h-3" /> Called SQA Agent · 3 tools
-              </div>
-            </div>
-          </div>
-        </div>
-
-        {/* Composer */}
-        <div className="px-5 pb-4">
-          <div
-            className="flex items-center gap-2 rounded-full px-4 py-3"
-            style={{ background: '#F4F4F4', border: '1px solid rgba(0,0,0,0.06)' }}
-          >
-            <Plus className="w-4 h-4 shrink-0" style={{ color: '#6B7280' }} />
-            <div className="flex-1 text-[12.5px]" style={{ color: '#9CA3AF' }}>Message ChatGPT</div>
-            <div className="grid place-items-center w-7 h-7 rounded-full" style={{ background: '#0D0D0D', color: 'white' }}>
-              <Send className="w-3.5 h-3.5" />
-            </div>
-          </div>
-        </div>
-      </main>
     </div>
   );
 }

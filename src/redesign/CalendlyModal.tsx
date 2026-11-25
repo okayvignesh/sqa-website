@@ -239,6 +239,7 @@ export default function CalendlyModal() {
       {open && (
         <motion.div
           className="fixed inset-0 z-[100] flex items-center justify-center p-4 sm:p-8"
+          data-lenis-prevent // smooth scroll ignores the modal; the page stays put behind it
           initial={{ opacity: 0 }}
           animate={{ opacity: 1 }}
           exit={{ opacity: 0 }}

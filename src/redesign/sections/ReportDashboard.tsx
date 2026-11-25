@@ -312,7 +312,7 @@ function DashboardPlate() {
               Apollo Payments <ChevronRight className="w-3 h-3" />
             </span>
             <span className="hidden md:inline-flex items-center gap-1.5 text-[11px] text-ink-500">
-              <Globe className="w-3 h-3" /> us-east · serial
+              <Globe className="w-3 h-3" /> remote agent · serial
             </span>
           </div>
           <div className="flex items-center gap-2">
@@ -439,7 +439,7 @@ function DashboardPlate() {
                 <Row k="Start" v="11:03:56" />
                 <Row k="End"   v="11:05:07" />
                 <Row k="Took"  v="00:23:04" highlight />
-                <Row k="By"    v="Maya R. · grid · 8 shards" />
+                <Row k="By"    v="Maya R. · remote agent" />
               </dl>
 
               <SegmentedDonut
@@ -459,8 +459,8 @@ function DashboardPlate() {
         <div className="mx-4 sm:mx-6 mb-4 rounded-xl border border-amber-200/70 bg-amber-50/70 px-3.5 py-2 flex items-center justify-between gap-3">
           <div className="flex items-center gap-2 text-[12px] text-amber-800">
             <Activity className="w-3.5 h-3.5" />
-            <span className="font-medium">18 re-executions · self-healed</span>
-            <span className="hidden sm:inline text-amber-700/80">locators repaired in 4 functions, no human intervention</span>
+            <span className="font-medium">18 re-executions · 4 locators self-healed</span>
+            <span className="hidden sm:inline text-amber-700/80">rule-based fixes saved to the object repository</span>
           </div>
           <span className="text-[11px] font-semibold text-amber-800 inline-flex items-center gap-1">
             View timeline <ChevronRight className="w-3 h-3" />
@@ -522,8 +522,8 @@ function DashboardPlate() {
           <LineChart className="w-4 h-4" />
         </span>
         <div className="text-left">
-          <div className="text-[10.5px] font-medium uppercase tracking-wider text-ink-500">Release readiness</div>
-          <div className="font-display text-[20px] text-ink-900 leading-none">96<span className="text-ink-400">/100</span></div>
+          <div className="text-[10.5px] font-medium uppercase tracking-wider text-ink-500">Pass rate</div>
+          <div className="font-display text-[20px] text-ink-900 leading-none">96<span className="text-ink-400">%</span></div>
         </div>
       </motion.div>
 
@@ -539,8 +539,8 @@ function DashboardPlate() {
           <Clock className="w-4 h-4" />
         </span>
         <div className="text-left">
-          <div className="text-[10.5px] font-medium uppercase tracking-wider text-white/60">Saved vs. manual</div>
-          <div className="font-display text-[20px] leading-none">1h 42m</div>
+          <div className="text-[10.5px] font-medium uppercase tracking-wider text-white/60">Suite run time</div>
+          <div className="font-display text-[20px] leading-none">23m 04s</div>
         </div>
       </motion.div>
     </div>
@@ -560,7 +560,7 @@ function Row({ k, v, highlight }: { k: string; v: string; highlight?: boolean })
 
 export default function ReportDashboard() {
   return (
-    <section className="relative py-16 sm:py-24 bg-white overflow-hidden">
+    <section className="relative py-14 sm:py-20 bg-white overflow-hidden">
       <div aria-hidden className="absolute inset-0 -z-10">
         <div className="absolute inset-0 bg-dots opacity-50" />
         <GradientOrb className="-top-32 -left-20" color="brand" size={580} opacity={0.28} blur={120} />
@@ -580,7 +580,7 @@ export default function ReportDashboard() {
           <Reveal delay={0.1}>
             <p className="mt-5 text-[17px] text-ink-500 max-w-2xl leading-relaxed">
               Drill from suite to individual test step in two clicks: pass/fail status,
-              self-healing events, and root-cause hints for every run.
+              screenshots, self-healing events, and PDF exports for every run.
             </p>
           </Reveal>
         </div>
@@ -593,8 +593,8 @@ export default function ReportDashboard() {
 
         <div className="mt-10 grid sm:grid-cols-3 gap-3">
           {[
-            { k: 'Time to triage', v: '↓ 68%',  d: 'Median, vs. legacy reporting stacks.' },
-            { k: 'Self-healed',    v: '4 / 18', d: 'Locators auto-repaired this run.' },
+            { k: 'Dashboards',     v: '~80',    d: 'Ready-made charts, built in.' },
+            { k: 'Self-healed',    v: '4 / 18', d: 'Locators fixed by rule-based self-healing this run.' },
             { k: 'Audit trail',    v: 'Always-on', d: 'Every assertion, retry, and screenshot, kept.' },
           ].map((p) => (
             <div key={p.k} className="rounded-2xl bg-white border border-ink-900/[0.06] p-4">

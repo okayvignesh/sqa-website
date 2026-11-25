@@ -23,18 +23,18 @@ import { Post } from './models/Post';
 
 const STATIC_FALLBACK: PublicPost[] = [
   {
-    slug: 'building-quality-tuned-llms',
-    title: 'Building quality-tuned LLMs for the SimplifyQA AI Studio',
+    slug: 'how-ai-works-in-simplifyqa',
+    title: 'How AI works in SimplifyQA: your provider, your keys',
     excerpt:
-      'How we trained, evaluated, and grounded a model specifically for QA workflows, and why generic LLMs fall short.',
+      'Write with AI, test cases from user stories, AI DataGen and failure analysis, all running on the AI provider you choose.',
     content:
-      "<p>When we set out to build an AI assistant for quality engineering, we already knew the headline answer wouldn't be 'bigger model.' It was going to be 'right model for the job, grounded in the customer's data, evaluated on the tasks that actually matter.'</p>",
+      "<p>AI in SimplifyQA sits inside the work your team already does. Write with AI on user stories, test cases and defects. Turn a user story into test cases, or shape stories in Story Studio. Generate test data with AI DataGen. When a run fails, ask the AI assistant why.</p><p>None of this needs a model of ours: SimplifyQA works with your own AI model keys and the provider you choose.</p>",
     category: 'Engineering',
     author: { name: 'Anika Reddy', role: 'Principal AI Engineer' },
     publishedAt: '2026-03-28T00:00:00.000Z',
-    readTime: '9 min read',
+    readTime: '2 min read',
     featuredImage: '',
-    tags: ['AI', 'LLM', 'Engineering'],
+    tags: ['AI', 'Engineering'],
   },
 ];
 

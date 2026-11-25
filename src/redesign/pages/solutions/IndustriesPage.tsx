@@ -27,13 +27,13 @@ const industries = [
     icon: <Plane className="w-5 h-5" />,
     name: 'Aviation & Travel',
     desc: 'High-throughput automation across booking, loyalty, and ops systems, proven at airline scale.',
-    chips: ['SAP', 'Mainframe', 'Salesforce', 'Real device clouds'],
+    chips: ['SAP', 'Mainframe', 'Mobile device clouds'],
   },
   {
     icon: <ShoppingBag className="w-5 h-5" />,
     name: 'Retail & E-commerce',
-    desc: 'Peak-day readiness testing, omnichannel coverage, and POS / payment integrations.',
-    chips: ['Peak load', 'Omnichannel', 'POS', 'Payments'],
+    desc: 'Release readiness testing, omnichannel coverage across web and mobile, and POS / payment integrations.',
+    chips: ['Omnichannel', 'POS', 'Payments'],
   },
   {
     icon: <Building2 className="w-5 h-5" />,
@@ -45,7 +45,7 @@ const industries = [
     icon: <Globe2 className="w-5 h-5" />,
     name: 'Telecom',
     desc: 'BSS / OSS integration testing, customer journey automation, and network-aware QA.',
-    chips: ['Siebel', 'OSS/BSS', 'Throughput at scale'],
+    chips: ['OSS/BSS', 'Web', 'API'],
   },
   {
     icon: <Stethoscope className="w-5 h-5" />,
@@ -62,8 +62,8 @@ const industries = [
   {
     icon: <GraduationCap className="w-5 h-5" />,
     name: 'EdTech',
-    desc: 'High-velocity release cadence support and accessibility compliance testing.',
-    chips: ['WCAG', 'Velocity', 'Mobile-first'],
+    desc: 'High-velocity release cadence support across web and mobile.',
+    chips: ['Velocity', 'Mobile-first'],
   },
 ];
 

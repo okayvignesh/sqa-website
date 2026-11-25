@@ -1,17 +1,6 @@
-import LegalPage from '../../src/redesign/pages/LegalPage';
-import { BreadcrumbJsonLd, buildMetadata } from '../../src/lib/seo';
+import { redirect } from 'next/navigation';
 
-export const metadata = buildMetadata({
-  title: 'System Status',
-  description: 'Real-time uptime and incident history for SimplifyQA services.',
-  path: '/status',
-});
-
+// ponytail: the old page was a static "all systems operational" mock, not a real status feed.
 export default function Page() {
-  return (
-    <>
-      <BreadcrumbJsonLd trail={[{ name: 'Home', path: '/' }, { name: 'Status', path: '/status' }]} />
-      <LegalPage kind="status" />
-    </>
-  );
+  redirect('/');
 }

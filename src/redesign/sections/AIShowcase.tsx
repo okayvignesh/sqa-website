@@ -2,7 +2,7 @@
 
 import { motion } from 'framer-motion';
 import {
-  ArrowRight, BrainCircuit, Database, History, Link2, MessageSquare, Mic,
+  ArrowRight, Database, History, Link2, MessageSquare, Mic,
   Paperclip, Plus, Sparkles, Wand2, X, Zap,
 } from 'lucide-react';
 import Link from 'next/link';
@@ -14,23 +14,23 @@ const features = [
   {
     icon: <Wand2 className="w-4 h-4" />,
     title: 'From story to suite',
-    body: 'Paste a user story; get acceptance criteria, edge cases, and an executable test suite in one pass.',
+    body: 'Paste a user story; get test cases, edge cases included, ready for you to review.',
   },
   {
-    icon: <BrainCircuit className="w-4 h-4" />,
-    title: 'Self-healing automation',
-    body: 'AI repairs broken selectors and adapts to UI drift, keeping suites green across releases.',
+    icon: <Zap className="w-4 h-4" />,
+    title: 'Self-healing locators',
+    body: 'Rule-based self-healing for web and iOS fixes broken locators and saves the fix to the object repository.',
   },
   {
     icon: <MessageSquare className="w-4 h-4" />,
     title: 'Ask anything, in plain English',
-    body: '“Why did checkout fail in EU?”, get a real answer, with traces and the suspected cause.',
+    body: 'Ask the AI assistant why a run failed and get an answer from your run data.',
   },
 ];
 
 export default function AIShowcase() {
   return (
-    <section className="relative py-16 sm:py-24 bg-white overflow-hidden">
+    <section className="relative py-14 sm:py-20 bg-white overflow-hidden">
       <div aria-hidden className="absolute inset-0 -z-10">
         <div className="absolute inset-0 bg-dots opacity-60" />
         <GradientOrb className="-top-32 right-0"   color="brand" size={620} opacity={0.32} blur={120} />
@@ -49,12 +49,12 @@ export default function AIShowcase() {
           </Reveal>
           <Reveal delay={0.08}>
             <p className="mt-4 text-[18px] font-medium text-ink-700 max-w-xl">
-              The AI co-pilot for quality engineering.
+              Write with AI on stories, test cases and defects.
             </p>
           </Reveal>
           <Reveal delay={0.1}>
             <p className="mt-4 text-[17px] leading-relaxed text-ink-500 max-w-xl">
-              Tuned on quality data. Grounded in your real workflows. Built to ship, not to demo.
+              Story Studio and AI DataGen run on the AI provider you choose, with your own model keys.
             </p>
           </Reveal>
 

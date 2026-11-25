@@ -9,7 +9,7 @@ const STATIC_ROUTES: Array<{
 }> = [
   { path: '/', changeFrequency: 'weekly', priority: 1.0 },
   { path: '/scroll', changeFrequency: 'weekly', priority: 0.9 },
-  { path: '/agent',  changeFrequency: 'weekly', priority: 0.9 },
+  { path: '/mcp',  changeFrequency: 'weekly', priority: 0.9 },
   { path: '/about', changeFrequency: 'monthly', priority: 0.7 },
   { path: '/careers', changeFrequency: 'weekly', priority: 0.6 },
   { path: '/contact', changeFrequency: 'monthly', priority: 0.6 },
@@ -18,6 +18,7 @@ const STATIC_ROUTES: Array<{
   { path: '/pricing', changeFrequency: 'monthly', priority: 0.9 },
   { path: '/resources', changeFrequency: 'weekly', priority: 0.7 },
   { path: '/blog', changeFrequency: 'daily', priority: 0.9 },
+  { path: '/whats-new', changeFrequency: 'monthly', priority: 0.7 },
   { path: '/platform/test-management', changeFrequency: 'monthly', priority: 0.8 },
   { path: '/platform/test-automation', changeFrequency: 'monthly', priority: 0.8 },
   { path: '/platform/ai-test-assistant', changeFrequency: 'monthly', priority: 0.8 },
@@ -33,7 +34,6 @@ const STATIC_ROUTES: Array<{
   { path: '/privacy', changeFrequency: 'yearly', priority: 0.3 },
   { path: '/terms', changeFrequency: 'yearly', priority: 0.3 },
   { path: '/security', changeFrequency: 'yearly', priority: 0.4 },
-  { path: '/status', changeFrequency: 'weekly', priority: 0.3 },
 ];
 
 // Stable timestamp for content pages. Evaluated once per build rather than per

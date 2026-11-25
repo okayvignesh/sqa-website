@@ -7,6 +7,7 @@ import {
 import { Container, Eyebrow } from '../../design';
 import InteractiveDotGrid from '../components/InteractiveDotGrid';
 import { BookDemoButton } from '../CalendlyModal';
+import VideoSlot from '../components/VideoSlot';
 
 const lifecycleChips = [
   { icon: <FlaskConical className="w-3.5 h-3.5" />, label: 'Plan' },
@@ -45,8 +46,8 @@ export default function Hero() {
             transition={{ duration: 0.8, ease: [0.16, 1, 0.3, 1], delay: 0.05 }}
             className="mt-6 font-display text-display-lg leading-[1.12] pb-[0.06em] text-ink-900 text-balance"
           >
-            From requirement to release.
-            <br className="hidden sm:block" /> One AI platform for enterprise quality.
+            From idea to production.
+            <br className="hidden sm:block" /> AI drives every step.
           </motion.h1>
 
           <motion.p
@@ -101,7 +102,7 @@ export default function Hero() {
           transition={{ duration: 1, ease: [0.16, 1, 0.3, 1], delay: 0.3 }}
           className="relative mt-16 sm:mt-20 mx-auto max-w-6xl"
         >
-          <DashboardMockup reduce={!!reduce} />
+          <VideoSlot id="hero" fallback={<DashboardMockup reduce={!!reduce} />} />
         </motion.div>
       </Container>
     </section>
@@ -173,7 +174,7 @@ function DashboardMockup({ reduce }: { reduce: boolean }) {
                 {[
                   ['Payments / Authorize 3DS', 'passed', '124 / 124'],
                   ['Checkout / Apple Pay flow', 'passed', '88 / 88'],
-                  ['Refunds / Async webhook',   'flake',  '42 / 43'],
+                  ['Refunds / Async webhook',   'failed', '42 / 43'],
                   ['Wallets / KYC limits',      'passed', '76 / 76'],
                 ].map(([name, status, scope]) => (
                   <li key={name} className="flex items-center justify-between gap-3 text-[12.5px]">
@@ -195,10 +196,10 @@ function DashboardMockup({ reduce }: { reduce: boolean }) {
                 <Sparkles className="w-3.5 h-3.5" /> AI Assistant
               </div>
               <p className="mt-2 text-[12.5px] text-ink-700 leading-relaxed">
-                Detected a regression in <span className="font-semibold">Refunds / Async webhook</span>. Likely cause: timeout on retry. Suggested fix ready.
+                <span className="font-semibold">Refunds / Async webhook</span> failed on 1 step. The webhook call timed out on retry; defect logged from the run.
               </p>
               <button className="mt-3 inline-flex items-center gap-1 text-[12px] font-semibold text-brand-700">
-                Review fix <ArrowRight className="w-3 h-3" />
+                View report <ArrowRight className="w-3 h-3" />
               </button>
             </div>
 

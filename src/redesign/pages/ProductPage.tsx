@@ -9,6 +9,8 @@ import {
 } from '../../design';
 import CTA from '../sections/CTA';
 import { BookDemoButton } from '../CalendlyModal';
+import VideoSlot from '../components/VideoSlot';
+import type { VideoId } from '../data/videos';
 
 export type Feature = { icon: ReactNode; title: string; body: string };
 export type FaqItem = { q: string; a: string };
@@ -26,6 +28,7 @@ export type ProductPageConfig = {
   capabilityHeading?: string;
   visual?: ReactNode;        // optional hero-side visual (defaults to a placeholder)
   related?: { label: string; to: string }[]; // optional cross-links
+  video?: VideoId;           // capability clip; shows in place of the hero visual
 };
 
 export default function ProductPage({ config }: { config: ProductPageConfig }) {
@@ -33,7 +36,7 @@ export default function ProductPage({ config }: { config: ProductPageConfig }) {
     eyebrow, eyebrowIcon, title, subtitle,
     primaryCta = { label: 'Book a demo', to: '#book-demo' },
     secondaryCta = { label: 'Talk to sales', to: '/contact' },
-    bullets, features, capabilityHeading, capabilityList, visual, related,
+    bullets, features, capabilityHeading, capabilityList, visual, related, video,
   } = config;
 
   return (
@@ -98,7 +101,9 @@ export default function ProductPage({ config }: { config: ProductPageConfig }) {
             </div>
 
             <Reveal delay={0.15}>
-              {visual || <DefaultVisual eyebrow={eyebrow} />}
+              {video
+                ? <VideoSlot id={video} fallback={visual || <DefaultVisual eyebrow={eyebrow} />} />
+                : visual || <DefaultVisual eyebrow={eyebrow} />}
             </Reveal>
           </div>
         </Container>
