@@ -6,10 +6,10 @@ import { Container, Eyebrow, Reveal } from '../../design';
 import { TrendingUp } from 'lucide-react';
 
 const stats = [
-  { value: 84, suffix: '%', label: 'Faster release cycles',     hint: 'avg across enterprise customers' },
-  { value: 6,  suffix: 'x',  label: 'Automation ROI',           hint: 'measured at 12 months in' },
-  { value: 70, suffix: '%',  label: 'Less time on test design', hint: 'with AI authoring' },
-  { value: 99.99, suffix: '%', label: 'Platform uptime',        hint: 'multi-region SLA', decimals: 2 },
+  { value: 40,  suffix: '',   label: 'Production customers',   hint: 'running SimplifyQA in production' },
+  { value: 308, suffix: 'K+', label: 'Test runs',              hint: 'executed on the platform' },
+  { value: 8,   suffix: '',   label: 'Technologies automated', hint: 'web, mobile, desktop, SAP, mainframe, API, DB' },
+  { value: 10,  suffix: '',   label: 'Releases in 2026',       hint: 'SimplifyQA 6.1 to 6.10' },
 ];
 
 export default function Stats() {
@@ -18,7 +18,7 @@ export default function Stats() {
       <Container size="wide">
         <div className="max-w-3xl">
           <Reveal>
-            <Eyebrow icon={<TrendingUp className="w-3.5 h-3.5" />}>Outcomes that scale</Eyebrow>
+            <Eyebrow icon={<TrendingUp className="w-3.5 h-3.5" />}>By the numbers</Eyebrow>
           </Reveal>
           <Reveal delay={0.05}>
             <h2 className="mt-5 font-display text-display-md text-ink-900 text-balance">
@@ -38,7 +38,7 @@ export default function Stats() {
               className="rounded-3xl bg-white border border-ink-900/[0.06] p-6 lift"
             >
               <div className="font-display text-4xl sm:text-5xl text-ink-900 tracking-tight">
-                <Counter value={s.value} suffix={s.suffix} decimals={s.decimals ?? 0} />
+                <Counter value={s.value} suffix={s.suffix} decimals={0} />
               </div>
               <div className="mt-2 text-[13.5px] font-semibold text-ink-800">{s.label}</div>
               <div className="text-[12px] text-ink-400 mt-0.5">{s.hint}</div>
