@@ -3,21 +3,21 @@
 import { useEffect, useState } from 'react';
 import Link from 'next/link';
 import { AnimatePresence, motion } from 'framer-motion';
-import { ArrowRight, ChevronDown, Menu, X } from 'lucide-react';
+import { ArrowRight, BarChart3, Bot, Bug, ChevronDown, ClipboardCheck, KanbanSquare, Menu, Rocket, Workflow, X } from 'lucide-react';
 import { cn } from '../design';
 import { useBookDemo } from './CalendlyModal';
 
 type Theme = 'light' | 'dark' | 'scroll';
 
 const platformLinks = [
-  ['Project Management', '/platform/project-management'],
-  ['Test Management', '/platform/test-management'],
-  ['Test Automation', '/platform/test-automation'],
-  ['AI Test Assistant', '/platform/ai-test-assistant'],
-  ['Defect Management', '/platform/defect-management'],
-  ['Release Orchestration', '/platform/release-orchestration'],
-  ['Insights & Reports', '/platform/insights-reports'],
-];
+  ['Project Management',    '/platform/project-management',    KanbanSquare,   'Backlog, sprints and releases'],
+  ['Test Management',       '/platform/test-management',       ClipboardCheck, 'Test cases, suites and manual runs'],
+  ['Test Automation',       '/platform/test-automation',       Workflow,       'No-code automation for 8 technologies'],
+  ['AI Test Assistant',     '/platform/ai-test-assistant',     Bot,            'Tests, data and answers with AI'],
+  ['Defect Management',     '/platform/defect-management',     Bug,            'Defects logged from failed runs'],
+  ['Release Orchestration', '/platform/release-orchestration', Rocket,         'Execution plans, schedules, CI'],
+  ['Insights & Reports',    '/platform/insights-reports',      BarChart3,      'Dashboards and reports'],
+] as const;
 
 const navLinks = [
   ['SimplifyQA MCP', '/mcp'],
@@ -128,13 +128,17 @@ export default function NavbarV2({ theme = 'light' }: { theme?: Theme }) {
                 type="button"
                 className={cn('inline-flex items-center gap-1 h-9 px-3 text-sm font-medium rounded-full transition-colors', p.link)}
               >
-                Platform <ChevronDown className="w-3.5 h-3.5 transition-transform group-hover:rotate-180 group-focus-within:rotate-180" />
+                Platform <ChevronDown className="w-3.5 h-3.5 transition-transform duration-300 ease-out group-hover:rotate-180 group-focus-within:rotate-180" />
               </button>
-              <div className="invisible opacity-0 group-hover:visible group-hover:opacity-100 group-focus-within:visible group-focus-within:opacity-100 transition-opacity absolute left-0 top-full pt-2 z-10">
-                <div className="w-60 rounded-2xl p-2 bg-white border border-ink-900/[0.08] shadow-[0_20px_50px_-20px_rgba(15,19,34,0.35)]">
-                  {platformLinks.map(([label, to]) => (
-                    <Link key={to} href={to} className="block px-3 py-2 rounded-xl text-[14px] font-medium text-ink-700 hover:text-ink-900 hover:bg-ink-50">
-                      {label}
+              <div className="invisible opacity-0 translate-y-1.5 scale-[0.98] origin-top-left group-hover:visible group-hover:opacity-100 group-hover:translate-y-0 group-hover:scale-100 group-focus-within:visible group-focus-within:opacity-100 group-focus-within:translate-y-0 group-focus-within:scale-100 transition-[opacity,transform,visibility] duration-200 ease-out absolute left-0 top-full pt-2 z-10">
+                <div className="w-[22rem] rounded-2xl p-2 bg-white border border-ink-900/[0.08] shadow-[0_20px_50px_-20px_rgba(15,19,34,0.35)]">
+                  {platformLinks.map(([label, to, Icon, blurb]) => (
+                    <Link key={to} href={to} className="group/item flex items-center gap-3 px-3 py-2 rounded-xl transition-colors duration-150 hover:bg-ink-50">
+                      <Icon strokeWidth={1.75} className="w-[18px] h-[18px] shrink-0 text-ink-400 transition-colors duration-150 group-hover/item:text-ink-900" />
+                      <span className="min-w-0">
+                        <span className="block text-[14px] font-medium text-ink-900">{label}</span>
+                        <span className="block text-[12.5px] text-ink-500 truncate">{blurb}</span>
+                      </span>
                     </Link>
                   ))}
                 </div>
@@ -199,13 +203,14 @@ export default function NavbarV2({ theme = 'light' }: { theme?: Theme }) {
           >
             <div data-lenis-prevent className={cn('rounded-3xl p-3 max-h-[calc(100dvh-7rem)] overflow-y-auto', p.mobilePanel)}>
               <div className="px-4 pt-2 pb-1 text-[11px] font-semibold uppercase tracking-wider opacity-60">Platform</div>
-              {platformLinks.map(([label, to]) => (
+              {platformLinks.map(([label, to, Icon]) => (
                 <Link
                   key={to}
                   href={to}
                   onClick={() => setMobile(false)}
-                  className={cn('block px-4 py-2 rounded-2xl text-[14px] font-medium', p.mobileLink)}
+                  className={cn('flex items-center gap-3 px-4 py-2 rounded-2xl text-[14px] font-medium', p.mobileLink)}
                 >
+                  <Icon className="w-4 h-4 opacity-60" />
                   {label}
                 </Link>
               ))}
